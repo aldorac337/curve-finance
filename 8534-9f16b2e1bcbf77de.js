@@ -5430,11 +5430,12 @@
             throw Error(`Can't get volume for network: ${e}`);
           }),
         iv = (e, t) => {
-          uu.contracts[e] = {
+          let n = {
             abi: t,
             contract: new a.NZ(e, t, uu.signer || uu.provider),
             multicallContract: new l(e, t),
           };
+          return (uu.contracts[e] = n), n;
         },
         iw = (e, t, n, a) => {
           let i = aZ(Math.pow(10, n > 5 ? n - 3 : n)),
@@ -8502,8 +8503,7 @@
                 let o = uu.contracts[s.gauge.address].contract,
                   y = uu.contracts[s.gauge.address].multicallContract;
                 for (let i of (e[n] && p.push(y.claimable_tokens(t)), u[a])) {
-                  iv(i, af);
-                  let e = uu.contracts[i].multicallContract;
+                  let { multicallContract: e } = i === s.address ? uu.contracts[i] : iv(i, af);
                   p.push(e.symbol(), e.decimals()),
                     'claimable_reward(address,address)' in o
                       ? p.push(y.claimable_reward(t, i))
@@ -8579,7 +8579,7 @@
                 let o = uu.contracts[p.gauge.address].contract,
                   y = uu.contracts[p.gauge.address].multicallContract;
                 for (let s of (e[a] && i.push(y.claimable_tokens(t)), n[u]))
-                  iv(s.token, af),
+                  s.token !== p.address && iv(s.token, af),
                     'claimable_reward(address,address)' in o
                       ? i.push(y.claimable_reward(t, s.token))
                       : 'claimable_reward(address)' in o &&
@@ -8969,7 +8969,9 @@
                   if (e) {
                     let e = yield io();
                     return e[this.gauge.address]
-                      ? (e[this.gauge.address].forEach((e) => iv(e.tokenAddress, af)),
+                      ? (e[this.gauge.address].forEach(
+                          (e) => !uu.contracts[e.tokenAddress] && iv(e.tokenAddress, af)
+                        ),
                         e[this.gauge.address].map((e) => ({
                           token: e.tokenAddress,
                           symbol: e.symbol,
@@ -8991,8 +8993,7 @@
                         .filter((e) => 1 === uu.chainId || e !== uu.constants.COINS.crv),
                       s = [];
                     for (let e of i) {
-                      iv(e, af);
-                      let t = uu.contracts[e].multicallContract;
+                      let { multicallContract: t } = uu.contracts[e] || iv(e, af);
                       s.push(t.symbol(), t.decimals());
                     }
                     let u = yield uu.multicallProvider.all(s);

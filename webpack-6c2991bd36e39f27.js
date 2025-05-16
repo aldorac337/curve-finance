@@ -80,7 +80,7 @@
             : 7653 === e
               ? 'static/chunks/7653-5d28f42116a76bb6.js'
               : 8534 === e
-                ? 'static/chunks/8534-5747dc0aaf7cc24e.js'
+                ? 'static/chunks/8534-9f16b2e1bcbf77de.js'
                 : 'static/chunks/' +
                   ({
                     568: 'c634bddc',
@@ -367,6 +367,6 @@
   s.src = 'https://vercel.live/_next-live/feedback/feedback.js';
   s.setAttribute('data-explicit-opt-in', 'true');
   s.setAttribute('data-cookie-opt-in', 'true');
-  s.setAttribute('data-deployment-id', 'dpl_5zJEL7wunGdcKQt5CX8gAB886abT');
+  s.setAttribute('data-deployment-id', 'dpl_AgYFDexe16GQhmg9CQ7i2fTCmY5J');
   (document.head || document.documentElement).appendChild(s);
 })();
