@@ -9618,10 +9618,11 @@
       l.d(t, {
         CP: () => n,
         PD: () => i,
-        PE: () => F,
+        PE: () => d,
         R3: () => m,
-        VS: () => c,
-        WS: () => d,
+        VS: () => F,
+        WS: () => h,
+        WU: () => c,
         rN: () => r,
       });
       var a = l(36074);
@@ -9649,7 +9650,8 @@
           DISCUSSION: 'https://gov.curve.fi/',
           PAGE_DISCLAIMER: '/disclaimer',
         },
-        c = {
+        c = ['dex', 'lend', 'crvusd', 'dao'],
+        F = {
           dex: {
             label: 'DEX',
             routes: [
@@ -9697,9 +9699,9 @@
             ],
           },
         },
-        F = (e, t, l = '/') => `/${e}/${t}${l}`,
-        d = ({ route: e, target: t, label: l, app: a }, { networkId: r, pathname: m }) => {
-          let i = e.startsWith('http') ? e : F(a, r, e);
+        d = (e, t, l = '/') => `/${e}/${t}${l}`,
+        h = ({ route: e, target: t, label: l, app: a }, { networkId: r, pathname: m }) => {
+          let i = e.startsWith('http') ? e : d(a, r, e);
           return { href: i, target: t, label: l(), isActive: m?.startsWith(i.split('?')[0]) };
         };
     },
@@ -10873,18 +10875,18 @@
             ...t,
             children: (0, h.Wr)(e),
           }),
-        f = ({ sx: e }) => {
-          let { signerAddress: t, connect: l, disconnect: a, wallet: m } = (0, r.vT)(),
-            { connectState: c } = (0, i.w5)(),
-            F = (0, i.VP)(c, i.Ej.CONNECT_WALLET);
-          return m && t
+        f = ({ sx: e, onConnect: t }) => {
+          let { signerAddress: l, connect: a, disconnect: m, wallet: c } = (0, r.vT)(),
+            { connectState: F } = (0, i.w5)(),
+            h = (0, i.VP)(F, i.Ej.CONNECT_WALLET);
+          return c && l
             ? (0, n.jsx)(p, {
-                walletAddress: t,
-                onClick: () => a({ label: m.label }),
-                loading: F,
+                walletAddress: l,
+                onClick: () => m({ label: c.label }),
+                loading: h,
                 sx: e,
               })
-            : (0, n.jsx)(d, { onClick: () => l(), loading: F, sx: e });
+            : (0, n.jsx)(d, { onClick: () => (t?.(), a()), loading: h, sx: e });
         };
       var E = l(61773),
         o = l(31184),

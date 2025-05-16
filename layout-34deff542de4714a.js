@@ -171,8 +171,8 @@
           });
       var N = r(26491),
         R = r(92041),
-        I = r(55298),
-        z = r(8268),
+        z = r(55298),
+        I = r(8268),
         U = r(56465),
         E = r(99730),
         T = r(69879);
@@ -443,7 +443,7 @@
               {
                 label: (0, x.t)`User Docs`,
                 href: 'https://resources.curve.fi/',
-                icon: (0, i.jsx)(z.A, {}),
+                icon: (0, i.jsx)(I.A, {}),
               },
               { label: (0, x.t)`Integrations`, href: 'integrations/', icon: (0, i.jsx)(J, {}) },
               {
@@ -454,7 +454,7 @@
               {
                 label: (0, x.t)`Github`,
                 href: 'https://github.com/curvefi',
-                icon: (0, i.jsx)(I.A, {}),
+                icon: (0, i.jsx)(z.A, {}),
               },
               {
                 label: (0, x.t)`Risk Disclaimers`,
@@ -942,27 +942,26 @@
       let M = () => (0, D.t)`Quickswap`,
         H = ({ sections: e, globalAlertRef: t, networkId: r }) => {
           let s = (0, a.useRef)(null),
-            { connectState: l, lib: o = {} } = (0, h.w5)(),
-            A = (0, y.iW)(r),
-            { push: C } = (0, n.useRouter)();
+            { lib: l = {} } = (0, h.w5)(),
+            n = (0, y.iW)(r);
           u(s, 'mainNav');
-          let p = (0, d.A)((e) => e.getNetworkConfigFromApi(A).hasRouter),
-            f = (0, d.A)((e) => e.networks.networks),
-            g = (0, d.A)((e) => e.networks.visibleNetworksList),
-            v = (0, d.A)((e) => e.layoutHeight.globalAlert),
-            m = (0, d.A)((e) => e.storeCache.routerFormValues[A]),
-            { data: w } = x(o),
-            { data: H } = b(o),
-            Q = f[A],
-            S = (0, y.ro)();
+          let o = (0, d.A)((e) => e.getNetworkConfigFromApi(n).hasRouter),
+            A = (0, d.A)((e) => e.networks.networks),
+            C = (0, d.A)((e) => e.networks.visibleNetworksList),
+            p = (0, d.A)((e) => e.layoutHeight.globalAlert),
+            f = (0, d.A)((e) => e.storeCache.routerFormValues[n]),
+            { data: g } = x(l),
+            { data: v } = b(l),
+            m = A[n];
           return (0, i.jsx)(B.Y, {
             networkId: r,
+            chainId: n,
             mainNavRef: s,
             currentMenu: 'dex',
-            isLite: Q?.isLite,
+            isLite: m?.isLite,
             routes: (0, a.useMemo)(
               () => [
-                ...(p && (!Q || Q.showRouterSwap)
+                ...(o && (!m || m.showRouterSwap)
                   ? [
                       {
                         app: 'dex',
@@ -970,46 +969,36 @@
                           let r = t?.fromAddress ?? e?.fromAddress,
                             i = t?.toAddress ?? e?.toAddress;
                           return `${c.a$.PAGE_SWAP}/${r || i ? `?${new URLSearchParams({ ...(r && { from: r }), ...(i && { to: i }) })}` : ''}`;
-                        })(Q.swap, m),
+                        })(m.swap, f),
                         label: M,
                       },
                     ]
                   : []),
                 ...j.VS.dex.routes.filter((e) => e.route !== c.a$.PAGE_SWAP),
               ],
-              [p, Q, m]
+              [o, m, f]
             ),
-            ChainProps: {
-              options: g,
-              disabled: (0, h.VP)(l, h.Ej.SWITCH_NETWORK),
-              chainId: A,
-              onChange: (0, a.useCallback)(
-                (e) => {
-                  A !== e && C((0, y.Yn)({ network: f[e].id }, `/${S}`));
-                },
-                [A, f, C, S]
-              ),
-            },
+            chains: C,
             appStats: [
               {
                 label: (0, D.t)`Total Deposits`,
-                value: (0, L.ZV)(w, { currency: 'USD', notation: 'compact' }),
+                value: (0, L.ZV)(g, { currency: 'USD', notation: 'compact' }),
               },
-              ...(Q?.isLite
+              ...(m?.isLite
                 ? []
                 : [
                     {
                       label: (0, D.t)`Daily Volume`,
-                      value: (0, L.ZV)(H?.totalVolume, { currency: 'USD', notation: 'compact' }),
+                      value: (0, L.ZV)(v?.totalVolume, { currency: 'USD', notation: 'compact' }),
                     },
                     {
                       label: (0, D.t)`Crypto Volume Share`,
-                      value: (0, L.ZV)(H?.cryptoShare, L.hd.PERCENT),
+                      value: (0, L.ZV)(v?.cryptoShare, L.hd.PERCENT),
                     },
                   ]),
             ],
             sections: e,
-            height: (0, B.g)(v),
+            height: (0, B.g)(p),
             globalAlertRef: t,
           });
         };
@@ -1118,8 +1107,8 @@
             ],
           });
         };
-      var I = r(90263),
-        z = r(73813),
+      var z = r(90263),
+        I = r(73813),
         U = r(88456),
         E = r(75911),
         T = r(56796),
@@ -1180,7 +1169,7 @@
           suppressHydrationWarning: !0,
           style: { ...('chad' === m && K.jq) },
           children: [
-            (0, i.jsx)(z.A, {}),
+            (0, i.jsx)(I.A, {}),
             (0, i.jsx)(q.N, {
               theme: m,
               children:
@@ -1191,7 +1180,7 @@
                     queryClient: T.qQ,
                     children: (0, i.jsx)(h.Sg, {
                       hydrate: x,
-                      initLib: I.R8,
+                      initLib: z.R8,
                       chainId: b,
                       onChainUnavailable: j,
                       children: (0, i.jsx)(R, { network: L, children: e }),

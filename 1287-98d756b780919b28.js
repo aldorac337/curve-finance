@@ -12055,6 +12055,7 @@
                   .map((e) => ({
                     label: e.name,
                     chainId: e.chainId,
+                    networkId: e.networkId,
                     src: e.logoSrc,
                     srcDark: e.logoSrcDark,
                     isTestnet: e.isTestnet,
