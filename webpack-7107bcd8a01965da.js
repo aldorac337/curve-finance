@@ -204,7 +204,7 @@
                     7442: '48699afa7e2ec436',
                     7444: '6ecee1fdaaae1d12',
                     7486: '6c8cf1be3c291fd1',
-                    7655: '9ad4e64390d8ed8c',
+                    7655: 'b48093dc254899c7',
                     7696: '890c7864b75179a3',
                     7721: '589c831a6255cacb',
                     7746: 'a4362ca8615cddad',
@@ -367,6 +367,6 @@
   s.src = 'https://vercel.live/_next-live/feedback/feedback.js';
   s.setAttribute('data-explicit-opt-in', 'true');
   s.setAttribute('data-cookie-opt-in', 'true');
-  s.setAttribute('data-deployment-id', 'dpl_G6bpbV6tCFrCn7PDgvEfGSgNhrTS');
+  s.setAttribute('data-deployment-id', 'dpl_EXmHaAJzLcC8yQS5KdzxRCGNRdX4');
   (document.head || document.documentElement).appendChild(s);
 })();
