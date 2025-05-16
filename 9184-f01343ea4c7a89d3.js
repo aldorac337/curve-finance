@@ -1,7 +1,54 @@
 'use strict';
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [6543],
+  [9184],
   {
+    3717: (e, r, t) => {
+      t.d(r, { x: () => u });
+      var n = t(54568),
+        i = t(44876),
+        o = t(35183),
+        l = t(69228),
+        a = t(84121),
+        c = t(84032);
+      let s = '/images/default-crypto.png',
+        { IconSize: d } = c.B,
+        u = ({
+          className: e = '',
+          blockchainId: r = '',
+          tooltip: t = '',
+          size: c = 'sm',
+          address: u,
+          sx: h,
+        }) =>
+          (0, n.jsx)(l.m, {
+            title: t,
+            placement: 'top',
+            children: (0, n.jsx)(i.A, {
+              component: 'img',
+              'data-testid': `token-icon-${t}`,
+              className: `${e}`,
+              alt: t,
+              onError: ({ currentTarget: e }) => {
+                e.src = s;
+              },
+              src: u ? `${(0, o.YQ)(r ?? '')}${u.toLowerCase()}.png` : s,
+              loading: 'lazy',
+              sx: (e) => ({
+                border: '1px solid transparent',
+                borderRadius: '50%',
+                ...('sm' === c && {
+                  width: '1.75rem',
+                  height: '1.75rem',
+                  [e.breakpoints.down(400)]: { width: '1.5rem', height: '1.5rem' },
+                }),
+                ...('mui-sm' === c && (0, a.N)({ width: d.sm, height: d.sm })),
+                ...('mui-md' === c && (0, a.N)({ width: d.md, height: d.md })),
+                ...('xl' === c && (0, a.N)({ width: d.xl, height: d.xl })),
+                ...h,
+              }),
+            }),
+          });
+    },
     14815: (e, r, t) => {
       t.d(r, { Gw: () => o, l8: () => l, yp: () => i });
       let n = {
@@ -20,71 +67,8 @@
         o = (e, r) => Math.floor(r - 299 * n[e]),
         l = (e) => e - 60 * new Date().getTimezoneOffset();
     },
-    34202: (e, r, t) => {
-      t.d(r, { y: () => g });
-      var n = t(54568),
-        i = t(17703),
-        o = t(33161),
-        l = t(94804),
-        a = t(50010),
-        c = t(12312),
-        s = t(40576),
-        d = t(33431),
-        u = t(87401),
-        h = t(84032);
-      let g = ({
-        children: e,
-        open: r,
-        onClose: t,
-        onTransitionExited: g,
-        title: p,
-        titleAction: m,
-        footer: x,
-        sx: f,
-      }) =>
-        (0, n.jsx)(s.A, {
-          open: r,
-          onClose: t,
-          onTransitionExited: g,
-          sx: f,
-          disableRestoreFocus: !0,
-          children: (0, n.jsxs)(o.A, {
-            sx: {
-              ...h.B.ModalHeight.sm,
-              width: h.B.ModalWidth.sm,
-              maxWidth: '100vw',
-              display: 'flex',
-              flexDirection: 'column',
-              [`@media (min-width: ${h.B.ModalWidth.md})`]: {
-                ...h.B.ModalHeight.md,
-                width: h.B.ModalWidth.md,
-              },
-            },
-            children: [
-              (0, n.jsx)(c.A, {
-                action: (0, n.jsx)(d.A, {
-                  onClick: t,
-                  size: 'extraSmall',
-                  children: (0, n.jsx)(i.A, {}),
-                }),
-                avatar: m,
-                title: (0, n.jsx)(u.A, {
-                  variant: 'headingXsBold',
-                  color: 'textSecondary',
-                  children: p,
-                }),
-              }),
-              (0, n.jsx)(a.A, {
-                sx: { flexGrow: 1, overflowY: 'hidden', display: 'flex', flexDirection: 'column' },
-                children: e,
-              }),
-              x && (0, n.jsx)(l.A, { children: x }),
-            ],
-          }),
-        });
-    },
     63058: (e, r, t) => {
-      t.d(r, { A: () => _ });
+      t.d(r, { A: () => H });
       var n = t(54568),
         i = t(7620),
         o = t(48341),
@@ -115,36 +99,36 @@
           chartExpanded: g,
           magnet: p,
           colors: m,
-          refetchingCapped: x,
-          fetchMoreChartData: f,
+          refetchingCapped: f,
+          fetchMoreChartData: x,
           lastFetchEndTime: b,
           oraclePriceVisible: C,
           liqRangeCurrentVisible: v,
           liqRangeNewVisible: y,
-          latestOraclePrice: j,
+          latestOraclePrice: w,
         }) => {
-          let w = (0, i.useRef)(null),
+          let j = (0, i.useRef)(null),
             A = (0, i.useRef)(null),
-            S = (0, i.useRef)(null),
             k = (0, i.useRef)(null),
-            V = (0, i.useRef)(null),
-            R = (0, i.useRef)(null),
-            F = (0, i.useRef)(null),
+            S = (0, i.useRef)(null),
             I = (0, i.useRef)(null),
-            M = (0, i.useRef)(null),
-            O = (0, i.useRef)(b),
-            D = (0, i.useRef)(!0),
-            P = (0, i.useRef)(4),
-            [L, z] = (0, i.useState)(!1),
-            [E, T] = (0, i.useState)(null),
-            [B, N] = (0, i.useState)(!1);
+            R = (0, i.useRef)(null),
+            V = (0, i.useRef)(null),
+            z = (0, i.useRef)(null),
+            F = (0, i.useRef)(null),
+            D = (0, i.useRef)(b),
+            O = (0, i.useRef)(!0),
+            L = (0, i.useRef)(4),
+            [P, M] = (0, i.useState)(!1),
+            [E, N] = (0, i.useState)(null),
+            [q, $] = (0, i.useState)(!1);
           (0, i.useEffect)(() => {
-            O.current = b;
+            D.current = b;
           }, [b]);
-          let q = (0, i.useRef)(
+          let _ = (0, i.useRef)(
             s()(
               () => {
-                !B && !x && (N(!0), f(O.current));
+                !q && !f && ($(!0), x(D.current));
               },
               500,
               { leading: !0, trailing: !1 }
@@ -152,8 +136,8 @@
           );
           return (
             (0, i.useEffect)(() => {
-              if (!w.current) return;
-              (A.current = (0, a.R9)(w.current, {
+              if (!j.current) return;
+              (A.current = (0, a.R9)(j.current, {
                 layout: {
                   background: { type: a.mE.Solid, color: d(m.backgroundColor) },
                   textColor: d(m.textColor),
@@ -180,10 +164,10 @@
                 },
               })),
                 A.current.timeScale(),
-                (D.current = !0);
+                (O.current = !0);
               let n = () => {
                   A.current &&
-                    ((V.current = A.current.addAreaSeries({
+                    ((I.current = A.current.addAreaSeries({
                       topColor: m.rangeColorA25,
                       bottomColor: m.rangeColorA25,
                       lineColor: m.rangeColor,
@@ -200,7 +184,7 @@
                           let [, r] = e.toString().split('.');
                           if (!r) return e.toFixed(4);
                           let t = r.split('').findIndex((e) => '0' !== e);
-                          return (P.current = e >= 1 ? 4 : t + 4), e.toFixed(P.current);
+                          return (L.current = e >= 1 ? 4 : t + 4), e.toFixed(L.current);
                         },
                         minMove: 1e-7,
                       },
@@ -222,7 +206,7 @@
                           let [, r] = e.toString().split('.');
                           if (!r) return e.toFixed(4);
                           let t = r.split('').findIndex((e) => '0' !== e);
-                          return (P.current = e >= 1 ? 4 : t + 4), e.toFixed(P.current);
+                          return (L.current = e >= 1 ? 4 : t + 4), e.toFixed(L.current);
                         },
                         minMove: 1e-7,
                       },
@@ -230,7 +214,7 @@
                 },
                 i = () => {
                   A.current &&
-                    ((S.current = A.current.addAreaSeries({
+                    ((k.current = A.current.addAreaSeries({
                       topColor: m.rangeColorA25,
                       bottomColor: m.rangeColorA25,
                       lineColor: m.rangeColor,
@@ -247,12 +231,12 @@
                           let [, r] = e.toString().split('.');
                           if (!r) return e.toFixed(4);
                           let t = r.split('').findIndex((e) => '0' !== e);
-                          return (P.current = e >= 1 ? 4 : t + 4), e.toFixed(P.current);
+                          return (L.current = e >= 1 ? 4 : t + 4), e.toFixed(L.current);
                         },
                         minMove: 1e-7,
                       },
                     })),
-                    (k.current = A.current.addAreaSeries({
+                    (S.current = A.current.addAreaSeries({
                       topColor: m.backgroundColor,
                       bottomColor: m.backgroundColor,
                       lineColor: m.rangeColor,
@@ -269,7 +253,7 @@
                           let [, r] = e.toString().split('.');
                           if (!r) return e.toFixed(4);
                           let t = r.split('').findIndex((e) => '0' !== e);
-                          return (P.current = e >= 1 ? 4 : t + 4), e.toFixed(P.current);
+                          return (L.current = e >= 1 ? 4 : t + 4), e.toFixed(L.current);
                         },
                         minMove: 1e-7,
                       },
@@ -279,11 +263,11 @@
                 l.current &&
                 l.new &&
                 (l.new.price2[0].value > l.current.price2[0].value ? (i(), n()) : (n(), i())),
-                l && !l.current && l.new && !S.current && i(),
-                l && l.current && !l.new && !V.current && n(),
+                l && !l.current && l.new && !k.current && i(),
+                l && l.current && !l.new && !I.current && n(),
                 r &&
-                  !F.current &&
-                  (F.current = A.current.addCandlestickSeries({
+                  !V.current &&
+                  (V.current = A.current.addCandlestickSeries({
                     priceLineStyle: 2,
                     upColor: '#26a69a',
                     downColor: '#ef5350',
@@ -296,48 +280,48 @@
                         let [, r] = e.toString().split('.');
                         if (!r) return e.toFixed(4);
                         let t = r.split('').findIndex((e) => '0' !== e);
-                        return (P.current = e >= 1 ? 4 : t + 4), e.toFixed(P.current);
+                        return (L.current = e >= 1 ? 4 : t + 4), e.toFixed(L.current);
                       },
                       minMove: 1e-7,
                     },
                   })),
                 t &&
-                  !I.current &&
-                  ((I.current = A.current.addHistogramSeries({
+                  !z.current &&
+                  ((z.current = A.current.addHistogramSeries({
                     priceFormat: { type: 'volume' },
                     priceScaleId: '',
                   })),
-                  I.current.priceScale().applyOptions({ scaleMargins: { top: 0.7, bottom: 0 } })),
+                  z.current.priceScale().applyOptions({ scaleMargins: { top: 0.7, bottom: 0 } })),
                 o &&
-                  !M.current &&
-                  (M.current = A.current.addLineSeries({
+                  !F.current &&
+                  (F.current = A.current.addLineSeries({
                     color: m.chartOraclePrice,
                     lineWidth: 2,
                     priceLineStyle: 2,
                     visible: C,
                   }));
               let s = () => {
-                  if (B || x || !A.current || !F.current) return;
+                  if (q || f || !A.current || !V.current) return;
                   let e = A.current.timeScale(),
                     r = e.getVisibleLogicalRange();
                   if (!r) return;
-                  let t = F.current.barsInLogicalRange(r);
-                  t && t.barsBefore < 50 && (q.current(), T(e.getVisibleRange()));
+                  let t = V.current.barsInLogicalRange(r);
+                  t && t.barsBefore < 50 && (_.current(), N(e.getVisibleRange()));
                 },
                 u = A.current.timeScale();
               return (
                 u.subscribeVisibleLogicalRangeChange(s),
                 () => {
                   u.unsubscribeVisibleLogicalRangeChange(s),
-                    (F.current = null),
-                    A.current && (A.current.remove(), (A.current = null)),
-                    (S.current = null),
-                    (k.current = null),
                     (V.current = null),
-                    (R.current = null),
-                    (F.current = null),
+                    A.current && (A.current.remove(), (A.current = null)),
+                    (k.current = null),
+                    (S.current = null),
                     (I.current = null),
-                    (M.current = null);
+                    (R.current = null),
+                    (V.current = null),
+                    (z.current = null),
+                    (F.current = null);
                 }
               );
             }, [
@@ -349,7 +333,7 @@
               m.rangeColor,
               m.rangeColorA25,
               m.textColor,
-              B,
+              q,
               E,
               v,
               y,
@@ -358,7 +342,7 @@
               r,
               o,
               C,
-              x,
+              f,
               c,
               t,
               h,
@@ -366,24 +350,24 @@
             (0, i.useEffect)(() => {
               if (!A.current) return;
               let e = A.current.timeScale();
-              F.current && (F.current.setData(r), N(!1), E && e.setVisibleRange(E)),
-                I.current && void 0 !== t && I.current.setData(t),
-                M.current && void 0 !== o && M.current.setData(o),
+              V.current && (V.current.setData(r), $(!1), E && e.setVisibleRange(E)),
+                z.current && void 0 !== t && z.current.setData(t),
+                F.current && void 0 !== o && F.current.setData(o),
                 void 0 !== l &&
                   (l.new &&
-                    S.current &&
                     k.current &&
-                    (S.current.setData(l.new.price1), k.current.setData(l.new.price2)),
+                    S.current &&
+                    (k.current.setData(l.new.price1), S.current.setData(l.new.price2)),
                   l.current &&
-                    V.current &&
+                    I.current &&
                     R.current &&
-                    (V.current.setData(l.current.price1), R.current.setData(l.current.price2)),
-                  V.current &&
+                    (I.current.setData(l.current.price1), R.current.setData(l.current.price2)),
+                  I.current &&
                     R.current &&
                     l &&
                     l.current &&
                     l.new &&
-                    (V.current.applyOptions({
+                    (I.current.applyOptions({
                       topColor: m.rangeColorA25Old,
                       bottomColor: m.rangeColorA25Old,
                       lineColor: m.rangeColorOld,
@@ -393,29 +377,29 @@
                       bottomColor: m.backgroundColor,
                       lineColor: m.rangeColorOld,
                     }))),
-                j &&
-                  M.current &&
+                w &&
+                  F.current &&
                   o &&
-                  o[o.length - 1].value !== +j &&
-                  M.current.update({ time: o[o.length - 1].time, value: +j });
-            }, [m.backgroundColor, m.rangeColorA25Old, m.rangeColorOld, f, B, E, j, l, r, o, x, t]),
+                  o[o.length - 1].value !== +w &&
+                  F.current.update({ time: o[o.length - 1].time, value: +w });
+            }, [m.backgroundColor, m.rangeColorA25Old, m.rangeColorOld, x, q, E, w, l, r, o, f, t]),
             (0, i.useEffect)(
               () => (
                 (h.current = new ResizeObserver((e) => {
-                  if (L) return;
+                  if (P) return;
                   let { width: r, height: t } = e[0].contentRect;
                   (r -= 1) <= 0 ||
                     (A.current?.applyOptions({ width: r, height: t }),
                     A.current?.timeScale().getVisibleLogicalRange());
                 })),
-                h.current.observe(w.current),
+                h.current.observe(j.current),
                 () => {
-                  z(!0), h?.current && h.current.disconnect();
+                  M(!0), h?.current && h.current.disconnect();
                 }
               ),
-              [h, L]
+              [h, P]
             ),
-            (0, n.jsx)(u, { ref: w })
+            (0, n.jsx)(u, { ref: j })
           );
         },
         g = o.Ay.div.withConfig({ componentId: 'sc-9e325f2c-0' })([
@@ -443,8 +427,8 @@
             ),
           });
         };
-      var x = t(11209);
-      let f = (0, o.Ay)(x.uM).withConfig({ componentId: 'sc-29ce7b14-0' })([
+      var f = t(11209);
+      let x = (0, o.Ay)(f.uM).withConfig({ componentId: 'sc-29ce7b14-0' })([
           'display:flex;flex-direction:column;h3{font-size:var(--font-size-2);}',
         ]),
         b = o.Ay.h3.withConfig({ componentId: 'sc-29ce7b14-1' })([
@@ -460,14 +444,14 @@
             children:
               1 === r.length
                 ? (0, n.jsx)(b, { children: r[0]?.label ?? 'Loading' })
-                : (0, n.jsx)(x.Ay, {
+                : (0, n.jsx)(f.Ay, {
                     buttonProps: { isDisabled: i },
                     placement: 'bottom',
                     offset: 0,
                     buttonStyles: { padding: '0.5rem' },
                     label: (0, n.jsx)('h3', { children: r[e]?.label ?? 'Loading' }),
                     showExpandIcon: !0,
-                    children: (0, n.jsx)(f, {
+                    children: (0, n.jsx)(x, {
                       title: 'Select Chart',
                       children: (0, n.jsx)(m, { data: r, currentData: e, setCurrentData: t }),
                     }),
@@ -479,10 +463,10 @@
         y = o.Ay.div.withConfig({ componentId: 'sc-349a4466-1' })([
           'display:flex;margin-top:var(--spacing-2);',
         ]),
-        j = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-349a4466-2' })([
+        w = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-349a4466-2' })([
           'color:var(--page--text-color);margin-right:var(--spacing-2);margin-top:var(--spacing-1);&.active{color:var(--button_text--hover--color);background-color:var(--button_outlined--hover--background-color);&:hover{opacity:0.8;}}',
         ]),
-        w = ({ currentTimeOption: e, setCurrentTimeOption: r, ...t }) => {
+        j = ({ currentTimeOption: e, setCurrentTimeOption: r, ...t }) => {
           let i = (e) => {
             r(e), t.close && t.close();
           };
@@ -490,13 +474,13 @@
             children: [
               (0, n.jsxs)(y, {
                 children: [
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '15m' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('15m'),
                     children: '15m',
                   }),
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '30m' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('30m'),
@@ -506,19 +490,19 @@
               }),
               (0, n.jsxs)(y, {
                 children: [
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '1h' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('1h'),
                     children: '1h',
                   }),
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '4h' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('4h'),
                     children: '4h',
                   }),
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '6h' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('6h'),
@@ -528,19 +512,19 @@
               }),
               (0, n.jsxs)(y, {
                 children: [
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '1d' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('1d'),
                     children: '1d',
                   }),
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '7d' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('7d'),
                     children: '7d',
                   }),
-                  (0, n.jsx)(j, {
+                  (0, n.jsx)(w, {
                     className: '14d' === e ? 'active' : '',
                     variant: 'select',
                     onClick: () => i('14d'),
@@ -551,11 +535,11 @@
             ],
           });
         },
-        A = (0, o.Ay)(x.uM).withConfig({ componentId: 'sc-5bc9254e-0' })([
+        A = (0, o.Ay)(f.uM).withConfig({ componentId: 'sc-5bc9254e-0' })([
           'display:flex;flex-direction:column;h3{font-size:var(--font-size-2);margin-right:auto;}',
         ]),
-        S = ({ currentTimeOption: e, setCurrentTimeOption: r, isDisabled: t }) =>
-          (0, n.jsx)(x.Ay, {
+        k = ({ currentTimeOption: e, setCurrentTimeOption: r, isDisabled: t }) =>
+          (0, n.jsx)(f.Ay, {
             buttonProps: { isDisabled: t },
             placement: 'bottom',
             offset: 0,
@@ -568,13 +552,13 @@
             buttonVariant: 'outlined',
             children: (0, n.jsx)(A, {
               title: 'Select Timeframe',
-              children: (0, n.jsx)(w, { currentTimeOption: e, setCurrentTimeOption: r }),
+              children: (0, n.jsx)(j, { currentTimeOption: e, setCurrentTimeOption: r }),
             }),
           });
-      var k = t(38526),
-        V = t(56457),
+      var S = t(38526),
+        I = t(56457),
         R = t(99599);
-      let F = {
+      let V = {
           backgroundColor: '#fafafa',
           lineColor: '#2962FF',
           textColor: 'black',
@@ -591,23 +575,23 @@
           rangeColorOld: '#ab792f',
           rangeColorA25Old: '#ab792f25',
         },
-        I = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-0' })([
+        z = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-0' })([
           'display:flex;flex-direction:column;',
         ]),
-        M = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-5e45ccb0-1' })([
+        F = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-5e45ccb0-1' })([
           'margin:auto var(--spacing-3) auto 0;',
         ]),
-        O = (0, o.Ay)(V.A).withConfig({ componentId: 'sc-5e45ccb0-2' })(['']),
-        D = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-3' })([
+        D = (0, o.Ay)(I.A).withConfig({ componentId: 'sc-5e45ccb0-2' })(['']),
+        O = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-3' })([
           'display:flex;flex-direction:row;margin-bottom:var(--spacing-3);padding-right:var(--spacing-2);',
         ]),
-        P = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-4' })([
+        L = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-4' })([
           'display:flex;flex-direction:row;margin-right:auto;',
         ]),
-        L = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-5e45ccb0-5' })([
+        P = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-5e45ccb0-5' })([
           'margin-left:var(--spacing-2);margin-right:var(--spacing-2);box-shadow:none;display:none;align-items:center;&.active:not(:disabled){box-shadow:none;}@media (min-width:31.25rem){display:flex;}',
         ]),
-        z = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-5e45ccb0-6' })([
+        M = (0, o.Ay)(l.A).withConfig({ componentId: 'sc-5e45ccb0-6' })([
           'margin-left:var(--spacing-2);box-shadow:none;display:none;align-items:center;&.active:not(:disabled){box-shadow:none;}@media (min-width:31.25rem){display:flex;}',
         ]),
         E = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-7' })(
@@ -620,23 +604,23 @@
               ? e.chartHeight.expanded.toString() + 'px'
               : e.chartHeight.standard.toString() + 'px'
         ),
-        T = (0, o.Ay)(R.V).withConfig({ componentId: 'sc-5e45ccb0-8' })([
+        N = (0, o.Ay)(R.V).withConfig({ componentId: 'sc-5e45ccb0-8' })([
           'flex-direction:column;gap:var(--spacing-2);',
         ]),
-        B = o.Ay.p.withConfig({ componentId: 'sc-5e45ccb0-9' })(['font-size:var(--font-size-2);']),
-        N = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-10' })([
+        q = o.Ay.p.withConfig({ componentId: 'sc-5e45ccb0-9' })(['font-size:var(--font-size-2);']),
+        $ = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-10' })([
           'display:flex;flex-direction:column;',
         ]),
-        q = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-11' })([
+        _ = o.Ay.div.withConfig({ componentId: 'sc-5e45ccb0-11' })([
           'display:flex;flex-direction:row;justify-content:center;flex-wrap:wrap;gap:var(--spacing-2);',
         ]),
-        H = (0, o.Ay)(k.A).withConfig({ componentId: 'sc-5e45ccb0-12' })([
+        B = (0, o.Ay)(S.A).withConfig({ componentId: 'sc-5e45ccb0-12' })([
           'align-items:center;justify-content:center;display:flex;font-size:var(--font-size-1);font-weight:var(--font-weight);margin-right:0;svg{margin-right:0;}',
         ]),
-        W = o.Ay.p.withConfig({ componentId: 'sc-5e45ccb0-13' })([
+        T = o.Ay.p.withConfig({ componentId: 'sc-5e45ccb0-13' })([
           'font-size:var(--font-size-1);font-weight:none;',
         ]),
-        _ = ({
+        H = ({
           chartType: e,
           chartStatus: r,
           chartHeight: t,
@@ -650,25 +634,25 @@
           setChartSelectedIndex: g,
           timeOption: p,
           setChartTimeOption: m,
-          flipChart: x,
-          refetchPricesData: f,
+          flipChart: f,
+          refetchPricesData: x,
           fetchMoreChartData: b,
           lastFetchEndTime: v,
           refetchingCapped: y,
-          selectChartList: j,
-          oraclePriceVisible: w,
+          selectChartList: w,
+          oraclePriceVisible: j,
           liqRangeCurrentVisible: A,
-          liqRangeNewVisible: k,
-          toggleOraclePriceVisible: _,
-          toggleLiqRangeCurrentVisible: G,
-          toggleLiqRangeNewVisible: Y,
-          latestOraclePrice: $,
+          liqRangeNewVisible: S,
+          toggleOraclePriceVisible: H,
+          toggleLiqRangeCurrentVisible: W,
+          toggleLiqRangeNewVisible: G,
+          latestOraclePrice: Y,
         }) => {
-          let [U, Z] = (0, i.useState)(!1),
-            K = [...a],
-            X = (0, i.useRef)(null),
-            [J, Q] = (0, i.useState)(l),
-            [ee, er] = (0, i.useState)(F);
+          let [U, Q] = (0, i.useState)(!1),
+            Z = [...a],
+            J = (0, i.useRef)(null),
+            [K, X] = (0, i.useState)(l),
+            [ee, er] = (0, i.useState)(V);
           return (
             (0, i.useEffect)(() => {
               let r = getComputedStyle(document.body),
@@ -687,7 +671,7 @@
                 g = r.getPropertyValue('--chart-volume-red'),
                 p = r.getPropertyValue('--chart-oracle-price-line'),
                 m = r.getPropertyValue('--chart-liq-range'),
-                x = r.getPropertyValue('--chart-liq-range-a25');
+                f = r.getPropertyValue('--chart-liq-range-a25');
               er({
                 backgroundColor: t,
                 lineColor: n,
@@ -701,18 +685,18 @@
                 chartVolumeGreen: h,
                 chartOraclePrice: p,
                 rangeColor: m,
-                rangeColorA25: x,
+                rangeColorA25: f,
                 rangeColorOld: r.getPropertyValue('--chart-liq-range-old'),
                 rangeColorA25Old: r.getPropertyValue('--chart-liq-range-a25-old'),
               }),
-                Q(l);
-            }, [o, e, J, l]),
-            (0, n.jsx)(I, {
-              children: (0, n.jsxs)(N, {
+                X(l);
+            }, [o, e, K, l]),
+            (0, n.jsx)(z, {
+              children: (0, n.jsxs)($, {
                 children: [
-                  (0, n.jsxs)(D, {
+                  (0, n.jsxs)(O, {
                     children: [
-                      (0, n.jsx)(P, {
+                      (0, n.jsx)(L, {
                         children:
                           void 0 !== u && void 0 !== g
                             ? (0, n.jsxs)(n.Fragment, {
@@ -720,15 +704,15 @@
                                   (0, n.jsx)(C, {
                                     isDisabled: !1,
                                     selectedChartIndex: u,
-                                    selectChartList: j ?? [],
+                                    selectChartList: w ?? [],
                                     setChartSelectedIndex: g,
                                   }),
                                   u > 1 &&
-                                    void 0 !== x &&
-                                    (0, n.jsx)(M, {
-                                      onClick: () => x(),
+                                    void 0 !== f &&
+                                    (0, n.jsx)(F, {
+                                      onClick: () => f(),
                                       variant: 'icon-outlined',
-                                      children: (0, n.jsx)(O, {
+                                      children: (0, n.jsx)(D, {
                                         name: 'ArrowsHorizontal',
                                         size: 16,
                                         'aria-label': 'Flip tokens',
@@ -739,34 +723,34 @@
                             : (0, n.jsx)(C, {
                                 isDisabled: !1,
                                 selectedChartIndex: 0,
-                                selectChartList: j ?? [],
+                                selectChartList: w ?? [],
                                 setChartSelectedIndex: () => 0,
                               }),
                       }),
-                      (0, n.jsx)(z, {
+                      (0, n.jsx)(M, {
                         size: 'small',
                         variant: 'select',
                         onClick: () => {
-                          f();
+                          x();
                         },
-                        children: (0, n.jsx)(V.A, {
+                        children: (0, n.jsx)(I.A, {
                           name: 'Renew',
                           size: 16,
                           'aria-label': 'Refresh chart',
                         }),
                       }),
-                      (0, n.jsx)(L, {
+                      (0, n.jsx)(P, {
                         size: 'small',
                         variant: 'select',
                         className: U ? 'active' : '',
-                        onClick: () => Z(!U),
-                        children: (0, n.jsx)(V.A, {
+                        onClick: () => Q(!U),
+                        children: (0, n.jsx)(I.A, {
                           name: 'Cursor_1',
                           size: 16,
                           'aria-label': 'Toggle magnet mode',
                         }),
                       }),
-                      (0, n.jsx)(S, {
+                      (0, n.jsx)(k, {
                         isDisabled: 'READY' !== r,
                         currentTimeOption: p,
                         setCurrentTimeOption: m,
@@ -774,54 +758,54 @@
                     ],
                   }),
                   'crvusd' === e &&
-                    _ &&
-                    Y &&
+                    H &&
                     G &&
-                    (0, n.jsxs)(q, {
+                    W &&
+                    (0, n.jsxs)(_, {
                       children: [
                         s &&
                           s?.length > 0 &&
-                          (0, n.jsx)(H, {
+                          (0, n.jsx)(B, {
                             fillColor: 'var(--chart-oracle-price-line)',
                             blank: !0,
-                            isSelected: w,
-                            onChange: () => _(),
+                            isSelected: j,
+                            onChange: () => H(),
                             children: 'Oracle Price',
                           }),
                         d?.new &&
-                          Y &&
-                          (0, n.jsx)(H, {
+                          G &&
+                          (0, n.jsx)(B, {
                             fillColor: 'var(--chart-liq-range)',
                             blank: !0,
-                            isSelected: k,
-                            onChange: () => Y(),
-                            children: (0, n.jsx)(W, { children: 'Liquidation Range (New)' }),
+                            isSelected: S,
+                            onChange: () => G(),
+                            children: (0, n.jsx)(T, { children: 'Liquidation Range (New)' }),
                           }),
                         d?.current &&
-                          (0, n.jsx)(H, {
+                          (0, n.jsx)(B, {
                             fillColor: d.new
                               ? 'var(--chart-liq-range-old)'
                               : 'var(--chart-liq-range)',
                             blank: !0,
                             isSelected: A,
-                            onChange: () => G(),
-                            children: (0, n.jsx)(W, { children: 'Liquidation Range (Current)' }),
+                            onChange: () => W(),
+                            children: (0, n.jsx)(T, { children: 'Liquidation Range (Current)' }),
                           }),
                       ],
                     }),
                   'READY' === r &&
                     (0, n.jsx)(E, {
-                      ref: X,
+                      ref: J,
                       chartExpanded: o,
                       chartHeight: t,
                       children: (0, n.jsx)(h, {
                         chartHeight: t,
-                        ohlcData: K,
+                        ohlcData: Z,
                         volumeData: c,
                         oraclePriceData: s,
                         liquidationRange: d,
                         timeOption: p,
-                        wrapperRef: X,
+                        wrapperRef: J,
                         chartExpanded: o,
                         magnet: U,
                         colors: ee,
@@ -829,30 +813,30 @@
                         fetchMoreChartData: b,
                         lastFetchEndTime: v,
                         liqRangeCurrentVisible: A,
-                        liqRangeNewVisible: k,
-                        oraclePriceVisible: w,
-                        latestOraclePrice: $,
+                        liqRangeNewVisible: S,
+                        oraclePriceVisible: j,
+                        latestOraclePrice: Y,
                       }),
                     }),
                   'LOADING' === r &&
-                    (0, n.jsx)(T, {
+                    (0, n.jsx)(N, {
                       minHeight: o ? t.expanded.toString() + 'px' : t.standard.toString() + 'px',
                       children: (0, n.jsx)(R.A, { size: 18 }),
                     }),
                   'ERROR' === r &&
-                    (0, n.jsxs)(T, {
+                    (0, n.jsxs)(N, {
                       minHeight: o ? t.expanded.toString() + 'px' : t.standard.toString() + 'px',
                       children: [
-                        (0, n.jsx)(B, {
-                          children: `Unable to fetch ${void 0 !== u ? j?.[u].label : j[0].label} data.`,
+                        (0, n.jsx)(q, {
+                          children: `Unable to fetch ${void 0 !== u ? w?.[u].label : w[0].label} data.`,
                         }),
-                        (0, n.jsx)(z, {
+                        (0, n.jsx)(M, {
                           size: 'small',
                           variant: 'text',
                           onClick: () => {
-                            f();
+                            x();
                           },
-                          children: (0, n.jsx)(V.A, {
+                          children: (0, n.jsx)(I.A, {
                             name: 'Renew',
                             size: 16,
                             'aria-label': 'Refresh chart',
@@ -866,213 +850,136 @@
           );
         };
     },
-    85806: (e, r, t) => {
-      t.d(r, { n: () => P });
+    86854: (e, r, t) => {
+      t.d(r, { A: () => v });
       var n = t(54568),
-        i = t(87923),
-        o = t(33431),
-        l = t(42822),
-        a = t(7620),
-        c = t(64779),
-        s = t(24388),
-        d = t(2926),
-        u = t(44876),
-        h = t(56120),
-        g = t(93796),
-        p = t(14283),
-        m = t(47983),
-        x = t(97669),
-        f = t(50520),
-        b = t(4609),
-        C = t(31184),
-        v = t(41032),
-        y = t(77241),
-        j = t(36074),
-        w = t(34202),
-        A = t(69228);
-      let { Spacing: S, IconSize: k } = t(84032).B,
-        V = { STABLE: 0.1, CRYPTO: 0.5 },
-        R = (0, y.ZV)(V.STABLE, { style: 'percent', maximumFractionDigits: 1 }),
-        F = (0, y.ZV)(V.CRYPTO, { style: 'percent', maximumFractionDigits: 1 }),
-        I = {
-          'too-high': {
-            message: (0, j.t)`High slippage selected`,
-            helperText: (0, n.jsxs)(n.Fragment, {
-              children: [
-                (0, j.t)`This may lead to fewer tokens received and potential loss of funds.`,
-                (0, n.jsx)('br', {}),
-                (0, j.t)`Proceed with caution.`,
-              ],
-            }),
-          },
-          'too-low': {
-            message: (0, j.t)`Low slippage selected`,
-            helperText: (0, n.jsxs)(n.Fragment, {
-              children: [
-                (0, j.t)`Your transaction may fail if price moves slightly.`,
-                (0, n.jsx)('br', {}),
-                (0, j.t)`Consider increasing slippage if it doesn't go through.`,
-                (0, n.jsx)('br', {}),
-                (0, n.jsx)('br', {}),
-                (0, j.t)`Min. slippage is ${0.01}%`,
-              ],
-            }),
-          },
-        };
-      function M(e) {
-        let r = Number(e);
-        if (0 !== r) {
-          if (r > 5) return 'too-high';
-          if (r < 0.01) return 'too-low';
-        }
-      }
-      function O(e) {
-        let r = !Object.values(V).includes(Number(e));
-        return { selected: r ? 'custom' : e, customValue: r ? e : '', error: r ? M(e) : void 0 };
-      }
-      let D = ({ isOpen: e, maxSlippage: r, onSave: t, onClose: i }) => {
-          let [o, l] = (0, a.useState)(O(r)),
-            { error: y, selected: D, customValue: P } = o,
-            [L, z] = (0, a.useState)(void 0);
-          (0, a.useEffect)(() => {
-            l(O(r));
-          }, [r]),
-            (0, a.useEffect)(() => {
-              y && z(y);
-            }, [y]);
-          let E = D && ('custom' !== D || (P && (!y || 'too-high' === y))),
-            T = (0, n.jsx)(h.A, {
-              fullWidth: !0,
-              disabled: !E,
-              onClick: () => t('custom' === D ? P : D),
-              children: (0, j.t)`Save`,
-            }),
-            B = (0, n.jsx)(v.A, {
-              variant: 'standard',
-              type: 'number',
-              value: P,
-              placeholder: (0, j.t)`Custom slippage`,
-              slotProps: {
-                input: {
-                  endAdornment: '%',
-                  sx: {
-                    color: (e) => ('custom' === D ? 'inherit' : e.design.Text.TextColors.Disabled),
-                    paddingLeft: '1ch',
-                  },
-                },
-              },
-              error: !!y,
-              onChange: (e) =>
-                l({ selected: 'custom', customValue: e.target.value, error: M(e.target.value) }),
-              onClick: () => l({ ...o, selected: 'custom' }),
-              sx: {
-                flexGrow: 1,
-                '& .MuiInputBase-adornedEnd': {
-                  color: (e) => ('custom' === D ? 'inherit' : e.design.Text.TextColors.Disabled),
-                  paddingRight: '1ch',
-                },
-              },
-            }),
-            N = (0,
-            j.t)`Maximum difference between expected price of the trade, versus the price when the trade is executed.`,
-            q = (0, n.jsx)(A.m, {
-              arrow: !0,
-              placement: 'top',
-              title: N,
-              children: (0, n.jsx)(c.A, { sx: { width: k.xs, height: k.xs } }),
-            });
-          return (0, n.jsx)(w.y, {
-            open: e,
-            onClose: i,
-            onTransitionExited: () => l(O(r)),
-            title: (0, j.t)`Slippage Settings`,
-            footer: T,
-            sx: { '& .MuiPaper-root': { height: 'auto', minHeight: 'auto' } },
-            children: (0, n.jsxs)(C.A, {
-              gap: S.md,
-              children: [
-                (0, n.jsxs)(p.A, {
-                  fullWidth: !0,
+        i = t(61773),
+        o = t(48341),
+        l = t(64387),
+        a = t(35736),
+        c = t(77241);
+      let s = o.Ay.div.withConfig({ componentId: 'sc-e77517e5-0' })([
+          'display:flex;flex-direction:column;gap:var(--spacing-2);text-align:left;z-index:2;',
+        ]),
+        d = o.Ay.h3.withConfig({ componentId: 'sc-e77517e5-1' })([
+          'font-size:var(--font-size-3);font-weight:var(--semi-bold);text-align:left;',
+        ]),
+        u = o.Ay.p.withConfig({ componentId: 'sc-e77517e5-2' })([
+          'text-align:left;font-weight:normal;',
+        ]),
+        h = o.Ay.p.withConfig({ componentId: 'sc-e77517e5-3' })([
+          'text-align:left;font-weight:normal;font-size:var(--font-size-2);font-style:italic;',
+        ]),
+        g = ({ rewardsPool: e }) => {
+          let {
+              campaignName: r,
+              platform: t,
+              description: i,
+              action: o,
+              dashboardLink: g,
+              campaignStart: p,
+              campaignEnd: m,
+            } = e,
+            f = (0, c.Yq)(new Date(1e3 * +p)),
+            x = (0, c.Yq)(new Date(1e3 * +m));
+          return (0, n.jsxs)(s, {
+            children: [
+              r && t
+                ? (0, n.jsxs)(l.A, {
+                    flex: !0,
+                    flexColumn: !0,
+                    children: [
+                      (0, n.jsx)(d, { children: r }),
+                      (0, n.jsxs)(u, { children: ['by ', t] }),
+                    ],
+                  })
+                : r
+                  ? (0, n.jsx)(d, { children: r })
+                  : (0, n.jsx)(d, { children: t }),
+              p &&
+                '0' !== p &&
+                m &&
+                '0' !== m &&
+                (0, n.jsxs)(l.A, {
+                  flex: !0,
+                  flexColumn: !0,
                   children: [
-                    (0, n.jsxs)(x.A, {
-                      sx: { color: 'text.secondary', '&.Mui-focused': { color: 'text.secondary' } },
-                      children: [(0, j.t)`Max slippage`, ' ', q],
-                    }),
-                    (0, n.jsxs)(C.A, {
-                      direction: { mobile: 'column', tablet: 'row' },
-                      justifyContent: 'space-between',
-                      gap: S.sm,
-                      children: [
-                        (0, n.jsxs)(b.A, {
-                          row: !0,
-                          value: o.selected,
-                          onChange: (e) => l({ ...o, selected: e.target.value }),
-                          sx: {
-                            flexGrow: 1,
-                            justifyContent: { mobile: 'space-between', tablet: 'start' },
-                            gap: S.xs,
-                          },
-                          children: [
-                            (0, n.jsx)(m.A, {
-                              value: V.STABLE.toString(),
-                              label: R,
-                              control: (0, n.jsx)(f.A, {}),
-                            }),
-                            (0, n.jsx)(m.A, {
-                              value: V.CRYPTO.toString(),
-                              label: F,
-                              control: (0, n.jsx)(f.A, {}),
-                            }),
-                          ],
-                        }),
-                        (0, n.jsx)(u.A, {
-                          display: 'flex',
-                          flexGrow: 1,
-                          justifyContent: { mobile: 'start', tablet: 'end' },
-                          children: B,
-                        }),
-                      ],
-                    }),
+                    (0, n.jsx)(u, { children: `from: ${f}` }),
+                    (0, n.jsx)(u, { children: `to: ${x}` }),
                   ],
                 }),
-                (0, n.jsx)(g.A, {
-                  in: y && 'custom' === D,
-                  children: (0, n.jsxs)(s.A, {
-                    variant: 'outlined',
-                    severity: 'too-low' === L ? 'error' : 'warning',
-                    sx: { boxShadow: 'none' },
-                    children: [
-                      (0, n.jsx)(d.A, { children: L ? I[L].message : '' }),
-                      L ? I[L].helperText : '',
-                    ],
-                  }),
-                }),
-              ],
-            }),
-          });
-        },
-        P = ({ disabled: e = !1, button: r, buttonIcon: t, maxSlippage: a, onSave: c }) => {
-          let [s, , d, u] = (0, l.K)();
-          return (0, n.jsxs)(n.Fragment, {
-            children: [
-              r
-                ? r({ maxSlippage: a, onClick: u })
-                : (0, n.jsx)(o.A, {
-                    onClick: u,
-                    disabled: e,
-                    children: t || (0, n.jsx)(i.A, { color: e ? 'disabled' : 'action' }),
-                  }),
-              (0, n.jsx)(D, {
-                isOpen: !!s,
-                maxSlippage: a,
-                onSave: (e) => {
-                  u(), c(e);
-                },
-                onClose: d,
+              (0, n.jsx)(u, {
+                children:
+                  'lp' === o
+                    ? i
+                    : 'supply' === o
+                      ? 'Earn points by supplying liquidity.'
+                      : 'Earn points by borrowing.',
               }),
+              (0, n.jsx)(h, {
+                children:
+                  'External rewards are project dependent, always check with the token issuer to make sure you have taken all the necessary actions to benefit from their rewards program.',
+              }),
+              (0, n.jsx)(a.G, { $noStyles: !0, href: g, children: 'Go to issuer' }),
             ],
           });
         };
+      var p = t(56457),
+        m = t(50567);
+      let f = o.Ay.div.withConfig({ componentId: 'sc-a3b97d0f-0' })(
+          [
+            'display:flex;flex-direction:row;align-items:center;gap:var(--spacing-1);padding:var(--spacing-1);border:',
+            ';',
+          ],
+          ({ highContrast: e }) => (e ? '1px solid var(--white)' : '1px solid var(--gray-500a25)')
+        ),
+        x = (0, o.Ay)(i.default).withConfig({ componentId: 'sc-a3b97d0f-1' })([
+          'border:1px solid transparent;border-radius:50%;',
+        ]),
+        b = o.Ay.p.withConfig({ componentId: 'sc-a3b97d0f-2' })(
+          ['text-transform:uppercase;font-size:var(--font-size-3);color:', ';white-space:nowrap;'],
+          ({ highContrast: e }) => (e ? 'var(--white)' : 'var(--page--text-color)')
+        ),
+        C = (0, o.Ay)(p.A).withConfig({ componentId: 'sc-a3b97d0f-3' })(
+          ['color:', ';'],
+          ({ $highContrast: e }) => (e ? 'var(--white)' : 'var(--page--text-color)')
+        ),
+        v = ({ rewardsPool: e, highContrast: r, mobile: t, banner: i }) => {
+          let { platform: o, multiplier: l, platformImageSrc: a } = e;
+          return (0, n.jsx)(m.Ay, {
+            tooltip: (0, n.jsx)(g, { rewardsPool: e }),
+            minWidth: '200px',
+            placement: t ? 'top' : 'auto',
+            increaseZIndex: i,
+            children: (0, n.jsxs)(f, {
+              highContrast: r,
+              children: [
+                (0, n.jsx)(x, { src: a, alt: o, width: 16, height: 16 }),
+                !!l && (0, n.jsx)(b, { highContrast: r, children: `${l}` }),
+                e.lock && (0, n.jsx)(C, { size: 16, name: 'Locked', $highContrast: r }),
+              ],
+            }),
+          });
+        };
+    },
+    95292: (e, r, t) => {
+      t.d(r, { A: () => i });
+      var n = t(7620);
+      function i(e, r, t) {
+        let i = (0, n.useRef)(null),
+          o = (0, n.useRef)(e);
+        (0, n.useEffect)(() => {
+          o.current = e;
+        }, [e]),
+          (0, n.useEffect)(() => {
+            if (null !== r && t) {
+              let e = setInterval(function () {
+                o.current();
+              }, r);
+              return (i.current = e), () => clearInterval(e);
+            }
+          }, [r, t]);
+      }
     },
   },
 ]);

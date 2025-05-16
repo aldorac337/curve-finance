@@ -1,69 +1,116 @@
 'use strict';
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [7637, 8731],
+  [2310],
   {
-    3717: (a, e, i) => {
-      i.d(e, { x: () => c });
-      var t = i(54568),
-        n = i(44876),
-        l = i(35183),
-        o = i(69228),
-        r = i(84121),
-        d = i(84032);
-      let s = '/images/default-crypto.png',
-        { IconSize: p } = d.B,
-        c = ({
-          className: a = '',
-          blockchainId: e = '',
-          tooltip: i = '',
-          size: d = 'sm',
-          address: c,
-          sx: m,
-        }) =>
-          (0, t.jsx)(o.m, {
-            title: i,
-            placement: 'top',
-            children: (0, t.jsx)(n.A, {
-              component: 'img',
-              'data-testid': `token-icon-${i}`,
-              className: `${a}`,
-              alt: i,
-              onError: ({ currentTarget: a }) => {
-                a.src = s;
-              },
-              src: c ? `${(0, l.YQ)(e ?? '')}${c.toLowerCase()}.png` : s,
-              loading: 'lazy',
-              sx: (a) => ({
-                border: '1px solid transparent',
-                borderRadius: '50%',
-                ...('sm' === d && {
-                  width: '1.75rem',
-                  height: '1.75rem',
-                  [a.breakpoints.down(400)]: { width: '1.5rem', height: '1.5rem' },
-                }),
-                ...('mui-sm' === d && (0, r.N)({ width: p.sm, height: p.sm })),
-                ...('mui-md' === d && (0, r.N)({ width: p.md, height: p.md })),
-                ...('xl' === d && (0, r.N)({ width: p.xl, height: p.xl })),
-                ...m,
-              }),
-            }),
-          });
+    14633: (a, i, e) => {
+      e.d(i, { A: () => s });
+      var n = e(54568),
+        t = e(27261),
+        l = e.n(t);
+      e(7620);
+      var o = e(48341),
+        r = e(31702);
+      let d = (0, o.Ay)(l()).withConfig({ componentId: 'sc-4549052d-0' })(['', ''], r.$),
+        s = ({ children: a, href: i = '', ...e }) => (0, n.jsx)(d, { ...e, href: i, children: a });
     },
-    61112: (a, e, i) => {
-      i.d(e, { A: () => J });
-      var t = {};
-      i.r(t),
-        i.d(t, {
+    31702: (a, i, e) => {
+      e.d(i, { $: () => l });
+      var n = e(48341),
+        t = e(77878);
+      let l = (0, n.AH)(
+        [
+          '',
+          ';color:var(--link--color);font:var(--link--font-weight) var(--link--font);text-decoration:underline;transition:color 250ms cubic-bezier(0.4,0,0.2,1) 0ms;&:hover{color:var(--link--hover--color);text-decoration-color:var(--link--underline--hover-color);}&.active,&.active:hover{color:var(--link--active-color);background-color:var(--active--background-color);}',
+          ' ',
+          ' ',
+          ' ',
+          '',
+        ],
+        t.N,
+        ({ size: a }) => {
+          if ('small' === a)
+            return `
+        min-height: var(--height-small);
+        padding: 0 var(--spacing-2);
+        font-size: var(--font-size-2);
+      `;
+        },
+        ({ variant: a }) => {
+          if ('contained' === a)
+            return `
+        &:active {
+          box-shadow: none;
+          transform: translate3d(3px, 3px, 3px);
+        }
+    
+        &:hover {
+          color: var(--link_contained--color);
+          background-color: var(--link_contained--background-color);
+          text-decoration-color: var(--link_contained--underline-color);
+        }
+      `;
+        },
+        ({ isDarkBg: a }) => {
+          if (a)
+            return `
+        color: var(--link_light--color);
+
+        &:hover {
+          color: var(--link_light--hover--color);
+          text-decoration-color: var(--link_light--hover--color);
+        }
+      `;
+        },
+        ({ $noStyles: a }) => {
+          if (a)
+            return `
+        color: inherit;
+        text-transform: inherit;
+        
+        &:hover {
+          color: inherit;
+          text-decoration: inherit;
+        }
+      `;
+        }
+      );
+    },
+    35736: (a, i, e) => {
+      e.d(i, { E: () => t.A, G: () => n.A });
+      var n = e(59339),
+        t = e(14633);
+    },
+    59339: (a, i, e) => {
+      e.d(i, { A: () => r });
+      var n = e(54568),
+        t = e(48341),
+        l = e(31702);
+      let o = t.Ay.a.withConfig({ componentId: 'sc-5da00b5e-0' })(['', ''], l.$),
+        r = function ({ className: a, children: i, ...e }) {
+          return (0, n.jsx)(o, {
+            target: '_blank',
+            ...e,
+            className: a,
+            rel: 'noreferrer noopener',
+            children: i,
+          });
+        };
+    },
+    61112: (a, i, e) => {
+      e.d(i, { A: () => j });
+      var n = {};
+      e.r(n),
+        e.d(n, {
           Babylon: () => l,
           Bills: () => o,
           Carrot: () => r,
           DLCLink: () => s,
-          DTrinity: () => p,
+          DTrinity: () => c,
           Ditto: () => d,
-          Elixir: () => c,
+          Elixir: () => p,
           Ethena: () => m,
-          Etherfi: () => f,
-          Fraxtal: () => u,
+          Etherfi: () => u,
+          Fraxtal: () => f,
           Fx: () => g,
           Hinkal: () => b,
           Hourglass: () => k,
@@ -72,22 +119,22 @@
           LevelMoney: () => w,
           Lombard: () => E,
           Mellow: () => S,
-          Mevcommit: () => y,
-          Pumpbtc: () => v,
+          Mevcommit: () => v,
+          Pumpbtc: () => y,
           Resolv: () => N,
           SolvProtocol: () => P,
           StableLabs: () => L,
           Symbiotic: () => I,
-          Taiko: () => C,
-          TurtleSeeds: () => F,
-          TurtleTotems: () => A,
-          Usual: () => D,
-          Vnx: () => j,
-          YieldFi: () => q,
-          YieldNest: () => B,
-          Zunami: () => O,
+          Taiko: () => F,
+          TurtleSeeds: () => C,
+          TurtleTotems: () => D,
+          Usual: () => A,
+          Vnx: () => q,
+          YieldFi: () => B,
+          YieldNest: () => O,
+          Zunami: () => J,
         });
-      let n = JSON.parse(
+      let t = JSON.parse(
           '[{"campaign":"Ethena.json"},{"campaign":"Etherfi.json"},{"campaign":"Kelpdao.json"},{"campaign":"DLCLink.json"},{"campaign":"Mellow.json"},{"campaign":"Symbiotic.json"},{"campaign":"Usual.json"},{"campaign":"Elixir.json"},{"campaign":"YieldNest.json"},{"campaign":"Fraxtal.json"},{"campaign":"Resolv.json"},{"campaign":"Lombard.json"},{"campaign":"TurtleSeeds.json"},{"campaign":"SolvProtocol.json"},{"campaign":"Hinkal.json"},{"campaign":"Inception.json"},{"campaign":"TurtleTotems.json"},{"campaign":"LevelMoney.json"},{"campaign":"DTrinity.json"},{"campaign":"YieldFi.json"},{"campaign":"Babylon.json"},{"campaign":"Vnx.json"},{"campaign":"Hourglass.json"},{"campaign":"Fx.json"},{"campaign":"Pumpbtc.json"},{"campaign":"Carrot.json"},{"campaign":"Bills.json"},{"campaign":"StableLabs.json"},{"campaign":"Taiko.json"},{"campaign":"Zunami.json"},{"campaign":"Ditto.json"},{"campaign":"Mevcommit.json"}]'
         ),
         l = JSON.parse(
@@ -105,19 +152,19 @@
         s = JSON.parse(
           '{"campaignName":"","platform":"DLC.Link","description":"Points for staking LP tokens.","platformImageId":"dlc_link.png","dashboardLink":"https://www.dlc.link/earn-with-dlcbtc","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xe957ce03ccdd88f02ed8b05c9a3a28abef38514a","network":"arbitrum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x3e293db65c81742e32b74e21a0787d2936beedf7","network":"arbitrum","multiplier":"5x","tags":["points"],"lock":"false"}]}'
         ),
-        p = JSON.parse(
+        c = JSON.parse(
           '{"campaignName":"dT Points","platform":"dTRINITY","description":"Points for providing liquidity.","platformImageId":"dtrinity.png","dashboardLink":"https://app.dtrinity.org/dlend/points/","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x9ca648d2f51098941688db9a0beb1dadc2d1b357","network":"fraxtal","multiplier":"50x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xf16f226baa419d9dc9d92c040ccbc8c0e25f36d7","network":"fraxtal","multiplier":"50x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x5eCFA6940a33A2dAd5c473896452f018c6c04577","network":"fraxtal","multiplier":"50x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x40F1DAd51055A693Dc6D0a8d68A3E7e2Ae13031A","network":"sonic","multiplier":"50x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xdb81ee19ea2E5E1acA04f55D9C6c4188C36a81Fe","network":"sonic","multiplier":"50x","tags":["points"],"lock":"false"}]}'
         ),
-        c = JSON.parse(
+        p = JSON.parse(
           '{"campaignName":"Potions","platform":"Elixir","description":"Points for providing liquidity.","platformImageId":"Elixir.png","dashboardLink":"https://www.elixir.xyz/apothecary","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x5f6c431ac417f0f430b84a666a563fabe681da94","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xb478bf40dd622086e0d0889eebbadcb63806adde","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x7c4e143b23d72e6938e06291f705b5ae3d5c7c7c","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x88dfb9370fe350aa51ade31c32549d4d3a24faf2","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x6691dbb44154a9f23f8357c56fc9ff5548a8bdc4","network":"ethereum","multiplier":"10x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x82202caec5e6d85014eadc68d4912f3c90093e7c","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x7fd04c3eb261308154789db3a363df789b53644f","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x080A4941aad94dDC19C2fEd604D55109119b5774","network":"ethereum","multiplier":"15x","tags":["points"],"lock":"false"}]}'
         ),
         m = JSON.parse(
           '{"campaignName":"","platform":"Ethena","description":"Points for providing liquidity.","platformImageId":"ethena.png","dashboardLink":"https://app.ethena.fi/liquidity","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xf8db2accdef8e7a26b0e65c3980adc8ce11671a4","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"true"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x02950460e2b9529d0e00284a5fa2d7bdf3fa4d72","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"true"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x670a72e6d22b0956c0d2573288f82dcc5d6e3a61","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"true"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x1c34204fcfe5314dcf53be2671c02c35db58b4e3","network":"arbitrum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x74f88baa966407b50c10b393bbd789639effe78b","network":"ethereum","multiplier":"20x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xb536fea3a01c95dd09932440ec802a75410139d6","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x096a8865367686290639bc50bf8d85c0110d9fea","network":"arbitrum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x167478921b907422f8e88b43c4af2b8bea278d3a","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"true"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0xd29f8980852c2c76fc3f6e96a7aa06e0bedcc1b1","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x68984391a8ce6203067ee65ff7eed38c7e0d2d88","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x8b4e5263e8d6cc0bbf31edf14491fc6077b88229","network":"fraxtal","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x1e199dbe1f7aa237282fe941d5bcc3b167c8ce48","network":"fraxtal","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x2d9bf9c1befd77c094461df615bdbe905895f7c6","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"true"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x4b5e827f4c0a1042272a11857a355da1f4ceebae","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x59a06b97b2d566b9dee2a368eac8787cfa57f95d","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x3bd1017929b43c1414be2aca39892590fba4d6e2","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0xdbb1d219d84eacefb850ee04cacf2f1830934580","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x3cef1afc0e8324b57293a6e7ce663781bbefbb79","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0x5b03cccab7ba3010fa5cad23746cbf0794938e96","network":"ethereum","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0xF16f226Baa419d9DC9D92C040CCBC8c0E25F36D7","network":"fraxtal","multiplier":"30x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"LP tokens staked in gauge are excluded from Ethena campaign","campaignStart":"0","campaignEnd":"1770000000","address":"0xAA00BF46394774938922E282f6C4B07F5059651F","network":"hyperliquid","multiplier":"30x","tags":["points"],"lock":"false"}]}'
         ),
-        f = JSON.parse(
+        u = JSON.parse(
           '{"campaignName":"","platform":"Ether.fi","description":"Points for providing liquidity.","platformImageId":"etherfi.png","dashboardLink":"https://app.ether.fi/defi","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x278cfb6f06b1efc09d34fc7127d6060c61d629db","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xdb74dfdd3bb46be8ce6c33dc9d82777bcfc3ded5","network":"ethereum","multiplier":"3x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x6683eafe46cb9ed394f298e14b87ed680c17cedd","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xb9ef9c471f686e9249f5bb3af465560e4b917294","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x2fd6965730bef5c7e928342ad6e7d4819d08f8c4","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xcccd572b22dee28479b11dd99589a1e4c0682a7e","network":"ethereum","multiplier":"3x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x6a8a274a670484fc358ab5ae00a1e0aa9ab11ae6","network":"ethereum","multiplier":"4x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xb92b054b9cc33685e7f8c3f85177c4b6dc061391","network":"ethereum","multiplier":"4x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x7704d01908afd31bf647d969c295bb45230cd2d6","network":"ethereum","multiplier":"4x","tags":["points"],"lock":"false"},{"id":"null","action":"","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xabaf76590478f2fe0b396996f55f0b61101e9502","network":"ethereum","multiplier":"4x","tags":["points"],"lock":"false"},{"id":"null","action":"loan","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x652aEa6B22310C89DCc506710CaD24d2Dba56B11","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"}]}'
         ),
-        u = JSON.parse(
+        f = JSON.parse(
           '{"campaignName":"FXTL","platform":"Fraxtal","description":"Points for providing liquidity.","platformImageId":"fraxtal.png","dashboardLink":"https://www.frax.com/flox/leaderboard/","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xa0d3911349e701a1f49c1ba2dda34b4ce9636569","network":"fraxtal","multiplier":"5.83x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x2421176aea0def263805a9c87f6c9d10147b8a93","network":"fraxtal","multiplier":"43.75x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x63d64a76c2d616676cbac3068d3c6548f8485314","network":"fraxtal","multiplier":"15.313x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xbc3705b2bfd42d38e8fa2c8efdc3fdda645c3b2a","network":"fraxtal","multiplier":"20x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xee454138083b9b9714cac3c7cf12560248d76d6b","network":"fraxtal","multiplier":"34.063x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x4cfc391d75c43cf1bdb368e8bf680aed1228df39","network":"fraxtal","multiplier":"155.938x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x3df1658e3e76d14ef3c4d410829ea7575bb83b9b","network":"fraxtal","multiplier":"6.875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x3a38e9b0b5cb034de01d5298fc2ed2d793c0c36f","network":"fraxtal","multiplier":"6.875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x6e9b6660b94fa74a8087d7ee14dc28698249d242","network":"fraxtal","multiplier":"1.875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xf2f426fe123de7b769b2d4f8c911512f065225d3","network":"fraxtal","multiplier":"2.3125x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x8fd56bcfba75718dd1b920c854256b0c5f4a7401","network":"fraxtal","multiplier":"1.875x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xc68f91ffa2b27147f9ab153267018f5fe4b6850f","network":"fraxtal","multiplier":"2.125x","tags":["points"],"lock":"false"},{"id":"null","action":"supply","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x279a23349fa48ea5215d31666aff359dbbec1404","network":"fraxtal","multiplier":"6.25x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xf0922934f16dbe5df9f90f729b2023d5e1fc2f15","network":"fraxtal","multiplier":"12.5x","tags":["points"],"lock":"false"},{"id":"null","action":"supply","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xa7573cbd8738ed268b931b038079f993e78d4216","network":"fraxtal","multiplier":"6.25x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xb4ebf87a474569d8eb7f7182b4bebd8ae79ae675","network":"fraxtal","multiplier":"2.125x","tags":["points"],"lock":"false"},{"id":"null","action":"supply","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x0edf4a3762deb5329ecdbdeda98d287ae41fbb7e","network":"fraxtal","multiplier":"6.25x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x99d5b47d431f1963940f72ffa6f25bc0b9849cbf","network":"fraxtal","multiplier":"1.25x","tags":["points"],"lock":"false"},{"id":"null","action":"supply","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x040efc9a141d7fa47745751c253e02d065c90bdb","network":"fraxtal","multiplier":"6.25x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x385540fda649a114ffeb943fd73ae82ce7908da3","network":"fraxtal","multiplier":"1.875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xcaef324bea3ff5c7a08710081294f3344ffadc54","network":"fraxtal","multiplier":"1.875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x35c6c59277f8fa9ae98dea29b0546d79957acdd8","network":"fraxtal","multiplier":"1.875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x63eb7846642630456707c3efbb50a03c79b89d81","network":"fraxtal","multiplier":"1.875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xf25e1db1f0c7bd1a29761a1fcdae187b8718cf18","network":"fraxtal","multiplier":"1.6875x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x9ca648d2f51098941688db9a0beb1dadc2d1b357","network":"fraxtal","multiplier":"1.875x","tags":["points"],"lock":"false"}]}'
         ),
         g = JSON.parse(
@@ -144,10 +191,10 @@
         S = JSON.parse(
           '{"campaignName":"","platform":"Mellow Protocol","description":"Points for providing liquidity.","platformImageId":"mellow.png","dashboardLink":"https://app.mellow.finance/restake","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x8c65cec3847ad99bdc02621bdbc89f2ace56934b","network":"ethereum","multiplier":"1x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xcec99cff3632cf1f16652cc5b1e80eb08be25983","network":"ethereum","multiplier":"1x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x5fc50c99e175dfeb8faa7613e050645583ac1501","network":"ethereum","multiplier":"3x","tags":["points"],"lock":"false"}]}'
         ),
-        y = JSON.parse(
+        v = JSON.parse(
           '{"campaignName":"Mev-commit Points","platform":"","description":"Points for providing liquidity.","platformImageId":"mev-commit.png","dashboardLink":"","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x5Fc50C99E175DFeB8Faa7613e050645583Ac1501","network":"ethereum","multiplier":"1x","tags":["points"],"lock":"false"}]}'
         ),
-        v = JSON.parse(
+        y = JSON.parse(
           '{"campaignName":"PumpPoints","platform":"PumpBTC","description":"Points for providing liquidity.","platformImageId":"pump-points.png","dashboardLink":"https://mainnet.pumpbtc.xyz/defi/","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xea659b615b48ec6e2d55cd82fcbe5f43d79aeea0","network":"ethereum","multiplier":"4x","tags":["points"],"lock":"false"}]}'
         ),
         N = JSON.parse(
@@ -162,178 +209,47 @@
         I = JSON.parse(
           '{"campaignName":"","platform":"Symbiotic.fi","description":"Points for providing liquidity.","platformImageId":"symbiotic.png","dashboardLink":"https://app.symbiotic.fi/dashboard","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x8c65cec3847ad99bdc02621bdbc89f2ace56934b","network":"ethereum","multiplier":"1x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xcec99cff3632cf1f16652cc5b1e80eb08be25983","network":"ethereum","multiplier":"1x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x73e4bec1a111869f395cbb24f6676826bf86d905","network":"ethereum","multiplier":"0-1x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x5fc50c99e175dfeb8faa7613e050645583ac1501","network":"ethereum","multiplier":"1x","tags":["points"],"lock":"false"}]}'
         ),
-        C = JSON.parse(
+        F = JSON.parse(
           '{"campaignName":"Liquidity Royale","platform":"Taiko","description":"Points for providing liquidity.","platformImageId":"taiko.png","dashboardLink":"https://trailblazers.taiko.xyz/journeys/liquidity/3/","pools":[{"id":"null","action":"lp","description":"Join Liquidity Royale, with the total reward pool of 1 Million TAIKO tokens. But now, in two tracks based on the assets provided as liquidity. Please visit issuer for more information.","campaignStart":"0","campaignEnd":"1770000000","address":"0xB391F2D5B83B3900997B4D6880ba7818Bef3591a","network":"taiko","multiplier":"Liquidity Royale","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"Join Liquidity Royale, with the total reward pool of 1 Million TAIKO tokens. But now, in two tracks based on the assets provided as liquidity. Please visit issuer for more information.","campaignStart":"0","campaignEnd":"1770000000","address":"0x761BEe8c6ec207CFf409456cdf6856818cD0b83c","network":"taiko","multiplier":"Liquidity Royale","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"Join Liquidity Royale, with the total reward pool of 1 Million TAIKO tokens. But now, in two tracks based on the assets provided as liquidity. Please visit issuer for more information.","campaignStart":"0","campaignEnd":"1770000000","address":"0x3da34fBc8FF2Bf12a4dfD499a2361823E348d8D7","network":"taiko","multiplier":"Liquidity Royale","tags":["points"],"lock":"false"}]}'
         ),
-        F = JSON.parse(
+        C = JSON.parse(
           '{"campaignName":"Turtle Seeds","platform":"Turtle Club","description":"Points for providing liquidity.","platformImageId":"turtle-seeds.png","dashboardLink":"https://app.turtle.club/","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x19b8524665abac613d82ece5d8347ba44c714bdd","network":"ethereum","multiplier":"1.1x","tags":["points"],"lock":"false"}]}'
         ),
-        A = JSON.parse(
+        D = JSON.parse(
           '{"campaignName":"Turtle InceptionLRT points","platform":"Turtle Club","description":"Points for providing liquidity.","platformImageId":"turtle-inception.png","dashboardLink":"https://app.turtle.club/","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x5fc50c99e175dfeb8faa7613e050645583ac1501","network":"ethereum","multiplier":"1x","tags":["points"],"lock":"false"}]}'
         ),
-        D = JSON.parse(
+        A = JSON.parse(
           '{"campaignName":"","platform":"Usual","description":"External token rewards for providing liquidity.","platformImageId":"usual.png","dashboardLink":"https://app.usual.money/","pools":[{"id":"null","action":"lp","description":"The Usual Pills points campaign has been replaced with USUAL tokens. This pool is actively rewarded with USUAL. Please visit Usual\'s Dapp for more information. No user action is required.","campaignStart":"0","campaignEnd":"1770000000","address":"0x1d08e7adc263cfc70b1babe6dc5bb339c16eec52","network":"ethereum","multiplier":"usual","tags":["tokens"],"lock":"false"},{"id":"null","action":"lp","description":"The Usual Pills points campaign has been replaced with USUAL tokens. This pool is actively rewarded with USUAL. Please visit Usual\'s Dapp for more information. No user action is required.","campaignStart":"0","campaignEnd":"1770000000","address":"0x14100f81e33c33ecc7cdac70181fb45b6e78569f","network":"ethereum","multiplier":"usual","tags":["tokens"],"lock":"false"}]}'
         ),
-        j = JSON.parse(
+        q = JSON.parse(
           '{"campaignName":"VNX Points","platform":"VNX","description":"Points for providing liquidity.","platformImageId":"vnx.png","dashboardLink":"https://vnx.community/dashboard","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xda73dc70d5ca3f51b0000c308abcd358b5f3fefe","network":"fraxtal","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x77146b0a1d08b6844376df6d9da99ba7f1b19e71","network":"fraxtal","multiplier":"2x","tags":["points"],"lock":"false"}]}'
         ),
-        q = JSON.parse(
+        B = JSON.parse(
           '{"campaignName":"YieldCrumbs","platform":"YieldFi","description":"Points for providing liquidity.","platformImageId":"yieldfi.png","dashboardLink":"https://yield.fi/portfolio/","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x169a5f124a3663a25313ee0f7f3bff028728867f","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xf36c256c78334a724c761D50F7636E1a4827dA0E","network":"arbitrum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x9353976a6b6e7a9e1e9b1f2aaaba629ad310947f","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0xD552716F3BBA4224a19D7eB37A31650d7Ae10144","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x81301848168bAe6Add206aA50052E247Cb366d3A","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x4E32d84b25E56df669a978db635B9Acf1312Bb29","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x4cB813861d34eD66B6D9Aa83712919db01a36521","network":"ethereum","multiplier":"2x","tags":["points"],"lock":"false"}]}'
         ),
-        B = JSON.parse(
+        O = JSON.parse(
           '{"campaignName":"Seeds","platform":"YieldNest","description":"Points for providing liquidity.","platformImageId":"yieldnest.png","dashboardLink":"https://app.yieldnest.finance/earn","pools":[{"id":"null","action":"lp","description":"null","campaignStart":"1721692800","campaignEnd":"1723420799","address":"0x19b8524665abac613d82ece5d8347ba44c714bdd","network":"ethereum","multiplier":"10x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"1723420801","campaignEnd":"1724716799","address":"0x19b8524665abac613d82ece5d8347ba44c714bdd","network":"ethereum","multiplier":"5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"1724716801","campaignEnd":"1770000000","address":"0x19b8524665abac613d82ece5d8347ba44c714bdd","network":"ethereum","multiplier":"2.5x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"1728993600","campaignEnd":"1730203199","address":"0x143985860efaeacb92db23e4b0c4d66be51b08d2","network":"ethereum","multiplier":"6x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"1730203200","campaignEnd":"1770000000","address":"0x143985860efaeacb92db23e4b0c4d66be51b08d2","network":"ethereum","multiplier":"2.5x","tags":["points"],"lock":"false"},{"id":"null","action":"supply","description":"null","campaignStart":"1728993600","campaignEnd":"1730203199","address":"0x52036c9046247c3358c987a2389ffde6ef8564c9","network":"ethereum","multiplier":"6x","tags":["points"],"lock":"false"},{"id":"null","action":"supply","description":"null","campaignStart":"1730203200","campaignEnd":"1770000000","address":"0x52036c9046247c3358c987a2389ffde6ef8564c9","network":"ethereum","multiplier":"2.5x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"1733479200","campaignEnd":"1734688799","address":"0xd65ed4bce447195187f37ce7d82f56adf1826f8f","network":"ethereum","multiplier":"6x","tags":["points"],"lock":"false"},{"id":"null","action":"lp","description":"null","campaignStart":"1734688800","campaignEnd":"1770000000","address":"0xd65ed4bce447195187f37ce7d82f56adf1826f8f","network":"ethereum","multiplier":"2.5x","tags":["points"],"lock":"false"},{"id":"null","action":"borrow","description":"null","campaignStart":"0","campaignEnd":"1770000000","address":"0x6f91f33Ac7122F025b73206239CbC81606F022D4","network":"ethereum","multiplier":"3x","tags":["points"],"lock":"false"}]}'
         ),
-        O = JSON.parse(
+        J = JSON.parse(
           '{"campaignName":"ZUN","platform":"Zunami","description":"External token rewards for providing liquidity.","platformImageId":"zun.png","dashboardLink":"https://app.zunami.io/earn","pools":[{"id":"null","action":"lp","description":"Deposit your Curve LP tokens on Zunami protocol and earn ZUN rewards. For more information please visit Zunami protocol.","campaignStart":"0","campaignEnd":"1770000000","address":"0x17D964DA2bD337CfEaEd30a27c9Ab6580676E730","network":"ethereum","multiplier":"ZUN","tags":["tokens"],"lock":"false"},{"id":"null","action":"lp","description":"Deposit your Curve LP tokens on Zunami protocol and earn ZUN rewards. For more information please visit Zunami protocol.","campaignStart":"0","campaignEnd":"1770000000","address":"0x13eA95Ce68185e334d3747539845A3b7643a8cab","network":"ethereum","multiplier":"ZUN","tags":["tokens"],"lock":"false"},{"id":"null","action":"lp","description":"Deposit your Curve LP tokens on Zunami protocol and earn ZUN rewards. For more information please visit Zunami protocol.","campaignStart":"0","campaignEnd":"1770000000","address":"0x6fBc5Ddc181240Cb1d9bcEc6Fdea429036818035","network":"ethereum","multiplier":"ZUN","tags":["tokens"],"lock":"false"}]}'
         ),
-        J = n
+        j = t
           .map(({ campaign: a }) => {
-            let e = a.split('.')?.[0];
-            return e && e in t
+            let i = a.split('.')?.[0];
+            return i && i in n
               ? {
-                  ...t[e],
-                  pools: t[e].pools.filter((a) => {
-                    let e = Date.now() / 1e3;
+                  ...n[i],
+                  pools: n[i].pools.filter((a) => {
+                    let i = Date.now() / 1e3;
                     if ('0' === a.campaignStart || '0' === a.campaignEnd) return !0;
-                    let i = new Date(+a.campaignStart).getTime(),
-                      t = new Date(+a.campaignEnd).getTime();
-                    return e >= i && e <= t;
+                    let e = new Date(+a.campaignStart).getTime(),
+                      n = new Date(+a.campaignEnd).getTime();
+                    return i >= e && i <= n;
                   }),
                 }
               : null;
           })
           .filter(Boolean);
-    },
-    86854: (a, e, i) => {
-      i.d(e, { A: () => w });
-      var t = i(54568),
-        n = i(61773),
-        l = i(48341),
-        o = i(64387),
-        r = i(35736),
-        d = i(77241);
-      let s = l.Ay.div.withConfig({ componentId: 'sc-e77517e5-0' })([
-          'display:flex;flex-direction:column;gap:var(--spacing-2);text-align:left;z-index:2;',
-        ]),
-        p = l.Ay.h3.withConfig({ componentId: 'sc-e77517e5-1' })([
-          'font-size:var(--font-size-3);font-weight:var(--semi-bold);text-align:left;',
-        ]),
-        c = l.Ay.p.withConfig({ componentId: 'sc-e77517e5-2' })([
-          'text-align:left;font-weight:normal;',
-        ]),
-        m = l.Ay.p.withConfig({ componentId: 'sc-e77517e5-3' })([
-          'text-align:left;font-weight:normal;font-size:var(--font-size-2);font-style:italic;',
-        ]),
-        f = ({ rewardsPool: a }) => {
-          let {
-              campaignName: e,
-              platform: i,
-              description: n,
-              action: l,
-              dashboardLink: f,
-              campaignStart: u,
-              campaignEnd: g,
-            } = a,
-            b = (0, d.Yq)(new Date(1e3 * +u)),
-            k = (0, d.Yq)(new Date(1e3 * +g));
-          return (0, t.jsxs)(s, {
-            children: [
-              e && i
-                ? (0, t.jsxs)(o.A, {
-                    flex: !0,
-                    flexColumn: !0,
-                    children: [
-                      (0, t.jsx)(p, { children: e }),
-                      (0, t.jsxs)(c, { children: ['by ', i] }),
-                    ],
-                  })
-                : e
-                  ? (0, t.jsx)(p, { children: e })
-                  : (0, t.jsx)(p, { children: i }),
-              u &&
-                '0' !== u &&
-                g &&
-                '0' !== g &&
-                (0, t.jsxs)(o.A, {
-                  flex: !0,
-                  flexColumn: !0,
-                  children: [
-                    (0, t.jsx)(c, { children: `from: ${b}` }),
-                    (0, t.jsx)(c, { children: `to: ${k}` }),
-                  ],
-                }),
-              (0, t.jsx)(c, {
-                children:
-                  'lp' === l
-                    ? n
-                    : 'supply' === l
-                      ? 'Earn points by supplying liquidity.'
-                      : 'Earn points by borrowing.',
-              }),
-              (0, t.jsx)(m, {
-                children:
-                  'External rewards are project dependent, always check with the token issuer to make sure you have taken all the necessary actions to benefit from their rewards program.',
-              }),
-              (0, t.jsx)(r.G, { $noStyles: !0, href: f, children: 'Go to issuer' }),
-            ],
-          });
-        };
-      var u = i(56457),
-        g = i(50567);
-      let b = l.Ay.div.withConfig({ componentId: 'sc-a3b97d0f-0' })(
-          [
-            'display:flex;flex-direction:row;align-items:center;gap:var(--spacing-1);padding:var(--spacing-1);border:',
-            ';',
-          ],
-          ({ highContrast: a }) => (a ? '1px solid var(--white)' : '1px solid var(--gray-500a25)')
-        ),
-        k = (0, l.Ay)(n.default).withConfig({ componentId: 'sc-a3b97d0f-1' })([
-          'border:1px solid transparent;border-radius:50%;',
-        ]),
-        x = l.Ay.p.withConfig({ componentId: 'sc-a3b97d0f-2' })(
-          ['text-transform:uppercase;font-size:var(--font-size-3);color:', ';white-space:nowrap;'],
-          ({ highContrast: a }) => (a ? 'var(--white)' : 'var(--page--text-color)')
-        ),
-        h = (0, l.Ay)(u.A).withConfig({ componentId: 'sc-a3b97d0f-3' })(
-          ['color:', ';'],
-          ({ $highContrast: a }) => (a ? 'var(--white)' : 'var(--page--text-color)')
-        ),
-        w = ({ rewardsPool: a, highContrast: e, mobile: i, banner: n }) => {
-          let { platform: l, multiplier: o, platformImageSrc: r } = a;
-          return (0, t.jsx)(g.Ay, {
-            tooltip: (0, t.jsx)(f, { rewardsPool: a }),
-            minWidth: '200px',
-            placement: i ? 'top' : 'auto',
-            increaseZIndex: n,
-            children: (0, t.jsxs)(b, {
-              highContrast: e,
-              children: [
-                (0, t.jsx)(k, { src: r, alt: l, width: 16, height: 16 }),
-                !!o && (0, t.jsx)(x, { highContrast: e, children: `${o}` }),
-                a.lock && (0, t.jsx)(h, { size: 16, name: 'Locked', $highContrast: e }),
-              ],
-            }),
-          });
-        };
-    },
-    95292: (a, e, i) => {
-      i.d(e, { A: () => n });
-      var t = i(7620);
-      function n(a, e, i) {
-        let n = (0, t.useRef)(null),
-          l = (0, t.useRef)(a);
-        (0, t.useEffect)(() => {
-          l.current = a;
-        }, [a]),
-          (0, t.useEffect)(() => {
-            if (null !== e && i) {
-              let a = setInterval(function () {
-                l.current();
-              }, e);
-              return (n.current = a), () => clearInterval(a);
-            }
-          }, [e, i]);
-      }
     },
   },
 ]);

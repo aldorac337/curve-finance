@@ -1,81 +1,119 @@
 'use strict';
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [2580],
+  [4431],
   {
-    12580: (e, t, n) => {
-      n.d(t, { Y: () => e8, g: () => e4 });
+    14766: (e, t, n) => {
+      n.d(t, { E: () => i });
+      var s = n(54568);
+      let i = (0, n(69879).A)(
+        (0, s.jsx)('svg', {
+          xmlns: 'http://www.w3.org/2000/svg',
+          viewBox: '0 0 34 34',
+          fill: 'currentColor',
+          children: (0, s.jsx)('path', {
+            d: 'M26.0015 6.9529C24.0021 6.03845 21.8787 5.37198 19.6623 5C19.3833 5.48048 19.0733 6.13144 18.8563 6.64292C16.4989 6.30193 14.1585 6.30193 11.8336 6.64292C11.6166 6.13144 11.2911 5.48048 11.0276 5C8.79575 5.37198 6.67235 6.03845 4.6869 6.9529C0.672601 12.8736 -0.41235 18.6548 0.130124 24.3585C2.79599 26.2959 5.36889 27.4739 7.89682 28.2489C8.51679 27.4119 9.07477 26.5129 9.55525 25.5675C8.64079 25.2265 7.77283 24.808 6.93587 24.312C7.15286 24.1571 7.36986 23.9866 7.57135 23.8161C12.6241 26.1255 18.0969 26.1255 23.0876 23.8161C23.3046 23.9866 23.5061 24.1571 23.7231 24.312C22.8861 24.808 22.0182 25.2265 21.1037 25.5675C21.5842 26.5129 22.1422 27.4119 22.7621 28.2489C25.2885 27.4739 27.8769 26.2959 30.5288 24.3585C31.1952 17.7559 29.4733 12.0212 26.0015 6.9529ZM10.2527 20.8402C8.73376 20.8402 7.49382 19.4608 7.49382 17.7714C7.49382 16.082 8.70276 14.7025 10.2527 14.7025C11.7871 14.7025 13.0425 16.082 13.0115 17.7714C13.0115 19.4608 11.7871 20.8402 10.2527 20.8402ZM20.4373 20.8402C18.9183 20.8402 17.6768 19.4608 17.6768 17.7714C17.6768 16.082 18.8873 14.7025 20.4373 14.7025C21.9717 14.7025 23.2271 16.082 23.1961 17.7714C23.1961 19.4608 21.9872 20.8402 20.4373 20.8402Z',
+          }),
+        }),
+        'Discord'
+      );
+    },
+    42374: (e, t, n) => {
+      n.d(t, { u: () => h });
       var s = n(54568),
-        r = n(62942),
-        i = n(7620),
-        l = n(31809),
-        a = n(14241),
-        o = n(64174),
-        d = n(21802),
-        c = n(89822),
-        x = n(44876),
-        h = n(55570),
-        C = n(95004),
-        g = n(74699),
-        p = n(47983),
-        j = n(55329),
-        m = n(36074);
-      let u = ({ advancedMode: [e, t], label: n }) => {
-        let r = (0, s.jsx)(j.A, {
+        i = n(27261),
+        r = n.n(i),
+        a = n(62942),
+        l = n(7005),
+        o = n(45629),
+        d = n(87401),
+        c = n(81473);
+      let x = { small: 'buttonS', medium: 'buttonM', large: 'headingMBold' },
+        h = ({
+          variant: e = 'contained',
+          size: t = 'small',
+          muiVariant: n,
+          options: i,
+          onChange: h,
+          value: C,
+          textVariant: g,
+          ...p
+        }) => {
+          let j = (0, a.usePathname)();
+          return (0, s.jsx)(o.A, {
+            variant: n,
+            textColor: 'inherit',
+            value: C ?? !1,
+            onChange: (e, t) => h?.(t),
+            className: `${c.gH[e]} ${c.Mw[t]}`,
+            ...p,
+            children: i.map(({ value: e, label: n, sx: i, ...a }) =>
+              (0, s.jsx)(
+                l.A,
+                {
+                  value: e,
+                  component: r(),
+                  href: `${j}?tab=${e}`,
+                  label: (0, s.jsx)(d.A, { variant: g ?? x[t], children: n }),
+                  sx: { ...i, whiteSpace: 'nowrap' },
+                  ...a,
+                },
+                e
+              )
+            ),
+          });
+        };
+    },
+    44431: (e, t, n) => {
+      n.d(t, { Y: () => e2, g: () => e6 });
+      var s = n(54568),
+        i = n(62942),
+        r = n(7620),
+        a = n(31809),
+        l = n(14241),
+        o = n(68153),
+        d = n(44042),
+        c = n(64174),
+        x = n(21802),
+        h = n(89822),
+        C = n(44876),
+        g = n(55570),
+        p = n(95004),
+        j = n(47983),
+        m = n(55329),
+        u = n(36074);
+      let f = ({ advancedMode: [e, t], label: n }) => {
+        let i = (0, s.jsx)(m.A, {
           checked: e,
           onChange: () => t(!e),
-          inputProps: { ...(!n && { 'aria-label': (0, m.t)`Advanced mode` }) },
+          inputProps: { ...(!n && { 'aria-label': (0, u.t)`Advanced mode` }) },
           size: 'small',
         });
-        return (0, s.jsx)(x.A, {
+        return (0, s.jsx)(C.A, {
           display: 'inline-flex',
           alignItems: 'center',
-          children: n ? (0, s.jsx)(p.A, { control: r, label: n, sx: { marginLeft: 2 } }) : r,
+          children: n ? (0, s.jsx)(j.A, { control: i, label: n, sx: { marginLeft: 2 } }) : i,
         });
       };
-      var f = n(63797),
-        v = n(1117),
-        A = n(24388),
-        w = n(2926),
-        b = n(33431),
-        y = n(15984),
-        k = n(42822),
-        L = n(34202),
-        M = n(65209),
-        S = n(72415),
-        I = n(7834),
-        z = n.n(I),
-        T = n(27261),
-        B = n.n(T),
-        E = n(62082),
+      var v = n(63797),
+        A = n(1117),
+        w = n(24388),
+        b = n(2926),
+        y = n(33431),
+        k = n(15984),
+        L = n(42822),
+        M = n(34202),
+        S = n(65209),
+        I = n(72415),
+        z = n(7834),
+        T = n.n(z),
+        B = n(27261),
+        E = n.n(B),
         N = n(76653),
-        P = n(87401),
-        D = n(69879);
-      let O = (0, D.A)(
-        (0, s.jsxs)('svg', {
-          width: '18',
-          height: '18',
-          viewBox: '0 0 18 18',
-          fill: 'none',
-          xmlns: 'http://www.w3.org/2000/svg',
-          children: [
-            (0, s.jsx)('path', {
-              d: 'M12.5452 6.38367C12.7571 6.08256 12.6848 5.66669 12.3837 5.4548C12.0826 5.24291 11.6667 5.31523 11.4548 5.61634L7.69302 10.9621L6.14241 9.38276C5.88446 9.12003 5.46236 9.11616 5.19964 9.37411C4.93691 9.63206 4.93304 10.0542 5.19099 10.3169L7.3021 12.4671C7.44072 12.6082 7.63489 12.6806 7.83209 12.6645C8.02929 12.6483 8.20915 12.5455 8.32302 12.3837L12.5452 6.38367Z',
-              fill: 'currentColor',
-            }),
-            (0, s.jsx)('path', {
-              fillRule: 'evenodd',
-              clipRule: 'evenodd',
-              d: 'M8.99988 0.169403C4.12296 0.169403 0.169434 4.12293 0.169434 8.99984C0.169434 13.8767 4.12296 17.8303 8.99988 17.8303C13.8768 17.8303 17.8303 13.8767 17.8303 8.99984C17.8303 4.12293 13.8768 0.169403 8.99988 0.169403ZM1.4361 8.99984C1.4361 4.82249 4.82252 1.43607 8.99988 1.43607C13.1772 1.43607 16.5637 4.82249 16.5637 8.99984C16.5637 13.1772 13.1772 16.5636 8.99988 16.5636C4.82253 16.5636 1.4361 13.1772 1.4361 8.99984Z',
-              fill: 'currentColor',
-            }),
-          ],
-        }),
-        'Checked'
-      );
-      var Z = n(76586),
+        P = n(49770),
+        D = n(87401),
         H = n(84032);
-      let V = ({ children: e }) =>
-        (0, s.jsx)(P.A, {
+      let O = ({ children: e }) =>
+        (0, s.jsx)(D.A, {
           variant: 'headingXsBold',
           sx: (e) => ({
             position: 'sticky',
@@ -89,77 +127,67 @@
           }),
           children: e,
         });
-      var $ = n(97912),
+      var V = n(97912),
         F = n(61773);
-      let R = ({ chain: { chainId: e, label: t, src: n }, size: r = 28 }) =>
-        (0, s.jsx)(x.A, {
+      let $ = ({ chain: { chainId: e, label: t, src: n }, size: i = 28 }) =>
+        (0, s.jsx)(C.A, {
           component: 'span',
           alignItems: 'center',
           display: 'flex',
           'data-testid': `chain-icon-${e}`,
-          children: (0, s.jsx)(F.default, { alt: t, src: n, loading: 'lazy', width: r, height: r }),
+          children: (0, s.jsx)(F.default, { alt: t, src: n, loading: 'lazy', width: i, height: i }),
         });
-      var W = (function (e) {
+      var Z = (function (e) {
         return (e.test = 'test'), (e.main = 'main'), e;
-      })(W || {});
-      let Y = ({ chain: e, isSelected: t }) =>
-        (0, s.jsx)(Z.O, {
-          hoverEl: (0, i.useRef)(null).current,
-          children: (0, s.jsxs)(E.A, {
-            component: B(),
-            href: (function (e) {
-              let t = (0, r.usePathname)() ?? '';
-              return (0, i.useMemo)(() => {
-                let [, n = d.WU[0], , ...s] = t.split('/');
-                return ['', n, e, ...s].join('/');
-              }, [e, t]);
-            })(e.networkId),
-            'data-testid': `menu-item-chain-${e.chainId}`,
-            selected: t,
-            tabIndex: 0,
-            children: [
-              (0, s.jsx)(R, { chain: e, size: 36 }),
-              (0, s.jsx)(P.A, { sx: { flexGrow: 1 }, variant: 'headingXsBold', children: e.label }),
-              t && (0, s.jsx)(O, {}),
-            ],
-          }),
-        });
-      function _({ options: e, showTestnets: t, selectedNetwork: n }) {
-        let [r, l] = (0, i.useState)(''),
-          a = (0, i.useMemo)(
+      })(Z || {});
+      function W({ options: e, showTestnets: t, selectedNetwork: n }) {
+        let a = (0, i.usePathname)() || '',
+          [l, o] = (0, r.useState)(''),
+          d = (0, r.useMemo)(
             () =>
-              z()(
-                e.filter((e) => e.label.toLocaleLowerCase().includes(r.toLocaleLowerCase())),
+              T()(
+                e.filter((e) => e.label.toLocaleLowerCase().includes(l.toLocaleLowerCase())),
                 (e) => (e.isTestnet ? 'test' : 'main')
               ),
-            [e, r]
+            [e, l]
           ),
-          o = { test: (0, m.t)`Test networks`, main: (0, m.t)`Main networks` },
-          d = Object.entries(a);
+          c = { test: (0, u.t)`Test networks`, main: (0, u.t)`Main networks` },
+          h = Object.entries(d);
         return (0, s.jsxs)(s.Fragment, {
           children: [
-            (0, s.jsx)($.L, {
+            (0, s.jsx)(V.L, {
               sx: { marginBottom: 2 },
-              placeholder: (0, m.t)`Search Networks`,
-              onSearch: l,
+              placeholder: (0, u.t)`Search Networks`,
+              onSearch: o,
               name: 'chainName',
             }),
-            (0, s.jsx)(x.A, {
+            (0, s.jsx)(C.A, {
               sx: { overflowY: 'auto', flexGrow: '1' },
-              children: d.length
-                ? d
+              children: h.length
+                ? h
                     .filter(([e]) => t || 'test' !== e)
-                    .flatMap(([e, r]) =>
+                    .flatMap(([e, i]) =>
                       (0, s.jsxs)(
-                        i.Fragment,
+                        r.Fragment,
                         {
                           children: [
-                            t && (0, s.jsx)(V, { children: o[e] }),
+                            t && (0, s.jsx)(O, { children: c[e] }),
                             (0, s.jsx)(N.A, {
-                              children: r.map((e) =>
+                              children: i.map((e) =>
                                 (0, s.jsx)(
-                                  Y,
-                                  { chain: e, isSelected: e.chainId == n?.chainId },
+                                  P.D,
+                                  {
+                                    'data-testid': `menu-item-chain-${e.chainId}`,
+                                    value: e.chainId,
+                                    component: E(),
+                                    href: (function (e, t) {
+                                      let [, n = x.WU[0], , ...s] = e.split('/');
+                                      return ['', n, t, ...s].join('/');
+                                    })(a, e.networkId),
+                                    isSelected: e.chainId == n?.chainId,
+                                    icon: (0, s.jsx)($, { chain: e, size: 36 }),
+                                    label: e.label,
+                                  },
                                   e.chainId
                                 )
                               ),
@@ -169,126 +197,126 @@
                         e
                       )
                     )
-                : (0, s.jsx)(A.A, {
+                : (0, s.jsx)(w.A, {
                     variant: 'filled',
                     severity: 'info',
                     sx: { marginTop: 3 },
-                    children: (0, s.jsx)(w.A, { children: (0, m.t)`No networks found` }),
+                    children: (0, s.jsx)(b.A, { children: (0, u.t)`No networks found` }),
                   }),
             }),
           ],
         });
       }
-      let X = ({ showTestnets: e, setShowTestnets: t }) =>
-          (0, s.jsxs)(x.A, {
+      let R = ({ showTestnets: e, setShowTestnets: t }) =>
+          (0, s.jsxs)(C.A, {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             children: [
-              (0, s.jsx)(P.A, {
+              (0, s.jsx)(D.A, {
                 variant: 'headingXsBold',
                 display: 'inline-block',
                 sx: { marginLeft: 4, marginRight: 2 },
-                children: (0, m.t)`Show testnets`,
+                children: (0, u.t)`Show testnets`,
               }),
-              (0, s.jsx)(j.A, {
+              (0, s.jsx)(m.A, {
                 checked: e,
                 onChange: () => t(!e),
                 color: 'primary',
-                inputProps: { 'aria-label': (0, m.t)`Show testnets` },
+                inputProps: { 'aria-label': (0, u.t)`Show testnets` },
                 size: 'small',
               }),
             ],
           }),
-        G = ({ options: e, chainId: t, headerHeight: n }) => {
-          let { connectState: r } = (0, g.w5)(),
-            [l, , a, d] = (0, k.K)(),
-            [c, x, C] = (0, k.K)(),
-            [p, j, u] = (0, k.K)(),
-            [I, z] = (0, o.Mj)('showTestnets', !1),
-            T = (0, i.useMemo)(() => e.find((e) => e.chainId === t) ?? e[0], [e, t]);
-          (0, i.useEffect)(() => () => a(), [t, a]);
-          let B = e.length > 1 ? d : x;
+        Y = ({ options: e, chainId: t, headerHeight: n }) => {
+          let { connectState: i } = (0, o.w5)(),
+            [a, , l, d] = (0, L.K)(),
+            [x, h, C] = (0, L.K)(),
+            [p, j, m] = (0, L.K)(),
+            [f, z] = (0, c.xM)(),
+            T = (0, r.useMemo)(() => e.find((e) => e.chainId === t) ?? e[0], [e, t]);
+          (0, r.useEffect)(() => () => l(), [t, l]);
+          let B = e.length > 1 ? d : h;
           return (0, s.jsxs)(s.Fragment, {
             children: [
-              (0, s.jsxs)(b.A, {
+              (0, s.jsxs)(y.A, {
                 size: 'small',
-                disabled: (0, g.VP)(r, g.Ej.SWITCH_NETWORK),
+                disabled: (0, o.VP)(i, o.Ej.SWITCH_NETWORK),
                 onClick: B,
                 'data-testid': 'btn-change-chain',
-                children: [T && (0, s.jsx)(R, { chain: T }), e.length > 1 && (0, s.jsx)(v.A, {})],
+                children: [T && (0, s.jsx)($, { chain: T }), e.length > 1 && (0, s.jsx)(A.A, {})],
               }),
-              (0, s.jsx)(y.A, {
-                open: c,
+              (0, s.jsx)(k.A, {
+                open: x,
                 onClose: C,
                 anchorOrigin: { horizontal: 'center', vertical: 'top' },
                 sx: { top: n },
-                autoHideDuration: S.dw.Snackbar,
-                children: (0, s.jsx)(h.A, {
+                autoHideDuration: I.dw.Snackbar,
+                children: (0, s.jsx)(g.A, {
                   sx: { justifyContent: 'end', marginTop: 4 },
-                  children: (0, s.jsx)(A.A, {
+                  children: (0, s.jsx)(w.A, {
                     variant: 'filled',
                     severity: 'warning',
                     'data-testid': 'alert-eth-only',
-                    children: (0, s.jsx)(w.A, {
+                    children: (0, s.jsx)(b.A, {
                       children: (0,
-                      m.t)`This application is only available on the Ethereum Mainnet`,
+                      u.t)`This application is only available on the Ethereum Mainnet`,
                     }),
                   }),
                 }),
               }),
-              null != l &&
-                (0, s.jsx)(L.y, {
-                  open: l,
-                  onClose: a,
-                  title: p ? (0, m.t)`Select Network Settings` : (0, m.t)`Select Network`,
-                  titleAction: p && (0, s.jsx)(b.A, { onClick: u, children: (0, s.jsx)(f.A, {}) }),
-                  footer: !p && (0, s.jsx)(M.l, { onClick: j }),
+              null != a &&
+                (0, s.jsx)(M.y, {
+                  open: a,
+                  onClose: l,
+                  title: p ? (0, u.t)`Select Network Settings` : (0, u.t)`Select Network`,
+                  titleAction: p && (0, s.jsx)(y.A, { onClick: m, children: (0, s.jsx)(v.A, {}) }),
+                  footer: !p && (0, s.jsx)(S.l, { onClick: j }),
                   children: p
-                    ? (0, s.jsx)(X, { showTestnets: I, setShowTestnets: z })
-                    : (0, s.jsx)(_, { showTestnets: I, options: e, selectedNetwork: T }),
+                    ? (0, s.jsx)(R, { showTestnets: f, setShowTestnets: z })
+                    : (0, s.jsx)(W, { showTestnets: f, options: e, selectedNetwork: T }),
                 }),
             ],
           });
         };
-      var K = n(35018);
-      let U = ({ theme: e, onChange: t }) =>
-        K.Z.map(({ type: n, Component: r }) =>
+      var _ = n(35018);
+      let X = ({ theme: e, onChange: t }) =>
+        _.Z.map(({ type: n, Component: i }) =>
           (0, s.jsx)(
-            b.A,
+            y.A,
             {
               size: 'small',
               onClick: () => t(n),
               className: e === n ? 'current' : '',
               'data-testid': `theme-switcher-button-${n}`,
-              children: (0, s.jsx)(r, { size: 18 }),
+              children: (0, s.jsx)(i, { size: 18 }),
             },
             n
           )
         );
-      var J = n(69228);
-      let q = ({ theme: e, onChange: t, label: n }) => {
-        let r = K.Z.findIndex((t) => t.type === e),
-          l = -1 === r ? 0 : r,
-          a = (0, i.useCallback)(() => {
-            let e = (l + 1) % K.Z.length;
-            t(K.Z[e].type);
-          }, [l, t]),
-          { Component: o } = K.Z[l];
-        return (0, s.jsx)(J.m, {
+      var G = n(69228);
+      let K = ({ theme: e, onChange: t, label: n }) => {
+        let i = _.Z.findIndex((t) => t.type === e),
+          a = -1 === i ? 0 : i,
+          l = (0, r.useCallback)(() => {
+            let e = (a + 1) % _.Z.length;
+            t(_.Z[e].type);
+          }, [a, t]),
+          { Component: o } = _.Z[a];
+        return (0, s.jsx)(G.m, {
           title: n,
-          children: (0, s.jsx)(b.A, {
+          children: (0, s.jsx)(y.A, {
             size: 'small',
-            onClick: a,
+            onClick: l,
             sx: { padding: 2 },
             'data-testid': `theme-switcher-${e}`,
             children: (0, s.jsx)(o, { size: 28 }),
           }),
         });
       };
-      var Q = n(75911),
-        ee = n(33550);
-      let et = (0, D.A)(
+      var q = n(75911),
+        U = n(69879);
+      let J = (0, U.A)(
         (0, s.jsxs)('svg', {
           viewBox: '0 0 16 16',
           fill: 'none',
@@ -322,11 +350,11 @@
         }),
         'Llama'
       );
-      var en = n(56120),
-        es = n(33161),
-        er = n(31184),
-        ei = n(74043);
-      let el = {
+      var Q = n(56120),
+        ee = n(33161),
+        et = n(31184),
+        en = n(74043);
+      let es = {
           default: {
             border: (e) => `1px solid ${e.design.Layer.Highlight.Outline}`,
             backgroundColor: (e) => e.design.Layer[1].Fill,
@@ -338,154 +366,155 @@
           alert: { backgroundColor: (e) => e.design.Layer.Feedback.Error },
           warning: { backgroundColor: (e) => e.design.Layer.Feedback.Warning },
         },
-        ea = {
+        ei = {
           default: 'textHighlight',
           alert: 'textPrimary',
           warning: 'textPrimary',
           highlight: 'textPrimary',
         },
-        eo = { default: !1, alert: !0, warning: !1, highlight: !0 },
-        { MaxWidth: ed, Spacing: ec } = H.B,
-        ex = ({ onClick: e, buttonText: t, children: n, severity: r = 'default' }) =>
-          (0, s.jsx)(es.A, {
+        er = { default: !1, alert: !0, warning: !1, highlight: !0 },
+        { MaxWidth: ea, Spacing: el } = H.B,
+        eo = ({ onClick: e, buttonText: t, children: n, severity: i = 'default' }) =>
+          (0, s.jsx)(ee.A, {
             sx: {
               display: 'flex',
-              gap: ec.md,
+              gap: el.md,
               alignSelf: 'stretch',
-              paddingInline: ec.md,
-              paddingBlock: ec.xs,
+              paddingInline: el.md,
+              paddingBlock: el.xs,
               alignItems: 'center',
               justifyContent: 'center',
-              ...el[r],
+              ...es[i],
             },
-            children: (0, s.jsxs)(er.A, {
+            children: (0, s.jsxs)(et.A, {
               direction: 'row',
-              sx: { width: '100%', maxWidth: ed.banner },
+              sx: { width: '100%', maxWidth: ea.banner },
               alignItems: 'center',
               justifyContent: 'space-between',
               children: [
-                (0, s.jsx)(ei.i, {
-                  inverted: eo[r],
-                  children: (0, s.jsx)(P.A, {
-                    color: ea[r],
+                (0, s.jsx)(en.i, {
+                  inverted: er[i],
+                  children: (0, s.jsx)(D.A, {
+                    color: ei[i],
                     variant: 'headingXsBold',
                     children: n,
                   }),
                 }),
                 t &&
-                  (0, s.jsx)(en.A, { color: 'ghost', onClick: e, size: 'extraSmall', children: t }),
+                  (0, s.jsx)(Q.A, { color: 'ghost', onClick: e, size: 'extraSmall', children: t }),
               ],
             }),
           });
-      var eh = n(40459);
-      let { IconSize: eC } = H.B,
-        eg = eh.env.NEXT_PUBLIC_MAINTENANCE_MESSAGE,
-        ep = (0, i.forwardRef)(({ networkId: e, chainId: t }, n) => {
-          let { wallet: r } = (0, g.vT)(),
-            [, i] = (0, g.v3)(),
-            { connectState: l } = (0, g.w5)(),
-            a = (0, g.N6)(l, g.Ej.CONNECT_API),
-            d = (r && (0, g.oe)(r) != t) || (0, g.N6)(l, g.Ej.SWITCH_NETWORK),
-            [c, h] = (0, o.Mj)('beta');
+      var ed = n(84826),
+        ec = n(40459);
+      let { IconSize: ex } = H.B,
+        eh = ec.env.NEXT_PUBLIC_MAINTENANCE_MESSAGE,
+        eC = (0, r.forwardRef)(({ networkId: e, chainId: t }, n) => {
+          let [i, r] = (0, c.iq)(),
+            a = i && !ed.OC,
+            { wallet: l } = (0, o.vT)(),
+            d = (0, o.v3)(),
+            { connectState: x } = (0, o.w5)(),
+            h = (0, o.N6)(x, o.Ej.CONNECT_API),
+            g = (l && (0, o.oe)(l) != t) || (0, o.N6)(x, o.Ej.SWITCH_NETWORK);
           return (
-            (d || a || eg || c) &&
-            (0, s.jsxs)(x.A, {
+            (g || h || eh || a) &&
+            (0, s.jsxs)(C.A, {
               ref: n,
               children: [
-                c &&
-                  (0, s.jsxs)(ex, {
-                    onClick: () => h(!1),
-                    buttonText: (0, m.t)`Disable Beta Mode`,
+                a &&
+                  (0, s.jsxs)(eo, {
+                    onClick: () => r(!1),
+                    buttonText: (0, u.t)`Disable Beta Mode`,
                     children: [
-                      (0, s.jsx)(et, { sx: { width: eC.sm, height: eC.sm } }),
+                      (0, s.jsx)(J, { sx: { width: ex.sm, height: ex.sm } }),
                       ' ',
-                      (0, m.t)`BETA MODE ENABLED`,
+                      (0, u.t)`BETA MODE ENABLED`,
                     ],
                   }),
-                eg && (0, s.jsx)(ex, { severity: 'warning', children: eg }),
-                d &&
-                  (0, s.jsxs)(ex, {
+                eh && (0, s.jsx)(eo, { severity: 'warning', children: eh }),
+                g &&
+                  (0, s.jsxs)(eo, {
                     severity: 'warning',
-                    buttonText: (0, m.t)`Change network`,
-                    onClick: () => i({ chainId: ee.nD(t) }),
+                    buttonText: (0, u.t)`Change network`,
+                    onClick: () => d(t),
                     children: [
-                      (0, m.t)`Please switch your wallet's network to`,
+                      (0, u.t)`Please switch your wallet's network to`,
                       ' ',
                       (0, s.jsx)('strong', { children: e }),
                       ' ',
-                      (0, m.t)`to use Curve on`,
+                      (0, u.t)`to use Curve on`,
                       ' ',
                       (0, s.jsx)('strong', { children: e }),
                       '.',
                       ' ',
                     ],
                   }),
-                a &&
-                  (0, s.jsx)(ex, {
+                h &&
+                  (0, s.jsx)(eo, {
                     severity: 'alert',
                     children: (0,
-                    m.t)`There is an issue connecting to the API. You can try switching your RPC or, if you are connected to a wallet, please switch to a different one.`,
+                    u.t)`There is an issue connecting to the API. You can try switching your RPC or, if you are connected to a wallet, please switch to a different one.`,
                   }),
               ],
             })
           );
         });
-      ep.displayName = 'GlobalBanner';
-      var ej = n(17147),
-        em = n(84826),
-        eu = n(51121);
-      let ef = ({ currentMenu: e, onChange: t, networkId: n }) =>
-        (0, s.jsx)(x.A, {
+      eC.displayName = 'GlobalBanner';
+      var eg = n(17147),
+        ep = n(51121);
+      let ej = ({ currentMenu: e, onChange: t, networkId: n }) =>
+        (0, s.jsx)(C.A, {
           display: 'flex',
           alignItems: 'center',
           marginX: [2, 3, 4],
           gap: 2,
-          children: Object.entries(d.VS).map(([r, { label: i, routes: l }]) =>
+          children: Object.entries(x.VS).map(([i, { label: r, routes: a }]) =>
             (0, s.jsx)(
-              en.A,
+              Q.A,
               {
                 color: 'navigation',
                 size: 'small',
-                className: e === r ? 'current' : '',
-                component: eu.A,
-                onClick: () => t(r),
-                href: (0, d.PE)(l[0].app, n),
-                'data-testid': `app-link-${r}`,
-                children: i,
+                className: e === i ? 'current' : '',
+                component: ep.A,
+                onClick: () => t(i),
+                href: (0, x.PE)(a[0].app, n),
+                'data-testid': `app-link-${i}`,
+                children: r,
               },
-              r
+              i
             )
           ),
         });
-      var ev = n(32678),
-        eA = n(4387);
-      let ew = (0, ev.Ay)('img')({ width: 30, marginRight: 8 }),
-        eb = eA.jp.src,
-        ey = { dex: 'Curve', lend: 'LLAMALEND', crvusd: 'crvUSD', dao: 'DAO' },
-        ek = ({ currentMenu: e, isLite: t, sx: n }) =>
-          (0, s.jsxs)(eu.A, {
+      var em = n(32678),
+        eu = n(4387);
+      let ef = (0, em.Ay)('img')({ width: 30, marginRight: 8 }),
+        ev = eu.jp.src,
+        eA = { dex: 'Curve', lend: 'LLAMALEND', crvusd: 'crvUSD', dao: 'DAO' },
+        ew = ({ currentMenu: e, isLite: t, sx: n }) =>
+          (0, s.jsxs)(ep.A, {
             href: '/',
             sx: { display: 'flex', alignItems: 'center', textDecoration: 'none', ...n },
             children: [
-              (0, s.jsx)(ew, { src: eb, alt: 'Curve', width: 30 }),
-              (0, s.jsxs)(x.A, {
+              (0, s.jsx)(ef, { src: ev, alt: 'Curve', width: 30 }),
+              (0, s.jsxs)(C.A, {
                 display: 'inline-flex',
                 flexDirection: 'column',
                 children: [
-                  (0, s.jsx)(P.A, {
+                  (0, s.jsx)(D.A, {
                     variant: 'headingSBold',
                     sx: { '&': { lineHeight: '1.2rem' }, textTransform: 'none' },
                     color: 'textPrimary',
-                    children: ey[e],
+                    children: eA[e],
                   }),
                   'dex' === e
                     ? t &&
-                      (0, s.jsx)(P.A, {
+                      (0, s.jsx)(D.A, {
                         variant: 'bodyXsBold',
                         color: 'textTertiary',
                         children: 'Lite',
                       })
-                    : (0, s.jsx)(P.A, {
+                    : (0, s.jsx)(D.A, {
                         variant: 'bodyXsRegular',
                         color: 'textTertiary',
                         children: 'powered by Curve',
@@ -494,36 +523,36 @@
               }),
             ],
           }),
-        eL = ({ appStats: e }) =>
+        eb = ({ appStats: e }) =>
           e?.map(({ label: e, value: t }) =>
             s.jsxs(
-              x.A,
+              C.A,
               {
                 display: 'inline-flex',
                 alignItems: 'baseline',
                 children: [
-                  s.jsxs(P.A, {
+                  s.jsxs(D.A, {
                     variant: 'bodyMRegular',
                     color: 'grey.600',
                     sx: { whiteSpace: 'nowrap' },
                     children: [e, ':'],
                   }),
                   '\xa0',
-                  s.jsx(P.A, { variant: 'highlightM', color: 'text.primary', children: t || '-' }),
+                  s.jsx(D.A, { variant: 'highlightM', color: 'text.primary', children: t || '-' }),
                 ],
               },
               e
             )
           );
-      var eM = n(42374);
-      let eS = ({ pages: e }) =>
-          (0, s.jsx)(eM.u, {
-            value: (0, i.useMemo)(() => e.find(({ isActive: e }) => e)?.href, [e]),
-            options: (0, i.useMemo)(
+      var ey = n(42374);
+      let ek = ({ pages: e }) =>
+          (0, s.jsx)(ey.u, {
+            value: (0, r.useMemo)(() => e.find(({ isActive: e }) => e)?.href, [e]),
+            options: (0, r.useMemo)(
               () =>
                 e.map(({ label: e, href: t, target: n }) => ({
                   label: e,
-                  component: t.startsWith('http') ? eu.A : B(),
+                  component: t.startsWith('http') ? ep.A : E(),
                   value: t,
                   href: t,
                   target: n,
@@ -534,69 +563,69 @@
             muiVariant: 'standard',
             sx: { overflow: 'visible' },
           }),
-        eI = ({
+        eL = ({
           mainNavRef: e,
           currentMenu: t,
           chainId: n,
-          chains: r,
-          globalAlertRef: l,
-          height: a,
+          chains: i,
+          globalAlertRef: a,
+          height: l,
           pages: d,
-          appStats: p,
+          appStats: x,
           networkId: j,
-          isLite: f = !1,
+          isLite: m = !1,
         }) => {
-          let [v, A] = (0, i.useState)(t),
-            w = (0, Q.nv)((e) => e.theme),
-            b = (0, Q.nv)((e) => e.setTheme),
-            y = (0, Q.nv)((e) => e.isAdvancedMode),
-            k = (0, Q.nv)((e) => e.setAdvancedMode),
-            [L] = (0, o.Mj)('beta');
+          let [v, A] = (0, r.useState)(t),
+            w = (0, q.nv)((e) => e.theme),
+            b = (0, q.nv)((e) => e.setTheme),
+            y = (0, q.nv)((e) => e.isAdvancedMode),
+            k = (0, q.nv)((e) => e.setAdvancedMode),
+            [L] = (0, c.iq)();
           return (0, s.jsxs)(s.Fragment, {
             children: [
-              (0, s.jsxs)(c.A, {
+              (0, s.jsxs)(h.A, {
                 color: 'transparent',
                 ref: e,
                 children: [
-                  (0, s.jsx)(ep, { networkId: j, ref: l, chainId: n }),
-                  (0, s.jsx)(C.A, {
+                  (0, s.jsx)(eC, { networkId: j, ref: a, chainId: n }),
+                  (0, s.jsx)(p.A, {
                     sx: {
                       backgroundColor: (e) => e.design.Layer[1].Fill,
                       justifyContent: 'space-around',
                       paddingY: 3,
                     },
                     'data-testid': 'main-nav',
-                    children: (0, s.jsxs)(h.A, {
+                    children: (0, s.jsxs)(g.A, {
                       children: [
-                        (0, s.jsx)(ek, { isLite: f, currentMenu: t }),
-                        (0, s.jsx)(ef, { currentMenu: v, onChange: A, networkId: j }),
-                        (0, s.jsx)(x.A, { sx: { flexGrow: 1 } }),
-                        (0, s.jsxs)(x.A, {
+                        (0, s.jsx)(ew, { isLite: m, currentMenu: t }),
+                        (0, s.jsx)(ej, { currentMenu: v, onChange: A, networkId: j }),
+                        (0, s.jsx)(C.A, { sx: { flexGrow: 1 } }),
+                        (0, s.jsxs)(C.A, {
                           display: 'flex',
                           marginLeft: 2,
                           justifyContent: 'flex-end',
                           gap: 3,
                           alignItems: 'center',
                           children: [
-                            L && !em.OC
-                              ? (0, s.jsx)(Q.FD, {})
+                            L && !ed.OC
+                              ? (0, s.jsx)(q.FD, {})
                               : (0, s.jsxs)(s.Fragment, {
                                   children: [
-                                    (0, s.jsx)(u, {
+                                    (0, s.jsx)(f, {
                                       advancedMode: [y, k],
-                                      label: (0, m.t)`Advanced`,
+                                      label: (0, u.t)`Advanced`,
                                     }),
-                                    (0, s.jsx)(q, { theme: w, onChange: b, label: (0, m.t)`Mode` }),
+                                    (0, s.jsx)(K, { theme: w, onChange: b, label: (0, u.t)`Mode` }),
                                   ],
                                 }),
-                            (0, s.jsx)(G, { chainId: n, options: r, headerHeight: a }),
-                            (0, s.jsx)(g.vz, {}),
+                            (0, s.jsx)(Y, { chainId: n, options: i, headerHeight: l }),
+                            (0, s.jsx)(o.vz, {}),
                           ],
                         }),
                       ],
                     }),
                   }),
-                  (0, s.jsx)(C.A, {
+                  (0, s.jsx)(p.A, {
                     sx: {
                       backgroundColor: (e) => e.design.Layer[2].Fill,
                       justifyContent: 'space-around',
@@ -604,55 +633,55 @@
                       borderColor: (e) => e.design.Layer[2].Outline,
                       borderStyle: 'solid',
                       boxSizing: 'content-box',
-                      height: ej.wl,
+                      height: eg.wl,
                     },
                     'data-testid': 'subnav',
-                    children: (0, s.jsxs)(h.A, {
+                    children: (0, s.jsxs)(g.A, {
                       children: [
-                        (0, s.jsx)(eS, { pages: d }),
-                        (0, s.jsx)(x.A, { flexGrow: 1 }),
-                        (0, s.jsx)(x.A, {
+                        (0, s.jsx)(ek, { pages: d }),
+                        (0, s.jsx)(C.A, { flexGrow: 1 }),
+                        (0, s.jsx)(C.A, {
                           display: 'flex',
                           gap: 3,
                           alignItems: 'center',
                           sx: { textOverflow: 'ellipsis', overflow: 'hidden' },
-                          children: (0, s.jsx)(eL, { appStats: p }),
+                          children: (0, s.jsx)(eb, { appStats: x }),
                         }),
                       ],
                     }),
                   }),
                 ],
               }),
-              (0, s.jsx)(x.A, { height: a }),
+              (0, s.jsx)(C.A, { height: l }),
             ],
           });
         };
-      var ez = n(10470);
-      let eT = (0, ev.Ay)('svg')({ fill: 'currentColor', width: '24px', height: '24px' }),
-        eB = (0, ev.Ay)('path')``,
-        eE = ({ toggle: e, isOpen: t }) =>
-          (0, s.jsx)(b.A, {
+      var eM = n(10470);
+      let eS = (0, em.Ay)('svg')({ fill: 'currentColor', width: '24px', height: '24px' }),
+        eI = (0, em.Ay)('path')``,
+        ez = ({ toggle: e, isOpen: t }) =>
+          (0, s.jsx)(y.A, {
             onClick: e,
             sx: { display: 'inline-flex' },
             'data-testid': 'menu-toggle',
             size: 'small',
-            children: (0, s.jsxs)(eT, {
+            children: (0, s.jsxs)(eS, {
               focusable: 'false',
               'aria-hidden': 'true',
               viewBox: '0 0 24 24',
               children: [
-                (0, s.jsx)(eB, {
+                (0, s.jsx)(eI, {
                   d: 'M0 7h24v-2H0z',
                   sx: {
                     transition: 'transform 1.5s',
                     ...(t && { transform: 'skewY(-45deg) translate(0, 17px)' }),
                   },
                 }),
-                (0, s.jsx)(eB, {
+                (0, s.jsx)(eI, {
                   d: 'M0 13h24v-2H0z',
                   sx: { transition: 'opacity 1s', ...(t && { opacity: 0 }) },
                 }),
-                (0, s.jsx)(eB, {
+                (0, s.jsx)(eI, {
                   d: 'M0 19h24v-2H0z',
                   sx: {
                     transition: 'transform 1.5s',
@@ -662,80 +691,80 @@
               ],
             }),
           }),
-        eN = ({ ChainProps: e, currentMenu: t, isSidebarOpen: n, toggleSidebar: r, isLite: i }) =>
-          (0, s.jsxs)(er.A, {
+        eT = ({ ChainProps: e, currentMenu: t, isSidebarOpen: n, toggleSidebar: i, isLite: r }) =>
+          (0, s.jsxs)(et.A, {
             direction: 'row',
             width: '100%',
             paddingX: 2,
             children: [
-              (0, s.jsx)(eE, { isOpen: n, toggle: r }),
-              (0, s.jsx)(ek, { isLite: i, currentMenu: t }),
-              (0, s.jsx)(er.A, { flexGrow: 1 }),
-              (0, s.jsx)(G, { ...e }),
+              (0, s.jsx)(ez, { isOpen: n, toggle: i }),
+              (0, s.jsx)(ew, { isLite: r, currentMenu: t }),
+              (0, s.jsx)(et.A, { flexGrow: 1 }),
+              (0, s.jsx)(Y, { ...e }),
             ],
           });
-      var eP = n(6572),
-        eD = n(30513),
-        eO = n(74145),
-        eZ = n(52187),
-        eH = n(19245);
-      let eV = 'background.paper',
-        e$ = ({ onConnect: e }) => {
-          let t = (0, Q.nv)((e) => e.theme),
-            n = (0, Q.nv)((e) => e.setTheme),
-            r = (0, Q.nv)((e) => e.isAdvancedMode),
-            i = (0, Q.nv)((e) => e.setAdvancedMode);
+      var eB = n(6572),
+        eE = n(30513),
+        eN = n(74145),
+        eP = n(52187),
+        eD = n(19245);
+      let eH = 'background.paper',
+        eO = ({ onConnect: e }) => {
+          let t = (0, q.nv)((e) => e.theme),
+            n = (0, q.nv)((e) => e.setTheme),
+            i = (0, q.nv)((e) => e.isAdvancedMode),
+            r = (0, q.nv)((e) => e.setAdvancedMode);
           return (0, s.jsxs)(s.Fragment, {
             children: [
-              (0, s.jsxs)(x.A, {
+              (0, s.jsxs)(C.A, {
                 position: 'fixed',
                 bottom: 0,
-                sx: (e) => ({ ...ej.be, zIndex: e.zIndex.drawer + 1, backgroundColor: eV }),
+                sx: (e) => ({ ...eg.be, zIndex: e.zIndex.drawer + 1, backgroundColor: eH }),
                 children: [
-                  (0, s.jsx)(x.A, {
+                  (0, s.jsx)(C.A, {
                     display: 'flex',
                     paddingX: 4,
                     marginTop: 4,
-                    children: (0, s.jsx)(g.vz, { sx: { flexGrow: 1 }, onConnect: e }),
+                    children: (0, s.jsx)(o.vz, { sx: { flexGrow: 1 }, onConnect: e }),
                   }),
-                  (0, s.jsxs)(eD.A, {
-                    sx: { backgroundColor: eV },
+                  (0, s.jsxs)(eE.A, {
+                    sx: { backgroundColor: eH },
                     disableGutters: !0,
                     children: [
-                      (0, s.jsxs)(eZ.A, {
-                        expandIcon: (0, s.jsx)(eP.A, {}),
-                        sx: { backgroundColor: eV, paddingInline: 4 },
+                      (0, s.jsxs)(eP.A, {
+                        expandIcon: (0, s.jsx)(eB.A, {}),
+                        sx: { backgroundColor: eH, paddingInline: 4 },
                         children: [
-                          (0, s.jsx)(eH.L, {
+                          (0, s.jsx)(eD.L, {
                             sx: { fontSize: 22, fill: 'transparent', stroke: 'currentColor' },
                           }),
-                          (0, s.jsx)(P.A, {
+                          (0, s.jsx)(D.A, {
                             sx: { marginLeft: 1, alignContent: 'center' },
                             variant: 'bodyMBold',
                             color: 'navigation',
                             'data-testid': 'sidebar-settings',
-                            children: (0, m.t)`Settings`,
+                            children: (0, u.t)`Settings`,
                           }),
                         ],
                       }),
-                      (0, s.jsxs)(eO.A, {
+                      (0, s.jsxs)(eN.A, {
                         sx: {
-                          backgroundColor: eV,
+                          backgroundColor: eH,
                           borderTop: (e) => `1px solid ${e.palette.text.secondary}`,
                           paddingBottom: 4,
                         },
                         children: [
-                          (0, s.jsx)(eF, {
-                            label: (0, m.t)`Mode`,
-                            children: (0, s.jsx)(U, {
+                          (0, s.jsx)(eV, {
+                            label: (0, u.t)`Mode`,
+                            children: (0, s.jsx)(X, {
                               theme: t,
                               onChange: n,
-                              label: (0, m.t)`Mode`,
+                              label: (0, u.t)`Mode`,
                             }),
                           }),
-                          (0, s.jsx)(eF, {
-                            label: (0, m.t)`Advanced Mode`,
-                            children: (0, s.jsx)(u, { advancedMode: [r, i] }),
+                          (0, s.jsx)(eV, {
+                            label: (0, u.t)`Advanced Mode`,
+                            children: (0, s.jsx)(f, { advancedMode: [i, r] }),
                           }),
                         ],
                       }),
@@ -743,40 +772,40 @@
                   }),
                 ],
               }),
-              (0, s.jsx)(x.A, { minHeight: 150 }),
+              (0, s.jsx)(C.A, { minHeight: 150 }),
               ' ',
             ],
           });
         },
-        eF = ({ label: e, children: t, ...n }) =>
-          (0, s.jsxs)(x.A, {
+        eV = ({ label: e, children: t, ...n }) =>
+          (0, s.jsxs)(C.A, {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
             ...n,
             children: [
-              (0, s.jsx)(P.A, {
+              (0, s.jsx)(D.A, {
                 variant: 'bodyMBold',
                 color: 'navigation',
                 marginLeft: 2,
                 sx: { display: 'flex', alignItems: 'center' },
                 children: e,
               }),
-              (0, s.jsx)(x.A, { display: 'flex', alignItems: 'center', children: t }),
+              (0, s.jsx)(C.A, { display: 'flex', alignItems: 'center', children: t }),
             ],
           });
-      var eR = n(78006),
-        eW = n(83721),
-        eY = n(99825),
-        e_ = n(30234);
-      let eX = ({ page: e, child: t }) =>
-          (0, s.jsx)(e_.Ay, {
+      var eF = n(78006),
+        e$ = n(83721),
+        eZ = n(99825),
+        eW = n(30234);
+      let eR = ({ page: e, child: t }) =>
+          (0, s.jsx)(eW.Ay, {
             disableGutters: !0,
             sx: { display: 'flex', paddingY: 0, paddingRight: 4, paddingLeft: 4 * !!t },
-            children: (0, s.jsx)(en.A, {
+            children: (0, s.jsx)(Q.A, {
               ...(e.href.startsWith('http')
-                ? { component: eu.A, href: e.href, target: e.target }
-                : { component: B(), href: e.href, className: e.isActive ? 'current' : '' }),
+                ? { component: ep.A, href: e.href, target: e.target }
+                : { component: E(), href: e.href, className: e.isActive ? 'current' : '' }),
               color: 'navigation',
               size: 'small',
               'data-testid': `sidebar-item-${e.label.toLowerCase()}`,
@@ -789,29 +818,29 @@
               children: e.label,
             }),
           }),
-        eG = ({ pages: e, title: t, children: n }) =>
-          (0, s.jsxs)(eR.A, {
-            subheader: (0, s.jsxs)(eW.A, {
+        eY = ({ pages: e, title: t, children: n }) =>
+          (0, s.jsxs)(eF.A, {
+            subheader: (0, s.jsxs)(e$.A, {
               disableSticky: !0,
               sx: { padding: 0 },
               children: [
-                (0, s.jsx)(P.A, {
+                (0, s.jsx)(D.A, {
                   variant: 'headingSBold',
                   color: 'text.primary',
                   sx: { paddingX: 4, paddingTop: 4, paddingBottom: 2 },
                   children: t,
                 }),
-                (0, s.jsx)(eY.A, {}),
+                (0, s.jsx)(eZ.A, {}),
               ],
             }),
             sx: { marginTop: 3 },
-            children: [e?.map((e) => s.jsx(eX, { child: !0, page: e }, e.href)), n],
+            children: [e?.map((e) => s.jsx(eR, { child: !0, page: e }, e.href)), n],
           });
-      var eK = n(41390),
-        eU = n(5404),
-        eJ = n(99730),
-        eq = n(14766);
-      let eQ = (0, D.A)(
+      var e_ = n(41390),
+        eX = n(5404),
+        eG = n(99730),
+        eK = n(14766);
+      let eq = (0, U.A)(
           (0, s.jsx)('svg', {
             version: '1.1',
             xmlns: 'http://www.w3.org/2000/svg',
@@ -827,225 +856,170 @@
           }),
           'Dodo'
         ),
-        e1 = ({ icon: e, href: t, label: n }) =>
-          (0, s.jsx)(b.A, {
-            component: eu.A,
+        eU = ({ icon: e, href: t, label: n }) =>
+          (0, s.jsx)(y.A, {
+            component: ep.A,
             href: t,
             target: '_blank',
             rel: 'noopener noreferrer',
             size: 'small',
-            children: (0, s.jsx)(J.m, {
+            children: (0, s.jsx)(G.m, {
               title: n,
               children: (0, s.jsx)(e, { fontSize: 'large', color: 'primary' }),
             }),
           }),
-        e0 = ({ title: e }) =>
-          (0, s.jsx)(eG, {
+        eJ = ({ title: e }) =>
+          (0, s.jsx)(eY, {
             title: e,
-            children: (0, s.jsxs)(x.A, {
+            children: (0, s.jsxs)(C.A, {
               display: 'flex',
               justifyContent: 'space-around',
               children: [
-                (0, s.jsx)(e1, {
+                (0, s.jsx)(eU, {
                   label: 'Discord',
                   href: 'https://discord.gg/rgrfS7W',
-                  icon: eq.E,
+                  icon: eK.E,
                 }),
-                (0, s.jsx)(e1, {
+                (0, s.jsx)(eU, {
                   label: 'Telegram',
-                  href: (0, m.Y)() ? 'https://t.me/curveficn' : 'https://t.me/curvefi',
-                  icon: eK.A,
+                  href: (0, u.Y)() ? 'https://t.me/curveficn' : 'https://t.me/curvefi',
+                  icon: e_.A,
                 }),
-                (0, s.jsx)(e1, {
+                (0, s.jsx)(eU, {
                   label: 'Twitter',
                   href: 'https://x.com/curvefinance',
-                  icon: eU.A,
+                  icon: eX.A,
                 }),
-                (0, s.jsx)(e1, {
+                (0, s.jsx)(eU, {
                   label: 'YouTube',
-                  href: (0, m.Y)()
+                  href: (0, u.Y)()
                     ? 'https://www.youtube.com/watch?v=FtzDlWdcou8&list=PLh7yM-DPEDYgP-vyEOCIboD3xg_TgJmkj'
                     : 'https://www.youtube.com/@CurveFinanceChannel',
-                  icon: eJ.A,
+                  icon: eG.A,
                 }),
-                (0, m.Y)() &&
-                  (0, s.jsx)(e1, {
+                (0, u.Y)() &&
+                  (0, s.jsx)(eU, {
                     label: 'Dodo',
                     href: 'https://imdodo.com/s/147186?inv=7J46',
-                    icon: eQ,
+                    icon: eq,
                   }),
               ],
             }),
           }),
-        e3 = {
+        eQ = {
           '&::-webkit-scrollbar': { display: 'none' },
           msOverflowStyle: 'none',
           scrollbarWidth: 'none',
         },
-        e2 = (e) => `2 * ${e.spacing(3)} + ${ej.wl}`,
-        e6 = ({
+        e1 = (e) => `2 * ${e.spacing(3)} + ${eg.wl}`,
+        e0 = ({
           mainNavRef: e,
           currentMenu: t,
           pages: n,
-          appStats: l,
-          sections: a,
+          appStats: a,
+          sections: l,
           chainId: o,
-          chains: h,
-          globalAlertRef: g,
-          height: p,
+          chains: d,
+          globalAlertRef: c,
+          height: g,
           isLite: j = !1,
-          networkId: u,
+          networkId: m,
         }) => {
-          let [f, v] = (0, i.useState)(!1),
-            A = (0, i.useCallback)(() => v(!1), []),
-            w = (0, i.useCallback)(() => v((e) => !e), []),
-            b = (0, r.usePathname)();
-          (0, i.useEffect)(() => () => A(), [b, A]);
-          let y = (0, i.useMemo)(
+          let [f, v] = (0, r.useState)(!1),
+            A = (0, r.useCallback)(() => v(!1), []),
+            w = (0, r.useCallback)(() => v((e) => !e), []),
+            b = (0, i.usePathname)();
+          (0, r.useEffect)(() => () => A(), [b, A]);
+          let y = (0, r.useMemo)(
             () =>
-              Object.entries(d.VS)
+              Object.entries(x.VS)
                 .filter(([e]) => e != t)
                 .map(([e, { label: t, routes: n }]) => ({
                   appName: e,
                   title: t,
-                  pages: n.map((e) => (0, d.WS)(e, { networkId: u, pathname: b })),
+                  pages: n.map((e) => (0, x.WS)(e, { networkId: m, pathname: b })),
                 })),
-            [t, u, b]
+            [t, m, b]
           );
           return (0, s.jsxs)(s.Fragment, {
             children: [
-              (0, s.jsxs)(c.A, {
+              (0, s.jsxs)(h.A, {
                 color: 'transparent',
                 ref: e,
                 sx: { backgroundColor: (e) => e.design.Layer[1].Fill },
                 children: [
-                  (0, s.jsx)(ep, { networkId: u, ref: g, chainId: o }),
-                  (0, s.jsxs)(C.A, {
+                  (0, s.jsx)(eC, { networkId: m, ref: c, chainId: o }),
+                  (0, s.jsxs)(p.A, {
                     sx: (e) => ({ paddingBlock: 3, zIndex: e.zIndex.drawer + 1 }),
                     children: [
-                      (0, s.jsx)(eN, {
+                      (0, s.jsx)(eT, {
                         isLite: j,
-                        ChainProps: { chainId: o, options: h, headerHeight: p },
+                        ChainProps: { chainId: o, options: d, headerHeight: g },
                         currentMenu: t,
                         isSidebarOpen: f,
                         toggleSidebar: w,
                       }),
-                      (0, s.jsxs)(ez.Ay, {
+                      (0, s.jsxs)(eM.Ay, {
                         anchor: 'left',
                         onClose: A,
                         open: f,
-                        slotProps: { paper: { sx: { top: p, ...ej.be, ...e3 } } },
-                        sx: { top: p },
+                        slotProps: { paper: { sx: { top: g, ...eg.be, ...eQ } } },
+                        sx: { top: g },
                         variant: 'temporary',
                         hideBackdrop: !0,
                         'data-testid': 'mobile-drawer',
                         children: [
-                          (0, s.jsxs)(x.A, {
+                          (0, s.jsxs)(C.A, {
                             children: [
-                              (0, s.jsx)(er.A, {
+                              (0, s.jsx)(et.A, {
                                 padding: 4,
-                                children: (0, s.jsx)(eL, { appStats: l }),
+                                children: (0, s.jsx)(eb, { appStats: a }),
                               }),
-                              (0, s.jsx)(eG, { title: d.VS[t].label, pages: n }),
-                              y.map(({ appName: e, ...t }) => (0, s.jsx)(eG, { ...t }, e)),
-                              a.map(({ title: e, links: t }) =>
-                                (0, s.jsx)(eG, { title: e, pages: t }, e)
+                              (0, s.jsx)(eY, { title: x.VS[t].label, pages: n }),
+                              y.map(({ appName: e, ...t }) => (0, s.jsx)(eY, { ...t }, e)),
+                              l.map(({ title: e, links: t }) =>
+                                (0, s.jsx)(eY, { title: e, pages: t }, e)
                               ),
-                              (0, s.jsx)(e0, { title: (0, m.t)`Community` }),
+                              (0, s.jsx)(eJ, { title: (0, u.t)`Community` }),
                             ],
                           }),
-                          (0, s.jsx)(e$, { onConnect: A }),
+                          (0, s.jsx)(eO, { onConnect: A }),
                         ],
                       }),
                     ],
                   }),
                 ],
               }),
-              (0, s.jsx)(x.A, { height: p }),
+              (0, s.jsx)(C.A, { height: g }),
             ],
           });
         },
-        e7 = (e) => e.breakpoints.up('desktop'),
-        e8 = ({ routes: e, ...t }) => {
-          let n = (0, a.A)(e7, { noSsr: !0 }),
-            [l] = (0, o.Mj)('beta'),
-            c = (0, r.usePathname)(),
-            { networkId: x } = t,
-            h = (0, i.useMemo)(
+        e3 = (e) => e.breakpoints.up('desktop'),
+        e2 = ({ routes: e, ...t }) => {
+          let n = (0, l.A)(e3, { noSsr: !0 }),
+            [a] = (0, c.iq)(),
+            h = (0, i.usePathname)(),
+            { networkId: C, height: g } = t,
+            p = (0, r.useMemo)(
               () =>
                 e
-                  .filter((e) => !e.betaFeature || l)
-                  .map((e) => (0, d.WS)(e, { networkId: x, pathname: c })),
-              [l, x, c, e]
+                  .filter((e) => !e.betaFeature || a)
+                  .map((e) => (0, x.WS)(e, { networkId: C, pathname: h })),
+              [a, C, h, e]
             );
-          return n ? (0, s.jsx)(eI, { pages: h, ...t }) : (0, s.jsx)(e6, { pages: h, ...t });
-        },
-        e4 = (e) => {
-          let t = (0, a.A)(e7, { noSsr: !0 }),
-            n = (0, l.A)(),
-            s = t ? '96px' : e2(n);
-          return `calc(${s} + ${e ?? 0}px)`;
-        };
-    },
-    14766: (e, t, n) => {
-      n.d(t, { E: () => r });
-      var s = n(54568);
-      let r = (0, n(69879).A)(
-        (0, s.jsx)('svg', {
-          xmlns: 'http://www.w3.org/2000/svg',
-          viewBox: '0 0 34 34',
-          fill: 'currentColor',
-          children: (0, s.jsx)('path', {
-            d: 'M26.0015 6.9529C24.0021 6.03845 21.8787 5.37198 19.6623 5C19.3833 5.48048 19.0733 6.13144 18.8563 6.64292C16.4989 6.30193 14.1585 6.30193 11.8336 6.64292C11.6166 6.13144 11.2911 5.48048 11.0276 5C8.79575 5.37198 6.67235 6.03845 4.6869 6.9529C0.672601 12.8736 -0.41235 18.6548 0.130124 24.3585C2.79599 26.2959 5.36889 27.4739 7.89682 28.2489C8.51679 27.4119 9.07477 26.5129 9.55525 25.5675C8.64079 25.2265 7.77283 24.808 6.93587 24.312C7.15286 24.1571 7.36986 23.9866 7.57135 23.8161C12.6241 26.1255 18.0969 26.1255 23.0876 23.8161C23.3046 23.9866 23.5061 24.1571 23.7231 24.312C22.8861 24.808 22.0182 25.2265 21.1037 25.5675C21.5842 26.5129 22.1422 27.4119 22.7621 28.2489C25.2885 27.4739 27.8769 26.2959 30.5288 24.3585C31.1952 17.7559 29.4733 12.0212 26.0015 6.9529ZM10.2527 20.8402C8.73376 20.8402 7.49382 19.4608 7.49382 17.7714C7.49382 16.082 8.70276 14.7025 10.2527 14.7025C11.7871 14.7025 13.0425 16.082 13.0115 17.7714C13.0115 19.4608 11.7871 20.8402 10.2527 20.8402ZM20.4373 20.8402C18.9183 20.8402 17.6768 19.4608 17.6768 17.7714C17.6768 16.082 18.8873 14.7025 20.4373 14.7025C21.9717 14.7025 23.2271 16.082 23.1961 17.7714C23.1961 19.4608 21.9872 20.8402 20.4373 20.8402Z',
-          }),
-        }),
-        'Discord'
-      );
-    },
-    42374: (e, t, n) => {
-      n.d(t, { u: () => h });
-      var s = n(54568),
-        r = n(27261),
-        i = n.n(r),
-        l = n(62942),
-        a = n(7005),
-        o = n(45629),
-        d = n(87401),
-        c = n(81473);
-      let x = { small: 'buttonS', medium: 'buttonM', large: 'headingMBold' },
-        h = ({
-          variant: e = 'contained',
-          size: t = 'small',
-          muiVariant: n,
-          options: r,
-          onChange: h,
-          value: C,
-          textVariant: g,
-          ...p
-        }) => {
-          let j = (0, l.usePathname)();
-          return (0, s.jsx)(o.A, {
-            variant: n,
-            textColor: 'inherit',
-            value: C ?? !1,
-            onChange: (e, t) => h?.(t),
-            className: `${c.gH[e]} ${c.Mw[t]}`,
-            ...p,
-            children: r.map(({ value: e, label: n, sx: r, ...l }) =>
-              (0, s.jsx)(
-                a.A,
-                {
-                  value: e,
-                  component: i(),
-                  href: `${j}?tab=${e}`,
-                  label: (0, s.jsx)(d.A, { variant: g ?? x[t], children: n }),
-                  sx: { ...r, whiteSpace: 'nowrap' },
-                  ...l,
-                },
-                e
-              )
-            ),
+          return (0, s.jsxs)(s.Fragment, {
+            children: [
+              n ? (0, s.jsx)(eL, { pages: p, ...t }) : (0, s.jsx)(e0, { pages: p, ...t }),
+              (0, s.jsx)(d.f, {}),
+              (0, s.jsx)(o.fI, { headerHeight: g }),
+            ],
           });
+        },
+        e6 = (e) => {
+          let t = (0, l.A)(e3, { noSsr: !0 }),
+            n = (0, a.A)(),
+            s = t ? '96px' : e1(n);
+          return `calc(${s} + ${e ?? 0}px)`;
         };
     },
   },

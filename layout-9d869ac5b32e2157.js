@@ -508,7 +508,7 @@
         el = ({ appName: e, networkId: t, headerHeight: r }) => {
           let [n, a, u] = (0, c.K)(),
             [A, h, C] = (0, c.K)(),
-            [p, f] = (0, o.Mj)('beta');
+            [p, f] = (0, o.iq)();
           return (0, i.jsx)(s.A, {
             component: 'footer',
             'data-testid': 'footer',
@@ -726,21 +726,6 @@
         'MonitorHeartOutlined'
       );
     },
-    56796: (e, t, r) => {
-      'use strict';
-      r.d(t, { iD: () => c, ai: () => i.a, qQ: () => i.q });
-      var i = r(61873),
-        s = r(54568),
-        l = r(84826),
-        n = r(87606),
-        a = r(82099),
-        o = r(54152);
-      function c({ children: e, persister: t, queryClient: r }) {
-        return ((e = (0, s.jsxs)(s.Fragment, { children: [e, !l.OC && (0, s.jsx)(a.E, {})] })), t)
-          ? (0, s.jsx)(o.t, { client: r, persistOptions: { persister: t }, children: e })
-          : (0, s.jsx)(n.QueryClientProvider, { client: r, children: e });
-      }
-    },
     68512: (e, t, r) => {
       'use strict';
       function i(e) {
@@ -852,13 +837,6 @@
       }
       r.d(t, { Qv: () => o, hw: () => a });
     },
-    73813: (e, t, r) => {
-      'use strict';
-      r.d(t, { A: () => i });
-      let i = (0, r(48341).DU)([
-        'html,body{display:block;height:100%;width:100%;}body{min-width:20rem;font-size:16px;color:var(--page--text-color);background-color:var(--page--background-color);scroll-behavior:smooth;}*{box-sizing:border-box;}html,body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,button,abbr,acronym,address,big,cite,code,del,dfn,em,img,input,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-family:var(--font);}li{list-style:none;}.width--full{width:100%;}.height--full{height:100%;}.vertical-align-middle{vertical-align:middle;}',
-      ]);
-    },
     82099: (e, t, r) => {
       'use strict';
       r.d(t, { E: () => i });
@@ -868,19 +846,20 @@
     },
     85782: (e, t, r) => {
       'use strict';
-      r.d(t, { App: () => G });
+      r.d(t, { App: () => E });
       var i = r(54568);
       r(41257);
       var s = r(49879),
         l = r.n(s),
         n = r(62942),
         a = r(7620),
-        o = r(48341),
-        c = r(55906),
-        d = r(71287);
-      let u = function (e, t) {
-        let r = (0, d.A)((e) => e.pageWidth),
-          i = (0, d.A)((e) => e.updateLayoutHeight);
+        o = r(93904),
+        c = r(48341),
+        d = r(55906),
+        u = r(71287);
+      let A = function (e, t) {
+        let r = (0, u.A)((e) => e.pageWidth),
+          i = (0, u.A)((e) => e.updateLayoutHeight);
         (0, a.useEffect)(
           () => (
             e?.current && i(t, e.current.getBoundingClientRect().height),
@@ -891,69 +870,69 @@
           [e, t, i, r]
         );
       };
-      var A = r(74143),
-        h = r(74699),
-        C = r(91069),
-        p = r(61466),
-        f = r(29514);
-      let g = ({ chainId: e }) =>
-          (0, p.Os)('chainValidation', () => {
-            (0, p.t6)('chainId', () => {
-              (0, p.FE)(e)
+      var h = r(74143),
+        C = r(68153),
+        p = r(91069),
+        f = r(61466),
+        g = r(29514);
+      let v = ({ chainId: e }) =>
+          (0, f.Os)('chainValidation', () => {
+            (0, f.t6)('chainId', () => {
+              (0, f.FE)(e)
                 .message('Chain ID is required')
                 .isNotEmpty()
                 .message('Invalid chain ID')
                 .isValidChainId();
             });
           }),
-        v = ({ chainId: e }) =>
-          (0, p.Os)('apiValidation', () => {
-            (0, p.t6)('api', () => {
-              (0, p.FE)(h.AW()?.chainId)
+        m = ({ chainId: e }) =>
+          (0, f.Os)('apiValidation', () => {
+            (0, f.t6)('api', () => {
+              (0, f.FE)(C.AW()?.chainId)
                 .message('Chain ID should be loaded')
                 .equals(e)
                 .message('Incorrect chain ID');
             });
           }),
-        m = (0, f.Qi)((e) => {
-          g(e), v(e);
+        x = (0, g.Qi)((e) => {
+          v(e), m(e);
         }),
-        { useQuery: x } = (0, C.X6)({
+        { useQuery: w } = (0, p.X6)({
           queryKey: (e) => ['appStatsTvl', { chainId: e.chainId }],
-          queryFn: (e) => A.A.network.getTVL((0, h.NB)()),
+          queryFn: (e) => h.A.network.getTVL((0, C.NB)()),
           staleTime: '5m',
-          validationSuite: m,
+          validationSuite: x,
         });
-      async function w({ chainId: e }) {
-        let { isLite: t } = d.A.getState().networks.networks[e];
-        return t ? null : A.A.network.getVolume((0, h.NB)());
+      async function b({ chainId: e }) {
+        let { isLite: t } = u.A.getState().networks.networks[e];
+        return t ? null : h.A.network.getVolume((0, C.NB)());
       }
-      let { useQuery: b } = (0, C.X6)({
+      let { useQuery: y } = (0, p.X6)({
         queryKey: (e) => ['appStatsVolume', { chainId: e.chainId }],
-        queryFn: w,
+        queryFn: b,
         staleTime: '5m',
-        validationSuite: m,
+        validationSuite: x,
       });
-      var y = r(31305),
-        L = r(77241),
-        D = r(36074),
-        j = r(21802),
-        B = r(12580);
-      let M = () => (0, D.t)`Quickswap`,
-        H = ({ sections: e, globalAlertRef: t, networkId: r }) => {
+      var L = r(31305),
+        D = r(77241),
+        j = r(36074),
+        B = r(21802),
+        M = r(44431);
+      let H = () => (0, j.t)`Quickswap`,
+        Q = ({ sections: e, globalAlertRef: t, networkId: r }) => {
           let s = (0, a.useRef)(null),
-            { lib: l = {} } = (0, h.w5)(),
-            n = (0, y.iW)(r);
-          u(s, 'mainNav');
-          let o = (0, d.A)((e) => e.getNetworkConfigFromApi(n).hasRouter),
-            A = (0, d.A)((e) => e.networks.networks),
-            C = (0, d.A)((e) => e.networks.visibleNetworksList),
-            p = (0, d.A)((e) => e.layoutHeight.globalAlert),
-            f = (0, d.A)((e) => e.storeCache.routerFormValues[n]),
-            { data: g } = x(l),
-            { data: v } = b(l),
-            m = A[n];
-          return (0, i.jsx)(B.Y, {
+            { lib: l = {} } = (0, C.w5)(),
+            n = (0, L.iW)(r);
+          A(s, 'mainNav');
+          let o = (0, u.A)((e) => e.getNetworkConfigFromApi(n).hasRouter),
+            c = (0, u.A)((e) => e.networks.networks),
+            h = (0, u.A)((e) => e.networks.visibleNetworksList),
+            p = (0, u.A)((e) => e.layoutHeight.globalAlert),
+            f = (0, u.A)((e) => e.storeCache.routerFormValues[n]),
+            { data: g } = w(l),
+            { data: v } = y(l),
+            m = c[n];
+          return (0, i.jsx)(M.Y, {
             networkId: r,
             chainId: n,
             mainNavRef: s,
@@ -968,55 +947,55 @@
                         route: (function (e, t) {
                           let r = t?.fromAddress ?? e?.fromAddress,
                             i = t?.toAddress ?? e?.toAddress;
-                          return `${c.a$.PAGE_SWAP}/${r || i ? `?${new URLSearchParams({ ...(r && { from: r }), ...(i && { to: i }) })}` : ''}`;
+                          return `${d.a$.PAGE_SWAP}/${r || i ? `?${new URLSearchParams({ ...(r && { from: r }), ...(i && { to: i }) })}` : ''}`;
                         })(m.swap, f),
-                        label: M,
+                        label: H,
                       },
                     ]
                   : []),
-                ...j.VS.dex.routes.filter((e) => e.route !== c.a$.PAGE_SWAP),
+                ...B.VS.dex.routes.filter((e) => e.route !== d.a$.PAGE_SWAP),
               ],
               [o, m, f]
             ),
-            chains: C,
+            chains: h,
             appStats: [
               {
-                label: (0, D.t)`Total Deposits`,
-                value: (0, L.ZV)(g, { currency: 'USD', notation: 'compact' }),
+                label: (0, j.t)`Total Deposits`,
+                value: (0, D.ZV)(g, { currency: 'USD', notation: 'compact' }),
               },
               ...(m?.isLite
                 ? []
                 : [
                     {
-                      label: (0, D.t)`Daily Volume`,
-                      value: (0, L.ZV)(v?.totalVolume, { currency: 'USD', notation: 'compact' }),
+                      label: (0, j.t)`Daily Volume`,
+                      value: (0, D.ZV)(v?.totalVolume, { currency: 'USD', notation: 'compact' }),
                     },
                     {
-                      label: (0, D.t)`Crypto Volume Share`,
-                      value: (0, L.ZV)(v?.cryptoShare, L.hd.PERCENT),
+                      label: (0, j.t)`Crypto Volume Share`,
+                      value: (0, D.ZV)(v?.cryptoShare, D.hd.PERCENT),
                     },
                   ]),
             ],
             sections: e,
-            height: (0, B.g)(p),
+            height: (0, M.g)(p),
             globalAlertRef: t,
           });
         };
-      var Q = r(46250),
-        S = r(95292),
-        k = r(47636),
-        P = r(1334);
-      let V = (e) => {
-          let { lib: t } = (0, h.w5)(),
-            r = (0, d.A)((e) => e.isPageVisible),
-            i = (0, d.A)((e) => e.pools.fetchPools),
-            s = (0, d.A)((t) => t.pools.poolsMapper[e.chainId]),
-            l = (0, d.A)((e) => e.pools.fetchPoolsVolume),
-            n = (0, d.A)((e) => e.pools.fetchPoolsTvl),
-            o = (0, d.A)((e) => e.tokens.setTokensMapper),
-            c = (0, d.A)((e) => e.gas.fetchGasInfo),
-            u = (0, d.A)((e) => e.usdRates.fetchAllStoredUsdRates),
-            C = (0, d.A)((e) => e.userBalances.fetchAllStoredBalances),
+      var S = r(46250),
+        k = r(95292),
+        P = r(47636),
+        V = r(1334);
+      let O = (e) => {
+          let { lib: t } = (0, C.w5)(),
+            r = (0, u.A)((e) => e.isPageVisible),
+            i = (0, u.A)((e) => e.pools.fetchPools),
+            s = (0, u.A)((t) => t.pools.poolsMapper[e.chainId]),
+            l = (0, u.A)((e) => e.pools.fetchPoolsVolume),
+            n = (0, u.A)((e) => e.pools.fetchPoolsTvl),
+            o = (0, u.A)((e) => e.tokens.setTokensMapper),
+            c = (0, u.A)((e) => e.gas.fetchGasInfo),
+            d = (0, u.A)((e) => e.usdRates.fetchAllStoredUsdRates),
+            A = (0, u.A)((e) => e.userBalances.fetchAllStoredBalances),
             p = (0, a.useCallback)(
               async (e) => {
                 let { chainId: t } = e,
@@ -1027,168 +1006,148 @@
             ),
             f = (0, a.useCallback)(
               async (t) => {
-                let r = await A.A.network.fetchAllPoolsList(t, e);
+                let r = await h.A.network.fetchAllPoolsList(t, e);
                 i(t, r, null);
               },
               [i, e]
             );
-          (0, S.A)(
+          (0, k.A)(
             () => {
-              t && (c(t), u(t), p(t), t.signerAddress && C(t));
+              t && (c(t), d(t), p(t), t.signerAddress && A(t));
             },
-            k.oX['5m'],
+            P.oX['5m'],
             r
           ),
-            (0, S.A)(
+            (0, k.A)(
               () => {
                 t && f(t);
               },
-              k.oX['11m'],
+              P.oX['11m'],
               r
             );
         },
-        O = (e) => [
+        Z = (e) => [
           {
-            title: (0, D.t)`Documentation`,
+            title: (0, j.t)`Documentation`,
             links: [
-              { href: 'https://news.curve.fi/', label: (0, D.t)`News` },
+              { href: 'https://news.curve.fi/', label: (0, j.t)`News` },
               {
                 href: 'https://resources.curve.fi/lending/understanding-lending/',
-                label: (0, D.t)`User Resources`,
+                label: (0, j.t)`User Resources`,
               },
-              { href: 'https://docs.curve.fi', label: (0, D.t)`Developer Resources` },
+              { href: 'https://docs.curve.fi', label: (0, j.t)`Developer Resources` },
               {
-                href: (0, y.Yn)({ network: e }, c.a$.PAGE_DISCLAIMER),
-                label: (0, D.t)`Risk Disclaimers`,
+                href: (0, L.Yn)({ network: e }, d.a$.PAGE_DISCLAIMER),
+                label: (0, j.t)`Risk Disclaimers`,
               },
               {
-                href: (0, y.Yn)({ network: e }, c.a$.PAGE_INTEGRATIONS),
-                label: (0, D.t)`Integrations`,
+                href: (0, L.Yn)({ network: e }, d.a$.PAGE_INTEGRATIONS),
+                label: (0, j.t)`Integrations`,
               },
               {
                 href: 'https://resources.curve.fi/glossary-branding/branding/',
-                label: (0, D.t)`Branding`,
+                label: (0, j.t)`Branding`,
               },
-              ...((0, D.Y)() ? [{ href: 'https://www.curve.wiki/', label: (0, D.t)`Wiki` }] : []),
+              ...((0, j.Y)() ? [{ href: 'https://www.curve.wiki/', label: (0, j.t)`Wiki` }] : []),
             ],
           },
           {
-            title: (0, D.t)`Security`,
+            title: (0, j.t)`Security`,
             links: [
-              { href: 'https://docs.curve.fi/references/audits/', label: (0, D.t)`Audits` },
-              { href: 'https://docs.curve.fi/security/security/', label: (0, D.t)`Bug Bounty` },
-              { href: 'https://dune.com/mrblock_buidl/Curve.fi', label: (0, D.t)`Dune Analytics` },
-              { href: 'https://curvemonitor.com', label: (0, D.t)`Curve Monitor` },
-              { href: 'https://crvhub.com/', label: (0, D.t)`Crvhub` },
+              { href: 'https://docs.curve.fi/references/audits/', label: (0, j.t)`Audits` },
+              { href: 'https://docs.curve.fi/security/security/', label: (0, j.t)`Bug Bounty` },
+              { href: 'https://dune.com/mrblock_buidl/Curve.fi', label: (0, j.t)`Dune Analytics` },
+              { href: 'https://curvemonitor.com', label: (0, j.t)`Curve Monitor` },
+              { href: 'https://crvhub.com/', label: (0, j.t)`Crvhub` },
             ],
           },
         ],
-        Z = o.Ay.main.withConfig({ componentId: 'sc-f4df67d2-0' })(
+        N = c.Ay.main.withConfig({ componentId: 'sc-f4df67d2-0' })(
           ['margin:0 auto;max-width:var(--width);min-height:', ';width:100%;'],
           ({ minHeight: e }) => `calc(100vh - ${e}px)`
         ),
-        N = o.Ay.div.withConfig({ componentId: 'sc-f4df67d2-1' })(
+        R = c.Ay.div.withConfig({ componentId: 'sc-f4df67d2-1' })(
           ['display:flex;flex-direction:column;position:relative;width:100%;min-height:', ';'],
           ({ globalAlertHeight: e }) => `calc(100vh - ${e}px)`
         ),
-        R = ({ children: e, network: t }) => {
+        z = ({ children: e, network: t }) => {
           let r = (0, a.useRef)(null);
-          u(r, 'globalAlert'), V(t);
-          let s = (0, d.A)((e) => e.layoutHeight),
-            l = (0, d.A)((e) => e.layoutHeight.globalAlert),
-            n = (0, a.useMemo)(() => O(t.id), [t.id]),
-            o = (0, a.useMemo)(() => Q.o.reduce((e, t) => e + s[t], 0), [s]);
-          return (0, i.jsxs)(N, {
+          A(r, 'globalAlert'), O(t);
+          let s = (0, u.A)((e) => e.layoutHeight),
+            l = (0, u.A)((e) => e.layoutHeight.globalAlert),
+            n = (0, a.useMemo)(() => Z(t.id), [t.id]),
+            o = (0, a.useMemo)(() => S.o.reduce((e, t) => e + s[t], 0), [s]);
+          return (0, i.jsxs)(R, {
             globalAlertHeight: s?.globalAlert,
             children: [
-              (0, i.jsx)(H, { sections: n, globalAlertRef: r, networkId: t.id }),
-              (0, i.jsx)(Z, { minHeight: o, children: e }),
-              (0, i.jsx)(P.w, { appName: 'dex', networkId: t.id, headerHeight: (0, B.g)(l) }),
+              (0, i.jsx)(Q, { sections: n, globalAlertRef: r, networkId: t.id }),
+              (0, i.jsx)(N, { minHeight: o, children: e }),
+              (0, i.jsx)(V.w, { appName: 'dex', networkId: t.id, headerHeight: (0, M.g)(l) }),
             ],
           });
         };
-      var z = r(90263),
-        I = r(73813),
-        U = r(88456),
-        E = r(75911),
-        T = r(56796),
-        q = r(74043),
-        K = r(41265);
-      let G = ({ children: e }) => {
+      var I = r(90263),
+        U = r(75911);
+      let E = ({ children: e }) => {
         let { network: t = 'ethereum' } = (0, n.useParams)(),
           { push: r } = (0, n.useRouter)(),
-          s = (0, y.ro)(),
-          [o, c] = (0, a.useState)(!1),
-          u = (0, d.A)((e) => e.pageWidth),
-          A = (0, d.A)((e) => e.setPageWidth),
-          C = (0, d.A)((e) => e.networks.fetchNetworks),
-          p = (0, d.A)((e) => e.updateShowScrollButton),
-          f = (0, d.A)((e) => e.updateGlobalStoreByKey),
-          g = (0, d.A)((e) => e.networks.networks),
-          v = (0, d.A)((e) => e.networks.networksIdMapper),
-          m = (0, E.nv)((e) => e.theme),
-          x = (0, d.A)((e) => e.hydrate),
-          w = (0, a.useRef)(m),
-          b = v[t],
-          L = g[b],
-          D = (0, a.useCallback)(() => {
-            window.innerWidth && A(window.innerWidth);
-          }, [A]);
+          s = (0, L.ro)(),
+          [c, d] = (0, a.useState)(!1),
+          A = (0, u.A)((e) => e.pageWidth),
+          h = (0, u.A)((e) => e.setPageWidth),
+          p = (0, u.A)((e) => e.networks.fetchNetworks),
+          f = (0, u.A)((e) => e.updateShowScrollButton),
+          g = (0, u.A)((e) => e.updateGlobalStoreByKey),
+          v = (0, u.A)((e) => e.networks.networks),
+          m = (0, u.A)((e) => e.networks.networksIdMapper),
+          x = (0, U.nv)((e) => e.theme),
+          w = (0, u.A)((e) => e.hydrate),
+          b = (0, a.useRef)(x),
+          y = m[t],
+          D = v[y],
+          j = (0, a.useCallback)(() => {
+            window.innerWidth && h(window.innerWidth);
+          }, [h]);
         (0, a.useEffect)(() => {
-          u &&
-            ((document.body.className = `theme-${m} ${u}`.replace(/ +(?= )/g, '').trim()),
-            document.body.setAttribute('data-theme', m));
-        }, [u, m]),
+          A &&
+            ((document.body.className = `theme-${x} ${A}`.replace(/ +(?= )/g, '').trim()),
+            document.body.setAttribute('data-theme', x));
+        }, [A, x]),
           (0, a.useEffect)(() => {
-            d.A.setState(d.A.getInitialState()),
+            u.A.setState(u.A.getInitialState()),
               (async () => {
-                let e = await C();
-                h.vT.initialize(w.current, e);
+                let e = await p();
+                C.vT.initialize(b.current, e);
                 let t = () => {
-                  f('isPageVisible', !document.hidden);
+                  g('isPageVisible', !document.hidden);
                 };
-                c(!0),
-                  f('loaded', !0),
-                  D(),
+                d(!0),
+                  g('loaded', !0),
+                  j(),
                   t(),
                   document.addEventListener('visibilitychange', t),
-                  window.addEventListener('resize', () => D()),
-                  window.addEventListener('scroll', () => l()(() => p(window.scrollY), 200));
+                  window.addEventListener('resize', () => j()),
+                  window.addEventListener('scroll', () => l()(() => f(window.scrollY), 200));
               })();
-          }, [C, D, f, p]);
-        let j = (0, a.useCallback)(
+          }, [p, j, g, f]);
+        let B = (0, a.useCallback)(
           ([e]) => {
-            let t = g[e]?.id;
+            let t = v[e]?.id;
             t &&
               (console.warn(`Network switched to ${t}, redirecting...`, location.href),
-              r((0, y.Yn)({ network: t }, `/${s}`)));
+              r((0, L.Yn)({ network: t }, `/${s}`)));
           },
-          [g, r, s]
+          [v, r, s]
         );
-        return (0, i.jsxs)('div', {
-          suppressHydrationWarning: !0,
-          style: { ...('chad' === m && K.jq) },
-          children: [
-            (0, i.jsx)(I.A, {}),
-            (0, i.jsx)(q.N, {
-              theme: m,
-              children:
-                o &&
-                (0, i.jsx)(U.so, {
-                  children: (0, i.jsx)(T.iD, {
-                    persister: T.ai,
-                    queryClient: T.qQ,
-                    children: (0, i.jsx)(h.Sg, {
-                      hydrate: x,
-                      initLib: z.R8,
-                      chainId: b,
-                      onChainUnavailable: j,
-                      children: (0, i.jsx)(R, { network: L, children: e }),
-                    }),
-                  }),
-                }),
-            }),
-          ],
+        return (0, i.jsx)(o.$, {
+          loading: !c,
+          children: (0, i.jsx)(C.Sg, {
+            hydrate: w,
+            initLib: I.R8,
+            chainId: y,
+            onChainUnavailable: B,
+            children: (0, i.jsx)(z, { network: D, children: e }),
+          }),
         });
       };
     },
@@ -1242,15 +1201,65 @@
         'BugReportOutlined'
       );
     },
+    93904: (e, t, r) => {
+      'use strict';
+      r.d(t, { $: () => v });
+      var i = r(54568),
+        s = r(56924);
+      let l = (0, r(48341).DU)([
+        'html,body{display:block;height:100%;width:100%;}body{min-width:20rem;font-size:16px;color:var(--page--text-color);background-color:var(--page--background-color);scroll-behavior:smooth;}*{box-sizing:border-box;}html,body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,button,abbr,acronym,address,big,cite,code,del,dfn,em,img,input,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-family:var(--font);}li{list-style:none;}.width--full{width:100%;}.height--full{height:100%;}.vertical-align-middle{vertical-align:middle;}',
+      ]);
+      var n = r(88456),
+        a = r(91920),
+        o = r(75911),
+        c = r(64174),
+        d = r(61873),
+        u = r(84826),
+        A = r(87606),
+        h = r(82099),
+        C = r(54152);
+      function p({ children: e, persister: t, queryClient: r }) {
+        return ((e = (0, i.jsxs)(i.Fragment, { children: [e, !u.OC && (0, i.jsx)(h.E, {})] })), t)
+          ? (0, i.jsx)(C.t, { client: r, persistOptions: { persister: t }, children: e })
+          : (0, i.jsx)(A.QueryClientProvider, { client: r, children: e });
+      }
+      var f = r(74043),
+        g = r(41265);
+      let v = ({ children: e, loading: t }) => {
+        let r = (0, o.nv)((e) => e.theme),
+          [u] = (0, c.iq)();
+        return (0, i.jsxs)('div', {
+          suppressHydrationWarning: !0,
+          style: { ...('chad' === r && g.jq) },
+          children: [
+            (0, i.jsx)(l, {}),
+            (0, i.jsx)(f.N, {
+              theme: r,
+              children: (0, i.jsx)(n.so, {
+                children: (0, i.jsx)(p, {
+                  persister: d.a,
+                  queryClient: d.q,
+                  children: (0, i.jsx)(s.x, {
+                    config: a.$,
+                    reconnectOnMount: u,
+                    children: !t && e,
+                  }),
+                }),
+              }),
+            }),
+          ],
+        });
+      };
+    },
   },
   (e) => {
     var t = (t) => e((e.s = t));
     e.O(
       0,
       [
-        4599, 2138, 9335, 2565, 7261, 8238, 8341, 9205, 4439, 7208, 7806, 4667, 2519, 1356, 7999,
-        5230, 8612, 7044, 4925, 9720, 9556, 7959, 7184, 7653, 7105, 6469, 7587, 1868, 8534, 3377,
-        3308, 7257, 7067, 3758, 9459, 6467, 7399, 5911, 7637, 6543, 1287, 2580, 587, 8315, 7358,
+        4599, 2138, 9335, 4399, 7261, 5077, 6438, 4380, 4439, 7208, 2519, 1356, 7999, 3748, 8612,
+        7044, 4925, 9720, 9556, 4237, 2226, 7653, 9630, 4034, 7587, 1868, 8534, 5476, 7257, 8334,
+        3033, 2310, 7399, 3414, 9184, 1287, 4431, 587, 8315, 7358,
       ],
       () => t(17281)
     ),
