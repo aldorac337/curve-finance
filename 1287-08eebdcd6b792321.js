@@ -91,11 +91,11 @@
       }
       function c(e, t, a, r, o, n, l, c, p, u) {
         let { routes: m, haveCryptoRoutes: h } = (0, s.vA)(t, o, e.getPool),
-          f = d(n, c);
+          y = d(n, c);
         return {
-          exchangeRates: f,
+          exchangeRates: y,
           isExchangeRateLow: !i(p, l, m) && !h && 0 !== Number(n) && Number(n) / Number(c) < 0.98,
-          isHighSlippage: !h && Number(f[0]) > 0.98,
+          isHighSlippage: !h && Number(y[0]) > 0.98,
           isStableswapRoute: !h,
           priceImpact: a,
           routes: m,
@@ -260,97 +260,6 @@
         return l ? d[a][l] : '';
       }
     },
-    21415: (e, t, a) => {
-      'use strict';
-      a.d(t, { Yn: () => l, V1: () => c, V3: () => d, ro: () => p, Rl: () => u });
-      var r = a(7620),
-        s = a(55906),
-        o = a(71287);
-      let i = [
-        'deposit',
-        'withdraw',
-        'swap',
-        'adjust_crv',
-        'adjust_date',
-        'create',
-        'manage-gauge',
-        '',
-      ];
-      var n = a(21802);
-      let l = ({ network: e }, t) => (0, n.PE)('dex', e, t);
-      function d(e, t) {
-        let { pool: a, formType: r } = e,
-          o = window.location.pathname.substring(1).split('/'),
-          n = c(),
-          l = s.a$.PAGE_SWAP.substring(1),
-          d = !0;
-        if (-1 !== n.rNetworkIdx || t) {
-          let e = o[n.rNetworkIdx + 1]?.split('?')[0] ?? '';
-          Object.keys(s.Sf).find((t) => s.Sf[t].substring(1).toLowerCase() === e.toLowerCase()) &&
-            ((l = e), (d = !1));
-        }
-        let u = '';
-        a && (u = a);
-        let m = '';
-        if (r?.[0]) {
-          let e = r[0].toLowerCase();
-          m = i.find((t) => t == e) ?? '';
-        }
-        let h = `${n.rNetwork}/${l}`,
-          f =
-            window.location.pathname.startsWith(h) ||
-            (t && window.location.pathname.startsWith(`${l}`))
-              ? ''
-              : h;
-        return {
-          ...n,
-          rSubdirectory: l,
-          rSubdirectoryUseDefault: d,
-          rPoolId: u,
-          rFormType: m,
-          redirectPathname: f,
-          restFullPathname: p(),
-        };
-      }
-      function c() {
-        let e = (0, o.A)((e) => e.networks.networks),
-          t = (0, o.A)((e) => e.networks.networksIdMapper),
-          a = window.location.pathname;
-        return (0, r.useMemo)(() => {
-          let r = a.substring(1).split('/') ?? [],
-            s = (r[0] ?? '').toLowerCase(),
-            o = (r[1] ?? '').toLowerCase();
-          if (t[s]) {
-            let a = t[s];
-            return { rNetworkIdx: 0, rNetwork: e[a].id, rChainId: a };
-          }
-          if (!t[o]) return { rNetworkIdx: -1, rNetwork: e[1].id, rChainId: 1 };
-          {
-            let a = t[o];
-            return { rNetworkIdx: 1, rNetwork: e[a].id, rChainId: a };
-          }
-        }, [e, t, a]);
-      }
-      function p() {
-        let e = window.location.pathname.substring(1).split('/') ?? [],
-          { rNetworkIdx: t } = c();
-        return e.slice(t + 1, e.length).join('/');
-      }
-      function u() {
-        let e = window.location.pathname.substring(1).split('/') ?? [],
-          t = e.length - 1;
-        e[t] && e[t].includes('?') && (e[t] = e[t].split('?')[0]);
-        let { rNetworkIdx: a } = c(),
-          r = e.length,
-          s = !1;
-        return (
-          ['pools', 'swap'].forEach((t) => {
-            s || -1 === e.indexOf(t) || ((s = !0), (r = e.indexOf(t) + 1));
-          }),
-          e.slice(a + 1, r).join('/')
-        );
-      }
-    },
     21522: (e, t, a) => {
       'use strict';
       a.d(t, { c: () => o, o: () => i });
@@ -371,7 +280,7 @@
       var r = a(54568),
         s = a(7620),
         o = a(77540),
-        i = a(77241),
+        i = a(83980),
         n = a(36074);
       let l = ({ maxSlippage: e, usdAmount: t }) => {
         let a = (0, s.useMemo)(() => {
@@ -438,20 +347,20 @@
         p = a(71287),
         u = a(60171),
         m = a(19115),
-        h = a(77241),
+        h = a(83980),
+        y = a(74699),
         f = a(36074),
-        y = a(12522),
         g = a(84826);
-      let A = d.Ay.span.withConfig({ componentId: 'sc-22043e72-0' })([
+      let A = d.Ay.span.withConfig({ componentId: 'sc-898ef1e4-0' })([
           'font-size:var(--font-size-0);text-transform:uppercase;',
         ]),
         w = ({ chainId: e, isDivider: t = !1, loading: a, estimatedGas: s, stepProgress: i }) => {
-          let d = (0, y.B)((e) => e.curve),
+          let { lib: d } = (0, y.w5)(),
             w = (0, p.A)((e) => e.networks.networks),
-            { gasPricesDefault: v } = w[e],
-            x = (0, p.A)((e) => e.usdRates.usdRatesMapper[c.m8]),
-            b = (0, p.A)((e) => e.gas.gasInfo),
-            S = (0, p.A)((e) => e.gas.gasInfo?.basePlusPriority?.[v]),
+            { gasPricesDefault: b } = w[e],
+            v = (0, p.A)((e) => e.usdRates.usdRatesMapper[c.m8]),
+            x = (0, p.A)((e) => e.gas.gasInfo),
+            S = (0, p.A)((e) => e.gas.gasInfo?.basePlusPriority?.[b]),
             { estGasCostUsd: k, tooltip: C } = (0, l.useMemo)(() => {
               let t = { estGasCost: 0, estGasCostUsd: 0, tooltip: '' };
               if (s && S) {
@@ -459,14 +368,14 @@
                   o = 0;
                 if (
                   (e === g.sW.Arbitrum || e === g.sW.XLayer || e === g.sW.Mantle) &&
-                  b?.l2GasPriceWei &&
+                  x?.l2GasPriceWei &&
                   'number' == typeof s
                 )
-                  o = b.l2GasPriceWei * s;
+                  o = x.l2GasPriceWei * s;
                 else if (w[e].gasL2 && Array.isArray(s) && d) {
-                  if (b?.l2GasPriceWei && b?.l1GasPriceWei) {
+                  if (x?.l2GasPriceWei && x?.l1GasPriceWei) {
                     let [e, t] = s;
-                    o = e * b.l2GasPriceWei + t * b.l1GasPriceWei;
+                    o = e * x.l2GasPriceWei + t * x.l1GasPriceWei;
                   }
                 } else 'number' == typeof s && (o = S * s);
                 let i = (0, g.pS)(o),
@@ -474,11 +383,11 @@
                   c = (0, h.ZV)(l),
                   p = (0, h.ZV)((0, g.pS)(S), { maximumFractionDigits: 2 });
                 (t.estGasCost = o),
-                  (t.estGasCostUsd = n()(x) ? 0 : +l * x),
+                  (t.estGasCostUsd = n()(v) ? 0 : +l * v),
                   (t.tooltip = `${c} ${a} at ${p} ${r}`);
               }
               return t;
-            }, [s, S, e, d, x, b?.l2GasPriceWei, b?.l1GasPriceWei, w]),
+            }, [s, S, e, d, v, x?.l2GasPriceWei, x?.l1GasPriceWei, w]),
             P = (0, f.t)`Estimated TX cost:`,
             j = i
               ? (0, r.jsxs)(r.Fragment, {
@@ -492,7 +401,7 @@
                 })
               : P,
             T = C && (0, r.jsx)(m.A, { placement: 'top end', noWrap: !0, children: C }),
-            I = !n()(x) && !o()(x);
+            I = !n()(v) && !o()(v);
           return (0, r.jsx)(u.A, {
             isDivider: t,
             loading: a,
@@ -515,7 +424,7 @@
         o = a(64387),
         i = a(60171),
         n = a(23173),
-        l = a(77241),
+        l = a(83980),
         d = a(36074);
       let c = (0, s.Ay)(i.A).withConfig({ componentId: 'sc-139ef9fa-0' })([
           'align-items:flex-start;',
@@ -565,6 +474,16 @@
                 : '-',
           });
     },
+    31305: (e, t, a) => {
+      'use strict';
+      a.d(t, { Yn: () => i, iW: () => n, ro: () => l });
+      var r = a(62942),
+        s = a(71287),
+        o = a(21802);
+      let i = ({ network: e }, t) => (0, o.PE)('dex', e, t),
+        n = (e) => (0, s.A)((t) => t.networks.networksIdMapper[e]),
+        l = () => r.usePathname()?.substring(1).split('/').slice(2).join('/');
+    },
     35312: (e, t, a) => {
       'use strict';
       a.d(t, { Gu: () => s, OT: () => r, kR: () => o, yC: () => i });
@@ -598,7 +517,7 @@
         kU: () => A,
         ob: () => d,
         ow: () => p,
-        uw: () => y,
+        uw: () => f,
         vD: () => i,
         vP: () => c,
         v_: () => u,
@@ -615,7 +534,7 @@
         u = 'tokenF',
         m = 'tokenG',
         h = 'tokenH',
-        f = {
+        y = {
           stableSwapFee: '',
           stableA: '',
           maExpTime: '',
@@ -629,13 +548,13 @@
           adjustmentStep: '',
           maHalfTime: '',
         },
-        y = {
+        f = {
           0: {
             name: 'Fiat Redeemable Stablecoins',
             descriptionName: (0, s.t)`Fiat Redeemable Stablecoins`,
             description: (0, s.t)`Suitable for stablecoins that are fiat-redeemable`,
             defaultParams: {
-              ...f,
+              ...y,
               stableSwapFee: '0.01',
               stableA: '1000',
               maExpTime: '600',
@@ -647,7 +566,7 @@
             descriptionName: (0, s.t)`Crypto Collateralized Stablecoins`,
             description: (0, s.t)`Suitable for stablecoins that are crypto-backed`,
             defaultParams: {
-              ...f,
+              ...y,
               stableSwapFee: '0.04',
               stableA: '100',
               maExpTime: '600',
@@ -659,7 +578,7 @@
             descriptionName: (0, s.t)`Liquid Restaking Tokens`,
             description: (0, s.t)`Suitable for LRTs`,
             defaultParams: {
-              ...f,
+              ...y,
               stableSwapFee: '0.01',
               stableA: '500',
               maExpTime: '600',
@@ -671,7 +590,7 @@
             descriptionName: (0, s.t)`Crypto`,
             description: (0, s.t)`Suitable for most volatile pairs such as LDO <> ETH`,
             defaultParams: {
-              ...f,
+              ...y,
               midFee: '0.26',
               outFee: '0.45',
               cryptoA: '400000',
@@ -687,7 +606,7 @@
             descriptionName: (0, s.t)`Forex`,
             description: (0, s.t)`Suitable for forex pairs with low relative volatility`,
             defaultParams: {
-              ...f,
+              ...y,
               midFee: '0.05',
               outFee: '0.45',
               cryptoA: '20000000',
@@ -704,7 +623,7 @@
             description: (0,
             s.t)`Suitable for liquid staking derivatives soft-pegged to its underlying asset.`,
             defaultParams: {
-              ...f,
+              ...y,
               midFee: '0.03',
               outFee: '0.45',
               cryptoA: '40000000',
@@ -720,7 +639,7 @@
             descriptionName: (0, s.t)`Liquid Restaking Tokens`,
             description: (0, s.t)`Suitable for LRTs`,
             defaultParams: {
-              ...f,
+              ...y,
               midFee: '0.005',
               outFee: '0.08',
               cryptoA: '20000000',
@@ -736,7 +655,7 @@
             descriptionName: (0, s.t)`Tricrypto`,
             description: (0, s.t)`Suitable for USD stablecoin <> BTC stablecoin <> ETH.`,
             defaultParams: {
-              ...f,
+              ...y,
               midFee: '0.01',
               outFee: '1.4',
               cryptoA: '540000',
@@ -753,7 +672,7 @@
             description: (0,
             s.t)`Suitable for volatile tokens paired against ETH and USD stablecoins`,
             defaultParams: {
-              ...f,
+              ...y,
               midFee: '0.02999999',
               outFee: '0.8',
               cryptoA: '2700000',
@@ -810,7 +729,7 @@
         s = a(48341),
         o = a(56457),
         i = a(23173),
-        n = a(77241),
+        n = a(83980),
         l = a(36074);
       let d = (0, s.Ay)(i.A).withConfig({ componentId: 'sc-429da63d-0' })([
           'color:var(--danger-400);',
@@ -837,7 +756,7 @@
         o = a(60171),
         i = a(56457),
         n = a(49698),
-        l = a(77241),
+        l = a(83980),
         d = a(85806),
         c = a(75911),
         p = a(36074);
@@ -884,14 +803,14 @@
         u = () => (0, r.jsx)(c.A, { gap: p.md, children: 'Token list management will go here' });
       var m = a(45376),
         h = a.n(m),
-        f = a(7620),
-        y = a(6572),
+        y = a(7620),
+        f = a(6572),
         g = a(24388),
         A = a(2926),
         w = a(44876),
-        v = a(56120),
-        x = a(12312),
-        b = a(99825),
+        b = a(56120),
+        v = a(12312),
+        x = a(99825),
         S = a(76653),
         k = a(97912),
         C = a(23779),
@@ -901,7 +820,7 @@
           (0, r.jsxs)(g.A, {
             variant: 'filled',
             severity: 'error',
-            action: (0, r.jsx)(v.A, {
+            action: (0, r.jsx)(b.A, {
               color: 'ghost',
               size: 'extraSmall',
               onClick: () => (0, P.lW)(e),
@@ -952,7 +871,7 @@
             ],
           });
       var F = a(62082),
-        G = a(77241),
+        G = a(83980),
         L = a(76586),
         O = a(72415);
       let { IconSize: K } = d.B,
@@ -968,7 +887,7 @@
         }) => {
           let d = +(o ?? '0') > 0,
             p = d && (i ?? 0) > 0,
-            u = (0, f.useRef)(null);
+            u = (0, y.useRef)(null);
           return (0, r.jsx)(L.O, {
             hoverEl: u.current,
             children: (0, r.jsxs)(F.A, {
@@ -1055,7 +974,7 @@
                     zIndex: 1,
                     backgroundColor: (e) => e.palette.background.paper,
                   },
-                  children: [(0, r.jsx)(x.A, { title: e, size: 'small' }), (0, r.jsx)(b.A, {})],
+                  children: [(0, r.jsx)(v.A, { title: e, size: 'small' }), (0, r.jsx)(x.A, {})],
                 }),
               (0, r.jsxs)(S.A, {
                 variant: 'menu',
@@ -1075,12 +994,12 @@
                     )
                   ),
                   u &&
-                    (0, r.jsx)(v.A, {
+                    (0, r.jsx)(b.A, {
                       fullWidth: !0,
                       variant: 'link',
                       color: 'ghost',
                       size: 'medium',
-                      endIcon: (0, r.jsx)(y.A, {}),
+                      endIcon: (0, r.jsx)(f.A, {}),
                       onClick: c,
                       sx: { height: `${M.md} !important` },
                       children: t || (0, n.t)`Show more`,
@@ -1102,13 +1021,13 @@
           disableMyTokens: p,
           customOptions: u,
           onToken: m,
-          onSearch: y,
+          onSearch: f,
         }) => {
-          let [w, v] = (0, f.useState)(''),
-            [x, S] = (0, f.useState)(!0),
-            [P, j] = (0, f.useState)(!0),
+          let [w, b] = (0, y.useState)(''),
+            [v, S] = (0, y.useState)(!0),
+            [P, j] = (0, y.useState)(!0),
             I = t.length > 0 && !w,
-            R = (0, f.useMemo)(() => {
+            R = (0, y.useMemo)(() => {
               if (!w) return e;
               let { addressesResult: t, tokensResult: a } = (0, C.Xs)(w, e, ['symbol'], {
                 tokens: ['address'],
@@ -1116,7 +1035,7 @@
               });
               return h()([...a, ...t], (e) => e.item.address).map((e) => e.item);
             }, [e, w]),
-            B = (0, f.useMemo)(() => {
+            B = (0, y.useMemo)(() => {
               if (p) return [];
               let e = R.filter((e) => +(a[e.address] ?? 0) > 0);
               return (
@@ -1130,14 +1049,14 @@
                 e
               );
             }, [p, R, d, a, s]),
-            E = (0, f.useMemo)(() => {
-              if (!x) return [];
+            E = (0, y.useMemo)(() => {
+              if (!v) return [];
               let e = 0.01 * B.reduce((e, t) => e + +(a[t.address] ?? 0) * (s[t.address] ?? 0), 0);
               return B.filter((t) => +(a[t.address] ?? 0) * (s[t.address] ?? 0) > e);
-            }, [B, a, s, x]),
-            F = (0, f.useMemo)(() => {
+            }, [B, a, s, v]),
+            F = (0, y.useMemo)(() => {
               let e = p ? R : R.filter((e) => 0 == +(a[e.address] ?? 0)),
-                t = x ? B.filter((e) => !E.some((t) => t.address === e.address)) : [];
+                t = v ? B.filter((e) => !E.some((t) => t.address === e.address)) : [];
               return (
                 e.push(...t),
                 d ||
@@ -1146,8 +1065,8 @@
                   ),
                 e
               );
-            }, [p, R, x, B, d, a, E]),
-            G = (0, f.useMemo)(() => (P ? F.slice(0, 300) : []), [F, P]);
+            }, [p, R, v, B, d, a, E]),
+            G = (0, y.useMemo)(() => (P ? F.slice(0, 300) : []), [F, P]);
           return (0, r.jsxs)(c.A, {
             gap: V.sm,
             sx: { overflowY: 'auto' },
@@ -1156,11 +1075,11 @@
                 (0, r.jsx)(k.L, {
                   name: 'tokenName',
                   onSearch: (e) => {
-                    v(e), y(e);
+                    b(e), f(e);
                   },
                 }),
               I && (0, r.jsx)(D, { tokens: t, onToken: m }),
-              I && u && (0, r.jsx)(b.A, {}),
+              I && u && (0, r.jsx)(x.A, {}),
               u,
               i
                 ? (0, r.jsx)(T, { error: i })
@@ -1249,10 +1168,10 @@
         };
       var m = a(50722),
         h = a(23557),
-        f = a(27572),
-        y = a(60171),
+        y = a(27572),
+        f = a(60171),
         g = a(19115),
-        A = a(77241);
+        A = a(83980);
       let w = ({ formLpTokenExpected: e, maxSlippage: t, poolDataCacheOrApi: a }) => {
         let { referenceAsset: s } = a.pool,
           i = 'CRYPTO' !== s,
@@ -1262,7 +1181,7 @@
               r = Number(t);
             if (a && r) return (a * (100 - r)) / 100;
           }, [e.expected, t]);
-        return (0, r.jsx)(y.A, {
+        return (0, r.jsx)(f.A, {
           isBold: !0,
           loading: e.loading,
           loadingSkeleton: [85, 23],
@@ -1278,8 +1197,8 @@
           children: (0, A.ZV)(l),
         });
       };
-      var v = a(46205);
-      let x = ({ loading: e, isHighSlippage: t, isBonus: a, slippage: s }) => {
+      var b = a(46205);
+      let v = ({ loading: e, isHighSlippage: t, isBonus: a, slippage: s }) => {
         let {
           isBold: i,
           label: n,
@@ -1295,7 +1214,7 @@
                   children: [
                     (0, r.jsx)(c.x, { children: 'Slippage Loss' }),
                     ' ',
-                    (0, r.jsx)(v.v, { isNotBold: !0, size: 'xs', children: '(incl. pricing):' }),
+                    (0, r.jsx)(b.v, { isNotBold: !0, size: 'xs', children: '(incl. pricing):' }),
                   ],
                 })),
                 (e.tip = (0,
@@ -1307,7 +1226,7 @@
                   children: [
                     (0, r.jsx)(c.x, { children: 'Slippage Bonus' }),
                     ' ',
-                    (0, r.jsx)(v.v, { isNotBold: !0, size: 'xs', children: '(incl. pricing):' }),
+                    (0, r.jsx)(b.v, { isNotBold: !0, size: 'xs', children: '(incl. pricing):' }),
                   ],
                 })),
                 (e.tip = (0,
@@ -1315,7 +1234,7 @@
             e
           );
         }, [a, t]);
-        return (0, r.jsx)(y.A, {
+        return (0, r.jsx)(f.A, {
           isBold: i,
           loading: e,
           loadingSkeleton: [50, 23],
@@ -1330,7 +1249,7 @@
           }),
         });
       };
-      var b = a(40734),
+      var x = a(40734),
         S = a(61615),
         k = a(77540);
       let C = i.Ay.ul.withConfig({ componentId: 'sc-16f699f1-0' })([
@@ -1386,7 +1305,7 @@
           });
         };
       var T = a(71287),
-        I = a(72986);
+        I = a(74699);
       let R = () => {
           let { wallet: e } = I.vT.getState();
           return { data: e?.accounts?.[0]?.address };
@@ -1420,10 +1339,10 @@
         let { data: n } = R(),
           { rChainId: l, rPoolId: d } = o,
           p = (0, D.A)(s?.tokenAddressesAll ?? []),
-          u = (0, T.A)((e) => e.connectState),
+          { connectState: u } = (0, I.w5)(),
           m = (0, T.A)((e) => e.pools.currencyReserves[(0, F.We)(l, d)]),
           h = (0, T.A)((e) => e.user.walletBalancesLoading),
-          f = a || void 0 === s || void 0 === m || 'loading' === u.status || !t.loaded;
+          y = a || void 0 === s || void 0 === m || (0, I.VP)(u) || !t.loaded;
         return (0, r.jsxs)(r.Fragment, {
           children: [
             p && !p.isInformationOnly
@@ -1431,14 +1350,14 @@
               : null,
             (0, r.jsx)(j, { seed: t, poolData: s }),
             n &&
-              !f &&
+              !y &&
               !h &&
               void 0 === i &&
               (0, r.jsx)(k.A, {
                 alertType: 'error',
                 children: (0, c.t)`Unable to get wallet balances`,
               }),
-            (0, r.jsx)(S.A, { loading: f, children: e }),
+            (0, r.jsx)(S.A, { loading: y, children: e }),
           ],
         });
       };
@@ -1464,30 +1383,30 @@
         blockchainId: u,
         isWithdraw: m = !1,
         isMaxLoading: h,
-        token: f,
-        tokenAddress: y,
+        token: y,
+        tokenAddress: f,
         handleAmountChange: g,
         handleMaxClick: A,
       }) => {
-        let w = !m && y.toLowerCase() === N.m8,
-          v = p && !m;
+        let w = !m && f.toLowerCase() === N.m8,
+          b = p && !m;
         return (0, r.jsxs)(M.Ay, {
           grid: !0,
           gridTemplateColumns: l ? '1fr auto' : '1fr auto auto',
           padding: 'var(--spacing-1) var(--spacing-2)',
-          id: f,
+          id: y,
           disabled: i,
           inputVariant: d ? 'error' : void 0,
           children: [
             (0, r.jsx)(M.E5, {
-              id: `input-${f}-amount`,
+              id: `input-${y}-amount`,
               autoComplete: 'off',
               type: 'number',
               value: void 0 === t ? '' : t,
               labelProps: {
-                label: `${(0, F.G_)(f)} ${n ? (0, W.Wr)(y) : ''} ${v ? `${(0, c.t)`Avail.`} ` : ''}`,
-                descriptionLoading: v && o,
-                description: v ? s : '',
+                label: `${(0, F.G_)(y)} ${n ? (0, W.Wr)(f) : ''} ${b ? `${(0, c.t)`Avail.`} ` : ''}`,
+                descriptionLoading: b && o,
+                description: b ? s : '',
               },
               onChange: (t) => g(t, e),
             }),
@@ -1495,7 +1414,7 @@
             (0, r.jsx)(V.A, {
               flex: !0,
               flexAlignItems: 'center',
-              children: (0, r.jsx)($.x, { blockchainId: u, tooltip: f, address: y }),
+              children: (0, r.jsx)($.x, { blockchainId: u, tooltip: y, address: f }),
             }),
           ],
         });
@@ -1526,15 +1445,15 @@
         updateFormValues: m,
       }) => {
         let { rChainId: h } = d,
-          f = (0, T.A)((e) => e.networks.networks[h]),
-          y = (0, T.A)((e) => e.user.walletBalancesLoading),
+          y = (0, T.A)((e) => e.networks.networks[h]),
+          f = (0, T.A)((e) => e.user.walletBalancesLoading),
           g = (0, T.A)((e) => e.poolDeposit.maxLoading),
           w = (0, T.A)((e) => e.pools.setPoolIsWrapped),
-          v = (e, a) => {
+          b = (e, a) => {
             let r = K()(t.amounts);
             (r[a].value = e), m({ amounts: r, isBalancedAmounts: !1 }, null, null);
           },
-          x = (0, o.useMemo)(
+          v = (0, o.useMemo)(
             () =>
               t.amounts.length > 0
                 ? t.amounts
@@ -1545,34 +1464,34 @@
                   })),
             [l, t.amounts]
           ),
-          b = null === s || s || e;
+          x = null === s || s || e;
         return (0, r.jsxs)(q, {
           children: [
-            l.tokens.length === x.length &&
+            l.tokens.length === v.length &&
               l.tokens.map((t, o) => {
                 let n = l.tokenAddresses[o],
                   d = u?.[n] ?? '0',
                   { ethAddress: c = n } = p[n] ?? {},
                   h = l.tokensCountBy[t] > 1,
-                  { value: f } = x[o],
+                  { value: y } = v[o],
                   w = null === s || e || (s && 0 !== o);
                 return (0, r.jsx)(
                   U,
                   {
                     idx: o,
-                    amount: f,
+                    amount: y,
                     balance: (0, A.ZV)(d),
-                    balanceLoading: y,
+                    balanceLoading: f,
                     disableInput: w,
                     disableMaxButton: w,
-                    hasError: !!a && !e && +(f || '0') > +d,
+                    hasError: !!a && !e && +(y || '0') > +d,
                     haveSameTokenName: h,
                     haveSigner: a,
                     blockchainId: i,
                     isMaxLoading: g === o,
                     token: t,
                     tokenAddress: c,
-                    handleAmountChange: v,
+                    handleAmountChange: b,
                     handleMaxClick: () =>
                       m({ isBalancedAmounts: !1 }, { tokenAddress: n, idx: o }, null),
                   },
@@ -1582,7 +1501,7 @@
             a &&
               (0, r.jsx)(q, {
                 children: (0, r.jsx)(Z.A, {
-                  isDisabled: b,
+                  isDisabled: x,
                   isSelected: t.isBalancedAmounts,
                   onChange: (e) => m({ isBalancedAmounts: e }, null, null),
                   children: (0, c.t)`Add all coins in a balanced proportion`,
@@ -1592,7 +1511,7 @@
               null !== t.isWrapped &&
               (0, r.jsx)(q, {
                 children: (0, r.jsx)(Z.A, {
-                  isDisabled: !n || b || f?.poolIsWrappedOnly?.[l.pool.id],
+                  isDisabled: !n || x || y?.poolIsWrappedOnly?.[l.pool.id],
                   isSelected: t.isWrapped,
                   onChange: (e) => {
                     if (n) {
@@ -1630,9 +1549,9 @@
         tokensMapper: p,
         userPoolBalances: u,
       }) => {
-        let y = (0, o.useRef)(!1),
+        let f = (0, o.useRef)(!1),
           { chainId: g, signerAddress: A } = t || {},
-          { rChainId: v } = l,
+          { rChainId: b } = l,
           S = (0, T.A)((e) => e.poolDeposit.activeKey),
           C = (0, T.A)((e) => e.poolDeposit.formEstGas[S] ?? s$),
           P = (0, T.A)((e) => e.poolDeposit.formLpTokenExpected[S] ?? Y.hE),
@@ -1669,7 +1588,7 @@
                 n = (0, c.t)`Please confirm deposit of ${i} at max ${o}% slippage.`,
                 { dismiss: l } = (0, I.me)(n, 'pending'),
                 d = await D(e, t, a, s, o);
-              if (y.current && d && d.hash && d.activeKey === e && K) {
+              if (f.current && d && d.hash && d.activeKey === e && K) {
                 let e = (0, c.t)`Deposited ${i}.`;
                 U((0, r.jsx)(et.A, { description: e, txHash: K.scanTxPath(d.hash) }));
               }
@@ -1683,7 +1602,7 @@
               let u = s.amounts.some((e) => Number(e.value) > 0) && !o.error,
                 m = o.isApproved || 'APPROVE' === o.formTypeCompleted,
                 h = 'DEPOSIT' === o.formTypeCompleted,
-                f = {
+                y = {
                   APPROVAL: {
                     key: 'APPROVAL',
                     status: (0, ee.XA)(m, 'APPROVAL' === o.step, u),
@@ -1722,15 +1641,15 @@
                   : o.isApproved
                     ? ['DEPOSIT']
                     : ['APPROVAL', 'DEPOSIT']
-              ).map((e) => f[e]);
+              ).map((e) => y[e]);
             },
             [q, Z]
           );
         (0, o.useEffect)(
           () => (
-            (y.current = !0),
+            (f.current = !0),
             () => {
-              y.current = !1;
+              f.current = !1;
             }
           ),
           []
@@ -1774,15 +1693,15 @@
             (0, r.jsxs)('div', {
               children: [
                 (0, r.jsx)(w, { formLpTokenExpected: P, maxSlippage: a, poolDataCacheOrApi: n }),
-                (0, r.jsx)(x, { ...B }),
+                (0, r.jsx)(v, { ...B }),
                 z &&
-                  (0, r.jsx)(f.A, {
+                  (0, r.jsx)(y.A, {
                     isDivider: !0,
-                    chainId: v,
+                    chainId: b,
                     ...C,
                     stepProgress: er && M.length > 1 ? { active: er, total: M.length } : null,
                   }),
-                (0, r.jsx)(b.A, {
+                (0, r.jsx)(x.A, {
                   customLabel: (0, c.t)`Additional slippage tolerance:`,
                   maxSlippage: a,
                   stateKey: e,
@@ -1813,11 +1732,10 @@
       var er = a(74009),
         es = a(62011),
         eo = a(45356),
-        ei = a(63175),
-        en = a(12522);
-      let el = (e) => {
+        ei = a(63175);
+      let en = (e) => {
         let { address: t, lpToken: r, gauge: s } = e?.pool ?? {},
-          i = (0, en.B)((e) => e.curve),
+          { lib: i = null } = (0, I.w5)(),
           { provider: n } = (0, I.vT)(),
           l = (0, T.A)((e) => e.pools.stakedMapper[t]),
           d = (0, T.A)((e) => e.pools.setStateByActiveKey),
@@ -1873,12 +1791,12 @@
           l
         );
       };
-      var ed = a(56457);
-      let ec = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-34349356-0' })([
+      var el = a(56457);
+      let ed = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-34349356-0' })([
           'position:relative;top:-1px;svg{margin:0 0.25rem;}',
         ]),
-        ep = ({ crvApr: e, lpTokenAmount: t, poolDataCacheOrApi: a }) => {
-          let { gaugeTotalSupply: s } = el(a) ?? {},
+        ec = ({ crvApr: e, lpTokenAmount: t, poolDataCacheOrApi: a }) => {
+          let { gaugeTotalSupply: s } = en(a) ?? {},
             [i, n] = (0, o.useState)(null);
           return (
             (0, o.useEffect)(() => {
@@ -1892,7 +1810,7 @@
             (0, r.jsx)(r.Fragment, {
               children:
                 e && i && i.ratio > 1.25
-                  ? (0, r.jsx)(y.A, {
+                  ? (0, r.jsx)(f.A, {
                       isBold: !0,
                       loading: !1,
                       loadingSkeleton: [140, 23],
@@ -1902,10 +1820,10 @@
                         children: (0,
                         c.t)`As the number of staked LP Tokens increases, the CRV tAPR will decrease.`,
                       }),
-                      children: (0, r.jsxs)(ec, {
+                      children: (0, r.jsxs)(ed, {
                         children: [
                           (0, A.ZV)(e, { style: 'percent', defaultValue: '-' }),
-                          (0, r.jsx)(ed.A, {
+                          (0, r.jsx)(el.A, {
                             name: 'ArrowRight',
                             size: 16,
                             className: 'svg-arrow',
@@ -1918,7 +1836,7 @@
             })
           );
         },
-        eu = ({
+        ep = ({
           chainIdPoolId: e,
           curve: t,
           blockchainId: a,
@@ -1929,10 +1847,10 @@
           routerParams: d,
           seed: p,
           tokensMapper: u,
-          userPoolBalances: y,
+          userPoolBalances: f,
         }) => {
           let g = (0, o.useRef)(!1),
-            { chainId: A, signerAddress: v } = t || {},
+            { chainId: A, signerAddress: b } = t || {},
             { rChainId: S } = d,
             C = (0, T.A)((e) => e.poolDeposit.activeKey),
             P = (0, T.A)((e) => e.poolDeposit.formEstGas[C] ?? s$),
@@ -1950,7 +1868,7 @@
             [W, U] = (0, o.useState)([]),
             [_, z] = (0, o.useState)(null),
             H = i?.pool?.id,
-            q = !!v,
+            q = !!b,
             Z = (0, o.useCallback)(
               (e, a, r) => {
                 z(null), $(!1), K('DEPOSIT_STAKE', t, n.pool.id, i, e, a, p.isSeed, r || l);
@@ -1986,7 +1904,7 @@
                 let u = s.amounts.some((e) => Number(e.value) > 0) && !o.error,
                   m = o.isApproved || 'APPROVE' === o.formTypeCompleted,
                   h = 'DEPOSIT_STAKE' === o.formTypeCompleted,
-                  f = {
+                  y = {
                     APPROVAL: {
                       key: 'APPROVAL',
                       status: (0, ee.XA)(m, 'APPROVAL' === o.step, u),
@@ -2025,7 +1943,7 @@
                     : o.isApproved
                       ? ['DEPOSIT_STAKE']
                       : ['APPROVAL', 'DEPOSIT_STAKE']
-                ).map((e) => f[e]);
+                ).map((e) => y[e]);
               },
               [ea, er]
             );
@@ -2043,13 +1961,13 @@
             }, [H]),
             (0, o.useEffect)(() => {
               A && H && Z({}, null, null);
-            }, [A, H, v, p.isSeed]),
+            }, [A, H, b, p.isSeed]),
             (0, o.useEffect)(() => {
               l && Z({}, null, l);
             }, [l]),
             (0, o.useEffect)(() => {
               t && i && U(es(C, t, i, B, R, M, D, W, l));
-            }, [A, H, v, B, R, D.isHighSlippage, M, l]);
+            }, [A, H, b, B, R, D.isHighSlippage, M, l]);
           let eo = q ? (0, ee.$g)(W) : null,
             ei = !p.loaded || R.formProcessing,
             en = (0, o.useMemo)(
@@ -2071,26 +1989,26 @@
                 poolDataCacheOrApi: n,
                 routerParams: d,
                 tokensMapper: u,
-                userPoolBalances: y,
+                userPoolBalances: f,
                 updateFormValues: Z,
               }),
               (0, r.jsxs)('div', {
                 children: [
                   (0, r.jsx)(w, { formLpTokenExpected: j, maxSlippage: l, poolDataCacheOrApi: n }),
-                  (0, r.jsx)(ep, {
+                  (0, r.jsx)(ec, {
                     lpTokenAmount: j.expected,
                     poolDataCacheOrApi: n,
                     crvApr: E?.crv?.[0],
                   }),
-                  (0, r.jsx)(x, { ...D }),
+                  (0, r.jsx)(v, { ...D }),
                   q &&
-                    (0, r.jsx)(f.A, {
+                    (0, r.jsx)(y.A, {
                       isDivider: !0,
                       chainId: S,
                       ...P,
                       stepProgress: eo && W.length > 1 ? { active: eo, total: W.length } : null,
                     }),
-                  (0, r.jsx)(b.A, {
+                  (0, r.jsx)(x.A, {
                     customLabel: (0, c.t)`Additional slippage tolerance`,
                     maxSlippage: l,
                     stateKey: e,
@@ -2106,7 +2024,7 @@
                 loading: !A || !W.length || !p.loaded,
                 routerParams: d,
                 seed: p,
-                userPoolBalances: y,
+                userPoolBalances: f,
                 children: [
                   (0, r.jsx)(h.A, { maxSlippage: l, usdAmount: en }),
                   R.error &&
@@ -2118,8 +2036,8 @@
             ],
           });
         };
-      var em = a(37653);
-      let eh = ({
+      var eu = a(37653);
+      let em = ({
           amount: e,
           balance: t,
           balanceLoading: a,
@@ -2153,7 +2071,7 @@
               d && (0, r.jsx)(M.xI, { disabled: s, onClick: d }),
             ],
           }),
-        ef = ({
+        eh = ({
           curve: e,
           poolData: t,
           poolDataCacheOrApi: a,
@@ -2165,12 +2083,12 @@
             { chainId: d, signerAddress: p } = e || {},
             { rChainId: u } = s,
             h = (0, T.A)((e) => e.poolDeposit.activeKey),
-            y = (0, T.A)((e) => e.user.walletBalancesLoading),
+            f = (0, T.A)((e) => e.user.walletBalancesLoading),
             g = (0, T.A)((e) => e.poolDeposit.formEstGas[h] ?? s$),
             w = (0, T.A)((e) => e.poolDeposit.formStatus),
-            v = (0, T.A)((e) => e.poolDeposit.formValues),
-            x = (0, T.A)((e) => e.pools.rewardsApyMapper[u]?.[a.pool.id]),
-            b = (0, T.A)((e) => e.poolDeposit.fetchStepStakeApprove),
+            b = (0, T.A)((e) => e.poolDeposit.formValues),
+            v = (0, T.A)((e) => e.pools.rewardsApyMapper[u]?.[a.pool.id]),
+            x = (0, T.A)((e) => e.poolDeposit.fetchStepStakeApprove),
             S = (0, T.A)((e) => e.poolDeposit.fetchStepStake),
             C = (0, T.A)((e) => e.poolDeposit.setFormValues),
             P = (0, T.A)((e) => e.poolDeposit.resetState),
@@ -2189,9 +2107,9 @@
               async (e, t, a, r) => {
                 let s = (0, c.t)`Please approve spending your LP Tokens.`,
                   { dismiss: o } = (0, I.me)(s, 'pending');
-                await b(e, t, 'STAKE', a, r), 'function' == typeof o && o();
+                await x(e, t, 'STAKE', a, r), 'function' == typeof o && o();
               },
-              [b]
+              [x]
             ),
             N = (0, o.useCallback)(
               async (e, t, a, s) => {
@@ -2254,19 +2172,19 @@
               d && F && O({});
             }, [d, F, p, i.isSeed]),
             (0, o.useEffect)(() => {
-              e && F && B(V(h, e, t, v, w, R));
-            }, [d, F, p, v, w]);
+              e && F && B(V(h, e, t, b, w, R));
+            }, [d, F, p, b, w]);
           let M = p ? (0, ee.$g)(R) : null,
             $ = null === i.isSeed || w.formProcessing,
             W = n?.lpToken ?? '0';
           return (0, r.jsxs)(r.Fragment, {
             children: [
               (0, r.jsx)(q, {
-                children: (0, r.jsx)(eh, {
-                  amount: v.lpToken,
+                children: (0, r.jsx)(em, {
+                  amount: b.lpToken,
                   balance: (0, A.ZV)(W),
-                  balanceLoading: y,
-                  hasError: !!L && new em.A(v.lpToken).isGreaterThan(W),
+                  balanceLoading: f,
+                  hasError: !!L && new eu.A(b.lpToken).isGreaterThan(W),
                   haveSigner: L,
                   handleAmountChange: (e) => O({ lpToken: e }),
                   disabledMaxButton: $ || !L,
@@ -2278,13 +2196,13 @@
               }),
               (0, r.jsxs)('div', {
                 children: [
-                  (0, r.jsx)(ep, {
-                    lpTokenAmount: v.lpToken,
+                  (0, r.jsx)(ec, {
+                    lpTokenAmount: b.lpToken,
                     poolDataCacheOrApi: a,
-                    crvApr: x?.crv?.[0],
+                    crvApr: v?.crv?.[0],
                   }),
                   L &&
-                    (0, r.jsx)(f.A, {
+                    (0, r.jsx)(y.A, {
                       chainId: u,
                       ...g,
                       stepProgress: M && R.length > 1 ? { active: M, total: R.length } : null,
@@ -2322,7 +2240,7 @@
             p = (0, T.A)((e) => e.poolDeposit.resetState),
             u = (0, T.A)((e) => e.poolDeposit.setStateByKeys),
             [m, h] = (0, o.useState)([]),
-            [f, y] = (0, o.useState)(0),
+            [y, f] = (0, o.useState)(0),
             g = (0, o.useMemo)(
               () => [
                 { label: (0, c.t)`Deposit`, formType: 'DEPOSIT' },
@@ -2345,10 +2263,10 @@
                   return { left: s, width: r.width, top: o };
                 })
             );
-          }, [f]);
+          }, [y]);
           let A = (0, o.useCallback)(
             (e) => {
-              u({ formStatus: Y.kR, formType: g[e].formType }), y(e);
+              u({ formStatus: Y.kR, formType: g[e].formType }), f(e);
             },
             [u]
           );
@@ -2361,7 +2279,7 @@
                 (0, F.$m)(n.pool.gauge.address) &&
                   l &&
                   (0, r.jsx)(H, {
-                    activeIdx: f,
+                    activeIdx: y,
                     children: (0, r.jsx)(z.Gj, {
                       ref: a,
                       children: g.map(({ formType: t, label: a }, s) =>
@@ -2394,7 +2312,7 @@
                                   alertType: 'warning',
                                   children: (0, c.t)`Staking is disabled due to inactive Gauge.`,
                                 })
-                              : (0, r.jsx)(eu, { hasDepositAndStake: e, ...t }),
+                              : (0, r.jsx)(ep, { hasDepositAndStake: e, ...t }),
                           }),
                         'STAKE' === d &&
                           (0, r.jsx)(r.Fragment, {
@@ -2403,7 +2321,7 @@
                                   alertType: 'warning',
                                   children: (0, c.t)`Staking is disabled due to inactive Gauge.`,
                                 })
-                              : (0, r.jsx)(ef, { hasDepositAndStake: e, ...t }),
+                              : (0, r.jsx)(eh, { hasDepositAndStake: e, ...t }),
                           }),
                       ],
                     }),
@@ -2411,32 +2329,32 @@
             })
           );
         };
-      var eg = a(50567);
-      let eA = i.Ay.div.withConfig({ componentId: 'sc-d9c666e2-0' })([
+      var ef = a(50567);
+      let eg = i.Ay.div.withConfig({ componentId: 'sc-d9c666e2-0' })([
           'display:flex;flex-direction:row;width:100%;border-bottom:0.5px solid var(--border-600);&:hover{background:var(--dialog--background-color);}',
         ]),
-        ew = (0, i.Ay)($.x).withConfig({ componentId: 'sc-d9c666e2-1' })([
+        eA = (0, i.Ay)($.x).withConfig({ componentId: 'sc-d9c666e2-1' })([
           'margin:auto var(--spacing-1) auto 0;&.bought{margin:auto 0 auto var(--spacing-1);}',
         ]),
-        ev = i.Ay.a.withConfig({ componentId: 'sc-d9c666e2-2' })([
+        ew = i.Ay.a.withConfig({ componentId: 'sc-d9c666e2-2' })([
           'box-sizing:border-box;font-variant-numeric:tabular-nums;display:grid;grid-template-columns:0.4fr 1fr;text-decoration:none;width:100%;color:var(--page--text-color);padding:var(--spacing-1) var(--spacing-1);&:hover{background:var(--dialog--background-color);}',
         ]),
-        ex = i.Ay.span.withConfig({ componentId: 'sc-d9c666e2-3' })([
+        eb = i.Ay.span.withConfig({ componentId: 'sc-d9c666e2-3' })([
           'text-align:left;margin:auto 0;font-weight:var(--bold);font-size:var(--font-size-1);color:var(--chart-green);&.remove{color:var(--chart-red);}',
         ]),
-        eb = i.Ay.div.withConfig({ componentId: 'sc-d9c666e2-4' })([
+        ev = i.Ay.div.withConfig({ componentId: 'sc-d9c666e2-4' })([
           'display:flex;flex-direction:column;',
         ]),
-        eS = i.Ay.div.withConfig({ componentId: 'sc-d9c666e2-5' })([
+        ex = i.Ay.div.withConfig({ componentId: 'sc-d9c666e2-5' })([
           'display:flex;margin:var(--spacing-1) 0 var(--spacing-1) auto;align-items:center;',
         ]),
-        ek = i.Ay.span.withConfig({ componentId: 'sc-d9c666e2-6' })([
+        eS = i.Ay.span.withConfig({ componentId: 'sc-d9c666e2-6' })([
           'font-weight:var(--bold);font-size:var(--font-size-1);opacity:0.7;margin:0 var(--spacing-1);',
         ]),
-        eC = i.Ay.span.withConfig({ componentId: 'sc-d9c666e2-7' })([
+        ek = i.Ay.span.withConfig({ componentId: 'sc-d9c666e2-7' })([
           'min-width:36px;text-align:right;opacity:0.7;font-size:var(--font-size-2);margin:auto var(--spacing-1) auto 0;padding-left:var(--spacing-1);box-sizing:border-box;font-variant-numeric:tabular-nums;display:flex;justify-content:end;',
         ]),
-        eP = ({ lpEventsData: e, chainId: t, coins: a }) => {
+        eC = ({ lpEventsData: e, chainId: t, coins: a }) => {
           let s = (0, T.A)((e) => e.tokens.tokensMapper),
             o = (0, T.A)((e) => e.networks.networks[t]);
           return (0, r.jsx)(r.Fragment, {
@@ -2446,10 +2364,10 @@
               })
               .map((e, i) =>
                 (0, r.jsxs)(
-                  eA,
+                  eg,
                   {
                     children: [
-                      (0, r.jsx)(ev, {
+                      (0, r.jsx)(ew, {
                         href: o.scanTxPath(e.transaction_hash),
                         rel: 'noopener',
                         target: '_blank',
@@ -2457,7 +2375,7 @@
                           'AddLiquidity' === e.liquidity_event_type
                             ? (0, r.jsxs)(r.Fragment, {
                                 children: [
-                                  (0, r.jsx)(ex, { children: (0, c.t)`Add` }),
+                                  (0, r.jsx)(eb, { children: (0, c.t)`Add` }),
                                   (0, r.jsx)(V.A, {
                                     flex: !0,
                                     flexColumn: !0,
@@ -2465,18 +2383,18 @@
                                       (i, n) =>
                                         0 !== i &&
                                         (0, r.jsxs)(
-                                          eS,
+                                          ex,
                                           {
                                             children: [
-                                              (0, r.jsx)(v.v, {
+                                              (0, r.jsx)(b.v, {
                                                 isBold: !0,
                                                 isNumber: !0,
                                                 children: (0, A.ZV)(e.token_amounts[n], {
                                                   ...(0, A.Ho)(e.token_amounts[n], 2),
                                                 }),
                                               }),
-                                              (0, r.jsx)(ek, { children: a[n].symbol }),
-                                              (0, r.jsx)(ew, {
+                                              (0, r.jsx)(eS, { children: a[n].symbol }),
+                                              (0, r.jsx)(eA, {
                                                 size: 'sm',
                                                 blockchainId: o?.networkId,
                                                 tooltip: a[n].symbol,
@@ -2493,27 +2411,27 @@
                               })
                             : (0, r.jsxs)(r.Fragment, {
                                 children: [
-                                  (0, r.jsx)(ex, {
+                                  (0, r.jsx)(eb, {
                                     className: 'remove',
                                     children: (0, c.t)`Remove`,
                                   }),
-                                  (0, r.jsx)(eb, {
+                                  (0, r.jsx)(ev, {
                                     children: e.token_amounts.map(
                                       (i, n) =>
                                         0 !== i &&
                                         (0, r.jsxs)(
-                                          eS,
+                                          ex,
                                           {
                                             children: [
-                                              (0, r.jsx)(v.v, {
+                                              (0, r.jsx)(b.v, {
                                                 isBold: !0,
                                                 isNumber: !0,
                                                 children: (0, A.ZV)(e.token_amounts[n], {
                                                   ...(0, A.Ho)(e.token_amounts[n], 2),
                                                 }),
                                               }),
-                                              (0, r.jsx)(ek, { children: a[n].symbol }),
-                                              (0, r.jsx)(ew, {
+                                              (0, r.jsx)(eS, { children: a[n].symbol }),
+                                              (0, r.jsx)(eA, {
                                                 size: 'sm',
                                                 blockchainId: o?.networkId,
                                                 tooltip: a[n].symbol,
@@ -2529,8 +2447,8 @@
                                 ],
                               }),
                       }),
-                      (0, r.jsx)(eC, {
-                        children: (0, r.jsx)(eg.Ay, {
+                      (0, r.jsx)(ek, {
+                        children: (0, r.jsx)(ef.Ay, {
                           tooltip: (0, A.Yq)((0, A.ic)(e.time), 'long'),
                           children: (0, A.mf)(e.time),
                         }),
@@ -2542,56 +2460,56 @@
               ),
           });
         },
-        ej = i.Ay.div.withConfig({ componentId: 'sc-9153ca9b-0' })([
+        eP = i.Ay.div.withConfig({ componentId: 'sc-9153ca9b-0' })([
           'display:flex;flex-direction:row;width:100%;border-bottom:0.5px solid var(--border-600);&:hover{background:var(--dialog--background-color);}',
         ]),
-        eT = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-1' })([
+        ej = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-1' })([
           'min-width:36px;text-align:right;opacity:0.7;font-size:var(--font-size-2);margin:auto var(--spacing-1) auto 0;padding-left:var(--spacing-1);box-sizing:border-box;font-variant-numeric:tabular-nums;display:flex;justify-content:end;',
         ]),
-        eI = (0, i.Ay)($.x).withConfig({ componentId: 'sc-9153ca9b-2' })([
+        eT = (0, i.Ay)($.x).withConfig({ componentId: 'sc-9153ca9b-2' })([
           'margin:auto var(--spacing-1) auto 0;&.bought{margin:auto 0 auto var(--spacing-1);}',
         ]),
-        eR = i.Ay.a.withConfig({ componentId: 'sc-9153ca9b-3' })([
+        eI = i.Ay.a.withConfig({ componentId: 'sc-9153ca9b-3' })([
           'box-sizing:border-box;font-variant-numeric:tabular-nums;display:grid;grid-template-columns:1fr 0.1fr 1fr;text-decoration:none;width:100%;color:var(--page--text-color);padding:var(--spacing-1) var(--spacing-1);',
         ]),
-        eB = i.Ay.div.withConfig({ componentId: 'sc-9153ca9b-4' })([
+        eR = i.Ay.div.withConfig({ componentId: 'sc-9153ca9b-4' })([
           'margin-right:auto;display:flex;flex-direction:row;',
         ]),
-        eE = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-5' })([
+        eB = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-5' })([
           'text-align:left;font-weight:var(--bold);font-size:var(--font-size-1);color:#ef5350;',
         ]),
-        eD = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-6' })([
+        eE = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-6' })([
           'text-align:left;font-weight:var(--bold);font-size:var(--font-size-2);',
         ]),
-        eF = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-7' })([
+        eD = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-7' })([
           'margin:auto 0;font-size:var(--font-size-3);font-weight:var(--bold);text-align:center;',
         ]),
-        eG = i.Ay.div.withConfig({ componentId: 'sc-9153ca9b-8' })([
+        eF = i.Ay.div.withConfig({ componentId: 'sc-9153ca9b-8' })([
           'margin-left:auto;display:flex;flex-direction:row;',
         ]),
-        eL = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-9' })([
+        eG = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-9' })([
           'text-align:right;font-weight:var(--bold);font-size:var(--font-size-1);color:#26a69a;',
         ]),
-        eO = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-10' })([
+        eL = i.Ay.span.withConfig({ componentId: 'sc-9153ca9b-10' })([
           'text-align:right;font-weight:var(--bold);font-size:var(--font-size-2);',
         ]),
-        eK = ({ lpTradesData: e, chainId: t, tradesTokens: a }) => {
+        eO = ({ lpTradesData: e, chainId: t, tradesTokens: a }) => {
           let s = (0, T.A)((e) => e.networks.networks[t]);
           return e.map((e, t) => {
             let o = a.find((t) => t.event_index === e.bought_id),
               i = a.find((t) => t.event_index === e.sold_id);
             return (0, r.jsxs)(
-              ej,
+              eP,
               {
                 children: [
-                  (0, r.jsxs)(eR, {
+                  (0, r.jsxs)(eI, {
                     href: s.scanTxPath(e.transaction_hash),
                     rel: 'noopener',
                     target: '_blank',
                     children: [
-                      (0, r.jsxs)(eB, {
+                      (0, r.jsxs)(eR, {
                         children: [
-                          (0, r.jsx)(eI, {
+                          (0, r.jsx)(eT, {
                             size: 'sm',
                             blockchainId: s?.networkId ?? '',
                             tooltip: i?.symbol ?? e.token_sold_symbol,
@@ -2601,9 +2519,9 @@
                             flex: !0,
                             flexColumn: !0,
                             children: [
-                              (0, r.jsx)(eE, { children: i?.symbol ?? e.token_sold_symbol }),
-                              (0, r.jsx)(eD, {
-                                children: (0, r.jsx)(v.v, {
+                              (0, r.jsx)(eB, { children: i?.symbol ?? e.token_sold_symbol }),
+                              (0, r.jsx)(eE, {
+                                children: (0, r.jsx)(b.v, {
                                   isBold: !0,
                                   isNumber: !0,
                                   children: (0, A.ZV)(e.tokens_sold, {
@@ -2615,16 +2533,16 @@
                           }),
                         ],
                       }),
-                      (0, r.jsx)(eF, { children: '→' }),
-                      (0, r.jsxs)(eG, {
+                      (0, r.jsx)(eD, { children: '→' }),
+                      (0, r.jsxs)(eF, {
                         children: [
                           (0, r.jsxs)(V.A, {
                             flex: !0,
                             flexColumn: !0,
                             children: [
-                              (0, r.jsx)(eL, { children: o?.symbol ?? e.token_bought_symbol }),
-                              (0, r.jsx)(eO, {
-                                children: (0, r.jsx)(v.v, {
+                              (0, r.jsx)(eG, { children: o?.symbol ?? e.token_bought_symbol }),
+                              (0, r.jsx)(eL, {
+                                children: (0, r.jsx)(b.v, {
                                   isBold: !0,
                                   isNumber: !0,
                                   children: (0, A.ZV)(e.tokens_bought, {
@@ -2634,7 +2552,7 @@
                               }),
                             ],
                           }),
-                          (0, r.jsx)(eI, {
+                          (0, r.jsx)(eT, {
                             className: 'bought',
                             size: 'sm',
                             blockchainId: s?.networkId ?? '',
@@ -2645,8 +2563,8 @@
                       }),
                     ],
                   }),
-                  (0, r.jsx)(eT, {
-                    children: (0, r.jsx)(eg.Ay, {
+                  (0, r.jsx)(ej, {
+                    children: (0, r.jsx)(ef.Ay, {
                       tooltip: (0, A.Yq)((0, A.ic)(e.time), 'long'),
                       children: (0, A.mf)(e.time),
                     }),
@@ -2657,43 +2575,43 @@
             );
           });
         };
-      var eN = a(16726),
-        eV = a(99599);
-      let eM = i.Ay.div.withConfig({ componentId: 'sc-356162ed-0' })(
+      var eK = a(16726),
+        eN = a(99599);
+      let eV = i.Ay.div.withConfig({ componentId: 'sc-356162ed-0' })(
           ['display:flex;flex-direction:column;max-height:', ';margin:1px;'],
           (e) => (e.chartExpanded ? '548px' : '350px')
         ),
-        e$ = (0, i.Ay)(eN.A).withConfig({ componentId: 'sc-356162ed-1' })([
+        eM = (0, i.Ay)(eK.A).withConfig({ componentId: 'sc-356162ed-1' })([
           'display:flex;justify-content:center;align-items:center;margin-left:calc(-1 * var(--spacing-3) * 2.5);margin-right:var(--spacing-2);box-shadow:none;&:hover:not(:disabled){box-shadow:none;}',
         ]),
-        eW = i.Ay.div.withConfig({ componentId: 'sc-356162ed-2' })([
+        e$ = i.Ay.div.withConfig({ componentId: 'sc-356162ed-2' })([
           'display:flex;flex-direction:row;padding-left:var(--spacing-2);padding-right:var(--spacing-2);min-height:2.125rem;margin-bottom:var(--spacing-3);',
         ]),
-        eU = i.Ay.h3.withConfig({ componentId: 'sc-356162ed-3' })(['margin:auto auto auto 0;']),
-        e_ = i.Ay.p.withConfig({ componentId: 'sc-356162ed-4' })(['font-size:var(--font-size-2);']),
-        ez = i.Ay.div.withConfig({ componentId: 'sc-356162ed-5' })([
+        eW = i.Ay.h3.withConfig({ componentId: 'sc-356162ed-3' })(['margin:auto auto auto 0;']),
+        eU = i.Ay.p.withConfig({ componentId: 'sc-356162ed-4' })(['font-size:var(--font-size-2);']),
+        e_ = i.Ay.div.withConfig({ componentId: 'sc-356162ed-5' })([
           'display:flex;font-size:var(--font-size-2);button{margin:auto 0 auto var(--spacing-2);}',
         ]),
-        eH = i.Ay.div.withConfig({ componentId: 'sc-356162ed-6' })([
+        ez = i.Ay.div.withConfig({ componentId: 'sc-356162ed-6' })([
           'display:flex;flex-direction:column;overflow-y:auto;scrollbar-width:none;',
         ]),
-        eq = i.Ay.div.withConfig({ componentId: 'sc-356162ed-7' })(
+        eH = i.Ay.div.withConfig({ componentId: 'sc-356162ed-7' })(
           [
             'display:flex;flex-direction:column;width:100%;overflow-y:auto;border-bottom:0.5px solid var(--border-600);padding:var(--spacing-1);min-height:',
             'px;',
           ],
           (e) => e.minHeight
         ),
-        eZ = i.Ay.div.withConfig({ componentId: 'sc-356162ed-8' })([
+        eq = i.Ay.div.withConfig({ componentId: 'sc-356162ed-8' })([
           'display:grid;grid-template-columns:2.5fr 1fr;padding:var(--spacing-1) var(--spacing-1);text-decoration:none;color:var(--page--text-color);font-weight:var(--bold);font-size:var(--font-size-1);',
         ]),
-        eX = i.Ay.span.withConfig({ componentId: 'sc-356162ed-9' })([
+        eZ = i.Ay.span.withConfig({ componentId: 'sc-356162ed-9' })([
           'opacity:0.7;box-sizing:border-box;grid-column:1 / 2;padding:var(--spacing-1) var(--spacing-1);',
         ]),
-        eY = i.Ay.span.withConfig({ componentId: 'sc-356162ed-10' })([
+        eX = i.Ay.span.withConfig({ componentId: 'sc-356162ed-10' })([
           'opacity:0.7;box-sizing:border-box;grid-column:2 / 2;text-align:right;padding:var(--spacing-1) var(--spacing-1);',
         ]),
-        eQ = ({
+        eY = ({
           chainId: e,
           poolAddress: t,
           chartExpanded: a,
@@ -2707,21 +2625,21 @@
             u = (0, T.A)((e) => e.pools.pricesApiState.liquidityEventsData),
             m = (0, T.A)((e) => e.pools.setActivityHidden),
             h = (0, T.A)((e) => e.pools.fetchPricesApiActivity),
-            [f, y] = (0, o.useState)('TRADE');
+            [y, f] = (0, o.useState)('TRADE');
           return (
             (0, o.useEffect)(() => {
               h(e, t, n);
             }, [e, n, h, t]),
-            (0, r.jsxs)(eM, {
+            (0, r.jsxs)(eV, {
               chartExpanded: a,
               children: [
-                (0, r.jsxs)(eW, {
+                (0, r.jsxs)(e$, {
                   children: [
                     a &&
-                      (0, r.jsx)(e$, {
+                      (0, r.jsx)(eM, {
                         variant: 'select',
                         onClick: () => m(!l),
-                        children: (0, r.jsx)(ed.A, {
+                        children: (0, r.jsx)(el.A, {
                           name: l ? 'SidePanelClose' : 'SidePanelOpen',
                           size: 16,
                         }),
@@ -2729,21 +2647,21 @@
                     !l &&
                       (0, r.jsxs)(r.Fragment, {
                         children: [
-                          (0, r.jsx)(eU, {
-                            children: 'TRADE' === f ? (0, c.t)`Swaps` : (0, c.t)`Liquidity`,
+                          (0, r.jsx)(eW, {
+                            children: 'TRADE' === y ? (0, c.t)`Swaps` : (0, c.t)`Liquidity`,
                           }),
-                          (0, r.jsxs)(ez, {
+                          (0, r.jsxs)(e_, {
                             children: [
-                              (0, r.jsx)(eN.A, {
-                                className: 'TRADE' === f ? 'active' : '',
+                              (0, r.jsx)(eK.A, {
+                                className: 'TRADE' === y ? 'active' : '',
                                 variant: 'select',
-                                onClick: () => y('TRADE'),
+                                onClick: () => f('TRADE'),
                                 children: (0, c.t)`Swaps`,
                               }),
-                              (0, r.jsx)(eN.A, {
-                                className: 'LP' === f ? 'active' : '',
+                              (0, r.jsx)(eK.A, {
+                                className: 'LP' === y ? 'active' : '',
                                 variant: 'select',
-                                onClick: () => y('LP'),
+                                onClick: () => f('LP'),
                                 children: (0, c.t)`Liquidity`,
                               }),
                             ],
@@ -2754,52 +2672,52 @@
                 }),
                 !l &&
                   'READY' === d &&
-                  (0, r.jsxs)(eH, {
+                  (0, r.jsxs)(ez, {
                     children: [
                       (0, r.jsxs)(
-                        eZ,
+                        eq,
                         {
                           children: [
-                            (0, r.jsx)(eX, {
-                              children: 'TRADE' === f ? (0, c.t)`Swap` : (0, c.t)`Action`,
+                            (0, r.jsx)(eZ, {
+                              children: 'TRADE' === y ? (0, c.t)`Swap` : (0, c.t)`Action`,
                             }),
-                            (0, r.jsx)(eY, { children: (0, c.t)`Time` }),
+                            (0, r.jsx)(eX, { children: (0, c.t)`Time` }),
                           ],
                         },
                         'titles'
                       ),
-                      (0, r.jsx)(eq, {
+                      (0, r.jsx)(eH, {
                         minHeight: a ? 548 : 330,
                         children:
-                          'TRADE' === f
+                          'TRADE' === y
                             ? 0 === p.length
-                              ? (0, r.jsx)(eV.V, {
-                                  children: (0, r.jsx)(e_, {
+                              ? (0, r.jsx)(eN.V, {
+                                  children: (0, r.jsx)(eU, {
                                     children: (0, c.t)`No trades data found.`,
                                   }),
                                 })
-                              : (0, r.jsx)(eK, { lpTradesData: p, chainId: e, tradesTokens: i })
+                              : (0, r.jsx)(eO, { lpTradesData: p, chainId: e, tradesTokens: i })
                             : 0 === u.length
-                              ? (0, r.jsx)(eV.V, {
-                                  children: (0, r.jsx)(e_, {
+                              ? (0, r.jsx)(eN.V, {
+                                  children: (0, r.jsx)(eU, {
                                     children: (0, c.t)`No controller data found.`,
                                   }),
                                 })
-                              : (0, r.jsx)(eP, { lpEventsData: u, chainId: e, coins: s }),
+                              : (0, r.jsx)(eC, { lpEventsData: u, chainId: e, coins: s }),
                       }),
                     ],
                   }),
                 !l &&
                   'LOADING' === d &&
-                  (0, r.jsx)(eV.V, {
+                  (0, r.jsx)(eN.V, {
                     minHeight: a ? '548px' : '330px',
-                    children: (0, r.jsx)(eV.A, { size: 18 }),
+                    children: (0, r.jsx)(eN.A, { size: 18 }),
                   }),
                 !l &&
                   'ERROR' === d &&
-                  (0, r.jsx)(eV.V, {
+                  (0, r.jsx)(eN.V, {
                     minHeight: a ? '548px' : '330px',
-                    children: (0, r.jsx)(e_, {
+                    children: (0, r.jsx)(eU, {
                       children: (0, c.t)`There was an error fetching the pool activity data.`,
                     }),
                   }),
@@ -2807,11 +2725,11 @@
             })
           );
         };
-      var eJ = a(47990),
-        e0 = a(63058),
-        e1 = a(14815),
-        e3 = a(75911);
-      let e2 = i.Ay.div.withConfig({ componentId: 'sc-97468e34-0' })(['display:grid;', ''], (e) =>
+      var eQ = a(47990),
+        eJ = a(63058),
+        e0 = a(14815),
+        e1 = a(75911);
+      let e3 = i.Ay.div.withConfig({ componentId: 'sc-97468e34-0' })(['display:grid;', ''], (e) =>
           e.activityHidden
             ? 'grid-template-columns: auto calc(var(--spacing-3) + var(--spacing-3))'
             : 'grid-template-columns: 2fr 26.4375rem'
@@ -2819,24 +2737,24 @@
         e5 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-97468e34-1' })([
           'padding:var(--spacing-3);background:var(--box--secondary--content--background-color);',
         ]),
-        e4 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-97468e34-2' })(
+        e2 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-97468e34-2' })(
           ['display:flex;flex-direction:column;padding:', ';'],
           (e) => (e.chartExpanded ? 'var(--spacing-3)' : '0')
         ),
         e6 = i.Ay.div.withConfig({ componentId: 'sc-97468e34-3' })([
           'display:flex;flex-direction:row;margin-bottom:var(--spacing-2);',
         ]),
-        e7 = (0, i.Ay)(eJ.A).withConfig({ componentId: 'sc-97468e34-4' })([
+        e4 = (0, i.Ay)(eQ.A).withConfig({ componentId: 'sc-97468e34-4' })([
           'color:inherit;font:var(--font);font-size:var(--font-size-2);font-weight:bold;text-transform:none;opacity:0.7;&.active{opacity:1;border-bottom:2px solid var(--page--text-color);}',
         ]),
-        e8 = (0, i.Ay)(e7).withConfig({ componentId: 'sc-97468e34-5' })([
+        e9 = (0, i.Ay)(e4).withConfig({ componentId: 'sc-97468e34-5' })([
           'margin-left:auto;display:flex;align-content:center;',
         ]),
-        e9 = (0, i.Ay)(ed.A).withConfig({ componentId: 'sc-97468e34-6' })([
+        e8 = (0, i.Ay)(el.A).withConfig({ componentId: 'sc-97468e34-6' })([
           'margin-left:var(--spacing-1);',
         ]),
-        te = ({ rChainId: e, pricesApiPoolData: t }) => {
-          let a = (0, e3.nv)((e) => e.theme),
+        e7 = ({ rChainId: e, pricesApiPoolData: t }) => {
+          let a = (0, e1.nv)((e) => e.theme),
             s = (0, T.A)((e) => e.pools.pricesApiState.chartOhlcData),
             i = (0, T.A)((e) => e.pools.pricesApiState.chartStatus),
             n = (0, T.A)((e) => e.pools.pricesApiState.timeOption),
@@ -2846,13 +2764,13 @@
             u = (0, T.A)((e) => e.pools.pricesApiState.refetchingCapped),
             m = (0, T.A)((e) => e.pools.pricesApiState.lastFetchEndTime),
             h = (0, T.A)((e) => e.pools.setChartTimeOption),
-            f = (0, T.A)((e) => e.pools.setChartExpanded),
-            y = (0, T.A)((e) => e.pools.fetchPricesApiCharts),
+            y = (0, T.A)((e) => e.pools.setChartExpanded),
+            f = (0, T.A)((e) => e.pools.fetchPricesApiCharts),
             g = (0, T.A)((e) => e.pools.fetchPricesApiActivity),
             A = (0, T.A)((e) => e.pools.fetchMorePricesApiCharts),
             w = (0, T.A)((e) => e.isMdUp),
-            [v, x] = (0, o.useState)('chart'),
-            [b, S] = (0, o.useState)([]),
+            [b, v] = (0, o.useState)('chart'),
+            [x, S] = (0, o.useState)([]),
             [k, C] = (0, o.useState)(0),
             [P, j] = (0, o.useState)([]),
             I = { expanded: 500, standard: 300 },
@@ -2877,7 +2795,7 @@
             }, [t.coins, t.n_coins]),
             B = (0, o.useMemo)(
               () => ({
-                start: +(0, e1.Gw)(n, Date.now() / 1e3),
+                start: +(0, e0.Gw)(n, Date.now() / 1e3),
                 end: Math.floor(Date.now() / 1e3),
               }),
               [n]
@@ -2913,15 +2831,15 @@
               [n]
             ),
             F = () => {
-              y(e, k, t.address, E, D, B.end, B.start, R, P), g(e, t.address, R);
+              f(e, k, t.address, E, D, B.end, B.start, R, P), g(e, t.address, R);
             };
           (0, o.useEffect)(() => {
-            y(e, k, t.address, E, D, B.end, B.start, R, P);
-          }, [e, R, t.address, E, B.end, B.start, y, P, k, D]);
+            f(e, k, t.address, E, D, B.end, B.start, R, P);
+          }, [e, R, t.address, E, B.end, B.start, f, P, k, D]);
           let G = (0, o.useCallback)(
             (a) => {
-              let r = (0, e1.yp)(n, a),
-                s = (0, e1.Gw)(n, r);
+              let r = (0, e0.yp)(n, a),
+                s = (0, e0.Gw)(n, r);
               A(e, k, t.address, E, D, +s, r, R, P);
             },
             [e, R, E, A, P, t.address, k, n, D]
@@ -2949,20 +2867,20 @@
             j(P.map((e, t) => (t === k - 2 ? !P[k - 2] : P[k - 2])));
           };
           return l
-            ? (0, r.jsxs)(e2, {
+            ? (0, r.jsxs)(e3, {
                 activityHidden: d,
                 children: [
-                  (0, r.jsx)(e4, {
+                  (0, r.jsx)(e2, {
                     variant: 'secondary',
                     chartExpanded: l,
-                    children: (0, r.jsx)(e0.A, {
+                    children: (0, r.jsx)(eJ.A, {
                       chartType: 'poolPage',
                       chartStatus: i,
                       chartHeight: I,
                       chartExpanded: l,
                       themeType: a,
                       ohlcData: s,
-                      selectChartList: b,
+                      selectChartList: x,
                       selectedChartIndex: k,
                       setChartSelectedIndex: C,
                       timeOption: n,
@@ -2975,7 +2893,7 @@
                     }),
                   }),
                   (0, r.jsx)(e5, {
-                    children: (0, r.jsx)(eQ, {
+                    children: (0, r.jsx)(eY, {
                       chartExpanded: l,
                       coins: t.coins,
                       tradesTokens: p,
@@ -2986,30 +2904,30 @@
                   }),
                 ],
               })
-            : (0, r.jsxs)(e4, {
+            : (0, r.jsxs)(e2, {
                 chartExpanded: l,
                 children: [
                   (0, r.jsxs)(e6, {
                     children: [
-                      (0, r.jsx)(e7, {
+                      (0, r.jsx)(e4, {
                         variant: 'text',
-                        className: 'chart' === v ? 'active' : '',
-                        onClick: () => x('chart'),
+                        className: 'chart' === b ? 'active' : '',
+                        onClick: () => v('chart'),
                         children: (0, c.t)`Chart`,
                       }),
-                      (0, r.jsx)(e7, {
+                      (0, r.jsx)(e4, {
                         variant: 'text',
-                        className: 'poolActivity' === v ? 'active' : '',
-                        onClick: () => x('poolActivity'),
+                        className: 'poolActivity' === b ? 'active' : '',
+                        onClick: () => v('poolActivity'),
                         children: (0, c.t)`Pool Activity`,
                       }),
                       w &&
-                        (0, r.jsxs)(e8, {
+                        (0, r.jsxs)(e9, {
                           variant: 'text',
-                          onClick: () => f(!l),
+                          onClick: () => y(!l),
                           children: [
                             l ? 'Minimize' : 'Expand',
-                            (0, r.jsx)(e9, {
+                            (0, r.jsx)(e8, {
                               name: l ? 'Minimize' : 'Maximize',
                               size: 16,
                               'aria-label': (0, c.t)`Expand chart`,
@@ -3019,8 +2937,8 @@
                     ],
                   }),
                   t &&
-                    'poolActivity' === v &&
-                    (0, r.jsx)(eQ, {
+                    'poolActivity' === b &&
+                    (0, r.jsx)(eY, {
                       chartExpanded: l,
                       coins: t.coins,
                       tradesTokens: p,
@@ -3028,15 +2946,15 @@
                       chainId: e,
                       chartCombinations: R,
                     }),
-                  'chart' === v &&
-                    (0, r.jsx)(e0.A, {
+                  'chart' === b &&
+                    (0, r.jsx)(eJ.A, {
                       chartType: 'poolPage',
                       chartStatus: i,
                       chartHeight: I,
                       chartExpanded: l,
                       themeType: a,
                       ohlcData: s,
-                      selectChartList: b,
+                      selectChartList: x,
                       selectedChartIndex: k,
                       setChartSelectedIndex: C,
                       timeOption: n,
@@ -3050,102 +2968,102 @@
                 ],
               });
         };
-      var tt = a(2657),
-        ta = a(35736),
-        tr = a(25025),
-        ts = a(39651);
-      let to = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-0' })([
+      var te = a(2657),
+        tt = a(35736),
+        ta = a(25025),
+        tr = a(39651);
+      let ts = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-0' })([
           'width:100%;display:grid;transition:200ms;grid-template-columns:1fr;min-height:14.6875rem;@media (min-width:75rem){grid-template-columns:1fr 0.7fr;}',
         ]),
-        ti = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-1' })([
+        to = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-1' })([
           'display:flex;flex-direction:column;margin-bottom:var(--spacing-4);',
         ]),
-        tn = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-2' })(
+        ti = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-2' })(
           ['padding:1.5rem 1rem;@media (min-width:', 'rem){padding:1.5rem;}'],
-          ts.fi.lg
+          tr.fi.lg
         ),
-        tl = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-3' })([
+        tn = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-3' })([
           'display:flex;flex-direction:column;&:first-of-type{margin-top:var(--spacing-3);}',
         ]),
-        td = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-4' })([
+        tl = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-4' })([
           'margin:auto 0 auto auto;font-size:var(--font-size-2);font-weight:var(--bold);',
         ]),
-        tc = (0, i.Ay)(ta.G).withConfig({ componentId: 'sc-cbccec97-5' })([
+        td = (0, i.Ay)(tt.G).withConfig({ componentId: 'sc-cbccec97-5' })([
           'color:inherit;font-weight:500;text-decoration:none;display:flex;flex-direction:row;align-items:center;',
         ]),
-        tp = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-6' })([
+        tc = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-6' })([
           'white-space:nowrap;display:flex;flex-direction:row;align-items:center;',
         ]),
-        tu = (0, i.Ay)($.x).withConfig({ componentId: 'sc-cbccec97-7' })([
+        tp = (0, i.Ay)($.x).withConfig({ componentId: 'sc-cbccec97-7' })([
           'margin-right:var(--spacing-1);',
         ]),
-        tm = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-8' })([
+        tu = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-8' })([
           'display:flex;flex-direction:column;margin:0 0 var(--spacing-2) var(--spacing-2);',
         ]),
-        th = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-9' })(['font-family:var(--font-mono);']),
-        tf = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-10' })([
+        tm = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-9' })(['font-family:var(--font-mono);']),
+        th = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-10' })([
           'margin-left:var(--spacing-2);font-size:var(--font-size-2);',
         ]),
-        ty = (0, i.Ay)(ta.G).withConfig({ componentId: 'sc-cbccec97-11' })([
+        ty = (0, i.Ay)(tt.G).withConfig({ componentId: 'sc-cbccec97-11' })([
           'margin:var(--spacing-1) 0 0 auto;font-size:var(--font-size-2);color:inherit;font-weight:var(--bold);',
         ]),
-        tg = (0, i.Ay)(ta.G).withConfig({ componentId: 'sc-cbccec97-12' })([
+        tf = (0, i.Ay)(tt.G).withConfig({ componentId: 'sc-cbccec97-12' })([
           'margin:var(--spacing-1) 0 0 auto;font-size:var(--font-size-2);color:inherit;font-weight:var(--semi-bold);',
         ]),
-        tA = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-13' })([
+        tg = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-13' })([
           'margin:var(--spacing-1) 0 0 auto;font-size:var(--font-size-2);font-weight:var(--semi-bold);',
         ]),
-        tw = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-14' })(
+        tA = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-14' })(
           [
             'display:flex;justify-content:space-between;align-items:center;padding:var(--spacing-2) 0;border-bottom:',
             ';&:last-child{border:none;}&:first-of-type{margin-top:var(--spacing-3);padding-top:0;}',
           ],
           (e) => (e.noBorder ? '' : '1px solid var(--border-600)')
         ),
-        tv = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-15' })(
+        tw = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-15' })(
           [
             'background-color:var(--box--secondary--content--background-color);row-gap:var(--spacing-3);display:flex;flex-direction:column;padding:1.5rem 1rem;@media (min-width:',
             'rem){padding:1.5rem;}',
           ],
-          ts.fi.lg
+          tr.fi.lg
         ),
-        tx = (0, i.Ay)(v.v).withConfig({ componentId: 'sc-cbccec97-16' })([
+        tb = (0, i.Ay)(b.v).withConfig({ componentId: 'sc-cbccec97-16' })([
           'font-size:var(--font-size-2);',
         ]),
-        tb = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-17' })([
+        tv = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-17' })([
           'font-weight:var(--semi-bold);font-size:var(--font-size-2);',
         ]),
-        tS = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-18' })([
+        tx = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-18' })([
           'font-weight:var(--bold);font-size:var(--font-size-2);',
         ]),
-        tk = (0, i.Ay)(ta.G).withConfig({ componentId: 'sc-cbccec97-19' })([
+        tS = (0, i.Ay)(tt.G).withConfig({ componentId: 'sc-cbccec97-19' })([
           'margin:auto 0 0 auto;font-size:var(--font-size-2);font-weight:var(--bold);color:inherit;',
         ]),
-        tC = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-20' })([
+        tk = i.Ay.div.withConfig({ componentId: 'sc-cbccec97-20' })([
           'display:flex;flex-direction:column;',
         ]),
-        tP = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-21' })([
+        tC = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-21' })([
           'display:flex;flex-direction:column;',
         ]),
-        tj = i.Ay.h3.withConfig({ componentId: 'sc-cbccec97-22' })([
+        tP = i.Ay.h3.withConfig({ componentId: 'sc-cbccec97-22' })([
           'font-size:var(--font-size-1);text-transform:uppercase;font-weight:var(--bold);',
         ]),
-        tT = i.Ay.h3.withConfig({ componentId: 'sc-cbccec97-23' })([
+        tj = i.Ay.h3.withConfig({ componentId: 'sc-cbccec97-23' })([
           'font-size:var(--font-size-1);text-transform:uppercase;font-weight:var(--bold);margin-bottom:var(--spacing-2);',
         ]),
-        tI = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-24' })([
+        tT = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-cbccec97-24' })([
           'display:flex;margin-top:var(--spacing-1);',
         ]),
-        tR = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-25' })([
+        tI = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-25' })([
           'padding-right:var(--spacing-2);font-weight:var(--semi-bold);font-size:var(--font-size-2);',
         ]),
-        tB = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-26' })([
+        tR = i.Ay.p.withConfig({ componentId: 'sc-cbccec97-26' })([
           'margin-left:auto;font-weight:var(--bold);font-size:var(--font-size-2);',
         ]),
-        tE = (0, i.Ay)(tr.A).withConfig({ componentId: 'sc-cbccec97-27' })([
+        tB = (0, i.Ay)(ta.A).withConfig({ componentId: 'sc-cbccec97-27' })([
           'font-weight:bold;text-transform:initial;',
         ]),
-        tD = ({ pricesApi: e, poolData: t, rChainId: a }) => {
+        tE = ({ pricesApi: e, poolData: t, rChainId: a }) => {
           let s;
           let i = t.pool.address,
             n = (0, T.A)((e) => e.pools.snapshotsMapper),
@@ -3155,28 +3073,28 @@
             u = n[i],
             m = d[i],
             h = (e) => (0, A.ZV)(e / 1e8, { showAllFractionDigits: !0 }),
-            f = (e) => (0, A.ZV)(e / 1e18, { showAllFractionDigits: !0 }),
+            y = (e) => (0, A.ZV)(e / 1e18, { showAllFractionDigits: !0 }),
             {
-              gamma: y,
+              gamma: f,
               A: g,
               future_A: w,
-              future_A_time: x,
-              initial_A: b,
+              future_A_time: v,
+              initial_A: x,
               initial_A_time: S,
             } = t.parameters ?? {},
             k = (0, o.useMemo)(
               () => !!t?.pool?.wrappedCoins && Array.isArray(t.pool.wrappedCoins),
               [t?.pool?.wrappedCoins]
             ),
-            C = (0, o.useMemo)(() => (x ? (0, A.Yq)(new Date(x), 'long') : null), [x]),
+            C = (0, o.useMemo)(() => (v ? (0, A.Yq)(new Date(v), 'long') : null), [v]),
             P = (0, o.useMemo)(() => {
-              if (S && b && x && w)
+              if (S && x && v && w)
                 return {
-                  isFutureATimePassedToday: (0, ei.A)().isAfter(x, 'day'),
-                  isFutureATimeToday: (0, ei.A)().isSame(x, 'day'),
-                  isRampUp: Number(w) > Number(b),
+                  isFutureATimePassedToday: (0, ei.A)().isAfter(v, 'day'),
+                  isFutureATimeToday: (0, ei.A)().isSame(v, 'day'),
+                  isRampUp: Number(w) > Number(x),
                 };
-            }, [w, x, b, S]),
+            }, [w, v, x, S]),
             j = (e) =>
               0 === e
                 ? (0, c.t)`Standard`
@@ -3185,18 +3103,18 @@
                   : 2 === e
                     ? (0, c.t)`Rebasing`
                     : (0, c.t)`ERC4626`;
-          return (0, r.jsxs)(to, {
+          return (0, r.jsxs)(ts, {
             variant: 'secondary',
             children: [
-              (0, r.jsxs)(tn, {
+              (0, r.jsxs)(ti, {
                 children: [
-                  (0, r.jsxs)(ti, {
+                  (0, r.jsxs)(to, {
                     children: [
-                      (0, r.jsx)(tj, { children: (0, c.t)`Pool Info:` }),
-                      (0, r.jsxs)(tw, {
+                      (0, r.jsx)(tP, { children: (0, c.t)`Pool Info:` }),
+                      (0, r.jsxs)(tA, {
                         children: [
-                          (0, r.jsx)(tb, { children: (0, c.t)`Pool Type:` }),
-                          (0, r.jsxs)(tS, {
+                          (0, r.jsx)(tv, { children: (0, c.t)`Pool Type:` }),
+                          (0, r.jsxs)(tx, {
                             children: [
                               ((e, a) => {
                                 let r = t.pool.isCrypto,
@@ -3224,25 +3142,25 @@
                         ],
                       }),
                       m.base_pool &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Basepool:` }),
+                            (0, r.jsx)(tv, { children: (0, c.t)`Basepool:` }),
                             (0, r.jsx)(ty, {
                               href: p.scanTokenPath(m.base_pool),
                               children: (0, W.Wr)(m.base_pool),
                             }),
                           ],
                         }),
-                      (0, r.jsxs)(tw, {
+                      (0, r.jsxs)(tA, {
                         children: [
-                          (0, r.jsx)(tb, { children: (0, c.t)`Vyper Version:` }),
-                          (0, r.jsx)(tS, { children: m.vyper_version }),
+                          (0, r.jsx)(tv, { children: (0, c.t)`Vyper Version:` }),
+                          (0, r.jsx)(tx, { children: m.vyper_version }),
                         ],
                       }),
-                      (0, r.jsxs)(tw, {
+                      (0, r.jsxs)(tA, {
                         children: [
-                          (0, r.jsx)(tb, { children: (0, c.t)`Registry:` }),
-                          (0, r.jsx)(tk, {
+                          (0, r.jsx)(tv, { children: (0, c.t)`Registry:` }),
+                          (0, r.jsx)(tS, {
                             href: p.scanTokenPath(m.registry),
                             children: (0, W.Wr)(m.registry),
                           }),
@@ -3252,12 +3170,12 @@
                   }),
                   t.pool.isNg &&
                     m.asset_types &&
-                    (0, r.jsxs)(ti, {
+                    (0, r.jsxs)(to, {
                       children: [
-                        (0, r.jsx)(tj, { children: (0, c.t)`Coins:` }),
+                        (0, r.jsx)(tP, { children: (0, c.t)`Coins:` }),
                         t.tokens.map((e, a) =>
                           (0, r.jsxs)(
-                            tl,
+                            tn,
                             {
                               children: [
                                 (0, r.jsxs)(V.A, {
@@ -3265,42 +3183,42 @@
                                   children: [
                                     (0, r.jsxs)(r.Fragment, {
                                       children: [
-                                        (0, r.jsx)(tc, {
+                                        (0, r.jsx)(td, {
                                           href: p.scanTokenPath(t.tokenAddresses[a]),
-                                          children: (0, r.jsxs)(tp, {
+                                          children: (0, r.jsxs)(tc, {
                                             children: [
-                                              (0, r.jsx)(tu, {
+                                              (0, r.jsx)(tp, {
                                                 size: 'sm',
                                                 blockchainId: p?.networkId ?? '',
                                                 tooltip: e,
                                                 address: t.tokenAddresses[a],
                                               }),
-                                              (0, r.jsx)(tE, { children: e }),
+                                              (0, r.jsx)(tB, { children: e }),
                                             ],
                                           }),
                                         }),
-                                        (0, r.jsx)(tt.Bj, {
+                                        (0, r.jsx)(te.Bj, {
                                           size: 'medium',
                                           onClick: () => (0, W.lW)(t.tokenAddresses[a]),
-                                          children: (0, r.jsx)(ed.A, { name: 'Copy', size: 16 }),
+                                          children: (0, r.jsx)(el.A, { name: 'Copy', size: 16 }),
                                         }),
                                       ],
                                     }),
                                     t.pool.isNg &&
                                       m.asset_types &&
-                                      (0, r.jsx)(td, { children: j(m.asset_types[a]) }),
+                                      (0, r.jsx)(tl, { children: j(m.asset_types[a]) }),
                                   ],
                                 }),
                                 m &&
                                   1 === m.asset_types[a] &&
-                                  (0, r.jsxs)(tm, {
+                                  (0, r.jsxs)(tu, {
                                     children: [
                                       (0, r.jsxs)(V.A, {
                                         flex: !0,
                                         children: [
-                                          (0, r.jsx)(th, { children: '├─' }),
-                                          (0, r.jsx)(tf, { children: (0, c.t)`Oracle Address:` }),
-                                          (0, r.jsx)(tg, {
+                                          (0, r.jsx)(tm, { children: '├─' }),
+                                          (0, r.jsx)(th, { children: (0, c.t)`Oracle Address:` }),
+                                          (0, r.jsx)(tf, {
                                             href: p.scanTokenPath(m.oracles[a].oracle_address),
                                             children: (0, W.Wr)(m.oracles[a].oracle_address),
                                           }),
@@ -3309,17 +3227,17 @@
                                       (0, r.jsxs)(V.A, {
                                         flex: !0,
                                         children: [
-                                          (0, r.jsx)(th, { children: '├─' }),
-                                          (0, r.jsx)(tf, { children: (0, c.t)`Function:` }),
-                                          (0, r.jsx)(tA, { children: m.oracles[a].method }),
+                                          (0, r.jsx)(tm, { children: '├─' }),
+                                          (0, r.jsx)(th, { children: (0, c.t)`Function:` }),
+                                          (0, r.jsx)(tg, { children: m.oracles[a].method }),
                                         ],
                                       }),
                                       (0, r.jsxs)(V.A, {
                                         flex: !0,
                                         children: [
-                                          (0, r.jsx)(th, { children: '└─' }),
-                                          (0, r.jsx)(tf, { children: (0, c.t)`Function ID:` }),
-                                          (0, r.jsx)(tA, { children: m.oracles[a].method_id }),
+                                          (0, r.jsx)(tm, { children: '└─' }),
+                                          (0, r.jsx)(th, { children: (0, c.t)`Function ID:` }),
+                                          (0, r.jsx)(tg, { children: m.oracles[a].method_id }),
                                         ],
                                       }),
                                     ],
@@ -3331,32 +3249,32 @@
                         ),
                       ],
                     }),
-                  (0, r.jsxs)(ti, {
+                  (0, r.jsxs)(to, {
                     children: [
-                      (0, r.jsx)(tj, { children: (0, c.t)`Pool Parameters:` }),
+                      (0, r.jsx)(tP, { children: (0, c.t)`Pool Parameters:` }),
                       e &&
                         null !== u.mid_fee &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Mid Fee:` }),
-                            (0, r.jsx)(tS, { children: h(u.mid_fee) }),
+                            (0, r.jsx)(tv, { children: (0, c.t)`Mid Fee:` }),
+                            (0, r.jsx)(tx, { children: h(u.mid_fee) }),
                           ],
                         }),
                       e &&
                         null !== u.out_fee &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Out Fee:` }),
-                            (0, r.jsx)(tS, { children: h(u.out_fee) }),
+                            (0, r.jsx)(tv, { children: (0, c.t)`Out Fee:` }),
+                            (0, r.jsx)(tx, { children: h(u.out_fee) }),
                           ],
                         }),
                       null !== u.a &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           noBorder: P && null !== P.isRampUp,
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`A:` }),
-                            (0, r.jsx)(tS, {
-                              children: (0, r.jsxs)(v.v, {
+                            (0, r.jsx)(tv, { children: (0, c.t)`A:` }),
+                            (0, r.jsx)(tx, {
+                              children: (0, r.jsxs)(b.v, {
                                 isBold: !0,
                                 size: 'sm',
                                 tooltip: (0, r.jsxs)(r.Fragment, {
@@ -3370,7 +3288,7 @@
                                           (0, r.jsx)('br', {}),
                                           ' ',
                                           (0,
-                                          c.t)`Last change occurred between ${(0, ei.A)(S).format('ll')} and ${(0, ei.A)(x).format('ll')}, when A ramped from ${b} to ${w}.`,
+                                          c.t)`Last change occurred between ${(0, ei.A)(S).format('ll')} and ${(0, ei.A)(v).format('ll')}, when A ramped from ${x} to ${w}.`,
                                         ],
                                       }),
                                   ],
@@ -3378,7 +3296,7 @@
                                 tooltipProps: { minWidth: '200px' },
                                 children: [
                                   (0, A.ZV)(e ? u.a : g, { useGrouping: !1 }),
-                                  (0, r.jsx)(tt.m8, {
+                                  (0, r.jsx)(te.m8, {
                                     name: 'InformationSquare',
                                     size: 16,
                                     className: 'svg-tooltip',
@@ -3390,35 +3308,35 @@
                         }),
                       P &&
                         !P.isFutureATimePassedToday &&
-                        (0, r.jsxs)(tC, {
+                        (0, r.jsxs)(tk, {
                           children: [
                             (0, r.jsxs)(V.A, {
                               flex: !0,
                               children: [
-                                (0, r.jsx)(th, { children: '├─' }),
+                                (0, r.jsx)(tm, { children: '├─' }),
                                 (0, r.jsxs)(V.A, {
                                   margin: '0 0 0 var(--spacing-2)',
                                   flex: !0,
                                   flexJustifyContent: 'space-between',
                                   fillWidth: !0,
                                   children: [
-                                    (0, r.jsx)(tb, {
+                                    (0, r.jsx)(tv, {
                                       children: (0, c.t)`Ramping ${P.isRampUp ? 'up' : 'down'} A:`,
                                     }),
-                                    (0, r.jsx)(tS, {
-                                      children: (0, r.jsxs)(tx, {
+                                    (0, r.jsx)(tx, {
+                                      children: (0, r.jsxs)(tb, {
                                         isBold: !0,
                                         size: 'md',
                                         tooltip: (0,
                                         c.t)`Slowly changing ${P.isRampUp ? 'up' : 'down'} A so that it doesn't negatively change virtual price growth of shares`,
                                         tooltipProps: { placement: 'bottom end' },
                                         children: [
-                                          (0, A.ZV)(b, { useGrouping: !1 }),
+                                          (0, A.ZV)(x, { useGrouping: !1 }),
                                           ' →',
                                           ' ',
                                           (0, A.ZV)(w, { useGrouping: !1 }),
                                           ' ',
-                                          (0, r.jsx)(tt.m8, {
+                                          (0, r.jsx)(te.m8, {
                                             name: 'InformationSquare',
                                             size: 16,
                                             className: 'svg-tooltip',
@@ -3433,18 +3351,18 @@
                             (0, r.jsxs)(V.A, {
                               flex: !0,
                               children: [
-                                (0, r.jsx)(th, { children: '└─' }),
+                                (0, r.jsx)(tm, { children: '└─' }),
                                 (0, r.jsxs)(V.A, {
                                   margin: '0 0 0 var(--spacing-2)',
                                   flex: !0,
                                   flexJustifyContent: 'space-between',
                                   fillWidth: !0,
                                   children: [
-                                    (0, r.jsx)(tb, {
+                                    (0, r.jsx)(tv, {
                                       children: (0,
                                       c.t)`Ramp ${P.isRampUp ? 'up' : 'down'} A ends on: `,
                                     }),
-                                    (0, r.jsx)(tS, { children: C }),
+                                    (0, r.jsx)(tx, { children: C }),
                                   ],
                                 }),
                               ],
@@ -3453,10 +3371,10 @@
                         }),
                       e &&
                         null !== u.offpeg_fee_multiplier &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Off Peg Multiplier:` }),
-                            (0, r.jsx)(tS, {
+                            (0, r.jsx)(tv, { children: (0, c.t)`Off Peg Multiplier:` }),
+                            (0, r.jsx)(tx, {
                               children:
                                 ((s = u.offpeg_fee_multiplier),
                                 (0, A.ZV)(s / 1e10, { showAllFractionDigits: !0 })),
@@ -3465,42 +3383,42 @@
                         }),
                       e &&
                         null !== u.gamma &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: 'Gamma:' }),
-                            (0, r.jsx)(tS, { children: e ? f(u.gamma) : y }),
+                            (0, r.jsx)(tv, { children: 'Gamma:' }),
+                            (0, r.jsx)(tx, { children: e ? y(u.gamma) : f }),
                           ],
                         }),
                       e &&
                         null !== u.allowed_extra_profit &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Allowed Extra Profit:` }),
-                            (0, r.jsx)(tS, { children: f(u.allowed_extra_profit) }),
+                            (0, r.jsx)(tv, { children: (0, c.t)`Allowed Extra Profit:` }),
+                            (0, r.jsx)(tx, { children: y(u.allowed_extra_profit) }),
                           ],
                         }),
                       e &&
                         null !== u.fee_gamma &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Fee Gamma:` }),
-                            (0, r.jsx)(tS, { children: f(u.fee_gamma) }),
+                            (0, r.jsx)(tv, { children: (0, c.t)`Fee Gamma:` }),
+                            (0, r.jsx)(tx, { children: y(u.fee_gamma) }),
                           ],
                         }),
                       e &&
                         null !== u.adjustment_step &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Adjustment Step:` }),
-                            (0, r.jsx)(tS, { children: f(u.adjustment_step) }),
+                            (0, r.jsx)(tv, { children: (0, c.t)`Adjustment Step:` }),
+                            (0, r.jsx)(tx, { children: y(u.adjustment_step) }),
                           ],
                         }),
                       e &&
                         null !== u.ma_half_time &&
-                        (0, r.jsxs)(tw, {
+                        (0, r.jsxs)(tA, {
                           children: [
-                            (0, r.jsx)(tb, { children: (0, c.t)`Moving Average Time:` }),
-                            (0, r.jsx)(tS, {
+                            (0, r.jsx)(tv, { children: (0, c.t)`Moving Average Time:` }),
+                            (0, r.jsx)(tx, {
                               children: (0, A.ZV)(u.ma_half_time, { useGrouping: !1 }),
                             }),
                           ],
@@ -3509,27 +3427,27 @@
                   }),
                 ],
               }),
-              (0, r.jsxs)(tv, {
+              (0, r.jsxs)(tw, {
                 children: [
                   !!t &&
                     k &&
                     Array.isArray(t.parameters.priceOracle) &&
-                    (0, r.jsx)(tP, {
+                    (0, r.jsx)(tC, {
                       children: (0, r.jsx)(V.A, {
                         grid: !0,
                         children:
                           Array.isArray(t.parameters.priceOracle) &&
                           (0, r.jsxs)(r.Fragment, {
                             children: [
-                              (0, r.jsx)(tT, { children: (0, c.t)`Price Oracle:` }),
+                              (0, r.jsx)(tj, { children: (0, c.t)`Price Oracle:` }),
                               t.parameters.priceOracle.map((e, a) => {
                                 let s = t.pool.wrappedCoins[a + 1];
                                 return (0, r.jsxs)(
-                                  tI,
+                                  tT,
                                   {
                                     children: [
-                                      (0, r.jsxs)(tR, { children: [s, ':'] }),
-                                      (0, r.jsx)(tB, {
+                                      (0, r.jsxs)(tI, { children: [s, ':'] }),
+                                      (0, r.jsx)(tR, {
                                         children: (0, A.ZV)(e, { ...(0, A.Ho)(e, 10) }),
                                       }),
                                     ],
@@ -3544,17 +3462,17 @@
                   !!t &&
                     k &&
                     Array.isArray(t.parameters.priceScale) &&
-                    (0, r.jsxs)(tP, {
+                    (0, r.jsxs)(tC, {
                       children: [
-                        (0, r.jsx)(tT, { children: (0, c.t)`Price Scale:` }),
+                        (0, r.jsx)(tj, { children: (0, c.t)`Price Scale:` }),
                         t.parameters.priceScale.map((e, a) => {
                           let s = t.pool.wrappedCoins[a + 1];
                           return (0, r.jsxs)(
-                            tI,
+                            tT,
                             {
                               children: [
-                                (0, r.jsxs)(tR, { children: [s, ':'] }),
-                                (0, r.jsx)(tB, { children: (0, A.ZV)(e, { ...(0, A.Ho)(e, 10) }) }),
+                                (0, r.jsxs)(tI, { children: [s, ':'] }),
+                                (0, r.jsx)(tR, { children: (0, A.ZV)(e, { ...(0, A.Ho)(e, 10) }) }),
                               ],
                             },
                             e
@@ -3564,20 +3482,20 @@
                     }),
                   (u.xcp_profit || u.xcp_profit_a) &&
                     e &&
-                    (0, r.jsxs)(tP, {
+                    (0, r.jsxs)(tC, {
                       children: [
                         null !== u.xcp_profit &&
-                          (0, r.jsxs)(tI, {
+                          (0, r.jsxs)(tT, {
                             children: [
-                              (0, r.jsx)(tR, { children: (0, c.t)`Xcp Profit:` }),
-                              (0, r.jsx)(tB, { children: f(u.xcp_profit) }),
+                              (0, r.jsx)(tI, { children: (0, c.t)`Xcp Profit:` }),
+                              (0, r.jsx)(tR, { children: y(u.xcp_profit) }),
                             ],
                           }),
                         null !== u.xcp_profit_a &&
-                          (0, r.jsxs)(tI, {
+                          (0, r.jsxs)(tT, {
                             children: [
-                              (0, r.jsx)(tR, { children: (0, c.t)`Xcp Profit A:` }),
-                              (0, r.jsx)(tB, { children: f(u.xcp_profit_a) }),
+                              (0, r.jsx)(tI, { children: (0, c.t)`Xcp Profit A:` }),
+                              (0, r.jsx)(tR, { children: y(u.xcp_profit_a) }),
                             ],
                           }),
                       ],
@@ -3587,26 +3505,26 @@
             ],
           });
         };
-      var tF = a(59339),
-        tG = a(23173);
-      let tL = (0, i.Ay)(tt.$7).withConfig({ componentId: 'sc-8602e3dd-0' })([
+      var tD = a(59339),
+        tF = a(23173);
+      let tG = (0, i.Ay)(te.$7).withConfig({ componentId: 'sc-8602e3dd-0' })([
           'padding-top:var(--spacing-2);',
         ]),
-        tO = (0, i.Ay)(tF.A).withConfig({ componentId: 'sc-8602e3dd-1' })([
+        tL = (0, i.Ay)(tD.A).withConfig({ componentId: 'sc-8602e3dd-1' })([
           'align-items:baseline;color:inherit;display:inline-flex;grid-gap:var(--spacing-1);text-decoration:none;',
         ]),
-        tK = (0, i.Ay)(tG.A).withConfig({ componentId: 'sc-8602e3dd-2' })(
+        tO = (0, i.Ay)(tF.A).withConfig({ componentId: 'sc-8602e3dd-2' })(
           [
             'align-items:center;display:inline-flex;justify-content:right;min-height:var(--height-small);min-width:3.75rem;@media (min-width:',
             'rem){min-height:24px;}',
           ],
           A.fi.sm
         ),
-        tN = (0, i.Ay)(tr.A).withConfig({ componentId: 'sc-8602e3dd-3' })([
+        tK = (0, i.Ay)(ta.A).withConfig({ componentId: 'sc-8602e3dd-3' })([
           'font-weight:bold;text-transform:initial;',
         ]),
-        tV = (0, i.Ay)(tF.A).withConfig({ componentId: 'sc-8602e3dd-4' })(['color:inherit;']),
-        tM = ({
+        tN = (0, i.Ay)(tD.A).withConfig({ componentId: 'sc-8602e3dd-4' })(['color:inherit;']),
+        tV = ({
           cr: e,
           haveSameTokenName: t,
           network: a,
@@ -3616,7 +3534,7 @@
           tokensMapper: n,
           handleCopyClick: l,
         }) =>
-          (0, r.jsxs)(tL, {
+          (0, r.jsxs)(tG, {
             flex: !0,
             flexJustifyContent: 'space-between',
             isBorderBottom: !0,
@@ -3636,14 +3554,14 @@
                     grid: !0,
                     gridGap: 1,
                     children: [
-                      (0, r.jsxs)(tO, {
+                      (0, r.jsxs)(tL, {
                         $noStyles: !0,
                         href: a.scanTokenPath(o),
                         children: [
-                          (0, r.jsx)(tN, { children: s }),
+                          (0, r.jsx)(tK, { children: s }),
                           ' ',
                           t
-                            ? (0, r.jsx)(tG.A, { opacity: 0.7, size: 'xs', children: (0, W.Wr)(o) })
+                            ? (0, r.jsx)(tF.A, { opacity: 0.7, size: 'xs', children: (0, W.Wr)(o) })
                             : null,
                         ],
                       }),
@@ -3652,20 +3570,20 @@
                         flexAlignItems: 'center',
                         gridGap: 2,
                         children: [
-                          (0, r.jsx)(tG.A, { opacity: 0.7, children: (0, A.vk)(e?.usdRate) }),
-                          (0, r.jsx)(eg.Ay, {
+                          (0, r.jsx)(tF.A, { opacity: 0.7, children: (0, A.vk)(e?.usdRate) }),
+                          (0, r.jsx)(ef.Ay, {
                             onClick: () => l(o),
                             noWrap: !0,
                             tooltip: (0, c.t)`Copy address`,
-                            children: (0, r.jsx)(ed.A, { name: 'Copy', size: 16 }),
+                            children: (0, r.jsx)(el.A, { name: 'Copy', size: 16 }),
                           }),
                           i &&
-                            (0, r.jsx)(tV, {
+                            (0, r.jsx)(tN, {
                               $noStyles: !0,
                               href: i,
                               children: (0, r.jsx)(g.A, {
                                 noWrap: !0,
-                                customIcon: (0, r.jsx)(ed.A, { name: 'StoragePool', size: 16 }),
+                                customIcon: (0, r.jsx)(el.A, { name: 'StoragePool', size: 16 }),
                                 children: (0, c.t)`Visit pool`,
                               }),
                             }),
@@ -3680,12 +3598,12 @@
                 flex: !0,
                 flexDirection: 'column',
                 children: [
-                  (0, r.jsxs)(tG.A, {
+                  (0, r.jsxs)(tF.A, {
                     size: 'md',
                     isBold: !0,
                     children: [(0, A.ZV)(e?.balance, { defaultValue: '-' }), ' '],
                   }),
-                  (0, r.jsx)(tK, {
+                  (0, r.jsx)(tO, {
                     opacity: 0.7,
                     children:
                       void 0 === e?.percentShareInPool || 'NaN' === e.percentShareInPool
@@ -3701,15 +3619,15 @@
               }),
             ],
           });
-      var t$ = a(21802),
-        tW = (function (e) {
+      var tM = a(21802),
+        t$ = (function (e) {
           return (
             (e.fantomFactoryStableNg24 = '250-factory-stable-ng-24'),
             (e.fantomFactoryStableNg39 = '250-factory-stable-ng-39'),
             e
           );
-        })(tW || {});
-      let tU = (e, { pool: t }) => {
+        })(t$ || {});
+      let tW = (e, { pool: t }) => {
           let a = t?.id,
             [r, s] = (0, o.useState)(null);
           return (
@@ -3718,89 +3636,89 @@
               let t = `${e}-${a}`;
               '250-factory-stable-ng-24' === t &&
                 s({
-                  '0x14f8e5851879a18e0fea77b5a17f15523262a99e': (0, t$.PE)(
+                  '0x14f8e5851879a18e0fea77b5a17f15523262a99e': (0, tM.PE)(
                     'dex',
                     'ethereum',
-                    `${t$.rN.PAGE_POOLS}/3pool/deposit`
+                    `${tM.rN.PAGE_POOLS}/3pool/deposit`
                   ),
-                  '0x2902257ba817e1436b93f9f959ed50b95560b7d5': (0, t$.PE)(
+                  '0x2902257ba817e1436b93f9f959ed50b95560b7d5': (0, tM.PE)(
                     'dex',
                     'arbitrum',
-                    `${t$.rN.PAGE_POOLS}/2pool/deposit`
+                    `${tM.rN.PAGE_POOLS}/2pool/deposit`
                   ),
-                  '0x740568006c07888216649632aace6620288c7078': (0, t$.PE)(
+                  '0x740568006c07888216649632aace6620288c7078': (0, tM.PE)(
                     'dex',
                     'optimism',
-                    `${t$.rN.PAGE_POOLS}/3pool/deposit`
+                    `${tM.rN.PAGE_POOLS}/3pool/deposit`
                   ),
-                  '0x9be1ae6175b106f26439cebaf2217d7815f684af': (0, t$.PE)(
+                  '0x9be1ae6175b106f26439cebaf2217d7815f684af': (0, tM.PE)(
                     'dex',
                     'avalanche',
-                    `${t$.rN.PAGE_POOLS}/aave/deposit`
+                    `${tM.rN.PAGE_POOLS}/aave/deposit`
                   ),
-                  '0x4636a4efba1c02917d0584505e47bb2d22afe359': (0, t$.PE)(
+                  '0x4636a4efba1c02917d0584505e47bb2d22afe359': (0, tM.PE)(
                     'dex',
                     'polygon',
-                    `${t$.rN.PAGE_POOLS}/aave/deposit`
+                    `${tM.rN.PAGE_POOLS}/aave/deposit`
                   ),
-                  '0xab72e7f7bcfe09a9105f24ffe45038f50f45ca5c': (0, t$.PE)(
+                  '0xab72e7f7bcfe09a9105f24ffe45038f50f45ca5c': (0, tM.PE)(
                     'dex',
                     'bsc',
-                    `${t$.rN.PAGE_POOLS}/factory-stable-ng-21/deposit`
+                    `${tM.rN.PAGE_POOLS}/factory-stable-ng-21/deposit`
                   ),
-                  '0x904603366bc8acf881a35cd4c7e0d514f0477ffc': (0, t$.PE)(
+                  '0x904603366bc8acf881a35cd4c7e0d514f0477ffc': (0, tM.PE)(
                     'dex',
                     'base',
-                    `${t$.rN.PAGE_POOLS}/factory-v2-1/deposit`
+                    `${tM.rN.PAGE_POOLS}/factory-v2-1/deposit`
                   ),
-                  '0x795b38c85d6f1524b434f14aa37c1c808c2bbd6b': (0, t$.PE)(
+                  '0x795b38c85d6f1524b434f14aa37c1c808c2bbd6b': (0, tM.PE)(
                     'dex',
                     'xdai',
-                    `${t$.rN.PAGE_POOLS}/3pool/deposit`
+                    `${tM.rN.PAGE_POOLS}/3pool/deposit`
                   ),
                 }),
                 '250-factory-stable-ng-39' === t &&
                   s({
-                    '0x2dadf589f616876e21c8ba63f59af764479a422d': (0, t$.PE)(
+                    '0x2dadf589f616876e21c8ba63f59af764479a422d': (0, tM.PE)(
                       'dex',
                       'ethereum',
-                      `${t$.rN.PAGE_POOLS}/factory-crvusd-16/deposit`
+                      `${tM.rN.PAGE_POOLS}/factory-crvusd-16/deposit`
                     ),
-                    '0x636cc0ab717be347ff3acf9763afbaf7d2cf47a9': (0, t$.PE)(
+                    '0x636cc0ab717be347ff3acf9763afbaf7d2cf47a9': (0, tM.PE)(
                       'dex',
                       'arbitrum',
-                      `${t$.rN.PAGE_POOLS}/factory-stable-ng-69/deposit`
+                      `${tM.rN.PAGE_POOLS}/factory-stable-ng-69/deposit`
                     ),
-                    '0x513a766f7b4269590850d566b64916d691a96927': (0, t$.PE)(
+                    '0x513a766f7b4269590850d566b64916d691a96927': (0, tM.PE)(
                       'dex',
                       'optimism',
-                      `${t$.rN.PAGE_POOLS}/factory-v2-63/deposit`
+                      `${tM.rN.PAGE_POOLS}/factory-v2-63/deposit`
                     ),
                   });
             }, [e, a]),
             r
           );
         },
-        t_ = i.Ay.h3.withConfig({ componentId: 'sc-dad769b6-0' })([
+        tU = i.Ay.h3.withConfig({ componentId: 'sc-dad769b6-0' })([
           'margin-bottom:var(--spacing-2);',
         ]),
-        tz = (0, i.Ay)(v.v).withConfig({ componentId: 'sc-dad769b6-1' })([
+        t_ = (0, i.Ay)(b.v).withConfig({ componentId: 'sc-dad769b6-1' })([
           'padding:var(--spacing-2) 0;',
         ]),
-        tH = ({ rChainId: e, rPoolId: t, tokensMapper: a, tvl: s }) => {
+        tz = ({ rChainId: e, rPoolId: t, tokensMapper: a, tvl: s }) => {
           let o = (0, T.A)((t) => t.networks.networks[e]),
             i = (0, T.A)((a) => a.storeCache.poolsMapper[e]?.[t]),
             n = (0, T.A)((a) => a.pools.poolsMapper[e]?.[t]),
             l = (0, T.A)((a) => a.pools.currencyReserves[(0, F.We)(e, t)]),
             d = n ?? i,
-            p = tU(e, d);
+            p = tW(e, d);
           return (0, r.jsxs)('article', {
             children: [
-              (0, r.jsx)(t_, { children: (0, c.t)`Currency reserves` }),
+              (0, r.jsx)(tU, { children: (0, c.t)`Currency reserves` }),
               d?.tokens.map((t, s) => {
                 let i = d.tokenAddresses[s];
                 return r.jsx(
-                  tM,
+                  tV,
                   {
                     cr: l?.tokens.find((e) => e.tokenAddress === i),
                     haveSameTokenName: d.tokensCountBy[t] > 1,
@@ -3815,12 +3733,12 @@
                   `${t}-${s}`
                 );
               }),
-              (0, r.jsxs)(tt.$7, {
+              (0, r.jsxs)(te.$7, {
                 flex: !0,
                 flexJustifyContent: 'space-between',
                 children: [
                   (0, c.t)`USD total`,
-                  (0, r.jsxs)(tz, {
+                  (0, r.jsxs)(t_, {
                     size: 'md',
                     children: [
                       (0, A.ZV)(s?.value, A.hd.USD),
@@ -3836,14 +3754,14 @@
             ],
           });
         };
-      var tq = a(11905),
-        tZ = a(45899),
-        tX = a(21415),
-        tY = a(84224);
-      let tQ = i.Ay.div.withConfig({ componentId: 'sc-6e2c7b5c-0' })([
+      var tH = a(11905),
+        tq = a(45899),
+        tZ = a(31305),
+        tX = a(84224);
+      let tY = i.Ay.div.withConfig({ componentId: 'sc-6e2c7b5c-0' })([
           'display:flex;flex-direction:column;margin-top:1.5rem;',
         ]),
-        tJ = ({ chainId: e, address: t, lpToken: a, poolDataCacheOrApi: o }) => {
+        tQ = ({ chainId: e, address: t, lpToken: a, poolDataCacheOrApi: o }) => {
           let {
               setCurrentPoolType: i,
               setSidechainGauge: n,
@@ -3852,26 +3770,26 @@
             } = (0, T.A)((e) => e.deployGauge),
             p = (0, s.useParams)(),
             { push: u } = (0, s.useRouter)();
-          return (0, r.jsx)(tQ, {
-            children: (0, r.jsx)(tY.A, {
+          return (0, r.jsx)(tY, {
+            children: (0, r.jsx)(tX.A, {
               title: (0, c.t)`Add Gauge`,
               onClick: () => {
                 1 === e ? (n(!1), l(t)) : (n(!0), d(a)),
                   o.pool.isCrypto && o.pool.isNg && 2 === o.tokens.length
-                    ? i(tZ.D9)
+                    ? i(tq.D9)
                     : o.pool.isCrypto && 2 === o.tokens.length
-                      ? i(tZ.C$)
+                      ? i(tq.C$)
                       : o.pool.isCrypto && 3 === o.tokens.length
-                        ? i(tZ.wb)
+                        ? i(tq.wb)
                         : o.pool.isNg && !o.pool.isCrypto
-                          ? i(tZ.vD)
-                          : o.pool.isNg || o.pool.isCrypto || i(tZ.KZ),
-                  u((0, tX.Yn)(p, '/deploy-gauge'));
+                          ? i(tq.vD)
+                          : o.pool.isNg || o.pool.isCrypto || i(tq.KZ),
+                  u((0, tZ.Yn)(p, '/deploy-gauge'));
               },
             }),
           });
         },
-        t0 = i.Ay.div.withConfig({ componentId: 'sc-8581ddea-0' })(
+        tJ = i.Ay.div.withConfig({ componentId: 'sc-8581ddea-0' })(
           ['', ''],
           ({ haveAction: e }) => {
             if (e)
@@ -3883,7 +3801,7 @@
       `;
           }
         ),
-        t1 = i.Ay.div.withConfig({ componentId: 'sc-8581ddea-1' })(
+        t0 = i.Ay.div.withConfig({ componentId: 'sc-8581ddea-1' })(
           ['', ' ', ''],
           ({ haveAction: e }) => {
             if (!e)
@@ -3898,12 +3816,12 @@
             if (e) return 'border-bottom: 1px solid var(--border-600);';
           }
         ),
-        t3 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-8581ddea-2' })(['width:100%;']),
-        t2 = i.Ay.span.withConfig({ componentId: 'sc-8581ddea-3' })(['margin-right:0.5rem;']),
-        t5 = (0, i.Ay)(tF.A).withConfig({ componentId: 'sc-8581ddea-4' })([
+        t1 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-8581ddea-2' })(['width:100%;']),
+        t3 = i.Ay.span.withConfig({ componentId: 'sc-8581ddea-3' })(['margin-right:0.5rem;']),
+        t5 = (0, i.Ay)(tD.A).withConfig({ componentId: 'sc-8581ddea-4' })([
           'font-size:var(--font-size-2);font-weight:var(--font-weight--bold);color:inherit;svg{padding-top:0.3125rem;}',
         ]),
-        t4 = ({
+        t2 = ({
           address: e,
           rChainId: t,
           isLargeNumber: a,
@@ -3912,14 +3830,14 @@
           action: i,
         }) => {
           let n = (0, T.A)((e) => e.networks.networks[t]);
-          return (0, r.jsxs)(t0, {
+          return (0, r.jsxs)(tJ, {
             haveAction: !!i,
             children: [
-              (0, r.jsx)(t1, {
+              (0, r.jsx)(t0, {
                 isBorderBottom: o,
                 haveAction: !!i,
                 children: a
-                  ? (0, r.jsxs)(t3, {
+                  ? (0, r.jsxs)(t1, {
                       flex: !0,
                       flexDirection: 'row',
                       children: [
@@ -3932,34 +3850,34 @@
                               href: n.scanAddressPath(e),
                               children: [
                                 (0, W.Wr)(e),
-                                (0, r.jsx)(ed.A, { name: 'Launch', size: 16 }),
+                                (0, r.jsx)(el.A, { name: 'Launch', size: 16 }),
                               ],
                             }),
                           ],
                         }),
-                        (0, r.jsx)(tt.Bj, {
+                        (0, r.jsx)(te.Bj, {
                           size: 'medium',
                           onClick: () => (0, W.lW)(e),
-                          children: (0, r.jsx)(ed.A, { name: 'Copy', size: 16 }),
+                          children: (0, r.jsx)(el.A, { name: 'Copy', size: 16 }),
                         }),
                       ],
                     })
                   : (0, r.jsxs)(r.Fragment, {
                       children: [
-                        (0, r.jsx)(t2, { children: s }),
+                        (0, r.jsx)(t3, { children: s }),
                         (0, r.jsxs)('span', {
                           children: [
                             (0, r.jsxs)(t5, {
                               href: n.scanAddressPath(e),
                               children: [
                                 (0, W.Wr)(e),
-                                (0, r.jsx)(ed.A, { name: 'Launch', size: 16 }),
+                                (0, r.jsx)(el.A, { name: 'Launch', size: 16 }),
                               ],
                             }),
-                            (0, r.jsx)(tt.Bj, {
+                            (0, r.jsx)(te.Bj, {
                               size: 'medium',
                               onClick: () => (0, W.lW)(e),
-                              children: (0, r.jsx)(ed.A, { name: 'Copy', size: 16 }),
+                              children: (0, r.jsx)(el.A, { name: 'Copy', size: 16 }),
                             }),
                           ],
                         }),
@@ -3973,7 +3891,7 @@
         t6 = i.Ay.article.withConfig({ componentId: 'sc-4134b53f-0' })([
           '.stats:last-of-type{border-bottom:none;}',
         ]),
-        t7 = ({ rChainId: e, poolDataCacheOrApi: t }) => {
+        t4 = ({ rChainId: e, poolDataCacheOrApi: t }) => {
           let { address: a = '', lpToken: s = '', gauge: o } = t.pool,
             i = a === s,
             n = (0, F.$m)(o.address) ? o.address : '';
@@ -3981,7 +3899,7 @@
             children: [
               (0, r.jsx)('h3', { children: (0, c.t)`Contracts` }),
               a &&
-                (0, r.jsx)(t4, {
+                (0, r.jsx)(t2, {
                   address: a,
                   rChainId: e,
                   label: i ? (0, c.t)`Pool / Token` : (0, c.t)`Pool`,
@@ -3989,31 +3907,31 @@
                 }),
               !i &&
                 s &&
-                (0, r.jsx)(t4, {
+                (0, r.jsx)(t2, {
                   address: s,
                   rChainId: e,
                   label: (0, c.t)`Token`,
                   showBottomBorder: !!n,
                 }),
               n &&
-                (0, r.jsx)(t4, {
+                (0, r.jsx)(t2, {
                   address: n,
                   rChainId: e,
                   label: (0, r.jsxs)('span', {
                     children: [
                       (0, c.t)`Gauge`,
                       ' ',
-                      t.gauge.isKilled ? (0, r.jsx)(tq.A, { children: 'Inactive' }) : null,
+                      t.gauge.isKilled ? (0, r.jsx)(tH.A, { children: 'Inactive' }) : null,
                     ],
                   }),
                   showBottomBorder: !1,
                 }),
-              !n && (0, r.jsx)(tJ, { poolDataCacheOrApi: t, chainId: e, address: a, lpToken: s }),
+              !n && (0, r.jsx)(tQ, { poolDataCacheOrApi: t, chainId: e, address: a, lpToken: s }),
             ],
           });
         };
-      var t8 = a(59017);
-      let t9 = ({ parameters: e }) => {
+      var t9 = a(59017);
+      let t8 = ({ parameters: e }) => {
         let {
             A: t,
             initial_A: a,
@@ -4033,11 +3951,11 @@
         return (0, r.jsxs)(r.Fragment, {
           children: [
             l &&
-              (0, r.jsxs)(t8.A, {
+              (0, r.jsxs)(t9.A, {
                 children: [
                   (0, c.t)`A:`,
                   ' ',
-                  (0, r.jsxs)(tG.A, {
+                  (0, r.jsxs)(tF.A, {
                     isBold: !0,
                     size: 'md',
                     tooltip: (0, r.jsxs)(r.Fragment, {
@@ -4059,7 +3977,7 @@
                     tooltipProps: { minWidth: '200px' },
                     children: [
                       (0, A.ZV)(t, { useGrouping: !1 }),
-                      (0, r.jsx)(tt.m8, {
+                      (0, r.jsx)(te.m8, {
                         name: 'InformationSquare',
                         size: 16,
                         className: 'svg-tooltip',
@@ -4072,11 +3990,11 @@
               !d.isFutureATimePassedToday &&
               (0, r.jsxs)(r.Fragment, {
                 children: [
-                  (0, r.jsxs)(t8.A, {
+                  (0, r.jsxs)(t9.A, {
                     children: [
                       (0, c.t)`Ramping A:`,
                       ' ',
-                      (0, r.jsxs)(tG.A, {
+                      (0, r.jsxs)(tF.A, {
                         isBold: !0,
                         size: 'md',
                         tooltip: (0,
@@ -4086,7 +4004,7 @@
                           ' → ',
                           (0, A.ZV)(i, { useGrouping: !1 }),
                           ' ',
-                          (0, r.jsx)(tt.m8, {
+                          (0, r.jsx)(te.m8, {
                             name: 'InformationSquare',
                             size: 16,
                             className: 'svg-tooltip',
@@ -4095,7 +4013,7 @@
                       }),
                     ],
                   }),
-                  (0, r.jsx)(t8.A, {
+                  (0, r.jsx)(t9.A, {
                     children: (0, r.jsxs)('strong', {
                       children: [(0, ei.A)(s).format('ll'), ' to ', (0, ei.A)(n).format('ll')],
                     }),
@@ -4105,14 +4023,14 @@
           ],
         });
       };
-      var ae = a(62014);
-      let at = ({ adminFee: e }) =>
-          (0, r.jsxs)(ae.q, {
+      var t7 = a(62014);
+      let ae = ({ adminFee: e }) =>
+          (0, r.jsxs)(t7.q, {
             children: [
               (0, c.t)`DAO fee:`,
               ' ',
               e &&
-                (0, r.jsxs)(v.v, {
+                (0, r.jsxs)(b.v, {
                   isBold: !0,
                   size: 'md',
                   tooltip: (0,
@@ -4120,7 +4038,7 @@
                   tooltipProps: { placement: 'bottom end' },
                   children: [
                     (0, A.ZV)(e, { style: 'percent', maximumFractionDigits: 4 }),
-                    (0, r.jsx)(tt.m8, {
+                    (0, r.jsx)(te.m8, {
                       name: 'InformationSquare',
                       size: 16,
                       className: 'svg-tooltip',
@@ -4129,19 +4047,19 @@
                 }),
             ],
           }),
-        aa = ({ adminFee: e, isEymaPools: t }) => {
+        at = ({ adminFee: e, isEymaPools: t }) => {
           if (void 0 === e) return (0, r.jsx)(r.Fragment, {});
           if (t) {
             let t = +e / 2;
             return (0, r.jsxs)(r.Fragment, {
               children: [
-                (0, r.jsx)(at, { adminFee: t }),
-                (0, r.jsxs)(ae.q, {
+                (0, r.jsx)(ae, { adminFee: t }),
+                (0, r.jsxs)(t7.q, {
                   children: [
                     (0, c.t)`EYWA fee:`,
                     ' ',
                     t &&
-                      (0, r.jsx)(v.v, {
+                      (0, r.jsx)(b.v, {
                         isBold: !0,
                         size: 'md',
                         children: (0, A.ZV)(t, { style: 'percent', ...(0, A.Ho)(t, 4) }),
@@ -4151,16 +4069,16 @@
               ],
             });
           }
-          return (0, r.jsx)(at, { adminFee: e });
+          return (0, r.jsx)(ae, { adminFee: e });
         };
-      var ar = a(43428);
-      let as = ({ poolDataCacheOrApi: e }) => {
-        let t = el(e);
+      var aa = a(43428);
+      let ar = ({ poolDataCacheOrApi: e }) => {
+        let t = en(e);
         return (0, r.jsx)('article', {
-          children: (0, r.jsxs)(ar.A, {
+          children: (0, r.jsxs)(aa.A, {
             listItemMargin: 'var(--spacing-1)',
             children: [
-              (0, r.jsxs)(t8.A, {
+              (0, r.jsxs)(t9.A, {
                 children: [
                   (0, c.t)`Total LP Tokens staked:`,
                   ' ',
@@ -4175,7 +4093,7 @@
                   }),
                 ],
               }),
-              (0, r.jsxs)(t8.A, {
+              (0, r.jsxs)(t9.A, {
                 children: [
                   (0, c.t)`Staked percent`,
                   ':',
@@ -4192,11 +4110,11 @@
           }),
         });
       };
-      var ao = a(43852);
-      let ai = i.Ay.h3.withConfig({ componentId: 'sc-41696e02-0' })([
+      var as = a(43852);
+      let ao = i.Ay.h3.withConfig({ componentId: 'sc-41696e02-0' })([
           'margin-bottom:var(--spacing-1);',
         ]),
-        an = ({ parameters: e, poolData: t, poolDataCacheOrApi: a, routerParams: s }) => {
+        ai = ({ parameters: e, poolData: t, poolDataCacheOrApi: a, routerParams: s }) => {
           let { rChainId: i, rPoolId: n } = s,
             { pricesApi: l } = (0, T.A)((e) => e.networks.networks[i]),
             d = (0, T.A)((e) => e.networks.networks[i]?.isLite),
@@ -4215,15 +4133,15 @@
                   : '-',
               [p, u]
             ),
-            { gamma: f, adminFee: y, fee: g } = e ?? {};
+            { gamma: y, adminFee: f, fee: g } = e ?? {};
           return (0, r.jsxs)(r.Fragment, {
             children: [
               !d &&
                 (0, r.jsx)('article', {
-                  children: (0, r.jsxs)(ae.t, {
+                  children: (0, r.jsxs)(t7.t, {
                     listItemMargin: 'var(--spacing-1)',
                     children: [
-                      (0, r.jsxs)(ae.q, {
+                      (0, r.jsxs)(t7.q, {
                         children: [
                           (0, c.t)`Daily USD volume:`,
                           ' ',
@@ -4236,18 +4154,18 @@
                           }),
                         ],
                       }),
-                      (0, r.jsxs)(ae.q, {
+                      (0, r.jsxs)(t7.q, {
                         children: [
                           (0, c.t)`Liquidity utilization:`,
                           ' ',
-                          (0, r.jsxs)(v.v, {
+                          (0, r.jsxs)(b.v, {
                             isBold: '-' !== h,
                             size: 'md',
                             tooltip: (0, c.t)`24h Volume/Liquidity ratio`,
                             tooltipProps: { placement: 'bottom end' },
                             children: [
                               h,
-                              (0, r.jsx)(tt.m8, {
+                              (0, r.jsx)(te.m8, {
                                 name: 'InformationSquare',
                                 size: 16,
                                 className: 'svg-tooltip',
@@ -4259,12 +4177,12 @@
                     ],
                   }),
                 }),
-              (0, r.jsx)(as, { poolDataCacheOrApi: a }),
+              (0, r.jsx)(ar, { poolDataCacheOrApi: a }),
               (0, r.jsx)('article', {
-                children: (0, r.jsxs)(ae.t, {
+                children: (0, r.jsxs)(t7.t, {
                   listItemMargin: 'var(--spacing-1)',
                   children: [
-                    (0, r.jsxs)(ae.q, {
+                    (0, r.jsxs)(t7.q, {
                       children: [
                         (0, c.t)`Fee:`,
                         ' ',
@@ -4273,21 +4191,21 @@
                         }),
                       ],
                     }),
-                    (0, r.jsx)(aa, {
-                      adminFee: y,
+                    (0, r.jsx)(at, {
+                      adminFee: f,
                       isEymaPools: 250 === i && a.pool.id.startsWith('factory-eywa'),
                     }),
                   ],
                 }),
               }),
               (0, r.jsx)('article', {
-                children: (0, r.jsx)(ae.t, {
+                children: (0, r.jsx)(t7.t, {
                   listItemMargin: 'var(--spacing-1)',
-                  children: (0, r.jsxs)(ae.q, {
+                  children: (0, r.jsxs)(t7.q, {
                     children: [
                       (0, c.t)`Virtual price:`,
                       ' ',
-                      (0, r.jsxs)(v.v, {
+                      (0, r.jsxs)(b.v, {
                         isBold: e?.virtualPrice !== '',
                         size: 'md',
                         tooltip: (0, c.t)`Measures pool growth; this is not a dollar value`,
@@ -4297,7 +4215,7 @@
                             maximumFractionDigits: 8,
                             defaultValue: '-',
                           }),
-                          (0, r.jsx)(tt.m8, {
+                          (0, r.jsx)(te.m8, {
                             name: 'InformationSquare',
                             size: 16,
                             className: 'svg-tooltip',
@@ -4314,12 +4232,12 @@
                 !l &&
                 (0, r.jsxs)('article', {
                   children: [
-                    (0, r.jsx)(ai, { children: 'Price Data' }),
+                    (0, r.jsx)(ao, { children: 'Price Data' }),
                     (0, r.jsx)(V.A, {
                       grid: !0,
                       children:
                         Array.isArray(e.priceOracle) &&
-                        (0, r.jsx)(ao.A, {
+                        (0, r.jsx)(as.A, {
                           label: (0, c.t)`Price Oracle:`,
                           children: e.priceOracle.map((e, a) => {
                             let s = t.pool.wrappedCoins[a + 1];
@@ -4338,7 +4256,7 @@
                 Array.isArray(e.priceScale) &&
                 !l &&
                 (0, r.jsx)('article', {
-                  children: (0, r.jsx)(ao.A, {
+                  children: (0, r.jsx)(as.A, {
                     label: (0, c.t)`Price Scale:`,
                     children: e.priceScale.map((e, a) => {
                       let s = t.pool.wrappedCoins[a + 1];
@@ -4353,72 +4271,72 @@
               !l &&
                 (0, r.jsxs)('article', {
                   children: [
-                    (0, r.jsx)(ai, { children: (0, c.t)`Pool Parameters` }),
-                    (0, r.jsxs)(ae.t, {
+                    (0, r.jsx)(ao, { children: (0, c.t)`Pool Parameters` }),
+                    (0, r.jsxs)(t7.t, {
                       listItemMargin: 'var(--spacing-1)',
                       children: [
-                        f &&
-                          (0, r.jsxs)(ae.q, {
+                        y &&
+                          (0, r.jsxs)(t7.q, {
                             children: [
                               'Gamma: ',
-                              (0, r.jsx)('strong', { children: (0, A.ZV)(f, { useGrouping: !1 }) }),
+                              (0, r.jsx)('strong', { children: (0, A.ZV)(y, { useGrouping: !1 }) }),
                             ],
                           }),
-                        (0, r.jsx)(t9, { parameters: e }),
+                        (0, r.jsx)(t8, { parameters: e }),
                       ],
                     }),
                   ],
                 }),
               (0, r.jsx)('article', {
-                children: (0, r.jsx)(t7, { rChainId: i, poolDataCacheOrApi: a }),
+                children: (0, r.jsx)(t4, { rChainId: i, poolDataCacheOrApi: a }),
               }),
             ],
           });
         };
-      var al = a(98330),
-        ad = a(39904),
-        ac = a(70657),
-        ap = a(55906),
-        au = a(90263),
-        am = a(66748);
-      let ah = i.Ay.div.withConfig({ componentId: 'sc-1b8291c1-0' })([
+      var an = a(98330),
+        al = a(39904),
+        ad = a(70657),
+        ac = a(55906),
+        ap = a(90263),
+        au = a(66748);
+      let am = i.Ay.div.withConfig({ componentId: 'sc-1b8291c1-0' })([
           'border:1px solid var(--border-600);padding:1rem;display:flex;flex-direction:column;grid-row-gap:var(--spacing-3);',
         ]),
-        af = i.Ay.h4.withConfig({ componentId: 'sc-1b8291c1-1' })([
+        ah = i.Ay.h4.withConfig({ componentId: 'sc-1b8291c1-1' })([
           'margin-bottom:var(--spacing-1);',
         ]),
         ay = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-1b8291c1-2' })([
           'display:flex;flex-direction:column;width:100%;align-content:center;',
         ]),
-        ag = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-1b8291c1-3' })([
+        af = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-1b8291c1-3' })([
           'text-transform:initial;svg{padding-top:0.3125rem;}',
         ]),
-        aA = (0, i.Ay)(eg.Ay).withConfig({ componentId: 'sc-1b8291c1-4' })(['']),
-        aw = (0, i.Ay)(tt.$7).withConfig({ componentId: 'sc-1b8291c1-5' })([
+        ag = (0, i.Ay)(ef.Ay).withConfig({ componentId: 'sc-1b8291c1-4' })(['']),
+        aA = (0, i.Ay)(te.$7).withConfig({ componentId: 'sc-1b8291c1-5' })([
           'padding:var(--spacing-1);',
         ]),
-        av = (0, i.Ay)(ed.A).withConfig({ componentId: 'sc-1b8291c1-6' })([
+        aw = (0, i.Ay)(el.A).withConfig({ componentId: 'sc-1b8291c1-6' })([
           'margin:auto auto auto var(--spacing-1);',
         ]),
-        ax = (0, i.Ay)(tt.fU).withConfig({ componentId: 'sc-1b8291c1-7' })(['margin-left:auto;']),
-        ab = (0, i.Ay)(ta.G).withConfig({ componentId: 'sc-1b8291c1-8' })([
+        ab = (0, i.Ay)(te.fU).withConfig({ componentId: 'sc-1b8291c1-7' })(['margin-left:auto;']),
+        av = (0, i.Ay)(tt.G).withConfig({ componentId: 'sc-1b8291c1-8' })([
           'color:inherit;font-weight:500;text-decoration:underline;',
         ]),
-        aS = (0, i.Ay)(tt.fU).withConfig({ componentId: 'sc-1b8291c1-9' })([
+        ax = (0, i.Ay)(te.fU).withConfig({ componentId: 'sc-1b8291c1-9' })([
           'margin:var(--spacing-3) var(--spacing-1) var(--spacing-2);font-weight:500;',
         ]),
-        ak = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-1b8291c1-10' })([
+        aS = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-1b8291c1-10' })([
           'display:flex;flex-direction:row;justify-content:space-between;',
         ]),
-        aC = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-1b8291c1-11' })([
+        ak = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-1b8291c1-11' })([
           'margin-top:var(--spacing-2);display:flex;flex-direction:column;',
         ]),
-        aP = i.Ay.div.withConfig({ componentId: 'sc-1b8291c1-12' })([
+        aC = i.Ay.div.withConfig({ componentId: 'sc-1b8291c1-12' })([
           'display:flex;flex-direction:column;flex-wrap:wrap;align-items:flex-start;gap:var(--spacing-2);@media (min-width:37.5rem){flex-direction:row;justify-content:space-between;align-items:center;}',
         ]),
-        aj = ({ chainId: e, poolData: t, rewardsApy: a }) => {
+        aP = ({ chainId: e, poolData: t, rewardsApy: a }) => {
           let { base: s, other: o } = a ?? {},
-            { haveBase: i, haveOther: n, haveCrv: l } = (0, au.ZF)(a ?? {}),
+            { haveBase: i, haveOther: n, haveCrv: l } = (0, ap.ZF)(a ?? {}),
             p = (0, d.A)()[t.pool.address],
             { isLite: u, scanTokenPath: m } = (0, T.A)((t) => t.networks.networks[e]),
             h = [
@@ -4426,7 +4344,7 @@
               { label: (0, c.t)`Weekly`, value: s?.week ?? '' },
             ];
           return (!u && i) || t?.failedFetching24hOldVprice || l || n
-            ? (0, r.jsxs)(ah, {
+            ? (0, r.jsxs)(am, {
                 children: [
                   !u &&
                     (i || t?.failedFetching24hOldVprice) &&
@@ -4436,14 +4354,14 @@
                           flex: !0,
                           fillWidth: !0,
                           children: [
-                            (0, r.jsx)(af, { children: (0, c.t)`Base vAPY` }),
-                            (0, r.jsx)(aA, {
+                            (0, r.jsx)(ah, { children: (0, c.t)`Base vAPY` }),
+                            (0, r.jsx)(ag, {
                               placement: 'bottom',
                               tooltip: (0, c.t)`Variable APY based on today's trading activity.`,
-                              children: (0, r.jsx)(av, { name: 'InformationSquare', size: 16 }),
+                              children: (0, r.jsx)(aw, { name: 'InformationSquare', size: 16 }),
                             }),
-                            (0, r.jsx)(ax, {
-                              children: (0, r.jsx)(ta.G, {
+                            (0, r.jsx)(ab, {
+                              children: (0, r.jsx)(tt.G, {
                                 $noStyles: !0,
                                 href: 'https://resources.curve.fi/pools/calculating-yield/#base-vapy',
                                 children: (0, c.t)`Learn more`,
@@ -4451,18 +4369,18 @@
                             }),
                           ],
                         }),
-                        (0, r.jsx)(aC, {
+                        (0, r.jsx)(ak, {
                           as: 'ul',
                           children: h.map(({ label: e, value: a }) =>
                             (0, r.jsxs)(
-                              ak,
+                              aS,
                               {
                                 as: 'li',
                                 grid: !0,
                                 gridRowGap: 2,
                                 padding: 'var(--spacing-1) var(--spacing-1) var(--spacing-2)',
                                 children: [
-                                  (0, r.jsx)(v.v, { size: 'md', children: e }),
+                                  (0, r.jsx)(b.v, { size: 'md', children: e }),
                                   t?.failedFetching24hOldVprice
                                     ? (0, r.jsxs)('span', {
                                         children: [
@@ -4472,8 +4390,8 @@
                                       })
                                     : '' === a
                                       ? ''
-                                      : +a > ap.l5
-                                        ? (0, r.jsx)(ad.A, { isBold: !0, showIcon: !0 })
+                                      : +a > ac.l5
+                                        ? (0, r.jsx)(al.A, { isBold: !0, showIcon: !0 })
                                         : (0, r.jsx)('strong', {
                                             title: a,
                                             children: (0, A.ZV)(a, A.hd.PERCENT),
@@ -4493,12 +4411,12 @@
                           flex: !0,
                           fillWidth: !0,
                           children: [
-                            (0, r.jsx)(af, { children: (0, c.t)`Rewards tAPR` }),
-                            (0, r.jsx)(aA, {
+                            (0, r.jsx)(ah, { children: (0, c.t)`Rewards tAPR` }),
+                            (0, r.jsx)(ag, {
                               placement: 'bottom',
                               tooltip: (0,
                               c.t)`Token APR based on current prices of tokens and reward rates.`,
-                              children: (0, r.jsx)(av, { name: 'InformationSquare', size: 16 }),
+                              children: (0, r.jsx)(aw, { name: 'InformationSquare', size: 16 }),
                             }),
                           ],
                         }),
@@ -4506,12 +4424,12 @@
                           margin: 'var(--spacing-2) 0 0 0',
                           children: [
                             l &&
-                              (0, r.jsxs)(aw, {
+                              (0, r.jsxs)(aA, {
                                 children: [
                                   'CRV',
-                                  (0, r.jsx)(am.A, {}),
+                                  (0, r.jsx)(au.A, {}),
                                   t &&
-                                    (0, r.jsx)(ac.A, {
+                                    (0, r.jsx)(ad.A, {
                                       isHighlight: !0,
                                       poolData: t,
                                       rewardsApy: a,
@@ -4521,7 +4439,7 @@
                             n &&
                               o?.map(({ apy: t, symbol: a, tokenAddress: s }) =>
                                 r.jsxs(
-                                  aw,
+                                  aA,
                                   {
                                     flex: !0,
                                     flexJustifyContent: 'space-between',
@@ -4531,27 +4449,27 @@
                                         flex: !0,
                                         flexAlignItems: 'center',
                                         children: [
-                                          r.jsx(ab, {
+                                          r.jsx(av, {
                                             href: e ? m(s) : '',
-                                            children: r.jsxs(ag, {
+                                            children: r.jsxs(af, {
                                               flex: !0,
                                               flexAlignItems: 'center',
                                               padding: 'var(--spacing-1) 0',
                                               children: [
                                                 F.G_(a),
                                                 ' ',
-                                                r.jsx(ed.A, { name: 'Launch', size: 16 }),
+                                                r.jsx(el.A, { name: 'Launch', size: 16 }),
                                               ],
                                             }),
                                           }),
-                                          r.jsx(tt.Bj, {
+                                          r.jsx(te.Bj, {
                                             size: 'small',
                                             onClick: () => W.lW(s),
-                                            children: r.jsx(ed.A, { name: 'Copy', size: 16 }),
+                                            children: r.jsx(el.A, { name: 'Copy', size: 16 }),
                                           }),
                                         ],
                                       }),
-                                      r.jsxs(v.v, {
+                                      r.jsxs(b.v, {
                                         isBold: !0,
                                         isNumber: !0,
                                         size: 'md',
@@ -4565,8 +4483,8 @@
                           ],
                         }),
                         !u &&
-                          (0, r.jsx)(aS, {
-                            children: (0, r.jsx)(ta.G, {
+                          (0, r.jsx)(ax, {
+                            children: (0, r.jsx)(tt.G, {
                               $noStyles: !0,
                               href: 'https://resources.curve.fi/reward-gauges/boosting-your-crv-rewards/',
                               children: (0, c.t)`Learn more about Boosting your CRV rewards`,
@@ -4575,39 +4493,39 @@
                       ],
                     }),
                   p &&
-                    (0, r.jsxs)(aP, {
+                    (0, r.jsxs)(aC, {
                       children: [
                         (0, r.jsx)('h4', { children: (0, c.t)`Additional external rewards` }),
-                        (0, r.jsx)(al.A, { rewardItems: p }),
+                        (0, r.jsx)(an.A, { rewardItems: p }),
                       ],
                     }),
                 ],
               })
             : null;
         },
-        aT = i.Ay.div.withConfig({ componentId: 'sc-ea705b3a-0' })([
+        aj = i.Ay.div.withConfig({ componentId: 'sc-ea705b3a-0' })([
           'display:grid;transition:200ms;grid-template-columns:1fr;grid-template-rows:25.6875rem 10rem auto auto;@media (min-width:75rem){grid-template-columns:1fr 18.75rem;grid-template-rows:25.6875rem 10rem 1fr;}',
         ]),
-        aI = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-ea705b3a-1' })([
+        aT = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-ea705b3a-1' })([
           'grid-row:1 / 4;grid-column:1 / 2;',
         ]),
-        aR = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-ea705b3a-2' })(
+        aI = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-ea705b3a-2' })(
           [
             'align-items:flex-start;display:grid;padding:1.5rem var(--spacing-narrow);@media (min-width:',
             'rem){padding:1.5rem var(--spacing-normal);}@media (min-width:',
             'rem){padding:1.5rem;}',
           ],
-          ts.fi.sm,
-          ts.fi.lg
+          tr.fi.sm,
+          tr.fi.lg
         ),
-        aB = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-ea705b3a-3' })(
+        aR = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-ea705b3a-3' })(
           [
             'padding:1.5rem 1rem;background-color:var(--box--secondary--content--background-color);grid-row:4 / 4;grid-column:1 / 1;> article:not(.last-of-type){margin-bottom:1.5rem;}@media (min-width:75rem){grid-row:1 / 4;grid-column:2 / 3;}@media (min-width:',
             'rem){height:100%;}',
           ],
-          ts.fi.lg
+          tr.fi.lg
         ),
-        aE = ({
+        aB = ({
           curve: e,
           routerParams: t,
           poolAlert: a,
@@ -4619,27 +4537,27 @@
             { rChainId: p, rPoolId: u } = t,
             { chainId: m } = e ?? {},
             h = (0, T.A)((e) => e.pools.rewardsApyMapper[p]?.[u]),
-            f = (0, T.A)((e) => e.pools.tvlMapper[p]?.[u]),
-            y = (0, T.A)((e) => e.pools.fetchPoolStats),
+            y = (0, T.A)((e) => e.pools.tvlMapper[p]?.[u]),
+            f = (0, T.A)((e) => e.pools.fetchPoolStats),
             g = i?.pool?.id,
-            A = (0, tX.Yn)((0, s.useParams)(), '/disclaimer');
+            A = (0, tZ.Yn)((0, s.useParams)(), '/disclaimer');
           return (
             (0, o.useEffect)(() => {
-              e && i && y(e, i);
+              e && i && f(e, i);
             }, [m, g]),
-            (0, r.jsxs)(aT, {
+            (0, r.jsxs)(aj, {
               children: [
-                (0, r.jsx)(aI, {
+                (0, r.jsx)(aT, {
                   flex: !0,
                   flexColumn: !0,
-                  children: (0, r.jsx)(aR, {
+                  children: (0, r.jsx)(aI, {
                     grid: !0,
                     children: (0, r.jsxs)(V.A, {
                       grid: !0,
                       gridRowGap: 3,
                       children: [
-                        (0, r.jsx)(tH, { rChainId: p, rPoolId: u, tvl: f, tokensMapper: l }),
-                        i && (0, r.jsx)(aj, { chainId: p, poolData: i, rewardsApy: h }),
+                        (0, r.jsx)(tz, { rChainId: p, rPoolId: u, tvl: y, tokensMapper: l }),
+                        i && (0, r.jsx)(aP, { chainId: p, poolData: i, rewardsApy: h }),
                         (0, r.jsxs)(V.A, {
                           grid: !0,
                           gridRowGap: 2,
@@ -4659,7 +4577,7 @@
                                   (0,
                                   c.t)`Cryptoswap pools contain non pegged assets. Liquidity providers are exposed to all assets in the pools.`,
                                   ' ',
-                                  (0, r.jsx)(tF.A, {
+                                  (0, r.jsx)(tD.A, {
                                     $noStyles: !0,
                                     href: 'https://resources.curve.fi/pools/overview/',
                                     children: (0,
@@ -4670,7 +4588,7 @@
                             (0, r.jsx)(k.A, {
                               alertType: 'info',
                               flexAlignItems: 'center',
-                              children: (0, r.jsx)(ta.E, {
+                              children: (0, r.jsx)(tt.E, {
                                 $noStyles: !0,
                                 href: A,
                                 target: '_blank',
@@ -4683,10 +4601,10 @@
                     }),
                   }),
                 }),
-                (0, r.jsx)(aB, {
+                (0, r.jsx)(aR, {
                   children:
                     i?.parameters &&
-                    (0, r.jsx)(an, {
+                    (0, r.jsx)(ai, {
                       parameters: i.parameters,
                       poolData: i,
                       poolDataCacheOrApi: n,
@@ -4697,15 +4615,15 @@
             })
           );
         };
-      var aD = a(10541),
-        aF = a.n(aD),
-        aG = a(23780),
-        aL = a.n(aG);
-      let aO = { 'warning-exchange-rate-low': 'warning-exchange-rate-low' },
-        aK = ({ errorKey: e, ...t }) => {
+      var aE = a(10541),
+        aD = a.n(aE),
+        aF = a(23780),
+        aG = a.n(aF);
+      let aL = { 'warning-exchange-rate-low': 'warning-exchange-rate-low' },
+        aO = ({ errorKey: e, ...t }) => {
           let a = (0, o.useMemo)(() => {
             let t = {
-              [aO['warning-exchange-rate-low']]: {
+              [aL['warning-exchange-rate-low']]: {
                 message: (0, c.t)`Warning! Exchange rate is too low!`,
                 alertType: 'error',
               },
@@ -4716,20 +4634,20 @@
             ? (0, r.jsx)(k.A, { ...t, alertType: a.alertType ?? 'warning', children: a.message })
             : null;
         };
-      var aN = a(92741),
-        aV = a(52362),
-        aM = a(87081),
-        a$ = a(30163),
-        aW = a(83635),
-        aU = a(4671),
-        a_ = a(84561),
-        az = a(79543),
-        aH = a(95292),
-        aq = a(47636);
-      let aZ = (0, i.Ay)(M.Ay).withConfig({ componentId: 'sc-3889b146-0' })([
+      var aK = a(92741),
+        aN = a(52362),
+        aV = a(87081),
+        aM = a(30163),
+        a$ = a(83635),
+        aW = a(4671),
+        aU = a(84561),
+        a_ = a(79543),
+        az = a(95292),
+        aH = a(47636);
+      let aq = (0, i.Ay)(M.Ay).withConfig({ componentId: 'sc-3889b146-0' })([
           'padding-right:var(--spacing-1);',
         ]),
-        aX = ({
+        aZ = ({
           chainIdPoolId: e,
           curve: t,
           maxSlippage: a,
@@ -4740,14 +4658,14 @@
           seed: d,
           tokensMapper: p,
           userPoolBalances: u,
-          userPoolBalancesLoading: y,
+          userPoolBalancesLoading: f,
         }) => {
           let g = (0, o.useRef)(!1),
-            { chainId: w, signerAddress: v } = t || {},
-            { rChainId: x } = l,
+            { chainId: w, signerAddress: b } = t || {},
+            { rChainId: v } = l,
             S = (0, T.A)((e) => e.poolSwap.activeKey),
-            C = (0, T.A)((e) => e.poolSwap.exchangeOutput[S] ?? aM.mN),
-            P = (0, T.A)((e) => e.poolSwap.formEstGas[S] ?? aM.hL),
+            C = (0, T.A)((e) => e.poolSwap.exchangeOutput[S] ?? aV.mN),
+            P = (0, T.A)((e) => e.poolSwap.formEstGas[S] ?? aV.hL),
             j = (0, T.A)((e) => e.poolSwap.formStatus),
             R = (0, T.A)((e) => e.poolSwap.formValues),
             B = (0, T.A)((e) => e.hasRouter),
@@ -4762,29 +4680,29 @@
             H = (0, T.A)((e) => e.poolSwap.setFormValues),
             X = (0, T.A)((e) => e.pools.setPoolIsWrapped),
             Y = (0, T.A)((e) => (w ? e.networks.networks[w] : null)),
-            Q = C ? (0, aU.Oi)({ maxSlippage: a, ...C }) : null,
+            Q = C ? (0, aW.Oi)({ maxSlippage: a, ...C }) : null,
             [ea, er] = (0, o.useState)([]),
             [es, eo] = (0, o.useState)(!1),
             [ei, en] = (0, o.useState)(null),
-            el = i?.pool?.id,
-            ec = !!v,
+            ed = i?.pool?.id,
+            ec = !!b,
             ep = u?.[R.fromAddress],
             eu = u?.[R.toAddress],
             em = O[R.fromAddress],
             eh = O[R.toAddress],
-            { selectList: ef, swapTokensMapper: ey } = (0, o.useMemo)(() => {
-              let { selectList: e, swapTokensMapper: t } = (0, aM.co)(p, n);
+            { selectList: ey, swapTokensMapper: ef } = (0, o.useMemo)(() => {
+              let { selectList: e, swapTokensMapper: t } = (0, aV.co)(p, n);
               return { selectList: e.map((0, F.Ed)(Y?.networkId)), swapTokensMapper: t };
             }, [n, p, Y?.networkId]),
-            eg = ef.find((e) => e.address.toLocaleLowerCase() == R.fromAddress),
-            eA = ef.find((e) => e.address.toLocaleLowerCase() == R.toAddress),
+            eg = ey.find((e) => e.address.toLocaleLowerCase() == R.fromAddress),
+            eA = ey.find((e) => e.address.toLocaleLowerCase() == R.toAddress),
             ew = (0, o.useCallback)(
               (e, r, s) => {
                 eo(!1), en(null), H(t, n.pool.id, i, e, r, d.isSeed, s || a);
               },
               [H, t, n.pool.id, i, d.isSeed, a]
             ),
-            ev = (0, o.useCallback)(
+            eb = (0, o.useCallback)(
               async (e, t, a, s, o) => {
                 let { fromAmount: i, fromToken: n, toToken: l } = s,
                   d = (0, c.t)`Please confirm swap ${i} ${n} for ${l} at max slippage ${o}%.`,
@@ -4808,17 +4726,17 @@
               },
               [S, _, ew, Y]
             ),
-            ex = (0, o.useCallback)(
+            ev = (0, o.useCallback)(
               (e, t, a, s, o, i, n, l, d, p, u, m) => {
                 let h;
-                let { formProcessing: f, formTypeCompleted: y, step: g } = i,
+                let { formProcessing: y, formTypeCompleted: f, step: g } = i,
                   A = !m && !p && !i.error && !o.fromError && !o.toError && +o.fromAmount > 0,
                   w = i.isApproved || 'APPROVE' === i.formTypeCompleted,
-                  v = 'SWAP' === y,
-                  x = {
+                  b = 'SWAP' === f,
+                  v = {
                     APPROVAL: {
                       key: 'APPROVAL',
-                      status: (0, ee.XA)(w, 'APPROVAL' === g, A && !f),
+                      status: (0, ee.XA)(w, 'APPROVAL' === g, A && !y),
                       type: 'action',
                       content: w ? (0, c.t)`Spending Approved` : (0, c.t)`Approve Spending`,
                       onClick: async () => {
@@ -4829,9 +4747,9 @@
                     },
                     SWAP: {
                       key: 'SWAP',
-                      status: (0, ee.XA)(v, 'SWAP' === g, i.isApproved && A),
+                      status: (0, ee.XA)(b, 'SWAP' === g, i.isApproved && A),
                       type: 'action',
-                      content: v ? (0, c.t)`Swap Complete` : (0, c.t)`Swap`,
+                      content: b ? (0, c.t)`Swap Complete` : (0, c.t)`Swap`,
                       ...(n.modal
                         ? {
                             modal: {
@@ -4848,11 +4766,11 @@
                                 },
                               },
                               isDismissable: !1,
-                              primaryBtnProps: { onClick: () => ev(e, t, a, o, u), disabled: !l },
+                              primaryBtnProps: { onClick: () => eb(e, t, a, o, u), disabled: !l },
                               primaryBtnLabel: 'Swap anyway',
                             },
                           }
-                        : { onClick: () => ev(e, t, a, o, u) }),
+                        : { onClick: () => eb(e, t, a, o, u) }),
                     },
                   };
                 return (
@@ -4861,11 +4779,11 @@
                     : i.isApproved
                       ? ['SWAP']
                       : ['APPROVAL', 'SWAP']
-                ).map((e) => x[e]);
+                ).map((e) => v[e]);
               },
-              [U, ev]
+              [U, eb]
             ),
-            eb = (0, o.useCallback)(() => {
+            ex = (0, o.useCallback)(() => {
               t && i && D && !j.formProcessing && !j.formTypeCompleted && ew({}, null, '');
             }, [t, j.formProcessing, j.formTypeCompleted, D, i, ew]);
           (0, o.useEffect)(
@@ -4878,27 +4796,27 @@
             []
           ),
             (0, o.useEffect)(() => {
-              el && z(i);
-            }, [el]),
+              ed && z(i);
+            }, [ed]),
             (0, o.useEffect)(() => {
-              t && el && ec && (aL()(ep) || aL()(eu)) && $(t, el, !0);
-            }, [w, el, ec, ep, eu]),
+              t && ed && ec && (aG()(ep) || aG()(eu)) && $(t, ed, !0);
+            }, [w, ed, ec, ep, eu]),
             (0, o.useEffect)(() => {
               (R.fromAddress || R.toAddress) &&
-                (R.fromAddress && aL()(em) && W(t, [R.fromAddress]),
-                R.toAddress && aL()(eh) && W(t, [R.toAddress]));
+                (R.fromAddress && aG()(em) && W(t, [R.fromAddress]),
+                R.toAddress && aG()(eh) && W(t, [R.toAddress]));
             }, [t, R, em, eh]),
             (0, o.useEffect)(() => {
-              w && el && ew({}, null, null);
-            }, [w, el, v, d.isSeed]),
+              w && ed && ew({}, null, null);
+            }, [w, ed, b, d.isSeed]),
             (0, o.useEffect)(() => {
               ew({}, null, a);
             }, [a]),
             (0, o.useEffect)(() => {
-              t && i && null !== d.isSeed && er(ex(S, t, i, P, R, j, C, es, ea, d.isSeed, a, y));
-            }, [w, el, es, C?.modal, P, j, R, a, d.isSeed, y]),
-            (0, o.useEffect)(() => eb(), [D]),
-            (0, aH.A)(() => eb(), aq.oX['1m'], D);
+              t && i && null !== d.isSeed && er(ev(S, t, i, P, R, j, C, es, ea, d.isSeed, a, f));
+            }, [w, ed, es, C?.modal, P, j, R, a, d.isSeed, f]),
+            (0, o.useEffect)(() => ex(), [D]),
+            (0, az.A)(() => ex(), aH.oX['1m'], D);
           let eS = ec ? (0, ee.$g)(ea) : null,
             ek = null === d.isSeed || d.isSeed || j.formProcessing;
           return (0, r.jsxs)(r.Fragment, {
@@ -4911,7 +4829,7 @@
                         grid: !0,
                         gridGap: 1,
                         children: [
-                          (0, r.jsxs)(aZ, {
+                          (0, r.jsxs)(aq, {
                             id: 'fromAmount',
                             grid: !0,
                             gridTemplateColumns: '1fr auto 38%',
@@ -4923,7 +4841,7 @@
                                 type: 'number',
                                 labelProps: ec && {
                                   label: (0, c.t)`Avail.`,
-                                  descriptionLoading: y,
+                                  descriptionLoading: f,
                                   description: (0, A.ZV)(ep),
                                 },
                                 value: R.fromAmount,
@@ -4939,10 +4857,10 @@
                                   ew({ isFrom: !0, fromAmount: '', toAmount: '' }, !0, null);
                                 },
                               }),
-                              (0, r.jsx)(az.T, {
+                              (0, r.jsx)(a_.T, {
                                 selectedToken: eg,
-                                tokens: ef,
-                                disabled: ek || 0 === ef.length,
+                                tokens: ey,
+                                disabled: ek || 0 === ey.length,
                                 showSearch: !1,
                                 showManageList: !1,
                                 compact: !0,
@@ -4951,9 +4869,9 @@
                                     a = K()(R);
                                   t === R.toAddress &&
                                     ((a.toAddress = R.fromAddress),
-                                    (a.toToken = ey[R.fromAddress].symbol)),
+                                    (a.toToken = ef[R.fromAddress].symbol)),
                                     (a.fromAddress = t),
-                                    (a.fromToken = ey[t].symbol),
+                                    (a.fromToken = ef[t].symbol),
                                     R.isFrom || null === R.isFrom
                                       ? (a.toAmount = '')
                                       : (a.fromAmount = ''),
@@ -4962,9 +4880,9 @@
                               }),
                             ],
                           }),
-                          (0, r.jsx)(aV.A, { amount: R.fromAmount, usdRate: em }),
+                          (0, r.jsx)(aN.A, { amount: R.fromAmount, usdRate: em }),
                           R.fromError &&
-                            (0, r.jsx)(aN.A, {
+                            (0, r.jsx)(aK.A, {
                               size: 'xs',
                               isDarkBg: !0,
                               isError: !0,
@@ -4975,7 +4893,7 @@
                       (0, r.jsx)(V.A, {
                         flex: !0,
                         flexJustifyContent: 'center',
-                        children: (0, r.jsx)(a_.A, {
+                        children: (0, r.jsx)(aU.A, {
                           disabled: ek,
                           onClick: () => {
                             let e = K()(R);
@@ -4989,7 +4907,7 @@
                               ew(e, null, '');
                           },
                           size: 'medium',
-                          children: (0, r.jsx)(ed.A, {
+                          children: (0, r.jsx)(el.A, {
                             name: 'ArrowsVertical',
                             size: 24,
                             'aria-label': 'icon arrow vertical',
@@ -5000,10 +4918,10 @@
                   }),
                   (0, r.jsxs)('div', {
                     children: [
-                      (0, r.jsxs)(aZ, {
+                      (0, r.jsxs)(aq, {
                         id: 'toAmount',
                         inputVariant: R.toError ? 'error' : void 0,
-                        disabled: aL()(B) || (!aL()(B) && !B) || ek,
+                        disabled: aG()(B) || (!aG()(B) && !B) || ek,
                         grid: !0,
                         gridTemplateColumns: '1fr 38%',
                         children: [
@@ -5012,7 +4930,7 @@
                             type: 'number',
                             labelProps: ec && {
                               label: (0, c.t)`Avail.`,
-                              descriptionLoading: y,
+                              descriptionLoading: f,
                               description: (0, A.ZV)(eu),
                             },
                             value: R.toAmount,
@@ -5020,10 +4938,10 @@
                               ew({ isFrom: !1, toAmount: e, fromAmount: '' }, null, '');
                             },
                           }),
-                          (0, r.jsx)(az.T, {
+                          (0, r.jsx)(a_.T, {
                             selectedToken: eA,
-                            tokens: ef,
-                            disabled: ek || 0 === ef.length,
+                            tokens: ey,
+                            disabled: ek || 0 === ey.length,
                             showSearch: !1,
                             showManageList: !1,
                             compact: !0,
@@ -5032,9 +4950,9 @@
                                 a = K()(R);
                               t === R.fromAddress &&
                                 ((a.fromAddress = R.toAddress),
-                                (a.fromToken = ey[R.toAddress].symbol)),
+                                (a.fromToken = ef[R.toAddress].symbol)),
                                 (a.toAddress = t),
-                                (a.toToken = ey[t].symbol),
+                                (a.toToken = ef[t].symbol),
                                 R.isFrom || null === R.isFrom
                                   ? (a.toAmount = '')
                                   : (a.fromAmount = ''),
@@ -5043,7 +4961,7 @@
                           }),
                         ],
                       }),
-                      (0, r.jsx)(aV.A, { amount: R.toAmount, usdRate: eh }),
+                      (0, r.jsx)(aN.A, { amount: R.toAmount, usdRate: eh }),
                     ],
                   }),
                   n.hasWrapped &&
@@ -5074,20 +4992,20 @@
               }),
               (0, r.jsxs)(V.A, {
                 children: [
-                  (0, r.jsx)(a$.A, { exchangeRates: C.exchangeRates, loading: C.loading }),
-                  (0, r.jsx)(aW.A, {
+                  (0, r.jsx)(aM.A, { exchangeRates: C.exchangeRates, loading: C.loading }),
+                  (0, r.jsx)(a$.A, {
                     loading: C.loading,
                     priceImpact: C.priceImpact,
                     isHighImpact: Q?.isHighImpact ?? null,
                   }),
                   ec &&
-                    (0, r.jsx)(f.A, {
+                    (0, r.jsx)(y.A, {
                       isDivider: !0,
-                      chainId: x,
+                      chainId: v,
                       ...P,
                       stepProgress: eS && ea.length > 1 ? { active: eS, total: ea.length } : null,
                     }),
-                  (0, r.jsx)(b.A, { maxSlippage: a, stateKey: e }),
+                  (0, r.jsx)(x.A, { maxSlippage: a, stateKey: e }),
                 ],
               }),
               s &&
@@ -5095,9 +5013,9 @@
                 (0, r.jsx)(k.A, { ...s, children: s.message }),
               (0, r.jsx)(h.A, {
                 maxSlippage: a,
-                usdAmount: aL()(eh) || aF()(eh) ? '' : (Number(R.toAmount) * Number(eh)).toString(),
+                usdAmount: aG()(eh) || aD()(eh) ? '' : (Number(R.toAmount) * Number(eh)).toString(),
               }),
-              (0, r.jsx)(aK, { errorKey: j.warning }),
+              (0, r.jsx)(aO, { errorKey: j.warning }),
               (0, r.jsx)(m.A, {
                 errorKey: j.error,
                 handleBtnClose: () => {
@@ -5122,23 +5040,23 @@
             ],
           });
         };
-      var aY = a(78866),
-        aQ = a(49339);
-      let aJ = (0, i.Ay)(ao.A).withConfig({ componentId: 'sc-59544345-0' })(['margin:0;']),
-        a0 = i.Ay.div.withConfig({ componentId: 'sc-59544345-1' })([
+      var aX = a(78866),
+        aY = a(49339);
+      let aQ = (0, i.Ay)(as.A).withConfig({ componentId: 'sc-59544345-0' })(['margin:0;']),
+        aJ = i.Ay.div.withConfig({ componentId: 'sc-59544345-1' })([
           'align-items:flex-start;display:grid;grid-template-columns:repeat(2,1fr);margin:1rem;margin-bottom:0.5rem;',
         ]),
-        a1 = i.Ay.div.withConfig({ componentId: 'sc-59544345-2' })(['margin:1rem;']),
-        a3 = i.Ay.div.withConfig({ componentId: 'sc-59544345-3' })([
+        a0 = i.Ay.div.withConfig({ componentId: 'sc-59544345-2' })(['margin:1rem;']),
+        a1 = i.Ay.div.withConfig({ componentId: 'sc-59544345-3' })([
           'padding-top:0;display:grid;grid-column-gap:var(--spacing-3);',
         ]),
-        a2 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-59544345-4' })([
+        a3 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-59544345-4' })([
           'padding:1rem;grid-template-columns:1fr auto;.stats{margin:0;}',
         ]),
         a5 = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-59544345-5' })([
           'position:relative;width:100%;background-color:var(--box--secondary--background-color);',
         ]),
-        a4 = (0, i.Ay)(aQ.Ay).withConfig({ componentId: 'sc-59544345-6' })([
+        a2 = (0, i.Ay)(aY.Ay).withConfig({ componentId: 'sc-59544345-6' })([
           'tr:last-of-type{border-top:1px solid var(--tooltip--border-color);}td{padding:0.25rem 0;}',
         ]),
         a6 = ({
@@ -5151,23 +5069,23 @@
           userPoolBalances: l,
         }) => {
           let { rChainId: d, rPoolId: p } = i,
-            u = t && p ? (0, aY.df)(t, p) : '',
+            u = t && p ? (0, aX.df)(t, p) : '',
             m = (0, T.A)((e) => e.pools.rewardsApyMapper[d]?.[p]),
             h = (0, T.A)((e) => e.user.userCrvApy[u]),
-            f = (0, T.A)((e) => e.user.userLiquidityUsd[u]),
-            y = (0, T.A)((e) => e.user.userShare[u]),
+            y = (0, T.A)((e) => e.user.userLiquidityUsd[u]),
+            f = (0, T.A)((e) => e.user.userShare[u]),
             g = (0, T.A)((e) => e.user.userWithdrawAmounts[u] ?? []),
             w = 1 === d,
-            x = m?.crv?.[0] !== 0,
-            { rewardsNeedNudging: b, areCrvRewardsStuckInBridge: S } = a?.gauge.status || {},
+            v = m?.crv?.[0] !== 0,
+            { rewardsNeedNudging: x, areCrvRewardsStuckInBridge: S } = a?.gauge.status || {},
             k = (0, o.useMemo)(
               () =>
-                y?.lpShare && 0 !== Number(y.lpShare)
-                  ? Number(y.lpShare) > 0.01
-                    ? (0, A.ZV)(y.lpShare, A.hd.PERCENT)
+                f?.lpShare && 0 !== Number(f.lpShare)
+                  ? Number(f.lpShare) > 0.01
+                    ? (0, A.ZV)(f.lpShare, A.hd.PERCENT)
                     : `< ${(0, A.ZV)(0.01, A.hd.PERCENT)}`
                   : (0, A.ZV)(0, A.hd.PERCENT),
-              [y]
+              [f]
             ),
             C = (0, o.useMemo)(
               () => (s && !s.pool.isCrypto ? g.reduce((e, t) => (e += Number(t)), 0) : ''),
@@ -5176,7 +5094,7 @@
             P = (0, o.useMemo)(
               () =>
                 w && void 0 !== m?.crv?.[0] && h?.boostApy && h?.crvApy
-                  ? (0, r.jsx)(a4, {
+                  ? (0, r.jsx)(a2, {
                       children: (0, r.jsxs)('tbody', {
                         children: [
                           (0, r.jsxs)('tr', {
@@ -5217,7 +5135,7 @@
           return (0, r.jsxs)(a5, {
             className: e,
             children: [
-              (0, r.jsxs)(a2, {
+              (0, r.jsxs)(a3, {
                 children: [
                   (0, r.jsx)('h3', { children: (0, c.t)`Your position` }),
                   (0, r.jsxs)('span', {
@@ -5226,14 +5144,14 @@
                       ' ',
                       (0, r.jsx)('strong', { children: k }),
                       ' ',
-                      (0, r.jsx)(v.v, { size: 'xs', children: (0, c.t)`of pool` }),
+                      (0, r.jsx)(b.v, { size: 'xs', children: (0, c.t)`of pool` }),
                     ],
                   }),
                 ],
               }),
-              (0, r.jsxs)(a0, {
+              (0, r.jsxs)(aJ, {
                 children: [
-                  (0, r.jsxs)(aJ, {
+                  (0, r.jsxs)(aQ, {
                     label: (0, c.t)`LP Tokens`,
                     children: [
                       (0, r.jsxs)('div', {
@@ -5256,19 +5174,19 @@
                       }),
                     ],
                   }),
-                  (x || w) &&
+                  (v || w) &&
                     (0, r.jsxs)('div', {
                       children: [
-                        x && (b || S)
-                          ? (0, r.jsxs)(v.v, {
+                        v && (x || S)
+                          ? (0, r.jsxs)(b.v, {
                               size: 'md',
                               children: [
                                 (0, c.t)`Your CRV Rewards tAPR:`,
                                 ' ',
-                                (0, r.jsx)(ac.A, { isHighlight: !1, poolData: a, rewardsApy: m }),
+                                (0, r.jsx)(ad.A, { isHighlight: !1, poolData: a, rewardsApy: m }),
                               ],
                             })
-                          : (0, r.jsxs)(v.v, {
+                          : (0, r.jsxs)(b.v, {
                               size: 'md',
                               tooltip: P,
                               tooltipProps: { minWidth: '350px' },
@@ -5286,7 +5204,7 @@
                           (0, r.jsxs)(r.Fragment, {
                             children: [
                               (0, r.jsx)('br', {}),
-                              (0, r.jsxs)(v.v, {
+                              (0, r.jsxs)(b.v, {
                                 size: 'md',
                                 children: [
                                   (0, c.t)`Current Boost:`,
@@ -5307,26 +5225,26 @@
                     }),
                 ],
               }),
-              (0, r.jsx)(a3, {
-                children: (0, r.jsxs)(a1, {
+              (0, r.jsx)(a1, {
+                children: (0, r.jsxs)(a0, {
                   children: [
-                    (0, r.jsx)(v.v, { size: 'md', children: (0, c.t)`Balanced withdraw amounts` }),
+                    (0, r.jsx)(b.v, { size: 'md', children: (0, c.t)`Balanced withdraw amounts` }),
                     Array.isArray(s.tokenAddresses) &&
                       a?.tokenAddresses.map((e, t) => {
                         let s = a.tokens[t],
                           o = n[e];
                         return r.jsx(
-                          ao.A,
+                          as.A,
                           {
                             isOneLine: !0,
                             isBorderBottom: !0,
                             label:
                               o && a.tokensCountBy[s] > 1
                                 ? r.jsxs('span', {
-                                    children: [s, ' ', r.jsx(v.v, { children: W.Wr(o.address) })],
+                                    children: [s, ' ', r.jsx(b.v, { children: W.Wr(o.address) })],
                                   })
                                 : s,
-                            children: r.jsx(v.v, {
+                            children: r.jsx(b.v, {
                               as: 'strong',
                               size: 'md',
                               fontVariantNumeric: 'tabular-nums',
@@ -5337,25 +5255,25 @@
                         );
                       }),
                     !s.pool.isCrypto &&
-                      (0, r.jsx)(ao.A, {
+                      (0, r.jsx)(as.A, {
                         isOneLine: !0,
                         isBorderBottom: !0,
                         label: `${s.tokens.join('+')}`,
-                        children: (0, r.jsx)(v.v, {
+                        children: (0, r.jsx)(b.v, {
                           as: 'strong',
                           size: 'md',
                           fontVariantNumeric: 'tabular-nums',
                           children: (0, A.ZV)(C),
                         }),
                       }),
-                    (0, r.jsx)(ao.A, {
+                    (0, r.jsx)(as.A, {
                       isOneLine: !0,
                       label: (0, c.t)`USD balance`,
-                      children: (0, r.jsx)(v.v, {
+                      children: (0, r.jsx)(b.v, {
                         as: 'strong',
                         size: 'md',
                         fontVariantNumeric: 'tabular-nums',
-                        children: (0, A.ZV)(f, { ...A.hd.USD, defaultValue: '-' }),
+                        children: (0, A.ZV)(y, { ...A.hd.USD, defaultValue: '-' }),
                       }),
                     }),
                   ],
@@ -5364,11 +5282,11 @@
             ],
           });
         };
-      var a7 = a(21104);
-      let a8 = i.Ay.div.withConfig({ componentId: 'sc-8607f4c1-0' })([
+      var a4 = a(21104);
+      let a9 = i.Ay.div.withConfig({ componentId: 'sc-8607f4c1-0' })([
           'padding:0.5rem 0.7rem;box-shadow:inset 0.5px 0.5px 0 0.5px var(--box--primary--content--shadow-color);background-color:var(--box--primary--content--background-color);',
         ]),
-        a9 = ({
+        a8 = ({
           curve: e,
           poolData: t,
           poolDataCacheOrApi: a,
@@ -5380,39 +5298,39 @@
             { chainId: d, signerAddress: p } = e || {},
             u = (0, T.A)((e) => e.poolWithdraw.activeKey),
             h = (0, T.A)((e) => e.poolWithdraw.formStatus),
-            f = (0, T.A)((e) => e.poolWithdraw.formValues),
-            y = (0, T.A)((e) => e.poolWithdraw.fetchClaimable),
+            y = (0, T.A)((e) => e.poolWithdraw.formValues),
+            f = (0, T.A)((e) => e.poolWithdraw.fetchClaimable),
             g = (0, T.A)((e) => e.poolWithdraw.fetchStepClaim),
             w = (0, T.A)((e) => e.poolWithdraw.setStateByKey),
-            v = (0, T.A)((e) => e.poolWithdraw.setFormValues),
-            x = (0, T.A)((e) => e.poolWithdraw.resetState),
-            b = (0, T.A)((e) => (d ? e.networks.networks[d] : null)),
+            b = (0, T.A)((e) => e.poolWithdraw.setFormValues),
+            v = (0, T.A)((e) => e.poolWithdraw.resetState),
+            x = (0, T.A)((e) => (d ? e.networks.networks[d] : null)),
             [S, C] = (0, o.useState)(!1),
             [P, j] = (0, o.useState)([]),
             [R, B] = (0, o.useState)(null),
             E = t?.pool?.id,
             D = !!p,
             { rewardsNeedNudging: F } = t?.gauge.status || {},
-            L = +f.claimableCrv > 0,
-            O = +f.claimableRewards.length > 0,
+            L = +y.claimableCrv > 0,
+            O = +y.claimableRewards.length > 0,
             N = (0, o.useCallback)(() => {
-              B(null), C(!1), v('CLAIM', e, a.pool.id, t, {}, null, i.isSeed, '');
-            }, [e, t, a.pool.id, i.isSeed, v]),
+              B(null), C(!1), b('CLAIM', e, a.pool.id, t, {}, null, i.isSeed, '');
+            }, [e, t, a.pool.id, i.isSeed, b]),
             M = (0, o.useCallback)(
               async (e, t, a, s, o, i) => {
-                let n = (0, a7._x)(s, o, 'notify', i),
+                let n = (0, a4._x)(s, o, 'notify', i),
                   { dismiss: d } = (0, I.me)(n, 'pending'),
                   c = await g(e, t, a);
-                if (l.current && c && c.hash && c.activeKey === e && b) {
+                if (l.current && c && c.hash && c.activeKey === e && x) {
                   let e = o.isClaimCrv
                       ? 'CRV'
                       : `${s.claimableRewards.map((e) => e.symbol).join(', ')} rewards`,
                     t = `Claimed ${e}`;
-                  B((0, r.jsx)(et.A, { description: t, txHash: b.scanTxPath(c.hash) }));
+                  B((0, r.jsx)(et.A, { description: t, txHash: x.scanTxPath(c.hash) }));
                 }
                 'function' == typeof d && d();
               },
-              [g, b]
+              [g, x]
             ),
             $ = (0, o.useCallback)(
               (e, t, a, r, s, o, i) => {
@@ -5431,10 +5349,10 @@
                       type: 'action',
                       content: m
                         ? p
-                          ? (0, a7._x)({ ...r, claimableCrv: '1' }, s, 'success', o)
+                          ? (0, a4._x)({ ...r, claimableCrv: '1' }, s, 'success', o)
                           : (0, c.t)`Claim Rewards Complete`
                         : n
-                          ? (0, a7._x)(r, s, 'claimCrvButton', o)
+                          ? (0, a4._x)(r, s, 'claimCrvButton', o)
                           : (0, c.t)`Claim Rewards`,
                       onClick: () => {
                         M(e, t, a, r, s, o);
@@ -5455,25 +5373,25 @@
             []
           ),
             (0, o.useEffect)(() => {
-              E && x(t, 'CLAIM');
+              E && v(t, 'CLAIM');
             }, [E]),
             (0, o.useEffect)(() => {
               d && E && N();
             }, [d, E, p, i.isSeed]),
             (0, o.useEffect)(() => {
-              d && t && D && y(u, d, t.pool);
+              d && t && D && f(u, d, t.pool);
             }, [d, E, p]),
             (0, o.useEffect)(() => {
-              e && t && null !== i.isSeed && j($(u, e, t, f, h, F, i.isSeed));
-            }, [d, t, S, p, f, h, F, i.isSeed]);
+              e && t && null !== i.isSeed && j($(u, e, t, y, h, F, i.isSeed));
+            }, [d, t, S, p, y, h, F, i.isSeed]);
           let W = (a, r) => {
               if ((B(null), C(!1), e && t)) {
-                let s = K()(a7.kR);
+                let s = K()(a4.kR);
                 (s.isApproved = h.isApproved),
                   (s.isClaimCrv = a),
                   (s.isClaimRewards = r),
                   w('formStatus', s),
-                  M(u, e, t, f, s, F);
+                  M(u, e, t, y, s, F);
               }
             },
             U = F && !t?.gauge.isKilled;
@@ -5485,24 +5403,24 @@
             seed: i,
             userPoolBalances: n,
             children: [
-              (0, r.jsx)(a8, {
+              (0, r.jsx)(a9, {
                 children:
                   L || O
                     ? (0, r.jsxs)(r.Fragment, {
                         children: [
                           L &&
-                            (0, r.jsx)(ao.A, {
+                            (0, r.jsx)(as.A, {
                               isOneLine: !0,
-                              isBorderBottom: f.claimableRewards.length > 0,
+                              isBorderBottom: y.claimableRewards.length > 0,
                               label: 'CRV',
-                              children: (0, A.ZV)(f.claimableCrv),
+                              children: (0, A.ZV)(y.claimableCrv),
                             }),
-                          f.claimableRewards.map(({ token: e, symbol: t, amount: a }, s) =>
+                          y.claimableRewards.map(({ token: e, symbol: t, amount: a }, s) =>
                             (0, r.jsx)(
-                              ao.A,
+                              as.A,
                               {
                                 isOneLine: !0,
-                                isBorderBottom: s !== f.claimableRewards.length - 1,
+                                isBorderBottom: s !== y.claimableRewards.length - 1,
                                 label: t,
                                 children: (0, A.ZV)(a),
                               },
@@ -5533,17 +5451,17 @@
                       e &&
                         t &&
                         (L || U) &&
-                        (0, r.jsx)(eJ.A, {
+                        (0, r.jsx)(eQ.A, {
                           disabled: !!h.error,
                           variant: 'filled',
                           size: 'large',
                           onClick: () => W(!0, !1),
-                          children: (0, a7._x)(f, h, 'claimCrvButton', U),
+                          children: (0, a4._x)(y, h, 'claimCrvButton', U),
                         }),
                       e &&
                         t &&
                         O &&
-                        (0, r.jsx)(eJ.A, {
+                        (0, r.jsx)(eQ.A, {
                           disabled: !!h.error,
                           variant: 'filled',
                           size: 'large',
@@ -5555,7 +5473,7 @@
             ],
           });
         },
-        re = ({
+        a7 = ({
           curve: e,
           poolData: t,
           poolDataCacheOrApi: a,
@@ -5567,12 +5485,12 @@
             { chainId: d, signerAddress: p } = e || {},
             { rChainId: u } = s,
             h = (0, T.A)((e) => e.poolWithdraw.activeKey),
-            y = (0, T.A)((e) => e.poolWithdraw.formEstGas[h] ?? s$),
+            f = (0, T.A)((e) => e.poolWithdraw.formEstGas[h] ?? s$),
             g = (0, T.A)((e) => e.poolWithdraw.formStatus),
             w = (0, T.A)((e) => e.poolWithdraw.formValues),
-            v = (0, T.A)((e) => e.poolWithdraw.fetchStepUnstake),
-            x = (0, T.A)((e) => e.poolWithdraw.setFormValues),
-            b = (0, T.A)((e) => e.poolWithdraw.resetState),
+            b = (0, T.A)((e) => e.poolWithdraw.fetchStepUnstake),
+            v = (0, T.A)((e) => e.poolWithdraw.setFormValues),
+            x = (0, T.A)((e) => e.poolWithdraw.resetState),
             S = (0, T.A)((e) => (d ? e.networks.networks[d] : null)),
             [k, C] = (0, o.useState)([]),
             [P, j] = (0, o.useState)(null),
@@ -5580,22 +5498,22 @@
             B = !!p,
             E = (0, o.useCallback)(
               (r) => {
-                j(null), x('UNSTAKE', e, a.pool.id, t, r, null, i.isSeed, '');
+                j(null), v('UNSTAKE', e, a.pool.id, t, r, null, i.isSeed, '');
               },
-              [e, t, a.pool.id, i.isSeed, x]
+              [e, t, a.pool.id, i.isSeed, v]
             ),
             D = (0, o.useCallback)(
               async (e, t, a, s) => {
                 let o = (0, c.t)`Please confirm unstaking of ${s.stakedLpToken} LP Tokens`,
                   { dismiss: i } = (0, I.me)(o, 'pending'),
-                  n = await v(e, t, a, s);
+                  n = await b(e, t, a, s);
                 if (l.current && n && n.hash && n.activeKey === e && S) {
                   let e = (0, c.t)`Unstaked ${s.stakedLpToken} LP Tokens`;
                   j((0, r.jsx)(et.A, { description: e, txHash: S.scanTxPath(n.hash) }));
                 }
                 'function' == typeof i && i();
               },
-              [v, S]
+              [b, S]
             ),
             F = (0, o.useCallback)(
               (e, t, a, r, s, o) => {
@@ -5625,7 +5543,7 @@
             []
           ),
             (0, o.useEffect)(() => {
-              R && b(t, 'UNSTAKE');
+              R && x(t, 'UNSTAKE');
             }, [R]),
             (0, o.useEffect)(() => {
               d && R && E({});
@@ -5637,7 +5555,7 @@
             O = n?.gauge;
           return (0, r.jsxs)(r.Fragment, {
             children: [
-              (0, r.jsx)(eh, {
+              (0, r.jsx)(em, {
                 amount: w.stakedLpToken,
                 balanceLoading: B && void 0 === n,
                 balance: B ? (0, A.ZV)(O) : '',
@@ -5652,7 +5570,7 @@
                   E({ stakedLpToken: n?.gauge ?? '0' });
                 },
               }),
-              B && (0, r.jsx)('div', { children: (0, r.jsx)(f.A, { chainId: u, ...y }) }),
+              B && (0, r.jsx)('div', { children: (0, r.jsx)(y.A, { chainId: u, ...f }) }),
               (0, r.jsxs)(G, {
                 poolData: t,
                 poolDataCacheOrApi: a,
@@ -5669,11 +5587,11 @@
             ],
           });
         };
-      var rt = a(21035);
-      let ra = (0, i.Ay)($.x).withConfig({ componentId: 'sc-248c467f-0' })([
+      var re = a(21035);
+      let rt = (0, i.Ay)($.x).withConfig({ componentId: 'sc-248c467f-0' })([
           'margin-right:var(--spacing-1);',
         ]),
-        rr = ({
+        ra = ({
           amounts: e,
           blockchainId: t,
           loading: a,
@@ -5696,14 +5614,14 @@
                   flex: !0,
                   flexAlignItems: 'center',
                   children: [
-                    (0, r.jsx)(ra, { blockchainId: t, tooltip: d, address: i[n]?.ethAddress || n }),
+                    (0, r.jsx)(rt, { blockchainId: t, tooltip: d, address: i[n]?.ethAddress || n }),
                     ' ',
                     d,
-                    c && (0, r.jsx)(v.v, { children: (0, W.Wr)(n) }),
-                    (0, r.jsx)(am.A, {}),
+                    c && (0, r.jsx)(b.v, { children: (0, W.Wr)(n) }),
+                    (0, r.jsx)(au.A, {}),
                     a
-                      ? (0, r.jsx)(rt.A, { skeleton: [90, 20] })
-                      : (0, r.jsx)(tr.A, {
+                      ? (0, r.jsx)(re.A, { skeleton: [90, 20] })
+                      : (0, r.jsx)(ta.A, {
                           smMaxWidth: '15rem',
                           children: (0, A.ZV)(e[l]?.value || '0'),
                         }),
@@ -5713,17 +5631,17 @@
               );
             }),
           });
-      var rs = a(56343);
-      let ro = (0, i.Ay)(v.v).withConfig({ componentId: 'sc-140fca7a-0' })([
+      var rr = a(56343);
+      let rs = (0, i.Ay)(b.v).withConfig({ componentId: 'sc-140fca7a-0' })([
           'margin-left:var(--spacing-2);',
         ]),
-        ri = (0, i.Ay)($.x).withConfig({ componentId: 'sc-140fca7a-1' })([
+        ro = (0, i.Ay)($.x).withConfig({ componentId: 'sc-140fca7a-1' })([
           'margin-right:var(--spacing-2);',
         ]),
-        rn = (0, i.Ay)(rs.z6).withConfig({ componentId: 'sc-140fca7a-2' })([
+        ri = (0, i.Ay)(rr.z6).withConfig({ componentId: 'sc-140fca7a-2' })([
           'grid-gap:var(--spacing-2);',
         ]),
-        rl = ({
+        rn = ({
           amounts: e,
           haveSigner: t,
           blockchainId: a,
@@ -5735,7 +5653,7 @@
           tokenAddresses: d,
           handleChanged: c,
         }) =>
-          (0, r.jsx)(rn, {
+          (0, r.jsx)(ri, {
             'aria-label': 'Withdraw from one coin',
             value: i,
             onChange: (e) => {
@@ -5746,12 +5664,12 @@
                   let d = n[i],
                     c = o?.tokensCountBy[d] > 1;
                   return (0, r.jsxs)(
-                    rs.sx,
+                    rr.sx,
                     {
                       'aria-label': `Withdraw from ${d} for ${e[i]?.value ?? '0'}`,
                       value: t,
                       children: [
-                        (0, r.jsx)(ri, {
+                        (0, r.jsx)(ro, {
                           size: 'sm',
                           blockchainId: a,
                           tooltip: d,
@@ -5760,11 +5678,11 @@
                         ' ',
                         d,
                         ' ',
-                        c && (0, r.jsx)(ro, { children: (0, W.Wr)(t) }),
-                        (0, r.jsx)(am.A, {}),
+                        c && (0, r.jsx)(rs, { children: (0, W.Wr)(t) }),
+                        (0, r.jsx)(au.A, {}),
                         s
-                          ? (0, r.jsx)(rt.A, { skeleton: [90, 20] })
-                          : (0, r.jsx)(tr.A, {
+                          ? (0, r.jsx)(re.A, { skeleton: [90, 20] })
+                          : (0, r.jsx)(ta.A, {
                               smMaxWidth: '15rem',
                               children: (0, A.ZV)(e[i]?.value || '0'),
                             }),
@@ -5773,22 +5691,22 @@
                     t
                   );
                 })
-              : (0, r.jsx)(eV.V, { vSpacing: 4, children: !t && (0, r.jsx)(eV.A, {}) }),
+              : (0, r.jsx)(eN.V, { vSpacing: 4, children: !t && (0, r.jsx)(eN.A, {}) }),
           }),
-        rd = i.Ay.div.withConfig({ componentId: 'sc-44d10d3e-0' })([
+        rl = i.Ay.div.withConfig({ componentId: 'sc-44d10d3e-0' })([
           'margin-top:var(--spacing-normal);',
         ]),
-        rc = (0, i.Ay)(rs.z6).withConfig({ componentId: 'sc-44d10d3e-1' })(
+        rd = (0, i.Ay)(rr.z6).withConfig({ componentId: 'sc-44d10d3e-1' })(
           [
             'display:grid;font-size:var(--font-size-2);grid-auto-flow:row;justify-content:flex-start;',
             ' svg{margin-right:-5px;}label{margin-right:0.75rem;}',
           ],
-          (0, ts.HP)('sm')((0, i.AH)(['grid-auto-flow:column;column-gap:0;']))
+          (0, tr.HP)('sm')((0, i.AH)(['grid-auto-flow:column;column-gap:0;']))
         ),
-        rp = i.Ay.div.withConfig({ componentId: 'sc-44d10d3e-2' })([
+        rc = i.Ay.div.withConfig({ componentId: 'sc-44d10d3e-2' })([
           'padding:var(--spacing-narrow);background-color:var(--box--primary--content--background-color);box-shadow:inset 0.5px 0.5px 0 0.5px var(--box--primary--content--shadow-color);',
         ]),
-        ru = ({
+        rp = ({
           chainIdPoolId: e,
           curve: t,
           blockchainId: a,
@@ -5800,9 +5718,9 @@
           tokensMapper: p,
           userPoolBalances: u,
         }) => {
-          let y = (0, o.useRef)(!1),
+          let f = (0, o.useRef)(!1),
             { chainId: g, signerAddress: w } = t || {},
-            { rChainId: v } = l,
+            { rChainId: b } = l,
             S = (0, T.A)((e) => e.poolWithdraw.activeKey),
             k = (0, T.A)((e) => e.poolWithdraw.formEstGas[S] ?? s$),
             C = (0, T.A)((e) => e.poolWithdraw.formStatus),
@@ -5841,7 +5759,7 @@
                   c.t)`Please confirm withdrawal of ${s.lpToken} LP Tokens at max ${o}% slippage.`,
                   { dismiss: l } = (0, I.me)(n, 'pending'),
                   d = await E(e, t, a, s, o);
-                if (y.current && d && d.hash && d.activeKey === e && N) {
+                if (f.current && d && d.hash && d.activeKey === e && N) {
                   let e = (0, c.t)`Withdrew ${s.lpToken} LP Tokens for ${i}`;
                   H((0, r.jsx)(et.A, { description: e, txHash: N.scanTxPath(d.hash) }));
                 }
@@ -5853,24 +5771,24 @@
               (e, t, a, s, o, i, n, l, d, p) => {
                 let m;
                 let h = +s.lpToken > 0,
-                  f = void 0 !== u && +u.lpToken > 0 && h && +u.lpToken >= +s.lpToken,
-                  y = Y && !p && f && !!s.selected && !o.error;
-                y &&
+                  y = void 0 !== u && +u.lpToken > 0 && h && +u.lpToken >= +s.lpToken,
+                  f = Y && !p && y && !!s.selected && !o.error;
+                f &&
                   ('token' === s.selected || 'imbalance' === s.selected) &&
-                  (y = s.amounts.some((e) => +e.value > 0));
+                  (f = s.amounts.some((e) => +e.value > 0));
                 let g = o.isApproved || 'APPROVE' === o.formTypeCompleted,
                   A = 'WITHDRAW' === o.formTypeCompleted,
                   w = {
                     APPROVAL: {
                       key: 'APPROVAL',
-                      status: (0, ee.XA)(g, 'APPROVAL' === o.step, y),
+                      status: (0, ee.XA)(g, 'APPROVAL' === o.step, f),
                       type: 'action',
                       content: g ? (0, c.t)`Spending Approved` : (0, c.t)`Approve Spending`,
                       onClick: () => er(e, t, a.pool, s),
                     },
                     WITHDRAW: {
                       key: 'WITHDRAW',
-                      status: (0, ee.XA)(A, 'WITHDRAW' === o.step, y && o.isApproved),
+                      status: (0, ee.XA)(A, 'WITHDRAW' === o.step, f && o.isApproved),
                       type: 'action',
                       content: A ? (0, c.t)`Withdraw Complete` : (0, c.t)`Withdraw`,
                       ...(n.isHighSlippage
@@ -5905,9 +5823,9 @@
             );
           (0, o.useEffect)(
             () => (
-              (y.current = !0),
+              (f.current = !0),
               () => {
-                y.current = !1;
+                f.current = !1;
               }
             ),
             []
@@ -5927,10 +5845,10 @@
           let ei = (0, o.useMemo)(() => {
               if ('token' === P.selected) {
                 let e = P.amounts.find((e) => Number(e.value) > 0);
-                if (e && !aL()(R[e.tokenAddress])) {
+                if (e && !aG()(R[e.tokenAddress])) {
                   let { value: t, tokenAddress: a } = e,
                     r = R[a];
-                  if (r && !aF()(r)) return (Number(r) * Number(t)).toString();
+                  if (r && !aD()(r)) return (Number(r) * Number(t)).toString();
                 }
               } else if ('lpToken' === P.selected || 'imbalance' === P.selected) {
                 let e = P.amounts.filter((e) => Number(e.value) > 0),
@@ -5938,7 +5856,7 @@
                 return (
                   e.forEach((e) => {
                     let a = R[e.tokenAddress];
-                    a && !aF()(a) && (t += Number(e.value) * Number(a));
+                    a && !aD()(a) && (t += Number(e.value) * Number(a));
                   }),
                   t.toString()
                 );
@@ -5951,26 +5869,26 @@
             ec = u?.lpToken ?? '0';
           return (0, r.jsxs)(r.Fragment, {
             children: [
-              (0, r.jsx)(eh, {
+              (0, r.jsx)(em, {
                 amount: P.lpToken,
                 balance: Y ? (0, A.ZV)(ec) : '',
                 balanceLoading: !!Y && void 0 === u,
                 hasError: Y && +P.lpToken > +ec,
                 haveSigner: Y,
                 handleAmountChange: (e) => {
-                  ea({ amounts: (0, a7.Fd)(P), lpToken: e }, null);
+                  ea({ amounts: (0, a4.Fd)(P), lpToken: e }, null);
                 },
                 disableInput: ed,
                 disabledMaxButton: ed,
                 handleMaxClick: () => {
-                  ea({ amounts: (0, a7.Fd)(P), lpToken: u?.lpToken ?? '0' }, null);
+                  ea({ amounts: (0, a4.Fd)(P), lpToken: u?.lpToken ?? '0' }, null);
                 },
               }),
               (0, r.jsxs)(q, {
                 children: [
-                  (0, r.jsxs)(rp, {
+                  (0, r.jsxs)(rc, {
                     children: [
-                      (0, r.jsxs)(rc, {
+                      (0, r.jsxs)(rd, {
                         'aria-label': 'Customized amounts received',
                         isDisabled: ed,
                         value: P.selected,
@@ -5986,22 +5904,22 @@
                                 null
                               )
                             : 'lpToken' === e
-                              ? ea({ amounts: (0, a7.Fd)(P), selected: e }, null)
+                              ? ea({ amounts: (0, a4.Fd)(P), selected: e }, null)
                               : 'imbalance' === e && ea({ lpToken: '', selected: e }, null);
                         },
                         children: [
-                          (0, r.jsx)(rs.sx, {
+                          (0, r.jsx)(rr.sx, {
                             'aria-label': 'Withdraw from one coin',
                             value: 'token',
                             children: (0, c.t)`One coin`,
                           }),
-                          (0, r.jsx)(rs.sx, {
+                          (0, r.jsx)(rr.sx, {
                             'aria-label': 'Withdraw as balanced amounts',
                             value: 'lpToken',
                             children: (0, c.t)`Balanced`,
                           }),
                           !n.pool.isCrypto &&
-                            (0, r.jsx)(rs.sx, {
+                            (0, r.jsx)(rr.sx, {
                               'aria-label': 'Custom withdraw',
                               value: 'imbalance',
                               children: (0, c.t)`Custom`,
@@ -6009,10 +5927,10 @@
                         ],
                       }),
                       P.selected &&
-                        (0, r.jsxs)(rd, {
+                        (0, r.jsxs)(rl, {
                           children: [
                             'token' === P.selected &&
-                              (0, r.jsx)(rl, {
+                              (0, r.jsx)(rn, {
                                 amounts: P.amounts,
                                 haveSigner: Y,
                                 blockchainId: a,
@@ -6027,7 +5945,7 @@
                                 },
                               }),
                             'lpToken' === P.selected &&
-                              (0, r.jsx)(rr, {
+                              (0, r.jsx)(ra, {
                                 amounts: P.amounts,
                                 blockchainId: a,
                                 loading: j.loading,
@@ -6099,15 +6017,15 @@
               }),
               (0, r.jsxs)('div', {
                 children: [
-                  'lpToken' !== P.selected && (0, r.jsx)(x, { ...j }),
+                  'lpToken' !== P.selected && (0, r.jsx)(v, { ...j }),
                   Y &&
-                    (0, r.jsx)(f.A, {
-                      chainId: v,
+                    (0, r.jsx)(y.A, {
+                      chainId: b,
                       isDivider: en,
                       ...k,
                       stepProgress: el && W.length > 1 ? { active: el, total: W.length } : null,
                     }),
-                  (0, r.jsx)(b.A, {
+                  (0, r.jsx)(x.A, {
                     customLabel: (0, c.t)`Additional slippage tolerance:`,
                     maxSlippage: s,
                     stateKey: e,
@@ -6131,7 +6049,7 @@
             ],
           });
         },
-        rm = (e) => {
+        ru = (e) => {
           let t = (0, o.useRef)(null),
             { curve: a, poolData: s, poolDataCacheOrApi: i } = e,
             { signerAddress: n } = a ?? {},
@@ -6139,8 +6057,8 @@
             d = (0, T.A)((e) => e.poolWithdraw.resetState),
             p = (0, T.A)((e) => e.poolWithdraw.setStateByKey),
             [u, m] = (0, o.useState)([]),
-            [h, f] = (0, o.useState)(0),
-            y = (0, o.useMemo)(
+            [h, y] = (0, o.useState)(0),
+            f = (0, o.useMemo)(
               () => [
                 { label: (0, c.t)`Withdraw`, formType: 'WITHDRAW' },
                 { label: (0, c.t)`Unstake`, formType: 'UNSTAKE' },
@@ -6165,9 +6083,9 @@
           }, [h]);
           let g = (0, o.useCallback)(
             (e) => {
-              p('formType', y[e].formType), f(e);
+              p('formType', f[e].formType), y(e);
             },
-            [y, p]
+            [f, p]
           );
           return (
             (0, o.useEffect)(() => {
@@ -6180,7 +6098,7 @@
                     activeIdx: h,
                     children: (0, r.jsx)(z.Gj, {
                       ref: t,
-                      children: y.map(({ label: e, formType: t }, a) =>
+                      children: f.map(({ label: e, formType: t }, a) =>
                         'CLAIM' !== t || n
                           ? (0, r.jsx)(
                               z.NK,
@@ -6199,47 +6117,35 @@
                     }),
                   }),
                 'WITHDRAW' === l
-                  ? (0, r.jsx)(ru, { ...e })
+                  ? (0, r.jsx)(rp, { ...e })
                   : 'UNSTAKE' === l
-                    ? (0, r.jsx)(re, { ...e })
+                    ? (0, r.jsx)(a7, { ...e })
                     : 'CLAIM' === l
-                      ? (0, r.jsx)(a9, { ...e })
+                      ? (0, r.jsx)(a8, { ...e })
                       : null,
               ],
             })
           );
         },
-        rh = async ({ poolId: e }) => {
-          let t = en.B.getState().curve.getPool(e),
-            a = await t.gauge.gaugeManager();
-          return a && a !== N.Xd ? a : null;
+        rm = async ({ poolId: e }) => {
+          let t = await rh(e).gaugeManager();
+          return t === N.Xd ? null : t;
         },
-        rf = async ({ poolId: e }) => en.B.getState().curve.getPool(e).gauge.gaugeDistributors(),
-        ry = async ({ poolId: e }) =>
-          en.B.getState().curve.getPool(e).gauge.isDepositRewardAvailable(),
-        rg = async ({ poolId: e, amount: t, rewardTokenId: a }) => {
-          let r = en.B.getState().curve.getPool(e),
-            s = W.BD.from(t).toString();
-          return r.gauge.depositRewardIsApproved(a, s);
-        },
-        rA = async ({ poolId: e, rewardTokenId: t, distributorId: a }) =>
-          en.B.getState().curve.getPool(e).gauge.addReward(t, a),
-        rw = async ({ poolId: e, rewardTokenId: t, amount: a }) =>
-          en.B.getState().curve.getPool(e).gauge.depositRewardApprove(t, a),
-        rv = async ({ poolId: e, rewardTokenId: t, amount: a, epoch: r }) =>
-          en.B.getState().curve.getPool(e).gauge.depositReward(t, a, r),
-        rx = async ({ poolId: e, rewardTokenId: t, amount: a }) => {
-          let r = en.B.getState().curve.getPool(e),
-            s = W.BD.from(a).toString();
-          return r.gauge.estimateGas.depositRewardApprove(t, s);
-        },
-        rb = async ({ poolId: e, rewardTokenId: t, distributorId: a }) =>
-          en.B.getState().curve.getPool(e).gauge.estimateGas.addReward(t, a),
-        rS = async ({ poolId: e, rewardTokenId: t, amount: a, epoch: r }) => {
-          let s = en.B.getState().curve.getPool(e),
-            o = W.BD.from(a).toString();
-          return s.gauge.estimateGas.depositReward(t, o, r);
-        };
+        rh = (e) => (0, I.NB)().getPool(e).gauge,
+        ry = async ({ poolId: e }) => rh(e).gaugeDistributors(),
+        rf = async ({ poolId: e }) => rh(e).isDepositRewardAvailable(),
+        rg = async ({ poolId: e, amount: t, rewardTokenId: a }) =>
+          rh(e).depositRewardIsApproved(a, W.BD.from(t).toString()),
+        rA = async ({ poolId: e, rewardTokenId: t, distributorId: a }) => rh(e).addReward(t, a),
+        rw = async ({ poolId: e, rewardTokenId: t, amount: a }) => rh(e).depositRewardApprove(t, a),
+        rb = async ({ poolId: e, rewardTokenId: t, amount: a, epoch: r }) =>
+          rh(e).depositReward(t, a, r),
+        rv = async ({ poolId: e, rewardTokenId: t, amount: a }) =>
+          rh(e).estimateGas.depositRewardApprove(t, W.BD.from(a).toString()),
+        rx = async ({ poolId: e, rewardTokenId: t, distributorId: a }) =>
+          rh(e).estimateGas.addReward(t, a),
+        rS = async ({ poolId: e, rewardTokenId: t, amount: a, epoch: r }) =>
+          rh(e).estimateGas.depositReward(t, W.BD.from(a).toString(), r);
       var rk = a(29514),
         rC = a(61466);
       let rP = ({ chainId: e }) =>
@@ -6281,7 +6187,7 @@
                   .message((0, c.t)`Epoch should be a positive number`)
                   .isPositiveNumber()
                   .condition((e) => ({
-                    pass: 'number' == typeof e && e % aq.D6.WEEK == 0,
+                    pass: 'number' == typeof e && e % aH.D6.WEEK == 0,
                     message: (0, c.t)`Epoch must be a multiple of a week`,
                   }));
               });
@@ -6350,7 +6256,7 @@
           meta: { queryKeyFn: (t) => rO.depositRewardApprove({ ...e, ...t }) },
         }),
         rV = (e) => ({
-          mutationFn: async (t) => rv((0, rk.p6)(rF, { ...e, ...t })),
+          mutationFn: async (t) => rb((0, rk.p6)(rF, { ...e, ...t })),
           mutationKey: rO.depositReward(e),
           meta: {
             queryKeyFn: ({ rewardTokenId: t, amount: a, epoch: r }) =>
@@ -6360,19 +6266,19 @@
       var rM = a(4289);
       let r$ = (0, rM.X)({
           queryKey: (e) => [...rL.D$.gauge(e), 'isDepositRewardAvailable'],
-          queryFn: ry,
+          queryFn: rf,
           staleTime: '5m',
           validationSuite: rT,
         }),
         rW = (0, rM.X)({
           queryKey: (e) => [...rL.D$.gauge(e), 'manager'],
-          queryFn: rh,
+          queryFn: rm,
           staleTime: 'Inf',
           validationSuite: rT,
         }),
         rU = (0, rM.X)({
           queryKey: (e) => [...rL.D$.gauge(e), 'distributors'],
-          queryFn: rf,
+          queryFn: ry,
           staleTime: '5m',
           validationSuite: rT,
         }),
@@ -6395,7 +6301,7 @@
             { rewardTokenId: e },
             { amount: t },
           ],
-          queryFn: rx,
+          queryFn: rv,
           refetchInterval: '1m',
           validationSuite: rD,
           refetchOnWindowFocus: 'always',
@@ -6409,7 +6315,7 @@
             { rewardTokenId: e },
             { distributorId: t },
           ],
-          queryFn: rb,
+          queryFn: rx,
           refetchInterval: '1m',
           validationSuite: rE,
           dependencies: (e) => [r$.queryKey(e)],
@@ -6494,7 +6400,7 @@
             predicate: ({ state: e }) =>
               e.variables?.rewardTokenId === a && e.variables?.amount === r,
           }),
-        r2 = ({ chainId: e, poolId: t }) => {
+        r5 = ({ chainId: e, poolId: t }) => {
           let { tokensMapper: a } = (0, rZ.A)(e);
           return (0, rX.useMutation)({
             ...rV({ chainId: e, poolId: t }),
@@ -6513,7 +6419,7 @@
             },
           });
         },
-        r5 = ({ chainId: e, poolId: t, rewardTokenId: a, amount: r, epoch: s }) =>
+        r2 = ({ chainId: e, poolId: t, rewardTokenId: a, amount: r, epoch: s }) =>
           !!(0, rY.useIsMutating)({
             mutationKey: rO.depositReward({ chainId: e, poolId: t }),
             predicate: ({ state: e }) =>
@@ -6521,11 +6427,11 @@
               e.variables?.amount === r &&
               e.variables?.epoch === s,
           }),
-        { useQuery: r4 } = r$,
-        { useQuery: r6 } = rW,
-        { useQuery: r7 } = rU,
+        { useQuery: r6 } = r$,
+        { useQuery: r4 } = rW,
+        { useQuery: r9 } = rU,
         { useQuery: r8 } = r_,
-        { useQuery: r9 } = rH,
+        { useQuery: r7 } = rH,
         { useQuery: se } = rz,
         { useQuery: st } = rq;
       var sa = a(79614),
@@ -6539,7 +6445,7 @@
         sl = i.Ay.h3.withConfig({ componentId: 'sc-c1535bff-2' })([
           'font-size:var(--font-size-2);',
         ]),
-        sd = (0, i.Ay)(eJ.A).withConfig({ componentId: 'sc-c1535bff-3' })([
+        sd = (0, i.Ay)(eQ.A).withConfig({ componentId: 'sc-c1535bff-3' })([
           'width:100%;height:var(--height-medium);max-width:100%;box-sizing:border-box;',
         ]),
         sc = ({ chainId: e, poolId: t }) => {
@@ -6549,7 +6455,7 @@
             } = so(),
             i = o('rewardTokenId'),
             n = o('distributorId'),
-            { data: l, isFetching: d } = r4({ chainId: e, poolId: t }),
+            { data: l, isFetching: d } = r6({ chainId: e, poolId: t }),
             p = r0({ chainId: e, poolId: t, rewardTokenId: i, distributorId: n });
           return (0, r.jsx)(r.Fragment, {
             children: (0, r.jsx)(sd, {
@@ -6567,8 +6473,8 @@
             p = (0, T.A)((t) => t.networks.networks[e]),
             u = l('rewardTokenId'),
             { tokensMapper: m } = (0, rZ.A)(e),
-            { data: h, isSuccess: f } = r7({ chainId: e, poolId: t }),
-            y = (0, o.useMemo)(() => {
+            { data: h, isSuccess: y } = r9({ chainId: e, poolId: t }),
+            f = (0, o.useMemo)(() => {
               let e = Object.keys(h || {});
               return Object.values(m)
                 .filter(
@@ -6580,23 +6486,23 @@
                 )
                 .map((0, F.Ed)(p?.networkId));
             }, [h, m, d, p.networkId]),
-            g = y.find((e) => e.address === u);
+            g = f.find((e) => e.address === u);
           return (
             (0, o.useEffect)(() => {
-              if (!f) return;
+              if (!y) return;
               let e = s('rewardTokenId'),
                 t = Object.keys(h || {}).some((t) => (0, n.h)(t, e));
-              y.length > 0 &&
+              f.length > 0 &&
                 (t || e === N.Xd) &&
-                i('rewardTokenId', y[0].address, { shouldValidate: !0 });
-            }, [h, s, i, f, y]),
+                i('rewardTokenId', f[0].address, { shouldValidate: !0 });
+            }, [h, s, i, y, f]),
             (0, r.jsxs)(si, {
               children: [
                 (0, r.jsx)(sl, { children: (0, c.t)`Token` }),
-                (0, r.jsx)(az.T, {
+                (0, r.jsx)(a_.T, {
                   selectedToken: g,
-                  tokens: y,
-                  disabled: a || 0 === y.length,
+                  tokens: f,
+                  disabled: a || 0 === f.length,
                   onToken: (e) => {
                     i('rewardTokenId', e.address, { shouldValidate: !0 });
                   },
@@ -6636,7 +6542,7 @@
               watch: a,
               formState: { isValid: s },
             } = so(),
-            { data: o, isFetching: i } = r9(
+            { data: o, isFetching: i } = r7(
               {
                 chainId: e,
                 poolId: t,
@@ -6645,16 +6551,16 @@
               },
               s
             );
-          return (0, r.jsx)(f.A, { chainId: e, estimatedGas: o ?? null, loading: i && s });
+          return (0, r.jsx)(y.A, { chainId: e, estimatedGas: o ?? null, loading: i && s });
         };
       var sh = a(5206),
-        sf = a(17183),
-        sy = a(4891),
+        sy = a(17183),
+        sf = a(4891),
         sg = a(94046);
       let sA = ({ chainId: e, poolId: t }) => {
         let { data: a } = R(),
-          { isFetching: s } = r7({ chainId: e, poolId: t }),
-          { data: i, isFetching: n } = r4({ chainId: e, poolId: t }),
+          { isFetching: s } = r9({ chainId: e, poolId: t }),
+          { data: i, isFetching: n } = r6({ chainId: e, poolId: t }),
           l = (0, sr.mN)({
             ...sg.c,
             resolver: (0, sh.d)(ss),
@@ -6665,7 +6571,7 @@
             formState: { isSubmitting: p },
             handleSubmit: u,
           } = l,
-          { mutate: h, isPending: f, isSuccess: y, data: g } = rJ({ chainId: e, poolId: t }),
+          { mutate: h, isPending: y, isSuccess: f, data: g } = rJ({ chainId: e, poolId: t }),
           A = (0, T.A)((t) => t.networks.networks[e]),
           w = (0, o.useCallback)(
             ({ rewardTokenId: e, distributorId: t }) => {
@@ -6680,32 +6586,32 @@
             },
             [h, d]
           ),
-          v = !i,
-          x = p || s || n || f;
+          b = !i,
+          v = p || s || n || y;
         return (0, r.jsx)(sr.Op, {
           ...l,
           children: (0, r.jsx)('form', {
             onSubmit: u(w),
-            children: (0, r.jsxs)(sy.MG, {
+            children: (0, r.jsxs)(sf.MG, {
               children: [
-                (0, r.jsx)(sy.lA, {
-                  children: (0, r.jsxs)(sy.n5, {
+                (0, r.jsx)(sf.lA, {
+                  children: (0, r.jsxs)(sf.n5, {
                     children: [
-                      (0, r.jsx)(sp, { chainId: e, poolId: t, disabled: x || v }),
-                      (0, r.jsx)(su, { disabled: x || v }),
+                      (0, r.jsx)(sp, { chainId: e, poolId: t, disabled: v || b }),
+                      (0, r.jsx)(su, { disabled: v || b }),
                     ],
                   }),
                 }),
-                (0, r.jsx)(sf.Y, { errorKeys: ['rewardTokenId', 'distributorId'], component: m.A }),
+                (0, r.jsx)(sy.Y, { errorKeys: ['rewardTokenId', 'distributorId'], component: m.A }),
                 (0, r.jsx)(sm, { chainId: e, poolId: t }),
                 (0, r.jsx)(sc, { chainId: e, poolId: t }),
-                y &&
+                f &&
                   g &&
                   (0, r.jsx)(et.A, {
                     description: (0, c.t)`Reward token added`,
                     txHash: A.scanTxPath(g),
                   }),
-                (0, r.jsx)(sf.Y, { errorKeys: ['root.serverError'], component: m.A }),
+                (0, r.jsx)(sy.Y, { errorKeys: ['root.serverError'], component: m.A }),
               ],
             }),
           }),
@@ -6716,14 +6622,14 @@
           (e.APPROVAL = 'APPROVAL'), (e.DEPOSIT = 'DEPOSIT'), (e.CONFIRMATION = 'CONFIRMATION'), e
         );
       })({});
-      let sv = { rewardTokenId: N.Xd, amount: '', epoch: aq.D6.WEEK, step: sw.APPROVAL },
-        sx = (0, rk.Qi)((e) => {
+      let sb = { rewardTokenId: N.Xd, amount: '', epoch: aH.D6.WEEK, step: sw.APPROVAL },
+        sv = (0, rk.Qi)((e) => {
           rB(e),
             (0, rC.t6)('step', () => {
               (0, rC.FE)(Object.values(sw).includes(e.step)).message('Invalid deposit reward step');
             });
         }),
-        sb = (0, i.Ay)(M.Ay).withConfig({ componentId: 'sc-805121a6-0' })([
+        sx = (0, i.Ay)(M.Ay).withConfig({ componentId: 'sc-805121a6-0' })([
           'width:100%;align-items:center;min-height:var(--height-x-large);',
         ]),
         sS = i.Ay.div.withConfig({ componentId: 'sc-805121a6-1' })(['flex:1;height:100%;']),
@@ -6743,26 +6649,26 @@
             u = l('epoch'),
             { data: m } = R(),
             { data: h } = B(),
-            f = (0, T.A)((e) => e.quickSwap.isMaxLoading),
-            { networkId: y } = (0, T.A)((t) => t.networks.networks[e]),
+            y = (0, T.A)((e) => e.quickSwap.isMaxLoading),
+            { networkId: f } = (0, T.A)((t) => t.networks.networks[e]),
             g = (0, T.A)((e) => e.userBalances.userBalancesMapper),
             w = (0, T.A)((e) => e.usdRates.usdRatesMapper),
-            { tokensMapper: v } = (0, rZ.A)(e),
-            { data: x, isPending: b } = r7({ chainId: e, poolId: t }),
+            { tokensMapper: b } = (0, rZ.A)(e),
+            { data: v, isPending: x } = r9({ chainId: e, poolId: t }),
             S = r3({ chainId: e, poolId: t, rewardTokenId: d, amount: p }),
-            k = r5({ chainId: e, poolId: t, rewardTokenId: d, amount: p, epoch: u }),
+            k = r2({ chainId: e, poolId: t, rewardTokenId: d, amount: p, epoch: u }),
             {
               data: [C],
               isLoading: P,
             } = E([d]),
             j = (0, o.useMemo)(() => {
-              if (b || !x || !m) return [];
-              let e = Object.entries(x)
+              if (x || !v || !m) return [];
+              let e = Object.entries(v)
                   .filter(([e, t]) => (0, n.h)(t, m))
                   .map(([e]) => e),
-                t = Object.values(v)
+                t = Object.values(b)
                   .filter((t) => !!t && e.some((e) => (0, n.h)(e, t.address)))
-                  .map((0, F.Ed)(y)),
+                  .map((0, F.Ed)(f)),
                 r = s('rewardTokenId');
               return (
                 r &&
@@ -6771,7 +6677,7 @@
                   a('rewardTokenId', t[0].address, { shouldValidate: !0 }),
                 t
               );
-            }, [b, x, m, v, s, y, a]),
+            }, [x, v, m, b, s, f, a]),
             I = j.find((e) => e.address === d),
             D = (0, o.useCallback)(
               (e) => {
@@ -6794,8 +6700,8 @@
               [C, a]
             ),
             O = k || S;
-          return (0, r.jsx)(sy.n5, {
-            children: (0, r.jsxs)(sb, {
+          return (0, r.jsx)(sf.n5, {
+            children: (0, r.jsxs)(sx, {
               id: 'deposit-reward',
               inputVariant: i.errors.rewardTokenId ? 'error' : void 0,
               disabled: O,
@@ -6810,13 +6716,13 @@
                       description: (0, A.ZV)(C, { showAllFractionDigits: !0 }),
                     },
                     testId: 'deposit-amount',
-                    value: f ? '' : (p ?? ''),
+                    value: y ? '' : (p ?? ''),
                     onChange: D,
                   }),
                 }),
                 (0, r.jsx)(sk, {
                   children: (0, r.jsx)(M.xI, {
-                    loading: f,
+                    loading: y,
                     disabled: O,
                     isNetworkToken: d === N.m8,
                     testId: 'max',
@@ -6824,7 +6730,7 @@
                   }),
                 }),
                 (0, r.jsx)(sC, {
-                  children: (0, r.jsx)(az.T, {
+                  children: (0, r.jsx)(a_.T, {
                     selectedToken: I,
                     tokens: j,
                     disabled: O,
@@ -6845,8 +6751,8 @@
             i = [t],
             n = JSON.stringify(i),
             [l] = (0, o.useMemo)(() => i.map((e) => (e ? s[e] : void 0)), [n, s]);
-          return (0, r.jsx)(sy.n5, {
-            children: (0, r.jsx)(aV.A, { amount: a ?? '0', usdRate: l }),
+          return (0, r.jsx)(sf.n5, {
+            children: (0, r.jsx)(aN.A, { amount: a ?? '0', usdRate: l }),
           });
         },
         sB = ({ chainId: e, poolId: t }) => {
@@ -6861,31 +6767,31 @@
             { scanTxPath: u } = (0, T.A)((t) => t.networks.networks[e]),
             m = i('amount'),
             h = i('rewardTokenId'),
-            f = i('step'),
-            { mutate: y, isPending: g } = r1({ chainId: e, poolId: t }),
-            { mutate: A, isPending: w } = r2({ chainId: e, poolId: t }),
-            [v, x] = (0, o.useState)(null),
-            b = (0, o.useCallback)(() => {
-              y(
+            y = i('step'),
+            { mutate: f, isPending: g } = r1({ chainId: e, poolId: t }),
+            { mutate: A, isPending: w } = r5({ chainId: e, poolId: t }),
+            [b, v] = (0, o.useState)(null),
+            x = (0, o.useCallback)(() => {
+              f(
                 { rewardTokenId: l('rewardTokenId'), amount: l('amount') },
                 {
                   onSuccess: (e) => {
                     n('step', sw.DEPOSIT, { shouldValidate: !0 }),
-                      x({ description: (0, c.t)`Reward approved`, txHash: u(e[0]) });
+                      v({ description: (0, c.t)`Reward approved`, txHash: u(e[0]) });
                   },
                   onError: (e) => {
                     d('root.serverError', { message: e.message });
                   },
                 }
               );
-            }, [y, l, d, n, u]),
+            }, [f, l, d, n, u]),
             S = (0, o.useCallback)(() => {
               A(
                 { rewardTokenId: l('rewardTokenId'), amount: l('amount'), epoch: l('epoch') },
                 {
                   onSuccess: (e) => {
                     n('step', sw.CONFIRMATION),
-                      x({ description: (0, c.t)`Reward deposited`, txHash: u(e) });
+                      v({ description: (0, c.t)`Reward deposited`, txHash: u(e) });
                   },
                   onError: (e) => {
                     d('root.serverError', { message: e.message });
@@ -6895,10 +6801,10 @@
             }, [A, l, d, n, u]),
             { data: k, isLoading: C } = r8({ chainId: e, poolId: t, rewardTokenId: h, amount: m });
           (0, o.useLayoutEffect)(() => {
-            if (f === sw.CONFIRMATION) {
+            if (y === sw.CONFIRMATION) {
               let e = setTimeout(() => {
                 n('step', sw.APPROVAL, { shouldValidate: !0 });
-              }, aq.oX['2s']);
+              }, aH.oX['2s']);
               return () => clearTimeout(e);
             }
             if (k) {
@@ -6909,37 +6815,37 @@
               n('step', sw.APPROVAL, { shouldValidate: !0 });
               return;
             }
-          }, [k, C, n, a, s, f]);
+          }, [k, C, n, a, s, y]);
           let P = (0, o.useMemo)(
             () => [
               {
                 key: 'APPROVAL',
                 status: (0, ee.XA)(
-                  [sw.CONFIRMATION, sw.DEPOSIT].includes(f),
-                  f === sw.APPROVAL && (s || g),
+                  [sw.CONFIRMATION, sw.DEPOSIT].includes(y),
+                  y === sw.APPROVAL && (s || g),
                   a && !s
                 ),
                 type: 'action',
                 content:
-                  [sw.CONFIRMATION, sw.DEPOSIT].includes(f) || (!C && k)
+                  [sw.CONFIRMATION, sw.DEPOSIT].includes(y) || (!C && k)
                     ? (0, c.t)`Spending Approved`
                     : (0, c.t)`Approve Spending`,
-                onClick: p(b),
+                onClick: p(x),
               },
               {
                 key: 'DEPOSIT',
-                status: (0, ee.XA)(f === sw.CONFIRMATION, f === sw.DEPOSIT && w, a && !w && !!k),
+                status: (0, ee.XA)(y === sw.CONFIRMATION, y === sw.DEPOSIT && w, a && !w && !!k),
                 type: 'action',
-                content: f === sw.CONFIRMATION ? (0, c.t)`Deposited` : (0, c.t)`Deposit`,
+                content: y === sw.CONFIRMATION ? (0, c.t)`Deposited` : (0, c.t)`Deposit`,
                 onClick: p(S),
               },
             ],
-            [C, k, f, s, a, g, p, b, w, S]
+            [C, k, y, s, a, g, p, x, w, S]
           );
           return (0, r.jsxs)(r.Fragment, {
             children: [
               (0, r.jsx)(sT, { children: (0, r.jsx)(J.A, { steps: P, testId: 'deposit-reward' }) }),
-              v && (0, r.jsx)(et.A, { description: v.description, txHash: v.txHash }),
+              b && (0, r.jsx)(et.A, { description: b.description, txHash: b.txHash }),
             ],
           });
         },
@@ -6949,19 +6855,19 @@
             l = i('amount'),
             d = i('epoch'),
             c = (0, o.useCallback)(
-              (e) => a('epoch', parseInt(e) * aq.D6.WEEK, { shouldValidate: !0 }),
+              (e) => a('epoch', parseInt(e) * aH.D6.WEEK, { shouldValidate: !0 }),
               [a]
             ),
             p = r3({ chainId: e, poolId: t, rewardTokenId: n, amount: l }),
-            u = r5({ chainId: e, poolId: t, rewardTokenId: n, amount: l, epoch: d });
-          return (0, r.jsxs)(sy.n5, {
+            u = r2({ chainId: e, poolId: t, rewardTokenId: n, amount: l, epoch: d });
+          return (0, r.jsxs)(sf.n5, {
             children: [
               (0, r.jsx)(sP, {
                 htmlFor: 'deposit-epoch',
                 children: 'Distribution duration (in weeks)',
               }),
               (0, r.jsx)(sj, {
-                children: (0, r.jsx)(sb, {
+                children: (0, r.jsx)(sx, {
                   id: 'deposit-epoch',
                   inputVariant: s.errors.epoch ? 'error' : void 0,
                   disabled: u || p,
@@ -6969,7 +6875,7 @@
                     id: 'deposit-epoch',
                     type: 'number',
                     testId: 'deposit-epoch',
-                    value: String((d ?? 0) / aq.D6.WEEK),
+                    value: String((d ?? 0) / aH.D6.WEEK),
                     onChange: c,
                   }),
                 }),
@@ -6999,12 +6905,12 @@
               { chainId: e, poolId: t, rewardTokenId: o, amount: i, epoch: n },
               l === sw.DEPOSIT && s
             );
-          return (0, r.jsxs)(sy.n5, {
+          return (0, r.jsxs)(sf.n5, {
             children: [
               l === sw.APPROVAL &&
-                (0, r.jsx)(f.A, { chainId: e, estimatedGas: d ?? null, loading: (c || p) && s }),
+                (0, r.jsx)(y.A, { chainId: e, estimatedGas: d ?? null, loading: (c || p) && s }),
               l === sw.DEPOSIT &&
-                (0, r.jsx)(f.A, { chainId: e, estimatedGas: u ?? null, loading: (m || h) && s }),
+                (0, r.jsx)(y.A, { chainId: e, estimatedGas: u ?? null, loading: (m || h) && s }),
             ],
           });
         },
@@ -7014,31 +6920,31 @@
         sG = ({ height: e = 30, width: t = 440 }) =>
           (0, r.jsxs)(sF, {
             children: [
-              (0, r.jsx)(rt.A, { skeleton: [t, e] }),
-              (0, r.jsx)(rt.A, { skeleton: [t, e] }),
-              (0, r.jsx)(rt.A, { skeleton: [t, 2 * e] }),
+              (0, r.jsx)(re.A, { skeleton: [t, e] }),
+              (0, r.jsx)(re.A, { skeleton: [t, e] }),
+              (0, r.jsx)(re.A, { skeleton: [t, 2 * e] }),
             ],
           }),
         sL = ({ chainId: e, poolId: t }) => {
-          let { isPending: a } = r7({ chainId: e, poolId: t }),
-            s = (0, sr.mN)({ ...sg.c, resolver: (0, sh.d)(sx), defaultValues: sv });
+          let { isPending: a } = r9({ chainId: e, poolId: t }),
+            s = (0, sr.mN)({ ...sg.c, resolver: (0, sh.d)(sv), defaultValues: sb });
           return a
             ? (0, r.jsx)(sG, { height: 440 })
             : (0, r.jsx)(sr.Op, {
                 ...s,
                 children: (0, r.jsx)('form', {
-                  children: (0, r.jsxs)(sy.MG, {
+                  children: (0, r.jsxs)(sf.MG, {
                     children: [
-                      (0, r.jsxs)(sy.lA, {
+                      (0, r.jsxs)(sf.lA, {
                         children: [
                           (0, r.jsx)(sI, { chainId: e, poolId: t }),
-                          (0, r.jsx)(sf.Y, {
+                          (0, r.jsx)(sy.Y, {
                             errorKeys: ['rewardTokenId', 'amount'],
                             component: m.A,
                           }),
                           (0, r.jsx)(sE, { chainId: e, poolId: t }),
-                          (0, r.jsx)(sf.Y, { errorKeys: ['epoch'], component: m.A }),
-                          (0, r.jsxs)(sy.lz, {
+                          (0, r.jsx)(sy.Y, { errorKeys: ['epoch'], component: m.A }),
+                          (0, r.jsxs)(sf.lz, {
                             children: [
                               (0, r.jsx)(sR, {}),
                               (0, r.jsx)(sD, { chainId: e, poolId: t }),
@@ -7047,7 +6953,7 @@
                         ],
                       }),
                       (0, r.jsx)(sB, { chainId: e, poolId: t }),
-                      (0, r.jsx)(sf.Y, { errorKeys: ['root.serverError'], component: m.A }),
+                      (0, r.jsx)(sy.Y, { errorKeys: ['root.serverError'], component: m.A }),
                     ],
                   }),
                 }),
@@ -7061,8 +6967,8 @@
           ],
           [s, i] = (0, o.useState)('add_reward'),
           { data: l } = R(),
-          { data: d } = r6({ chainId: t, poolId: e }),
-          { data: p } = r7({ chainId: t, poolId: e }),
+          { data: d } = r4({ chainId: t, poolId: e }),
+          { data: p } = r9({ chainId: t, poolId: e }),
           u = (0, o.useMemo)(() => !!d && !!l && (0, n.h)(d, l), [d, l]),
           m = (0, o.useMemo)(
             () => !!p && !!l && Object.values(p).some((e) => (0, n.h)(e, l)),
@@ -7078,13 +6984,13 @@
                 return null;
             }
           }, [s, t, e]),
-          f = (0, o.useCallback)(
+          y = (0, o.useCallback)(
             (e) => ('add_reward' === e.value ? u : 'deposit_reward' === e.value && u && m),
             [u, m]
           );
         return (0, r.jsxs)(r.Fragment, {
           children: [
-            (0, r.jsx)(sO.A, { tabs: a, activeTab: s, onTabChange: i, isTabVisible: f }),
+            (0, r.jsx)(sO.A, { tabs: a, activeTab: s, onTabChange: i, isTabVisible: y }),
             h(),
           ],
         });
@@ -7095,42 +7001,42 @@
       let s$ = { loading: !1, estimatedGas: null, error: null },
         sW = { loading: !1, slippage: null, isHighSlippage: !1, isBonus: !1, error: '' },
         sU = { isSeed: null, loaded: !1 },
-        s_ = (0, i.Ay)(sV.iK).withConfig({ componentId: 'sc-33dd6484-0' })(
+        s_ = (0, i.Ay)(sV.iK).withConfig({ componentId: 'sc-e5b0afb0-0' })(
           ['@media (min-width:', 'rem){', ';}'],
-          ts.fi.md,
+          tr.fi.md,
           ({ chartExpanded: e }) => e && 'margin-top: 1.5rem;'
         ),
-        sz = (0, i.Ay)(ta.G).withConfig({ componentId: 'sc-33dd6484-1' })([
+        sz = (0, i.Ay)(tt.G).withConfig({ componentId: 'sc-e5b0afb0-1' })([
           'color:var(--nav--page--color);',
         ]),
-        sH = (0, i.Ay)(tr.A).withConfig({ componentId: 'sc-33dd6484-2' })(
+        sH = (0, i.Ay)(ta.A).withConfig({ componentId: 'sc-e5b0afb0-2' })(
           [
             'color:var(--page--text-color);font-size:var(--font-size-5);@media (max-width:',
             'rem){max-width:7.125rem;}',
           ],
-          ts.fi.xxs
+          tr.fi.xxs
         ),
-        sq = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-33dd6484-3' })([
+        sq = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-e5b0afb0-3' })([
           'align-items:flex-start;display:grid;',
         ]),
-        sZ = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-33dd6484-4' })(
+        sZ = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-e5b0afb0-4' })(
           [
             'padding:1.5rem 1rem;margin-bottom:var(--spacing-1);@media (min-width:',
             'rem){margin-top:0;margin-bottom:var(--spacing-3);}@media (min-width:',
             'rem){padding:1.5rem 1.5rem;}',
           ],
-          ts.fi.sm,
-          ts.fi.lg
+          tr.fi.sm,
+          tr.fi.lg
         ),
-        sX = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-33dd6484-5' })(
+        sX = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-e5b0afb0-5' })(
           ['margin:1.5rem 0 0;display:flex;@media (min-width:', 'rem){flex-direction:column;}'],
-          ts.fi.md
+          tr.fi.md
         ),
-        sY = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-33dd6484-6' })(['']),
-        sQ = (0, i.Ay)(eJ.A).withConfig({ componentId: 'sc-33dd6484-7' })([
+        sY = (0, i.Ay)(V.A).withConfig({ componentId: 'sc-e5b0afb0-6' })(['']),
+        sQ = (0, i.Ay)(eQ.A).withConfig({ componentId: 'sc-e5b0afb0-7' })([
           'margin:auto var(--spacing-3) auto auto;display:flex;align-content:center;color:inherit;font-size:var(--font-size-2);',
         ]),
-        sJ = (0, i.Ay)(ed.A).withConfig({ componentId: 'sc-33dd6484-8' })([
+        sJ = (0, i.Ay)(el.A).withConfig({ componentId: 'sc-e5b0afb0-8' })([
           'margin-left:var(--spacing-1);',
         ]),
         s0 = (e) => {
@@ -7142,16 +7048,16 @@
               poolDataCacheOrApi: d,
               routerParams: p,
             } = e,
-            { rChainId: m, rFormType: h, rPoolId: f } = p,
-            { signerAddress: y } = a ?? {},
+            { rChainId: m, rFormType: h, rPoolId: y } = p,
+            { signerAddress: f } = a ?? {},
             { push: g } = (0, s.useRouter)(),
             A = (0, sa.A)(l?.pool.address, l?.hasVyperVulnerability),
             { tokensMapper: w } = (0, rZ.A)(m),
-            v = a && f ? (0, aY.df)(a, f) : '',
-            x = (0, F.We)(m, f),
-            b = (0, T.A)((e) => e.user.walletBalances[v]),
+            b = a && y ? (0, aX.df)(a, y) : '',
+            v = (0, F.We)(m, y),
+            x = (0, T.A)((e) => e.user.walletBalances[b]),
             S = (0, T.A)((e) => e.user.walletBalancesLoading),
-            C = (0, T.A)((e) => e.pools.currencyReserves[x]),
+            C = (0, T.A)((e) => e.pools.currencyReserves[v]),
             P = (0, T.A)((e) => e.isPageVisible),
             j = (0, T.A)((e) => e.isMdUp),
             I = (0, T.A)((e) => e.layoutHeight),
@@ -7165,8 +7071,8 @@
             K = (0, T.A)((e) => e.pools.snapshotsMapper),
             N = (0, T.A)((e) => e.pools.basePoolsLoading),
             { initCampaignRewards: M, initiated: $ } = (0, T.A)((e) => e.campaigns),
-            W = (0, e3.nv)((e) => e.maxSlippage[x]),
-            { data: U, isPending: _ } = r6({ chainId: m, poolId: l?.pool.id }),
+            W = (0, e1.nv)((e) => e.maxSlippage[v]),
+            { data: U, isPending: _ } = r4({ chainId: m, poolId: l?.pool.id }),
             [z, H] = (0, o.useState)('pool'),
             [q, Z] = (0, o.useState)(sU),
             { pool: X } = d,
@@ -7182,20 +7088,20 @@
             es = (0, o.useMemo)(() => {
               let e = [{ label: (0, c.t)`Pool Details`, key: 'pool' }];
               return (
-                y && e.push({ label: (0, c.t)`Your Details`, key: 'user' }),
+                f && e.push({ label: (0, c.t)`Your Details`, key: 'user' }),
                 ee &&
                   er &&
                   K[l?.pool.address] &&
                   e.push({ label: (0, c.t)`Advanced`, key: 'advanced' }),
                 e
               );
-            }, [y, ee, er, K, l?.pool.address]),
+            }, [f, ee, er, K, l?.pool.address]),
             eo = (0, o.useMemo)(() => W || (X ? (X.isCrypto ? '0.1' : '0.03') : ''), [W, X]),
             ei = (0, o.useMemo)(() => I.mainNav + I.secondaryNav, [I]),
             en = (0, o.useCallback)(() => {
               P && a && l && B(a, l);
             }, [a, B, P, l]);
-          (0, aH.A)(() => en, aq.oX['5m'], P),
+          (0, az.A)(() => en, aH.oX['5m'], P),
             (0, o.useEffect)(() => {
               a && ea && ee && void 0 !== L[ea] && !K[ea] && O(m, ea);
             }, [a, O, ea, ee, L, m, K]),
@@ -7205,9 +7111,9 @@
               e && l.hasWrapped && E(l, !0), Z({ isSeed: e, loaded: !0 });
             }, [l?.pool?.id, C?.total]),
             (0, o.useEffect)(() => {
-              a && Y && y && R(a, Y);
-            }, [m, Y, y]);
-          let el = (0, o.useMemo)(() => !_ && !!y && !!U && (0, n.h)(U, y), [_, y, U]),
+              a && Y && f && R(a, Y);
+            }, [m, Y, f, a, R]);
+          let el = (0, o.useMemo)(() => !_ && !!f && !!U && (0, n.h)(U, f), [_, f, U]),
             ed = [
               { key: 'deposit', label: (0, c.t)`Deposit` },
               { key: 'withdraw', label: (0, c.t)`Withdraw/Claim` },
@@ -7215,7 +7121,7 @@
             ],
             ec = (0, o.useCallback)(
               (e) => {
-                g((0, tX.Yn)(t, `${ap.a$.PAGE_POOLS}/${t.pool}/${e}`));
+                g((0, tZ.Yn)(t, `${ac.a$.PAGE_POOLS}/${t.pool}/${e}`));
               },
               [g, t]
             );
@@ -7265,7 +7171,7 @@
                       }),
                       (0, r.jsx)(sY, {
                         variant: 'secondary',
-                        children: (0, r.jsx)(te, { rChainId: m, pricesApiPoolData: er }),
+                        children: (0, r.jsx)(e7, { rChainId: m, pricesApiPoolData: er }),
                       }),
                     ],
                   }),
@@ -7294,40 +7200,40 @@
                                   ? (0, r.jsx)(r.Fragment, {
                                       children: A?.isDisableSwap
                                         ? (0, r.jsx)(k.A, { ...A, children: A.message })
-                                        : (0, r.jsx)(aX, {
+                                        : (0, r.jsx)(aZ, {
                                             ...e,
-                                            chainIdPoolId: x,
+                                            chainIdPoolId: v,
                                             poolAlert: A,
                                             maxSlippage: eo,
                                             seed: q,
                                             tokensMapper: w,
-                                            userPoolBalances: b,
+                                            userPoolBalances: x,
                                             userPoolBalancesLoading: S,
                                           }),
                                     })
                                   : 'deposit' === h
                                     ? (0, r.jsx)(ey, {
                                         ...e,
-                                        chainIdPoolId: x,
+                                        chainIdPoolId: v,
                                         blockchainId: Q,
                                         hasDepositAndStake: i,
                                         poolAlert: A,
                                         maxSlippage: eo,
                                         seed: q,
                                         tokensMapper: w,
-                                        userPoolBalances: b,
+                                        userPoolBalances: x,
                                         userPoolBalancesLoading: S,
                                       })
                                     : 'withdraw' === h
-                                      ? (0, r.jsx)(rm, {
+                                      ? (0, r.jsx)(ru, {
                                           ...e,
-                                          chainIdPoolId: x,
+                                          chainIdPoolId: v,
                                           blockchainId: Q,
                                           poolAlert: A,
                                           maxSlippage: eo,
                                           seed: q,
                                           tokensMapper: w,
-                                          userPoolBalances: b,
+                                          userPoolBalances: x,
                                           userPoolBalancesLoading: S,
                                         })
                                       : 'manage-gauge' === h
@@ -7350,7 +7256,7 @@
                           !D &&
                           (0, r.jsx)(sZ, {
                             variant: 'secondary',
-                            children: (0, r.jsx)(te, { rChainId: m, pricesApiPoolData: er }),
+                            children: (0, r.jsx)(e7, { rChainId: m, pricesApiPoolData: er }),
                           }),
                         (0, r.jsx)(sV.M8, {
                           children: (0, r.jsx)(sM.Ay, {
@@ -7379,7 +7285,7 @@
                                 poolDataCacheOrApi: d,
                                 routerParams: p,
                                 tokensMapper: w,
-                                userPoolBalances: b,
+                                userPoolBalances: x,
                               }),
                             'pool' === z &&
                               (0, r.jsx)(sq, {
@@ -7388,7 +7294,7 @@
                                 grid: !0,
                                 gridRowGap: '1rem',
                                 variant: 'secondary',
-                                children: (0, r.jsx)(aE, {
+                                children: (0, r.jsx)(aB, {
                                   curve: a,
                                   routerParams: p,
                                   poolData: l,
@@ -7401,7 +7307,7 @@
                               l &&
                               void 0 !== K[l.pool.address] &&
                               !N &&
-                              (0, r.jsx)(tD, { pricesApi: ee, poolData: l, rChainId: m }),
+                              (0, r.jsx)(tE, { pricesApi: ee, poolData: l, rChainId: m }),
                           ],
                         }),
                       ],
@@ -7429,11 +7335,10 @@
         s = a(92012),
         o = a.n(s),
         i = a(74143),
-        n = a(77241),
+        n = a(83980),
         l = a(76635);
       let d = ['globalAlert', 'mainNav', 'secondaryNav', 'footer'],
         c = {
-          connectState: { status: '', stage: '' },
           hasDepositAndStake: {},
           hasRouter: {},
           pageWidthPx: null,
@@ -7494,10 +7399,8 @@
               })
             );
           },
-          updateConnectState: (t = 'loading', a = n.Ej.CONNECT_WALLET, r = ['']) => {
-            e({ connectState: { status: t, stage: a, ...(r && { options: r }) } });
-          },
           hydrate: async (e, a, r) => {
+            if (!e) return;
             let s = t(),
               o = !!a?.chainId && a.chainId !== e.chainId,
               n = !!a?.signerAddress && a.signerAddress !== e.signerAddress,
@@ -7706,14 +7609,14 @@
         u = a(10541),
         m = a.n(u),
         h = a(81981),
-        f = a(74143),
-        y = a(84017),
+        y = a(74143),
+        f = a(84017),
         g = a(40038),
         A = a(14815),
-        w = a(76635),
-        v = a(12522),
-        x = a(59369),
-        b = a.n(x),
+        w = a(74699),
+        b = a(76635),
+        v = a(59369),
+        x = a.n(v),
         S = a(1030),
         k = a(84826);
       let C = (e) => e?.isPlain || e?.isFake,
@@ -7773,9 +7676,9 @@
                 l = P(n, a, r[t]);
               return (
                 (l.failedFetching24hOldVprice = s?.[n.address] ?? !1),
-                (l.curvefiUrl = (0, y.gv)(t, i)),
+                (l.curvefiUrl = (0, f.gv)(t, i)),
                 (e.poolsMapper[t] = l),
-                (e.poolsMapperCache[t] = b()(l, [
+                (e.poolsMapperCache[t] = x()(l, [
                   'hasWrapped',
                   'gauge',
                   'tokens',
@@ -7804,8 +7707,8 @@
         return (
           await g.PromisePool.for(Object.values(n.poolsMapper)).process(async ({ pool: e }) => {
             let [t, a] = await Promise.allSettled([e.gaugeStatus(), e.isGaugeKilled()]),
-              r = (0, y.Rm)(t) || null,
-              s = (0, y.Rm)(a) || null;
+              r = (0, f.Rm)(t) || null,
+              s = (0, f.Rm)(a) || null;
             (n.poolsMapper[e.id].gauge = { status: r, isKilled: s }),
               (n.poolsMapperCache[e.id].gauge = { status: r, isKilled: s }),
               (r?.rewardsNeedNudging || r?.areCrvRewardsStuckInBridge) &&
@@ -7858,12 +7761,12 @@
                   networks: { networks: s },
                 } = t(),
                 { tvlMapper: o } = t()[T];
-              (0, w.Rm)('fetchPoolsTvl', e.chainId, a.length);
+              (0, b.Rm)('fetchPoolsTvl', e.chainId, a.length);
               let i = e.chainId,
                 { results: n } = await g.PromisePool.for(a)
                   .withConcurrency(10)
                   .process(async (e) => {
-                    let t = await f.A.pool.getTvl(e.pool, s[i]);
+                    let t = await y.A.pool.getTvl(e.pool, s[i]);
                     return [t.poolId, t];
                   }),
                 l = { ...o[i], ...Object.fromEntries(n) };
@@ -7876,12 +7779,12 @@
                   [T]: { volumeMapper: s, ...o },
                   networks: { networks: i },
                 } = t(),
-                { getVolume: n } = f.A.pool;
+                { getVolume: n } = y.A.pool;
               if (i[e].isLite) {
                 o.setStateByActiveKey('volumeMapper', e.toString(), {});
                 return;
               }
-              (0, w.Rm)('fetchPoolsVolume', e, a.length);
+              (0, b.Rm)('fetchPoolsVolume', e, a.length);
               let { results: l } = await g.PromisePool.for(a)
                   .withConcurrency(10)
                   .process(async ({ pool: t }) => {
@@ -7903,14 +7806,14 @@
                 } = t(),
                 { chainId: u } = a,
                 { isLite: m } = p.networks[u],
-                f = p.nativeToken[u];
+                y = p.nativeToken[u];
               try {
                 e(
                   (0, r.Ay)((e) => {
                     (e.pools.error = ''), (e.pools.poolsLoading[u] = !0);
                   })
                 );
-                let { poolsMapper: t, poolsMapperCache: y } = await j(
+                let { poolsMapper: t, poolsMapperCache: f } = await j(
                     a,
                     s,
                     p.networks[u],
@@ -7922,7 +7825,7 @@
                   (0, r.Ay)((e) => {
                     (e.pools.poolsMapper[u] = t),
                       (e.tokens.tokensNameMapper[u] = {
-                        ...(f && { [f.address]: f.symbol, [f.wrappedAddress]: f.wrappedSymbol }),
+                        ...(y && { [y.address]: y.symbol, [y.wrappedAddress]: y.wrappedSymbol }),
                         ...(function (e) {
                           let t = {};
                           for (let a in e) {
@@ -7947,7 +7850,7 @@
                       (e.pools.poolsLoading[u] = !1);
                   })
                 ),
-                  n.setStateByActiveKey('poolsMapper', u.toString(), y);
+                  n.setStateByActiveKey('poolsMapper', u.toString(), f);
                 let A = s.map((e) => t[e]);
                 if (!A.length) return { poolsMapper: t, poolDatas: A };
                 await (m
@@ -8011,7 +7914,7 @@
                 { chainId: o } = e,
                 { pool: i, isWrapped: n, tokens: l, tokenAddresses: d } = a,
                 [c, p] = await Promise.all([
-                  f.A.pool.poolBalances(i, n),
+                  y.A.pool.poolBalances(i, n),
                   r.fetchUsdRateByTokens(e, d, !0),
                 ]),
                 { balances: u } = c,
@@ -8048,15 +7951,15 @@
                   e
                 )
               );
-              let v = { poolId: i.id, tokens: g, total: A.toString(), totalUsd: w.toString() };
-              s.setStateByActiveKey('currencyReserves', (0, y.We)(o, i.id), v);
+              let b = { poolId: i.id, tokens: g, total: A.toString(), totalUsd: w.toString() };
+              s.setStateByActiveKey('currencyReserves', (0, f.We)(o, i.id), b);
             },
             fetchPoolsRewardsApy: async (e, a) => {
               let r = t(),
                 { rewardsApyMapper: s, setStateByActiveKey: i } = r[T],
                 n = r.networks.networks[e],
-                { poolAllRewardsApy: l } = f.A.pool;
-              (0, w.Rm)('fetchPoolsRewardsApy', e, a.length);
+                { poolAllRewardsApy: l } = y.A.pool;
+              (0, b.Rm)('fetchPoolsRewardsApy', e, a.length);
               let d = { ...s[e] };
               for (let e of o()(a, 200)) {
                 let { results: t } = await g.PromisePool.for(e).process((e) => l(n, e.pool));
@@ -8068,7 +7971,7 @@
               let { rewardsApyMapper: r, fetchPoolsRewardsApy: s } = t()[T],
                 o = r[e] ?? {},
                 i = a.filter(({ pool: e }) => void 0 === o[e.id]);
-              i.length > 0 && ((0, w.Rm)('fetchMissingPoolsRewardsApy', e, i.length), s(e, i));
+              i.length > 0 && ((0, b.Rm)('fetchMissingPoolsRewardsApy', e, i.length), s(e, i));
             },
             fetchPoolStats: async (a, s) => {
               let {
@@ -8079,8 +7982,8 @@
                 { pool: l } = s,
                 d = i[n],
                 { isLite: c } = d,
-                { getVolume: p, poolParameters: u } = f.A.pool;
-              (0, w.Rm)('fetchPoolStats', n, l.id);
+                { getVolume: p, poolParameters: u } = y.A.pool;
+              (0, b.Rm)('fetchPoolStats', n, l.id);
               try {
                 let [, , t, { parameters: i }] = await Promise.all([
                   o.fetchPoolCurrenciesReserves(a, s),
@@ -8099,10 +8002,10 @@
               }
             },
             setPoolIsWrapped: (a, s) => {
-              let o = v.B.getState().curve,
+              let o = (0, w.NB)(),
                 i = o.chainId,
-                l = f.A.pool.poolTokens(a.pool, s),
-                c = f.A.pool.poolTokenAddresses(a.pool, s),
+                l = y.A.pool.poolTokens(a.pool, s),
+                c = y.A.pool.poolTokenAddresses(a.pool, s),
                 p = n()(a);
               return (
                 (p.isWrapped = s),
@@ -8130,7 +8033,7 @@
                 networks: { networks: s },
               } = t();
               if (s[a].pricesApi) {
-                let t = s[a]?.id;
+                let t = s[a].id;
                 try {
                   let a = await fetch(`https://prices.curve.fi/v1/chains/${t}`),
                     s = await a.json(),
@@ -8229,13 +8132,13 @@
                     a = p[s - 2],
                     u = a ? t[1].address : t[0].address,
                     h = a ? t[0].address : t[1].address,
-                    f = await fetch(
+                    y = await fetch(
                       `https://prices.curve.fi/v1/ohlc/${m}/${o}?main_token=${u}&reference_token=${h}&agg_number=${i}&agg_units=${n}&start=${d}&end=${l}`
                     ),
-                    y = await f.json(),
+                    f = await y.json(),
                     g = {
-                      ...y,
-                      data: y.data
+                      ...f,
+                      data: f.data
                         .filter((e) => {
                           if (
                             null !== e.open &&
@@ -8252,7 +8155,7 @@
                       (0, r.Ay)((e) => {
                         (e.pools.pricesApiState.chartOhlcData = g.data),
                           (e.pools.pricesApiState.refetchingCapped = g.data.length < 299),
-                          (e.pools.pricesApiState.lastFetchEndTime = y.data[0].time);
+                          (e.pools.pricesApiState.lastFetchEndTime = f.data[0].time);
                       })
                     ),
                     e(
@@ -8312,11 +8215,11 @@
                   let a = c[s - 2],
                     u = p[s - 2],
                     h = u ? a[1].address : a[0].address,
-                    f = u ? a[0].address : a[1].address,
-                    y = await fetch(
-                      `https://prices.curve.fi/v1/ohlc/${m}/${o}?main_token=${h}&reference_token=${f}&agg_number=${i}&agg_units=${n}&start=${l}&end=${d}`
+                    y = u ? a[0].address : a[1].address,
+                    f = await fetch(
+                      `https://prices.curve.fi/v1/ohlc/${m}/${o}?main_token=${h}&reference_token=${y}&agg_number=${i}&agg_units=${n}&start=${l}&end=${d}`
                     ),
-                    g = await y.json(),
+                    g = await f.json(),
                     w = {
                       ...g,
                       data: g.data
@@ -8480,18 +8383,17 @@
       var r = a(7620),
         s = a(57837),
         o = a(71287),
-        i = a(12522);
+        i = a(74699);
       let n = (e) => {
-        let t = (0, i.B)((e) => e.curve?.chainId ?? 0),
-          a = e ?? t,
-          n = (0, o.A)((e) => e.tokens.tokensMapper[a] ?? {}),
-          l = (0, r.useMemo)(() => (0, s.N1)(n), [n]);
-        return { tokensMapper: n, tokensMapperStr: l };
+        let t = i.w5().lib?.chainId ?? 0,
+          a = (0, o.A)((a) => a.tokens.tokensMapper[e ?? t] ?? {}),
+          n = (0, r.useMemo)(() => (0, s.N1)(a), [a]);
+        return { tokensMapper: a, tokensMapperStr: n };
       };
     },
     51569: (e, t, a) => {
       'use strict';
-      a.d(t, { Ay: () => y, kR: () => u, uZ: () => f });
+      a.d(t, { Ay: () => f, kR: () => u, uZ: () => y });
       var r = a(80101),
         s = a.n(r),
         o = a(39929),
@@ -8518,7 +8420,7 @@
           showHideSmallPools: !1,
         },
         h = 'poolList';
-      function f(e, t) {
+      function y(e, t) {
         let { filterKey: a, searchText: r, sortBy: o, sortByOrder: i } = t,
           n = r;
         return (
@@ -8530,7 +8432,7 @@
           `${e}-${a}-${o}-${i}-${n}`
         );
       }
-      let y = (e, t) => ({
+      let f = (e, t) => ({
         [h]: {
           ...m,
           filterByKey: (e, t, a) => {
@@ -8634,31 +8536,31 @@
             let {
                 pools: c,
                 networks: { networks: p },
-                [h]: { activeKey: m, formStatus: f, result: y, ...g },
+                [h]: { activeKey: m, formStatus: y, result: f, ...g },
               } = t(),
               { isCrvRewardsEnabled: A } = p?.[e] ?? {},
-              { searchText: w, filterKey: v, sortBy: x, sortByOrder: b } = a,
+              { searchText: w, filterKey: b, sortBy: v, sortByOrder: x } = a,
               S = [...s];
-            'user' !== v && r && s.length > 10 && (S = g.filterSmallTvl(S, n, e)),
-              v &&
+            'user' !== b && r && s.length > 10 && (S = g.filterSmallTvl(S, n, e)),
+              b &&
                 (S =
-                  'all' === v ||
-                  'crypto' === v ||
-                  'tricrypto' === v ||
-                  'others' === v ||
-                  'stableng' === v ||
-                  'user' === v ||
-                  'cross-chain' === v
-                    ? g.filterByKey(v, S, l)
-                    : g.filterBySearchText(v, S, !1)),
+                  'all' === b ||
+                  'crypto' === b ||
+                  'tricrypto' === b ||
+                  'others' === b ||
+                  'stableng' === b ||
+                  'user' === b ||
+                  'cross-chain' === b
+                    ? g.filterByKey(b, S, l)
+                    : g.filterBySearchText(b, S, !1)),
               w && (S = g.filterBySearchText(w, S)),
-              x &&
-                (x.startsWith('rewards') && (await c.fetchMissingPoolsRewardsApy(e, S)),
-                (S = g.sortFn(x, b, S, o, n, i, d, A)));
+              v &&
+                (v.startsWith('rewards') && (await c.fetchMissingPoolsRewardsApy(e, S)),
+                (S = g.sortFn(v, x, S, o, n, i, d, A)));
             let k = S.map(({ pool: e }) => e.id);
             g.setStateByActiveKey('result', m, k),
               g.setStateByActiveKey('formStatus', m, {
-                ...(f[m] ?? u),
+                ...(y[m] ?? u),
                 noResult: 0 === k.length,
                 isLoading: !1,
               }),
@@ -8667,14 +8569,14 @@
           setSortAndFilterCachedData: (e, a, r, s, o) => {
             let { filterSmallTvl: n, activeKey: l, formStatus: d, ...c } = t()[h],
               { sortBy: p, sortByOrder: m } = a,
-              f = 'volume' === p && Object.keys(s ?? {}).length > 0,
-              y = 'tvl' === p && Object.keys(o ?? {}).length > 0,
+              y = 'volume' === p && Object.keys(s ?? {}).length > 0,
+              f = 'tvl' === p && Object.keys(o ?? {}).length > 0,
               g = [];
-            (f || y) &&
+            (y || f) &&
               ((g = n(r, o, e)),
-              y
+              f
                 ? (g = i()(g, ({ pool: e }) => Number(o[e.id]?.value ?? 0), [m]))
-                : f && (g = i()(g, ({ pool: e }) => Number(s[e.id]?.value ?? 0), [m])));
+                : y && (g = i()(g, ({ pool: e }) => Number(s[e.id]?.value ?? 0), [m])));
             let A = g.map(({ pool: e }) => e.id);
             c.setStateByActiveKey('result', l, A),
               c.setStateByActiveKey('formStatus', l, {
@@ -8696,15 +8598,15 @@
             c = {},
             p = {},
             m = {},
-            y
+            f
           ) => {
             let { formValues: g, result: A, ...w } = t()[h],
-              v = f(e, r);
-            w.setStateByActiveKey('formStatus', v, { ...u, isLoading: void 0 === A[v] });
-            let { searchText: x, filterKey: b, sortBy: S, sortByOrder: k } = r;
+              b = y(e, r);
+            w.setStateByActiveKey('formStatus', b, { ...u, isLoading: void 0 === A[b] });
+            let { searchText: v, filterKey: x, sortBy: S, sortByOrder: k } = r;
             (g = { ...g, searchTextByTokensAndAddresses: {}, searchTextByOther: {} }),
               w.setStateByKeys({
-                activeKey: v,
+                activeKey: b,
                 formValues: g,
                 searchedByAddresses: {},
                 searchedTerms: [],
@@ -8713,8 +8615,8 @@
             let C = void 0 !== o && Object.keys(o).length >= 0;
             if (C) {
               if (0 === o.length) {
-                w.setStateByKey('result', { [v]: [] }),
-                  w.setStateByActiveKey('formStatus', v, { ...u, isLoading: !1, noResult: !0 });
+                w.setStateByKey('result', { [b]: [] }),
+                  w.setStateByActiveKey('formStatus', b, { ...u, isLoading: !1, noResult: !0 });
                 return;
               }
               w.setSortAndFilterData(
@@ -8726,14 +8628,14 @@
                 Object.keys(l).length ? l : d,
                 Object.keys(c).length ? c : p,
                 m,
-                y
+                f
               );
               return;
             }
             if (
               !C &&
-              '' === x &&
-              'all' === b &&
+              '' === v &&
+              'all' === x &&
               S === (a ? 'tvl' : 'volume') &&
               'desc' === k &&
               i.length > 0
@@ -8741,7 +8643,7 @@
               w.setSortAndFilterCachedData(e, r, i, d, p);
               return;
             }
-            w.setStateByActiveKey('formStatus', v, { ...u });
+            w.setStateByActiveKey('formStatus', b, { ...u });
           },
           setStateByActiveKey: (e, a, r) => {
             Object.keys(t()[h][e]).length > 30
@@ -8800,7 +8702,7 @@
         l = a(7620),
         d = a(48341),
         c = a(23173),
-        p = a(77241);
+        p = a(83980);
       let u = (0, d.Ay)(c.A).withConfig({ componentId: 'sc-f5230f74-0' })([
           'margin-left:0.125rem;',
         ]),
@@ -8874,22 +8776,20 @@
     },
     55906: (e, t, a) => {
       'use strict';
-      a.d(t, { Ej: () => o.Ej, Sf: () => n, a$: () => l, l5: () => i, mR: () => d });
+      a.d(t, { a$: () => i, l5: () => o, mR: () => n });
       var r = a(36419),
-        s = a(21802),
-        o = a(57889);
-      let i = 5e3,
-        n = {
-          ...s.rN,
-          PAGE_DEPLOY_GAUGE: '/deploy-gauge',
-          PAGE_LOCKER: '/locker',
-          PAGE_INTEGRATIONS: '/integrations',
-          PAGE_COMPENSATION: '/compensation',
-          PAGE_DISCLAIMER: '/disclaimer',
-          PAGE_404: '/404',
-        },
-        l = {
-          ...n,
+        s = a(21802);
+      let o = 5e3,
+        i = {
+          ...{
+            ...s.rN,
+            PAGE_DEPLOY_GAUGE: '/deploy-gauge',
+            PAGE_LOCKER: '/locker',
+            PAGE_INTEGRATIONS: '/integrations',
+            PAGE_COMPENSATION: '/compensation',
+            PAGE_DISCLAIMER: '/disclaimer',
+            PAGE_404: '/404',
+          },
           PAGE_LOCKER_CREATE: '/create',
           PAGE_LOCKER_ADJUST_CRV: '/adjust_crv',
           PAGE_LOCKER_ADJUST_DATE: '/adjust_date',
@@ -8897,7 +8797,7 @@
           PAGE_POOL_WITHDRAW: '/withdraw',
           PAGE_POOL_MANAGE: '/manage-gauge',
         },
-        d = {
+        n = {
           useApi: !0,
           excludeTokensBalancesMapper: {},
           excludePoolsMapper: {},
@@ -8957,8 +8857,8 @@
             u.setStateByKey('loading', !0);
             let { hideSmallPoolsTvl: m } = d.networks[e],
               h = r.tvlMapper[e] ?? {},
-              f = r.volumeMapper[e] ?? {},
-              y = (function (e) {
+              y = r.volumeMapper[e] ?? {},
+              f = (function (e) {
                 if (!e) return {};
                 let { address: t, symbol: a, wrappedAddress: r, wrappedSymbol: s } = e;
                 return {
@@ -8966,12 +8866,12 @@
                   [r]: { ...l, symbol: s, address: r },
                 };
               })(d.nativeToken[e]),
-              g = { ...(c[e] ?? y) },
-              A = { ...(p[e] ?? y) },
+              g = { ...(c[e] ?? f) },
+              A = { ...(p[e] ?? f) },
               w = {};
             for (let { pool: e, tokenAddressesAll: t, tokensAll: r, tokenDecimalsAll: o } of a) {
               let n = +(h[e.id]?.value ?? '0'),
-                d = +(f[e.id]?.value ?? '0'),
+                d = +(y[e.id]?.value ?? '0'),
                 c = s()(r);
               for (let s in t) {
                 let p = t[s],
@@ -8993,16 +8893,16 @@
               }
             }
             g = (0, o.tv)(g);
+            let b = {};
+            for (let e in A) b[e] = g[e];
             let v = {};
-            for (let e in A) v[e] = g[e];
-            let x = {};
-            for (let e in w) x[e] = g[e];
-            let b = e.toString();
+            for (let e in w) v[e] = g[e];
+            let x = e.toString();
             return (
-              u.setStateByActiveKey('tokensMapper', b, g),
-              u.setStateByActiveKey('tokensMapperNonSmallTvl', b, v),
+              u.setStateByActiveKey('tokensMapper', x, g),
+              u.setStateByActiveKey('tokensMapperNonSmallTvl', x, b),
               u.setStateByKey('loading', !1),
-              Object.keys(x)
+              Object.keys(v)
             );
           },
           setEmptyPoolListDefault: async (e) => {
@@ -9035,40 +8935,38 @@
     },
     61615: (e, t, a) => {
       'use strict';
-      a.d(t, { A: () => c });
+      a.d(t, { A: () => l });
       var r = a(54568),
-        s = a(71287),
-        o = a(47990),
-        i = a(99599),
-        n = a(77241),
-        l = a(36074),
-        d = a(12522);
-      let c = ({ loading: e, children: t }) => {
-        let a = (0, d.B)((e) => e.curve),
-          c = (0, s.A)((e) => e.connectState),
-          p = (0, s.A)((e) => e.updateConnectState);
+        s = a(47990),
+        o = a(99599),
+        i = a(74699),
+        n = a(36074);
+      let l = ({ loading: e, children: t }) => {
+        let { lib: a } = (0, i.w5)(),
+          { connectState: l } = (0, i.w5)(),
+          { connect: d } = (0, i.vT)();
         return (0, r.jsx)(r.Fragment, {
           children:
-            (0, n.VP)(c) || e || a?.signerAddress
-              ? (0, n.VP)(c) || e
-                ? (0, r.jsxs)(o.A, {
+            (0, i.VP)(l) || e || a?.signerAddress
+              ? (0, i.VP)(l) || e
+                ? (0, r.jsxs)(s.A, {
                     fillWidth: !0,
                     size: 'large',
                     disabled: !0,
                     variant: 'icon-filled',
                     children: [
-                      (0, l.t)`Loading`,
+                      (0, n.t)`Loading`,
                       ' ',
-                      (0, r.jsx)(i.A, { isDisabled: !0, size: 15 }),
+                      (0, r.jsx)(o.A, { isDisabled: !0, size: 15 }),
                     ],
                   })
                 : t
-              : (0, r.jsx)(o.A, {
+              : (0, r.jsx)(s.A, {
                   fillWidth: !0,
                   size: 'large',
                   variant: 'filled',
-                  onClick: () => p(),
-                  children: (0, l.t)`Connect Wallet`,
+                  onClick: () => d(),
+                  children: (0, n.t)`Connect Wallet`,
                 }),
         });
       };
@@ -9127,7 +9025,7 @@
         s = a(96844),
         o = a(39418),
         i = a(81653),
-        n = a(72986),
+        n = a(74699),
         l = a(36074);
       let d = {
           navigationIndex: 0,
@@ -9396,27 +9294,27 @@
                   basePool: i.basePool,
                   ngAssetType: i.basePool ? 0 : t().createPool.tokensInPool[o.hz].ngAssetType,
                 });
-              let f = { ...t().createPool.initialPrice };
+              let y = { ...t().createPool.initialPrice };
               '' !== r.address &&
-                (f.tokenA = Number(await t().usdRates.fetchUsdRateByToken(a, r.address))),
+                (y.tokenA = Number(await t().usdRates.fetchUsdRateByToken(a, r.address))),
                 '' !== i.address &&
-                  (f.tokenB = Number(await t().usdRates.fetchUsdRateByToken(a, i.address))),
+                  (y.tokenB = Number(await t().usdRates.fetchUsdRateByToken(a, i.address))),
                 '' !== n.address &&
-                  (f.tokenC = Number(await t().usdRates.fetchUsdRateByToken(a, n.address))),
+                  (y.tokenC = Number(await t().usdRates.fetchUsdRateByToken(a, n.address))),
                 '' !== l.address &&
-                  (f.tokenD = Number(await t().usdRates.fetchUsdRateByToken(a, l.address))),
+                  (y.tokenD = Number(await t().usdRates.fetchUsdRateByToken(a, l.address))),
                 '' !== d.address &&
-                  (f.tokenE = Number(await t().usdRates.fetchUsdRateByToken(a, d.address))),
+                  (y.tokenE = Number(await t().usdRates.fetchUsdRateByToken(a, d.address))),
                 '' !== p.address &&
-                  (f.tokenF = Number(await t().usdRates.fetchUsdRateByToken(a, p.address))),
+                  (y.tokenF = Number(await t().usdRates.fetchUsdRateByToken(a, p.address))),
                 '' !== u.address &&
-                  (f.tokenG = Number(await t().usdRates.fetchUsdRateByToken(a, u.address))),
+                  (y.tokenG = Number(await t().usdRates.fetchUsdRateByToken(a, u.address))),
                 '' !== m.address &&
-                  (f.tokenH = Number(await t().usdRates.fetchUsdRateByToken(a, m.address))),
-                (f.initialPrice = [c(f.tokenA, f.tokenB), c(f.tokenA, f.tokenC)]),
+                  (y.tokenH = Number(await t().usdRates.fetchUsdRateByToken(a, m.address))),
+                (y.initialPrice = [c(y.tokenA, y.tokenB), c(y.tokenA, y.tokenC)]),
                 e(
                   (0, s.Ay)((e) => {
-                    (e.createPool.tokensInPool = h), (e.createPool.initialPrice = f);
+                    (e.createPool.tokensInPool = h), (e.createPool.initialPrice = y);
                   })
                 );
             },
@@ -9681,14 +9579,14 @@
                     poolSymbol: m,
                     swapType: h,
                     tokensInPool: {
-                      tokenAmount: f,
-                      metaPoolToken: y,
+                      tokenAmount: y,
+                      metaPoolToken: f,
                       tokenA: g,
                       tokenB: A,
                       tokenC: w,
-                      tokenD: v,
-                      tokenE: x,
-                      tokenF: b,
+                      tokenD: b,
+                      tokenE: v,
+                      tokenF: x,
                       tokenG: S,
                       tokenH: k,
                     },
@@ -9727,7 +9625,7 @@
                 ),
                 h === o.dH)
               ) {
-                if ((0, i.XG)(N[d].tricryptoFactory, f, g, A, w)) {
+                if ((0, i.XG)(N[d].tricryptoFactory, y, g, A, w)) {
                   let t = [g.address, A.address, w.address];
                   try {
                     let o = await a.tricryptoFactory.deployPool(
@@ -9767,18 +9665,18 @@
                       p();
                     let h = (0, l.t)`Pool ${O} deployment successful.`;
                     (0, n.me)(h, 'success', 15e3);
-                    let f = await a.tricryptoFactory.fetchRecentlyDeployedPool(u);
+                    let y = await a.tricryptoFactory.fetchRecentlyDeployedPool(u);
                     e(
                       (0, s.Ay)((e) => {
-                        e.createPool.transactionState.poolId = f;
+                        e.createPool.transactionState.poolId = y;
                       })
                     );
-                    let y = await c(a, f);
-                    y &&
+                    let f = await c(a, y);
+                    f &&
                       e(
                         (0, s.Ay)((e) => {
                           (e.createPool.transactionState.fetchPoolStatus = 'SUCCESS'),
-                            (e.createPool.transactionState.lpTokenAddress = y.pool.lpToken);
+                            (e.createPool.transactionState.lpTokenAddress = f.pool.lpToken);
                         })
                       );
                   } catch (t) {
@@ -9830,15 +9728,15 @@
                       })
                     ),
                       u();
-                    let f = (0, l.t)`Pool ${O} deployment successful.`;
-                    (0, n.me)(f, 'success', 15e3);
-                    let y = await a.twocryptoFactory.fetchRecentlyDeployedPool(h);
+                    let y = (0, l.t)`Pool ${O} deployment successful.`;
+                    (0, n.me)(y, 'success', 15e3);
+                    let f = await a.twocryptoFactory.fetchRecentlyDeployedPool(h);
                     e(
                       (0, s.Ay)((e) => {
-                        e.createPool.transactionState.poolId = y;
+                        e.createPool.transactionState.poolId = f;
                       })
                     );
-                    let g = await c(a, y);
+                    let g = await c(a, f);
                     g &&
                       e(
                         (0, s.Ay)((e) => {
@@ -9856,7 +9754,7 @@
                       );
                   }
                 }
-              } else if (h === o.vD && y) {
+              } else if (h === o.vD && f) {
                 let t = ((e) => {
                     let t = '';
                     return (
@@ -9897,9 +9795,9 @@
                       })
                     ),
                       M();
-                    let f = (0, l.t)`Deploying pool ${O}...`,
-                      { dismiss: y } = (0, n.me)(f, 'pending');
-                    r = y;
+                    let y = (0, l.t)`Deploying pool ${O}...`,
+                      { dismiss: f } = (0, n.me)(y, 'pending');
+                    r = f;
                     let g = await a.stableNgFactory.getDeployedMetaPoolAddress(h);
                     e(
                       (0, s.Ay)((e) => {
@@ -9909,7 +9807,7 @@
                           (e.createPool.transactionState.poolAddress = g);
                       })
                     ),
-                      y();
+                      f();
                     let A = (0, l.t)`Pool ${O} deployment successful.`;
                     (0, n.me)(A, 'success', 15e3);
                     let w = await a.stableNgFactory.fetchRecentlyDeployedPool(g);
@@ -9918,12 +9816,12 @@
                         e.createPool.transactionState.poolId = w;
                       })
                     );
-                    let v = await c(a, w);
-                    v &&
+                    let b = await c(a, w);
+                    b &&
                       e(
                         (0, s.Ay)((e) => {
                           (e.createPool.transactionState.fetchPoolStatus = 'SUCCESS'),
-                            (e.createPool.transactionState.lpTokenAddress = v.pool.lpToken);
+                            (e.createPool.transactionState.lpTokenAddress = b.pool.lpToken);
                         })
                       );
                   } catch (t) {
@@ -9937,7 +9835,7 @@
                       console.warn(t);
                   }
               } else if (N[d].stableswapFactory) {
-                let t = [g, A, w, v, x, b, S, k].filter((e) => '' !== e.address);
+                let t = [g, A, w, b, v, x, S, k].filter((e) => '' !== e.address);
                 try {
                   let o = t.map((e) => e.address),
                     i = t.map((e) => e.ngAssetType),
@@ -9948,19 +9846,19 @@
                     ),
                     u = t.map((e) => (1 === e.ngAssetType ? e.oracleFunction : '0x00000000')),
                     h = Math.round(+F / 0.693),
-                    f = await a.stableNgFactory.deployPlainPool(O, m, o, P, C, L, i, 0, h, p, u);
+                    y = await a.stableNgFactory.deployPlainPool(O, m, o, P, C, L, i, 0, h, p, u);
                   e(
                     (0, s.Ay)((e) => {
                       (e.createPool.transactionState.txStatus = 'LOADING'),
-                        (e.createPool.transactionState.transaction = f),
-                        (e.createPool.transactionState.txLink = N[d].scanTxPath(f.hash));
+                        (e.createPool.transactionState.transaction = y),
+                        (e.createPool.transactionState.txLink = N[d].scanTxPath(y.hash));
                     })
                   ),
                     M();
-                  let y = (0, l.t)`Deploying pool ${O}...`,
-                    { dismiss: g } = (0, n.me)(y, 'pending');
+                  let f = (0, l.t)`Deploying pool ${O}...`,
+                    { dismiss: g } = (0, n.me)(f, 'pending');
                   r = g;
-                  let A = await a.stableNgFactory.getDeployedPlainPoolAddress(f);
+                  let A = await a.stableNgFactory.getDeployedPlainPoolAddress(y);
                   e(
                     (0, s.Ay)((e) => {
                       (e.createPool.transactionState.txStatus = 'SUCCESS'),
@@ -9972,18 +9870,18 @@
                     g();
                   let w = (0, l.t)`Pool ${O} deployment successful.`;
                   (0, n.me)(w, 'success', 15e3);
-                  let v = await a.stableNgFactory.fetchRecentlyDeployedPool(A);
+                  let b = await a.stableNgFactory.fetchRecentlyDeployedPool(A);
                   e(
                     (0, s.Ay)((e) => {
-                      e.createPool.transactionState.poolId = v;
+                      e.createPool.transactionState.poolId = b;
                     })
                   );
-                  let x = await c(a, v);
-                  x &&
+                  let v = await c(a, b);
+                  v &&
                     e(
                       (0, s.Ay)((e) => {
                         (e.createPool.transactionState.fetchPoolStatus = 'SUCCESS'),
-                          (e.createPool.transactionState.lpTokenAddress = x.pool.lpToken);
+                          (e.createPool.transactionState.lpTokenAddress = v.pool.lpToken);
                       })
                     );
                 } catch (t) {
@@ -10009,7 +9907,7 @@
     },
     67209: (e, t, a) => {
       'use strict';
-      a.d(t, { Ay: () => f, ij: () => y });
+      a.d(t, { Ay: () => y, ij: () => f });
       var r = a(39929),
         s = a.n(r),
         o = a(81734),
@@ -10018,8 +9916,8 @@
         l = a(74143),
         d = a(84017),
         c = a(40038),
-        p = a(77241),
-        u = a(72986);
+        p = a(83980),
+        u = a(74699);
       let m = 'dashboard',
         h = {
           activeKey: '',
@@ -10034,7 +9932,7 @@
           searchedWalletAddresses: [],
           vecrvInfo: {},
         },
-        f = (e, t) => ({
+        y = (e, t) => ({
           dashboard: {
             ...h,
             fetchClaimablesAndLockedDetails: async (e) => {
@@ -10089,11 +9987,11 @@
                   ]),
                   m = (0, d.Rm)(l),
                   h = (0, d.Rm)(u),
-                  f = t.map((e) => r[e]);
-                await s.fetchMissingPoolsRewardsApy(n, f);
-                let y = {};
+                  y = t.map((e) => r[e]);
+                await s.fetchMissingPoolsRewardsApy(n, y);
+                let f = {};
                 return (
-                  await c.PromisePool.for(f)
+                  await c.PromisePool.for(y)
                     .withConcurrency(10)
                     .process(async ({ pool: e }, t) => {
                       let [r, s, o] = await Promise.allSettled([
@@ -10111,9 +10009,9 @@
                           crvProfit: void 0,
                           tokensProfit: [],
                         },
-                        f = (0, d.Rm)(o) ?? {},
+                        y = (0, d.Rm)(o) ?? {},
                         g = h?.[t] ?? [];
-                      y[e.id] = {
+                      f[e.id] = {
                         poolId: e.id,
                         poolName: e.name,
                         poolAddress: e.address,
@@ -10137,10 +10035,10 @@
                             return 0 == +a ? '0' : a;
                           }
                           return '';
-                        })(f),
+                        })(y),
                       };
                     }),
-                  { dashboardDataMapper: y, error: '' }
+                  { dashboardDataMapper: f, error: '' }
                 );
               } catch (t) {
                 console.error(t);
@@ -10176,17 +10074,17 @@
                     ...h
                   },
                 } = t(),
-                f = { ...l, ...s };
-              f.walletAddress = (f.walletAddress ?? '').toLowerCase();
+                y = { ...l, ...s };
+              y.walletAddress = (y.walletAddress ?? '').toLowerCase();
               let g = (function (e, { walletAddress: t, sortBy: a, sortByOrder: r }) {
                   return `${e ?? ''}-${t ? (0, p.z5)(t) : ''}${a}${r}`;
-                })(e, f),
-                A = (0, o.P)(f.walletAddress),
-                w = c[f.walletAddress];
+                })(e, y),
+                A = (0, o.P)(y.walletAddress),
+                w = c[y.walletAddress];
               if (
                 (h.setStateByKeys({
                   activeKey: g,
-                  formValues: f,
+                  formValues: y,
                   loading: A,
                   noResult: void 0 === w,
                   formStatus: { ...n.kR },
@@ -10195,13 +10093,13 @@
                 !a || !r)
               )
                 return;
-              let { chainId: v, signerAddress: x } = a;
-              if ('' == f.walletAddress && x) {
+              let { chainId: b, signerAddress: v } = a;
+              if ('' == y.walletAddress && v) {
                 0 !== Object.keys(c).length && (await (0, d.yy)(3e3)),
-                  h.setFormValues(e, a, r, { walletAddress: x });
+                  h.setFormValues(e, a, r, { walletAddress: v });
                 return;
               }
-              let { sortBy: b, sortByOrder: S, walletAddress: k } = f;
+              let { sortBy: x, sortByOrder: S, walletAddress: k } = y;
               if (!(0, o.P)(k)) return;
               let C = d.vx('APP_DASHBOARD')?.addresses ?? [];
               if (-1 === C.indexOf(k)) {
@@ -10210,8 +10108,8 @@
                   (0, d.Fg)('APP_DASHBOARD', { addresses: e });
               } else
                 0 === u.length && C.length > 0 && h.setStateByKey('searchedWalletAddresses', C);
-              1 === v && h.fetchClaimablesAndLockedDetails(a);
-              let P = y(v, k),
+              1 === b && h.fetchClaimablesAndLockedDetails(a);
+              let P = f(b, k),
                 j = c[P];
               if (0 === Object.keys(j ?? {}).length) {
                 let e = await h.fetchDashboardData(a, k, r);
@@ -10224,7 +10122,7 @@
                   h.setStateByActiveKey('dashboardDatasMapper', P, j));
               }
               let T = Object.values(j),
-                I = (T = h.sortFn(v, b, S, T)).map(({ poolId: e }) => e);
+                I = (T = h.sortFn(b, x, S, T)).map(({ poolId: e }) => e);
               h.setStateByKey('dashboardDataPoolIds', { [g]: I }),
                 h.setStateByKeys({ loading: !1, noResult: 0 === I.length });
             },
@@ -10241,15 +10139,15 @@
                 { claimableFees: c, ...p } = t()[m],
                 { provider: h } = u.vT.getState();
               if (!h) return (0, u.GS)(t()[m]);
-              let { chainId: f } = a,
-                y = { ...n.kR, formType: 'CLAIMABLE_FEES', formProcessing: !0, step: 'CLAIM' };
-              p.setStateByKey('formStatus', y), await d.fetchGasInfo(a);
+              let { chainId: y } = a,
+                f = { ...n.kR, formType: 'CLAIMABLE_FEES', formProcessing: !0, step: 'CLAIM' };
+              p.setStateByKey('formStatus', f), await d.fetchGasInfo(a);
               let g = await l.A.lockCrv.claimFees(e, a, h, s);
               if (g.activeKey !== t()[m].activeKey) return;
               if (g.error)
                 return (
                   p.setStateByKey('formStatus', {
-                    ...y,
+                    ...f,
                     formProcessing: !1,
                     step: '',
                     error: g.error,
@@ -10261,7 +10159,7 @@
                 (p.setStateByKeys({
                   claimableFees: { [A.activeKey]: A },
                   formStatus: {
-                    ...y,
+                    ...f,
                     formType: '',
                     formProcessing: !1,
                     step: '',
@@ -10270,7 +10168,7 @@
                 }),
                 s === i.T['3CRV'])
               ) {
-                let e = o.poolsMapper[f];
+                let e = o.poolsMapper[y];
                 p.fetchDashboardData(a, r, e);
               }
               return g;
@@ -10313,7 +10211,7 @@
             },
           },
         });
-      function y(e, t) {
+      function f(e, t) {
         return `${e ?? ''}${t ? (0, p.z5)(t) : ''}`;
       }
     },
@@ -10411,7 +10309,7 @@
     },
     70657: (e, t, a) => {
       'use strict';
-      a.d(t, { A: () => f });
+      a.d(t, { A: () => y });
       var r = a(54568),
         s = a(7620),
         o = a(48341),
@@ -10419,7 +10317,7 @@
         n = a(56457),
         l = a(19115),
         d = a(46205),
-        c = a(77241),
+        c = a(83980),
         p = a(36074);
       let u = (0, o.Ay)(n.A).withConfig({ componentId: 'sc-bf98d7b-0' })([
           'position:relative;top:0.25em;',
@@ -10430,9 +10328,9 @@
         h = (0, o.Ay)(d.v).withConfig({ componentId: 'sc-bf98d7b-2' })([
           'vertical-align:text-bottom;',
         ]),
-        f = ({ isHighlight: e, isLoading: t, poolData: a, rewardsApy: o }) => {
-          let { rewardsNeedNudging: n, areCrvRewardsStuckInBridge: f } = a?.gauge.status || {},
-            y = ({ crv: e }) => {
+        y = ({ isHighlight: e, isLoading: t, poolData: a, rewardsApy: o }) => {
+          let { rewardsNeedNudging: n, areCrvRewardsStuckInBridge: y } = a?.gauge.status || {},
+            f = ({ crv: e }) => {
               let [t, a] = e;
               if (!t && !a) return null;
               let s = (0, c.ZV)(t, c.hd.PERCENT);
@@ -10452,12 +10350,12 @@
             },
             g = (0, s.useMemo)(() => {
               if (t || void 0 === a);
-              else if (n || f)
+              else if (n || y)
                 return `${(0, c.ZV)(0, { style: 'percent', maximumFractionDigits: 0 })} CRV`;
               else if (o?.crv && (o?.crv[0] !== 0 || o?.crv[1] !== 0))
-                return (0, r.jsx)(y, { crv: o?.crv ?? [] });
+                return (0, r.jsx)(f, { crv: o?.crv ?? [] });
               return '';
-            }, [f, t, a, o?.crv, n]);
+            }, [y, t, a, o?.crv, n]);
           return a?.gauge.isKilled
             ? (0, r.jsx)(i.A, { children: 'Inactive gauge' })
             : (0, r.jsxs)(r.Fragment, {
@@ -10475,10 +10373,10 @@
                       })
                     : null,
                   !!o &&
-                    f &&
+                    y &&
                     (0, r.jsx)(
                       () =>
-                        f
+                        y
                           ? (0, r.jsx)(l.A, {
                               minWidth: '330px',
                               customIcon: (0, r.jsx)(u, { name: 'Close', size: 16 }),
@@ -10574,12 +10472,12 @@
             },
           },
         });
-      var f = a(96844),
-        y = a(77241),
-        g = a(50440);
+      var y = a(96844),
+        f = a(83980),
+        g = a(61112);
       let A = 'campaigns',
         w = { initiated: !1, campaignRewardsMapper: {} },
-        v = (e, t) => ({
+        b = (e, t) => ({
           [A]: {
             ...w,
             initCampaignRewards: (a) => {
@@ -10595,7 +10493,7 @@
                     r[t.address.toLowerCase()].push({
                       campaignName: e.campaignName,
                       platform: e.platform,
-                      platformImageSrc: `${y.o8}/platforms/${e.platformImageId}`,
+                      platformImageSrc: `${f.o8}/platforms/${e.platformImageId}`,
                       dashboardLink: e.dashboardLink,
                       ...t,
                       description: 'null' !== t.description ? t.description : e.description,
@@ -10608,7 +10506,7 @@
                   r[e].sort((e, t) => +e.multiplier - +t.multiplier);
                 }),
                 e(
-                  (0, f.Ay)((e) => {
+                  (0, y.Ay)((e) => {
                     (e[A].initiated = !0), (e[A].campaignRewardsMapper = r);
                   })
                 );
@@ -10627,9 +10525,9 @@
             },
           },
         });
-      var x = a(66485),
-        b = a(67209),
-        S = a(72986),
+      var v = a(66485),
+        x = a(67209),
+        S = a(74699),
         k = a(36074),
         C = a(84826);
       let P = {
@@ -10672,21 +10570,21 @@
                   });
               }),
                 e(
-                  (0, f.Ay)((e) => {
+                  (0, y.Ay)((e) => {
                     e.deployGauge.curveNetworks = a;
                   })
                 );
             },
             setCurrentPoolType: (t) => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge.currentPoolType = t;
                 })
               );
             },
             setSidechainGauge: (t) => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge.sidechainGauge = t;
                 })
               );
@@ -10697,35 +10595,35 @@
                 o = Object.entries(r).find(([e, t]) => t.name.toLowerCase() === s),
                 i = o ? Number(o[0]) : null;
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge.currentSidechain = i;
                 })
               );
             },
             setPoolAddress: (t) => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge.poolAddress = t;
                 })
               );
             },
             setLpTokenAddress: (t) => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge.lpTokenAddress = t;
                 })
               );
             },
             setSidechainNav: (t) => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge.sidechainNav = t;
                 })
               );
             },
             setLinkPoolAddress: (t) => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge.linkPoolAddress = t;
                 })
               );
@@ -10742,12 +10640,12 @@
                 u = t().gas.fetchGasInfo,
                 m = d ? l.toLowerCase() : n.toLowerCase(),
                 h = (0, C.l1)(m),
-                y = (0, k.t)`Please confirm to deploy gauge for ${h}.`,
-                { dismiss: g } = (0, S.me)(y, 'pending');
+                f = (0, k.t)`Please confirm to deploy gauge for ${h}.`,
+                { dismiss: g } = (0, S.me)(f, 'pending');
               if (((i = g), await u(a), 'MAINNETGAUGE' === s)) {
                 if (
                   (e(
-                    (0, f.Ay)((e) => {
+                    (0, y.Ay)((e) => {
                       e.deployGauge.deploymentStatus.mainnet.status = 'CONFIRMING';
                     })
                   ),
@@ -10756,7 +10654,7 @@
                   try {
                     let t = await a.stableNgFactory.deployGauge(m);
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mainnet.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mainnet.transaction = t);
                       })
@@ -10767,7 +10665,7 @@
                     (i = s),
                       await a.stableNgFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mainnet.status = 'SUCCESS';
                         })
                       ),
@@ -10777,7 +10675,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mainnet.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mainnet.errorMessage = t.message);
                         })
@@ -10788,7 +10686,7 @@
                   try {
                     let t = await a.cryptoFactory.deployGauge(m);
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mainnet.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mainnet.transaction = t);
                       })
@@ -10799,7 +10697,7 @@
                     (i = s),
                       await a.cryptoFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mainnet.status = 'SUCCESS';
                         })
                       ),
@@ -10809,7 +10707,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mainnet.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mainnet.errorMessage = t.message);
                         })
@@ -10820,7 +10718,7 @@
                   try {
                     let t = await a.twocryptoFactory.deployGauge(m);
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mainnet.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mainnet.transaction = t);
                       })
@@ -10831,7 +10729,7 @@
                     (i = s),
                       await a.twocryptoFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mainnet.status = 'SUCCESS';
                         })
                       ),
@@ -10841,7 +10739,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mainnet.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mainnet.errorMessage = t.message);
                         })
@@ -10852,7 +10750,7 @@
                   try {
                     let t = await a.tricryptoFactory.deployGauge(m);
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mainnet.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mainnet.transaction = t);
                       })
@@ -10863,7 +10761,7 @@
                     (i = s),
                       await a.tricryptoFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mainnet.status = 'SUCCESS';
                         })
                       ),
@@ -10873,7 +10771,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mainnet.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mainnet.errorMessage = t.message);
                         })
@@ -10884,7 +10782,7 @@
                   try {
                     let t = await a.factory.deployGauge(m);
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mainnet.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mainnet.transaction = t);
                       })
@@ -10895,7 +10793,7 @@
                     (i = s),
                       await a.factory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mainnet.status = 'SUCCESS';
                         })
                       ),
@@ -10905,7 +10803,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mainnet.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mainnet.errorMessage = t.message);
                         })
@@ -10916,7 +10814,7 @@
               if ('SIDECHAINGAUGE' === s) {
                 if (
                   (e(
-                    (0, f.Ay)((e) => {
+                    (0, y.Ay)((e) => {
                       e.deployGauge.deploymentStatus.sidechain.status = 'CONFIRMING';
                     })
                   ),
@@ -10925,7 +10823,7 @@
                   try {
                     let t = await a.stableNgFactory.deployGaugeSidechain(m, T(m));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.sidechain.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.sidechain.transaction = t);
                       })
@@ -10936,7 +10834,7 @@
                     (i = s),
                       await a.stableNgFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'SUCCESS'),
                             (e.deployGauge.sidechainNav = +!o),
                             (e.deployGauge.currentSidechain = p);
@@ -10948,7 +10846,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.sidechain.errorMessage = t.message);
                         })
@@ -10959,7 +10857,7 @@
                   try {
                     let t = await a.cryptoFactory.deployGaugeSidechain(m, T(m));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.sidechain.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.sidechain.transaction = t);
                       })
@@ -10970,7 +10868,7 @@
                     (i = s),
                       await a.cryptoFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'SUCCESS'),
                             (e.deployGauge.sidechainNav = +!o),
                             (e.deployGauge.currentSidechain = p);
@@ -10982,7 +10880,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.sidechain.errorMessage = t.message);
                         })
@@ -10993,7 +10891,7 @@
                   try {
                     let t = await a.twocryptoFactory.deployGaugeSidechain(m, T(m));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.sidechain.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.sidechain.transaction = t);
                       })
@@ -11004,7 +10902,7 @@
                     (i = s),
                       await a.twocryptoFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'SUCCESS'),
                             (e.deployGauge.sidechainNav = +!o),
                             (e.deployGauge.currentSidechain = p);
@@ -11016,7 +10914,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.sidechain.errorMessage = t.message);
                         })
@@ -11027,7 +10925,7 @@
                   try {
                     let t = await a.tricryptoFactory.deployGaugeSidechain(m, T(m));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.sidechain.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.sidechain.transaction = t);
                       })
@@ -11038,7 +10936,7 @@
                     (i = s),
                       await a.tricryptoFactory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'SUCCESS'),
                             (e.deployGauge.sidechainNav = +!o),
                             (e.deployGauge.currentSidechain = p);
@@ -11050,7 +10948,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.sidechain.errorMessage = t.message);
                         })
@@ -11061,7 +10959,7 @@
                   try {
                     let t = await a.factory.deployGaugeSidechain(m, T(m));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.sidechain.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.sidechain.transaction = t);
                       })
@@ -11072,7 +10970,7 @@
                     (i = s),
                       await a.factory.getDeployedGaugeAddress(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'SUCCESS'),
                             (e.deployGauge.sidechainNav = +!o),
                             (e.deployGauge.currentSidechain = p);
@@ -11084,7 +10982,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.sidechain.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.sidechain.errorMessage = t.message);
                         })
@@ -11095,7 +10993,7 @@
               if ('MIRRORGAUGE' === s) {
                 if (
                   (e(
-                    (0, f.Ay)((e) => {
+                    (0, y.Ay)((e) => {
                       e.deployGauge.deploymentStatus.mirror.status = 'CONFIRMING';
                     })
                   ),
@@ -11104,7 +11002,7 @@
                   try {
                     let t = await a.stableNgFactory.deployGaugeMirror(c, T(l));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mirror.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mirror.transaction = t);
                       })
@@ -11115,7 +11013,7 @@
                     (i = s),
                       await a.stableNgFactory.getDeployedGaugeMirrorAddressByTx(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mirror.status = 'SUCCESS';
                         })
                       ),
@@ -11125,7 +11023,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mirror.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mirror.errorMessage = t.message);
                         })
@@ -11136,7 +11034,7 @@
                   try {
                     let t = await a.cryptoFactory.deployGaugeMirror(c, T(l));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mirror.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mirror.transaction = t);
                       })
@@ -11147,7 +11045,7 @@
                     (i = s),
                       await a.cryptoFactory.getDeployedGaugeMirrorAddressByTx(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mirror.status = 'SUCCESS';
                         })
                       ),
@@ -11157,7 +11055,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mirror.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mirror.errorMessage = t.message);
                         })
@@ -11168,7 +11066,7 @@
                   try {
                     let t = await a.twocryptoFactory.deployGaugeMirror(c, T(l));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mirror.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mirror.transaction = t);
                       })
@@ -11179,7 +11077,7 @@
                     (i = s),
                       await a.twocryptoFactory.getDeployedGaugeMirrorAddressByTx(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mirror.status = 'SUCCESS';
                         })
                       ),
@@ -11189,7 +11087,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mirror.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mirror.errorMessage = t.message);
                         })
@@ -11200,7 +11098,7 @@
                   try {
                     let t = await a.tricryptoFactory.deployGaugeMirror(c, T(l));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mirror.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mirror.transaction = t);
                       })
@@ -11211,7 +11109,7 @@
                     (i = s),
                       await a.tricryptoFactory.getDeployedGaugeMirrorAddressByTx(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mirror.status = 'SUCCESS';
                         })
                       ),
@@ -11221,7 +11119,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mirror.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mirror.errorMessage = t.message);
                         })
@@ -11232,7 +11130,7 @@
                   try {
                     let t = await a.factory.deployGaugeMirror(c, T(l));
                     e(
-                      (0, f.Ay)((e) => {
+                      (0, y.Ay)((e) => {
                         (e.deployGauge.deploymentStatus.mirror.status = 'LOADING'),
                           (e.deployGauge.deploymentStatus.mirror.transaction = t);
                       })
@@ -11243,7 +11141,7 @@
                     (i = s),
                       await a.factory.getDeployedGaugeMirrorAddressByTx(t),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           e.deployGauge.deploymentStatus.mirror.status = 'SUCCESS';
                         })
                       ),
@@ -11253,7 +11151,7 @@
                   } catch (t) {
                     i(),
                       e(
-                        (0, f.Ay)((e) => {
+                        (0, y.Ay)((e) => {
                           (e.deployGauge.deploymentStatus.mirror.status = 'ERROR'),
                             (e.deployGauge.deploymentStatus.mirror.errorMessage = t.message);
                         })
@@ -11264,7 +11162,7 @@
             },
             resetState: () => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e.deployGauge = { ...t().deployGauge, DEFAULT_STATE: P };
                 })
               );
@@ -11544,7 +11442,7 @@
             },
             resetState: () => {
               e(
-                (0, f.Ay)((e) => {
+                (0, y.Ay)((e) => {
                   e[U] = { ...e[U], ..._ };
                 })
               );
@@ -11568,7 +11466,7 @@
             fetchVecrvInfo: async (e) => {
               var a, r;
               let s = R()(H.OT),
-                o = ((a = e), (r = e.signerAddress), `${a.chainId}-${(0, y.z5)(r)}`);
+                o = ((a = e), (r = e.signerAddress), `${a.chainId}-${(0, f.z5)(r)}`);
               if (e.signerAddress) {
                 t()[Z].setStateByKey('activeKeyVecrvInfo', o);
                 let a = await B.A.lockCrv.vecrvInfo(o, e, e.signerAddress);
@@ -11591,7 +11489,7 @@
               let d = R()(H.kR);
               (d.error = ''), i && (l = R()(H.yC));
               let c = (function (e, t, a) {
-                return `${e}-${t ?? ''}-${a ? (0, y.z5)(a) : ''}`;
+                return `${e}-${t ?? ''}-${a ? (0, f.z5)(a) : ''}`;
               })(r, e?.chainId, e?.signerAddress);
               if (
                 (t()[Z].setStateByKeys({ activeKey: c, formValues: R()(l), formStatus: R()(d) }),
@@ -11604,8 +11502,8 @@
                 u = l.days > 0 && !l.utcDateError,
                 m = 'create' !== r || (p && u),
                 h = 'adjust_crv' !== r || p,
-                f = 'adjust_date' !== r || u;
-              m && h && f
+                y = 'adjust_date' !== r || u;
+              m && h && y
                 ? t()[Z].fetchEstGasApproval(c, e, r, l)
                 : t()[Z].setStateByKey('formEstGas', { [c]: H.Gu });
             },
@@ -11665,7 +11563,7 @@
                         t()[Z].setStateByKeys({ formValues: R()(H.yC), formStatus: R()(o) }));
                   let e = await t()[Z].fetchVecrvInfo(a);
                   if (e) {
-                    let t = (0, y.ZV)(e.lockedAmountAndUnlockTime.lockedAmount),
+                    let t = (0, f.ZV)(e.lockedAmountAndUnlockTime.lockedAmount),
                       a = q.A.utc(e.lockedAmountAndUnlockTime.unlockTime).format('l');
                     return { ...i, lockedAmt: t, lockedDate: a };
                   }
@@ -12200,7 +12098,7 @@
         }
       }
       let eh = 'poolDeposit',
-        ef = {
+        ey = {
           activeKey: '',
           poolAddress: '',
           formEstGas: {},
@@ -12211,7 +12109,7 @@
           maxLoading: null,
           slippage: {},
         };
-      function ey(e, t, { amounts: a, isBalancedAmounts: r, isWrapped: s, lpToken: o }, i) {
+      function ef(e, t, { amounts: a, isBalancedAmounts: r, isWrapped: s, lpToken: o }, i) {
         let n = `${t}-${e}-`;
         if ('DEPOSIT' === t || 'DEPOSIT_STAKE' === t) {
           let e = a.map((e) => e.value).join('-');
@@ -12229,7 +12127,7 @@
       }
       let eA = (e, t) => ({
         [eh]: {
-          ...ef,
+          ...ey,
           fetchUserPoolWalletBalances: async (e, a) => {
             let r = (0, eu.df)(e, a);
             return t().user.walletBalances[r] ?? (await t().user.fetchUserPoolInfo(e, a, !0));
@@ -12328,7 +12226,7 @@
               c = t()[eh].formValues,
               p = t()[eh].formStatus,
               u = R()({ ...c, ...o }),
-              m = ey(r, e, u, l);
+              m = ef(r, e, u, l);
             if (
               (t()[eh].setStateByKeys({
                 activeKey: m,
@@ -12338,15 +12236,15 @@
               !a || !s || null === n || null === u.isWrapped)
             )
               return;
-            let { chainId: h, signerAddress: f } = a,
-              { pool: y } = s;
+            let { chainId: h, signerAddress: y } = a,
+              { pool: f } = s;
             if ('DEPOSIT' === e || 'DEPOSIT_STAKE' === e) {
               if (i)
-                (u.amounts = await t()[eh].fetchMaxAmount(m, h, y, i)),
-                  (m = ey(y.id, e, u, l)),
+                (u.amounts = await t()[eh].fetchMaxAmount(m, h, f, i)),
+                  (m = ef(f.id, e, u, l)),
                   t()[eh].setStateByKeys({ activeKey: m, formValues: R()(u), maxLoading: null });
               else if (u.isBalancedAmounts) {
-                let a = await B.A.poolDeposit.depositBalancedAmounts(m, y, u.isWrapped);
+                let a = await B.A.poolDeposit.depositBalancedAmounts(m, f, u.isWrapped);
                 a.error
                   ? t()[eh].setStateByKey('formStatus', { ...t()[eh].formStatus, error: a.error })
                   : ((u.amounts = t().pools.poolsMapper[h][r].tokenAddresses.map((e, t) => ({
@@ -12354,14 +12252,14 @@
                       token: s.tokens[t],
                       tokenAddress: e,
                     }))),
-                    (m = ey(y.id, e, u, l)),
+                    (m = ef(f.id, e, u, l)),
                     t()[eh].setStateByKeys({ activeKey: m, formValues: R()(u) }));
               }
               if (n) {
                 let { amounts: a, isWrapped: r } = await t()[eh].fetchSeedAmount(s, u);
                 (u.amounts = a),
                   (u.isWrapped = r),
-                  (m = ey(y.id, e, u, l)),
+                  (m = ef(f.id, e, u, l)),
                   t()[eh].setStateByKeys({ activeKey: m, formValues: R()(u) });
               }
               if (
@@ -12370,16 +12268,16 @@
                   ...(t()[eh].formLpTokenExpected[d] ?? ec.hE),
                   loading: !0,
                 }),
-                t()[eh].fetchExpected(m, h, e, y, u),
+                t()[eh].fetchExpected(m, h, e, f, u),
                 n ||
                   (t()[eh].setStateByActiveKey('slippage', m, {
                     ...(t()[eh].slippage[d] ?? ed.QC),
                     loading: !0,
                   }),
-                  t()[eh].fetchSlippage(m, h, e, y, u, l)),
-                f)
+                  t()[eh].fetchSlippage(m, h, e, f, u, l)),
+                y)
               ) {
-                let r = await t()[eh].fetchUserPoolWalletBalances(a, y.id),
+                let r = await t()[eh].fetchUserPoolWalletBalances(a, f.id),
                   s = (0, ep.AC)(u.amounts, r);
                 s
                   ? t()[eh].setStateByKey('formStatus', {
@@ -12390,10 +12288,10 @@
                       ...(t()[eh].formEstGas[d] ?? ed.Hb),
                       loading: !0,
                     }),
-                    t()[eh].fetchEstGasApproval(m, h, e, y));
+                    t()[eh].fetchEstGasApproval(m, h, e, f));
               }
-            } else if ('STAKE' === e && f && +u.lpToken > 0) {
-              let r = await t()[eh].fetchUserPoolWalletBalances(a, y.id),
+            } else if ('STAKE' === e && y && +u.lpToken > 0) {
+              let r = await t()[eh].fetchUserPoolWalletBalances(a, f.id),
                 s = +u.lpToken > +(r.lpToken ?? '0') ? 'lpToken-too-much' : '';
               s
                 ? t()[eh].setStateByKey('formStatus', { ...R()(t()[eh].formStatus), error: s })
@@ -12401,7 +12299,7 @@
                     ...(t()[eh].formEstGas[d] ?? ed.Hb),
                     loading: !0,
                   }),
-                  t()[eh].fetchEstGasApproval(m, h, e, y));
+                  t()[eh].fetchEstGasApproval(m, h, e, f));
             }
           },
           fetchEstGasApproval: async (e, a, r, s) => {
@@ -12590,7 +12488,7 @@
           },
           resetState: ({ tokens: e, tokenAddresses: a, isWrapped: r }, s) => {
             t().resetAppState(eh, {
-              ...ef,
+              ...ey,
               formType: s,
               formValues: {
                 ...ec.yC,
@@ -12602,9 +12500,9 @@
         },
       });
       var ew = a(51569),
-        ev = a(51426),
-        ex = a(45356),
-        eb = a(74009),
+        eb = a(51426),
+        ev = a(45356),
+        ex = a(74009),
         eS = a(62011),
         ek = a(87081),
         eC = a(4671);
@@ -12637,13 +12535,13 @@
               l = o.ignoreExchangeRateCheck[r.id];
             if (void 0 !== l) return l;
             {
-              let e = S.vT.getState().provider || new ex.FR(i[n].rpcUrl);
+              let e = S.vT.getState().provider || new ev.FR(i[n].rpcUrl);
               try {
                 let t = await a
                     .e(7696)
                     .then(a.t.bind(a, 97696, 19))
                     .then((e) => e.default),
-                  s = new eb.KA(t),
+                  s = new ex.KA(t),
                   i = new eS.NZ(r.address, s.format(), e),
                   n = await i.stored_rates(),
                   l = Object.values(n).some((e) => {
@@ -13152,7 +13050,7 @@
             )
               return;
             let { pool: h } = s,
-              { chainId: f, signerAddress: y } = a;
+              { chainId: y, signerAddress: f } = a;
             if ('WITHDRAW' === e) {
               !u.selected &&
                 +u.lpToken > 0 &&
@@ -13176,9 +13074,9 @@
                   ? t()[eB].fetchWithdrawLpToken(o)
                   : 'imbalance' === u.selected && t()[eB].fetchWithdrawCustom(o);
             } else
-              'UNSTAKE' === e && y && +u.stakedLpToken > 0
+              'UNSTAKE' === e && f && +u.stakedLpToken > 0
                 ? t()[eB].fetchEstGasApproval(m, a, e, h, u)
-                : 'CLAIM' === e && t()[eB].fetchClaimable(m, f, h);
+                : 'CLAIM' === e && t()[eB].fetchClaimable(m, y, h);
           },
           fetchEstGasApproval: async (e, a, r, s, o) => {
             let i;
@@ -13468,21 +13366,21 @@
               o.setStateByKey('formValues', R()(c));
             let m = s.pools.poolsMapper[n];
             await (0, d.yy)(100);
-            let { exchangeRates: h, ...f } = await B.A.router.routesAndOutput(i, e, m, c, a);
-            if (f.activeKey === t()[eO].activeKey) {
-              if (f.error) (p.error = f.error), t()[eO].setStateByKey('formStatus', p);
+            let { exchangeRates: h, ...y } = await B.A.router.routesAndOutput(i, e, m, c, a);
+            if (y.activeKey === t()[eO].activeKey) {
+              if (y.error) (p.error = y.error), t()[eO].setStateByKey('formStatus', p);
               else {
-                c.isFrom ? (c.toAmount = f.toAmount) : (c.fromAmount = f.fromAmount);
+                c.isFrom ? (c.toAmount = y.toAmount) : (c.fromAmount = y.fromAmount);
                 let s = eN(e, c, a, r);
                 if (
-                  ((p.error = 0 === f.routes.length ? 'error-swap-not-available' : ''),
+                  ((p.error = 0 === y.routes.length ? 'error-swap-not-available' : ''),
                   o.setStateByKeys({
                     activeKey: s,
                     formValues: R()(c),
                     formStatus: p,
                     routesAndOutput: {
                       [s]: {
-                        ...f,
+                        ...y,
                         loading: !1,
                         exchangeRates: (function (e, t, a, r) {
                           let s = r[a.fromAddress],
@@ -13528,19 +13426,19 @@
                             u = (0, eC.TM)(d, e),
                             m = l[i] ?? '',
                             h = (+p / +s).toString(),
-                            f = { toAmount: p, toToken: m, title: u.title },
-                            y = {
-                              lowExchangeRate: { ...f, lowExchangeRate: !0, exchangeRate: h },
-                              priceImpact: { ...f, priceImpact: !0, value: t },
+                            y = { toAmount: p, toToken: m, title: u.title },
+                            f = {
+                              lowExchangeRate: { ...y, lowExchangeRate: !0, exchangeRate: h },
+                              priceImpact: { ...y, priceImpact: !0, value: t },
                               priceImpactLowExchangeRate: {
-                                ...f,
+                                ...y,
                                 priceImpactLowExchangeRate: !0,
                                 value: t,
                                 exchangeRate: h,
                               },
                             };
-                          return u.type && u.type in y ? y[u.type] : null;
-                        })(f, a, r, u),
+                          return u.type && u.type in f ? f[u.type] : null;
+                        })(y, a, r, u),
                       },
                     },
                   }),
@@ -13591,16 +13489,16 @@
                     : { ...p, ...a, fromError: '' }
               ),
               h = eN(e, m, r, s),
-              f = R()(n ? { ...c, swapError: '' } : eL.kR);
+              y = R()(n ? { ...c, swapError: '' } : eL.kR);
             if (
-              (t()[eO].setStateByKeys({ activeKey: h, formValues: R()(m), formStatus: R()(f) }),
+              (t()[eO].setStateByKeys({ activeKey: h, formValues: R()(m), formStatus: R()(y) }),
               !e || !u || !r.fromAddress || !r.toAddress)
             )
               return;
-            let { signerAddress: y } = e,
+            let { signerAddress: f } = e,
               g = d.routesAndOutput[h];
             g && d.setStateByKey('routesAndOutput', { [h]: { ...g, loading: !0 } }),
-              y && (await d.fetchUserBalances(e, r.fromAddress, r.toAddress)),
+              f && (await d.fetchUserBalances(e, r.fromAddress, r.toAddress)),
               o && (await d.fetchMaxAmount(e, r, s)),
               await d.fetchUsdRates(e, r),
               await d.fetchRoutesAndOutput(e, r, s),
@@ -13833,21 +13731,21 @@
               ...L(e, t),
               ...h(e, t),
               ...(0, ew.Ay)(e, t),
-              ...(0, ev.Ay)(e, t),
+              ...(0, eb.Ay)(e, t),
               ...eA(e, t),
               ...eG(e, t),
               ...eI(e, t),
               ...(0, eu.Ay)(e, t),
-              ...(0, b.Ay)(e, t),
+              ...(0, x.Ay)(e, t),
               ...eV(e, t),
               ...eH(e, t),
               ...(0, eM.Ay)(e, t),
               ...eU(e, t),
               ...Y(e, t),
-              ...(0, x.A)(e, t),
+              ...(0, v.A)(e, t),
               ...z(e, t),
               ...j(e, t),
-              ...v(e, t),
+              ...b(e, t),
             }),
             eq
           )
@@ -13906,7 +13804,7 @@
         s = a(48341),
         o = a(77540),
         i = a(38526),
-        n = a(77241),
+        n = a(83980),
         l = a(36074);
       let d = (0, s.Ay)(o.A).withConfig({ componentId: 'sc-3a1bc6f8-0' })([
           'line-height:1.25;svg{position:relative;top:5px;}',
@@ -13986,14 +13884,14 @@
         u = a(21522),
         m = a(71287),
         h = a(84017),
-        f = a(90263),
-        y = a(4671),
+        y = a(90263),
+        f = a(4671),
         g = a(40038),
         A = a.n(g),
-        w = a(77241),
-        v = a(63175),
-        x = a(23795),
-        b = a(76635);
+        w = a(83980),
+        b = a(63175),
+        v = a(23795),
+        x = a(76635);
       let S = {
           fetchCustomGasFees: async (e) => {
             let t = { customFeeData: null, error: '' };
@@ -14024,7 +13922,7 @@
             }
           },
           fetchUsdRates: async (e, t) => {
-            (0, b.Rm)('fetchUsdRates', t.length);
+            (0, x.Rm)('fetchUsdRates', t.length);
             let a = {};
             return (
               await A()
@@ -14041,12 +13939,12 @@
               a
             );
           },
-          waitForTransaction: x.t,
-          waitForTransactions: x.c,
+          waitForTransaction: v.t,
+          waitForTransactions: v.c,
         },
         k = {
           withdrawExpected: async (e, t, a, r) => {
-            (0, b.Rm)('withdrawExpected', t.name, a, r);
+            (0, x.Rm)('withdrawExpected', t.name, a, r);
             let s = { activeKey: e, expected: [], error: '' };
             try {
               return (
@@ -14058,7 +13956,7 @@
             }
           },
           withdrawEstGasApproval: async (e, t, a, r, s) => {
-            (0, b.Rm)('withdrawEstGasApproval', a.name, s);
+            (0, x.Rm)('withdrawEstGasApproval', a.name, s);
             let o = { activeKey: e, estimatedGas: null, isApproved: !1, error: '' };
             try {
               return (
@@ -14076,7 +13974,7 @@
             }
           },
           withdrawApprove: async (e, t, a, r) => {
-            (0, b.Rm)('withdrawApprove', a.name, r);
+            (0, x.Rm)('withdrawApprove', a.name, r);
             let s = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14087,7 +13985,7 @@
             }
           },
           withdraw: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('withdraw', a.name, r, s, o);
+            (0, x.Rm)('withdraw', a.name, r, s, o);
             let i = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -14102,7 +14000,7 @@
             }
           },
           withdrawImbalanceBonusAndExpected: async (e, t, a, r) => {
-            (0, b.Rm)('withdrawImbalanceBonusAndExpected', t.name, a, r);
+            (0, x.Rm)('withdrawImbalanceBonusAndExpected', t.name, a, r);
             let s = { activeKey: e, expected: '', bonus: '', error: '' };
             try {
               let [e, o] = await Promise.allSettled([
@@ -14121,7 +14019,7 @@
             }
           },
           withdrawImbalanceEstGasApproval: async (e, t, a, r, s) => {
-            (0, b.Rm)('withdrawImbalanceEstGasApproval', a.name, r, s);
+            (0, x.Rm)('withdrawImbalanceEstGasApproval', a.name, r, s);
             let o = { activeKey: e, estimatedGas: null, isApproved: !1, error: '' };
             try {
               return (
@@ -14139,7 +14037,7 @@
             }
           },
           withdrawImbalanceApprove: async (e, t, a, r) => {
-            (0, b.Rm)('withdrawImbalanceApprove', a.name, r);
+            (0, x.Rm)('withdrawImbalanceApprove', a.name, r);
             let s = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14152,7 +14050,7 @@
             }
           },
           withdrawImbalance: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('withdrawImbalance', a.name, r, s, o);
+            (0, x.Rm)('withdrawImbalance', a.name, r, s, o);
             let i = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -14167,7 +14065,7 @@
             }
           },
           withdrawOneCoinBonusAndExpected: async (e, t, a, r, s) => {
-            (0, b.Rm)('withdrawOneCoinBonusAndExpected', t.name, a, r, s);
+            (0, x.Rm)('withdrawOneCoinBonusAndExpected', t.name, a, r, s);
             let o = { activeKey: e, expected: '', bonus: '', error: '' };
             try {
               let [e, i] = await Promise.allSettled([
@@ -14186,7 +14084,7 @@
             }
           },
           withdrawOneCoinEstGasApproval: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('withdrawOneCoinEstGasApproval', a.name, r, s, o);
+            (0, x.Rm)('withdrawOneCoinEstGasApproval', a.name, r, s, o);
             let i = { activeKey: e, estimatedGas: null, isApproved: !1, error: '' };
             try {
               return (
@@ -14204,7 +14102,7 @@
             }
           },
           withdrawOneCoinApprove: async (e, t, a, r) => {
-            (0, b.Rm)('withdrawOneCoinApprove', a.name, r);
+            (0, x.Rm)('withdrawOneCoinApprove', a.name, r);
             let s = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14217,7 +14115,7 @@
             }
           },
           withdrawOneCoin: async (e, t, a, r, s, o, i) => {
-            (0, b.Rm)('withdrawOneCoin', a.name, r, s, o, i);
+            (0, x.Rm)('withdrawOneCoin', a.name, r, s, o, i);
             let n = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -14232,7 +14130,7 @@
             }
           },
           unstakeEstGas: async (e, t, a, r) => {
-            (0, b.Rm)('unstakeEstGas', a.name, r);
+            (0, x.Rm)('unstakeEstGas', a.name, r);
             let s = { activeKey: e, estimatedGas: null, isApproved: !0, error: '' };
             try {
               return (s.estimatedGas = await a.estimateGas.unstake(r)), P(t, s.estimatedGas), s;
@@ -14241,7 +14139,7 @@
             }
           },
           unstake: async (e, t, a, r) => {
-            (0, b.Rm)('unstake', a.name, r);
+            (0, x.Rm)('unstake', a.name, r);
             let s = { activeKey: e, hash: '', error: '' };
             try {
               return (s.hash = await a.unstake(r)), await S.waitForTransaction(s.hash, t), s;
@@ -14250,12 +14148,12 @@
             }
           },
           claimableCrv: async (e) => {
-            (0, b.Rm)('claimableCrv', e.name);
+            (0, x.Rm)('claimableCrv', e.name);
             let t = await e.claimableCrv();
             return t && Number(t) > 0 ? t : '';
           },
           claimableRewards: async (e, t) => (
-            (0, b.Rm)('claimableRewards', e.name),
+            (0, x.Rm)('claimableRewards', e.name),
             (await e.claimableRewards()).filter((e) =>
               1 !== t ? 'CRV' !== e.symbol && +e.amount > 0 : Number(e.amount) > 0
             )
@@ -14275,7 +14173,7 @@
             }
           },
           claimCrv: async (e, t, a) => {
-            (0, b.Rm)('claimCrv', a.name);
+            (0, x.Rm)('claimCrv', a.name);
             let r = { activeKey: e, hash: '', error: '' };
             try {
               return (r.hash = await a.claimCrv()), await S.waitForTransaction(r.hash, t), r;
@@ -14284,7 +14182,7 @@
             }
           },
           claimRewards: async (e, t, a) => {
-            (0, b.Rm)('claimRewards', a.name);
+            (0, x.Rm)('claimRewards', a.name);
             let r = { activeKey: e, hash: '', error: '' };
             try {
               return (r.hash = await a.claimRewards()), await S.waitForTransaction(r.hash, t), r;
@@ -14305,7 +14203,7 @@
         helpers: S,
         network: {
           fetchAllPoolsList: async (e, t) => {
-            (0, b.Rm)('fetchAllPoolsList', e.chainId);
+            (0, x.Rm)('fetchAllPoolsList', e.chainId);
             let a = t.useApi;
             return (
               await Promise.allSettled([
@@ -14330,8 +14228,8 @@
             hasDepositAndStake: e.hasDepositAndStake(),
             hasRouter: e.hasRouter(),
           }),
-          getTVL: (e) => ((0, b.Rm)('getChainTVL', e.chainId), e.getTVL()),
-          getVolume: (e) => ((0, b.Rm)('getChainVolume', e.chainId), e.getVolume()),
+          getTVL: (e) => ((0, x.Rm)('getChainTVL', e.chainId), e.getTVL()),
+          getVolume: (e) => ((0, x.Rm)('getChainVolume', e.chainId), e.getVolume()),
           getFailedFetching24hOldVprice: async () => {
             let e = {};
             try {
@@ -14354,7 +14252,7 @@
           routesAndOutput: async (e, t, a, r, s) => {
             let { isFrom: o, fromAmount: i, toAmount: n } = r,
               { fromAddress: l, toAddress: d } = s;
-            (0, b.Rm)('routesAndOutput', o, l, i, d, n);
+            (0, x.Rm)('routesAndOutput', o, l, i, d, n);
             let c = {
               activeKey: e,
               exchangeRates: [],
@@ -14377,7 +14275,7 @@
                   t.router.expected(l, d, i),
                   t.router.priceImpact(l, d, i),
                 ]);
-                c = { ...c, ...(0, y.hw)(t, e, o, r, a, s, d, i, l) };
+                c = { ...c, ...(0, f.hw)(t, e, o, r, a, s, d, i, l) };
               } else {
                 let e = await t.router.required(l, d, n),
                   { route: r, output: s } = await t.router.getBestRouteAndOutput(l, d, e);
@@ -14386,7 +14284,7 @@
                   t.router.expected(l, d, e),
                   t.router.priceImpact(l, d, e),
                 ]);
-                c = { ...c, ...(0, y.hw)(t, r, i, s, a, n, d, e, l, o) };
+                c = { ...c, ...(0, f.hw)(t, r, i, s, a, n, d, e, l, o) };
               }
               return c;
             } catch (e) {
@@ -14396,7 +14294,7 @@
             }
           },
           estGasApproval: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('routerEstGasApproval', a, r, s);
+            (0, x.Rm)('routerEstGasApproval', a, r, s);
             let i = { activeKey: e, isApproved: !1, estimatedGas: null, error: '' };
             try {
               return (
@@ -14413,7 +14311,7 @@
             }
           },
           swapApprove: async (e, t, a, r, s) => {
-            (0, b.Rm)('swapApprove', r, s);
+            (0, x.Rm)('swapApprove', r, s);
             let o = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14426,7 +14324,7 @@
             }
           },
           swap: async (e, t, a, r, s, o, i) => {
-            (0, b.Rm)('swap', r, s, o, i);
+            (0, x.Rm)('swap', r, s, o, i);
             let n = { activeKey: e, hash: '', swappedAmount: '', error: '' };
             try {
               let e = await t.router.swap(r, o, s, +i);
@@ -14506,7 +14404,7 @@
                 ('rejected' === e.status && ((a.error.others = !0), (a.error.crv = !0)),
                 'fulfilled' === e.status && r)
               ) {
-                let [e, [t, s]] = (0, f.YM)((0, f.F$)(r));
+                let [e, [t, s]] = (0, y.YM)((0, y.F$)(r));
                 (a.other = e.filter((e) => +e.apy > 0)),
                   (a.crv = +t > 0 || +s > 0 ? [t, s] : [0, 0]);
               }
@@ -14537,7 +14435,7 @@
         },
         poolDeposit: {
           depositBalancedAmounts: async (e, t, a) => {
-            (0, b.Rm)('depositBalancedAmounts', t.name, a);
+            (0, x.Rm)('depositBalancedAmounts', t.name, a);
             let r = { activeKey: e, amounts: [], error: '' };
             try {
               return (
@@ -14551,7 +14449,7 @@
             }
           },
           depositBonus: async (e, t, a, r) => {
-            (0, b.Rm)('depositBonus', t.name, a, r);
+            (0, x.Rm)('depositBonus', t.name, a, r);
             let s = { activeKey: e, bonus: '', error: '' };
             try {
               return (s.bonus = a ? await t.depositWrappedBonus(r) : await t.depositBonus(r)), s;
@@ -14560,7 +14458,7 @@
             }
           },
           depositExpected: async (e, t, a, r) => {
-            (0, b.Rm)('depositExpected', t.name, a, r);
+            (0, x.Rm)('depositExpected', t.name, a, r);
             let s = { activeKey: e, expected: '', error: '' };
             try {
               return (
@@ -14573,7 +14471,7 @@
             }
           },
           depositEstGasApproval: async (e, t, a, r, s) => {
-            (0, b.Rm)('depositEstGasApproval', a.name, r, s);
+            (0, x.Rm)('depositEstGasApproval', a.name, r, s);
             let o = { activeKey: e, isApproved: !1, estimatedGas: null, error: '' };
             try {
               return (
@@ -14595,7 +14493,7 @@
             }
           },
           depositApprove: async (e, t, a, r, s) => {
-            (0, b.Rm)('depositApprove', a.name, r, s);
+            (0, x.Rm)('depositApprove', a.name, r, s);
             let o = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14608,7 +14506,7 @@
             }
           },
           deposit: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('deposit', a.name, r, s, o);
+            (0, x.Rm)('deposit', a.name, r, s, o);
             let i = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -14621,7 +14519,7 @@
             }
           },
           depositAndStakeBonus: async (e, t, a, r) => {
-            (0, b.Rm)('depositAndStakeBonus', t.name, a, r);
+            (0, x.Rm)('depositAndStakeBonus', t.name, a, r);
             let s = { activeKey: e, bonus: '0', error: '' };
             try {
               return (
@@ -14635,7 +14533,7 @@
             }
           },
           depositAndStakeExpected: async (e, t, a, r) => {
-            (0, b.Rm)('depositAndStakeExpected', t.name, a, r);
+            (0, x.Rm)('depositAndStakeExpected', t.name, a, r);
             let s = { activeKey: e, expected: '', error: '' };
             try {
               return (
@@ -14651,7 +14549,7 @@
             }
           },
           depositAndStakeEstGasApproval: async (e, t, a, r, s) => {
-            (0, b.Rm)('depositAndStakeEstGasApproval', a.name, r, s);
+            (0, x.Rm)('depositAndStakeEstGasApproval', a.name, r, s);
             let o = { activeKey: e, isApproved: !1, estimatedGas: null, error: '' };
             try {
               return (
@@ -14673,7 +14571,7 @@
             }
           },
           depositAndStakeApprove: async (e, t, a, r, s) => {
-            (0, b.Rm)('depositAndStakeApprove', a.name, r, s);
+            (0, x.Rm)('depositAndStakeApprove', a.name, r, s);
             let o = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14688,7 +14586,7 @@
             }
           },
           depositAndStake: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('depositAndStake', a.name, r, s, o);
+            (0, x.Rm)('depositAndStake', a.name, r, s, o);
             let i = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -14703,7 +14601,7 @@
             }
           },
           stakeEstGasApproval: async (e, t, a, r) => {
-            (0, b.Rm)('stakeEstGasApproval', a.name, r);
+            (0, x.Rm)('stakeEstGasApproval', a.name, r);
             let s = { activeKey: e, isApproved: !1, estimatedGas: null, error: '' };
             try {
               return (
@@ -14719,7 +14617,7 @@
             }
           },
           stakeApprove: async (e, t, a, r) => {
-            (0, b.Rm)('stakeApprove', a.name, r);
+            (0, x.Rm)('stakeApprove', a.name, r);
             let s = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14730,7 +14628,7 @@
             }
           },
           stake: async (e, t, a, r) => {
-            (0, b.Rm)('stake', a.name, r);
+            (0, x.Rm)('stake', a.name, r);
             let s = { activeKey: e, hash: '', error: '' };
             try {
               return (s.hash = await a.stake(r)), await S.waitForTransaction(s.hash, t), s;
@@ -14742,7 +14640,7 @@
         poolWithdraw: k,
         poolSwap: {
           exchangeOutput: async (e, t, a, r, s) => {
-            (0, b.Rm)('exchangeOutput', e, t.name, a, r);
+            (0, x.Rm)('exchangeOutput', e, t.name, a, r);
             let o = {
                 activeKey: e,
                 exchangeRates: [],
@@ -14769,25 +14667,25 @@
                   i ? '' : n ? t.swapWrappedRequired(d, p, m) : t.swapRequired(d, p, m),
                 ]),
                 r = (0, h.Rm)(e) ?? '',
-                f = (0, h.Rm)(a) ?? '';
+                y = (0, h.Rm)(a) ?? '';
               'rejected' === e.status &&
                 (o.error = e.reason?.reason || 'error-swap-exchange-and-output'),
                 'rejected' === a.status &&
                   (o.error = a.reason?.reason || 'error-swap-exchange-and-output');
-              let g = i ? c : f,
+              let g = i ? c : y,
                 [A] = await Promise.allSettled([
                   n ? t.swapWrappedPriceImpact(d, p, g) : t.swapPriceImpact(d, p, g),
                 ]),
                 w = (0, h.Rm)(A) ?? 0,
-                v = i ? (0, y.lI)(r, c) : (0, y.lI)(m, f);
+                b = i ? (0, f.lI)(r, c) : (0, f.lI)(m, y);
               return (
                 (o.exchangeRates = [
-                  { from: l, to: u, fromAddress: d, value: v[0] || '', label: `${l}/${u}` },
-                  { from: u, to: l, fromAddress: p, value: v[1] || '', label: `${u}/${l}` },
+                  { from: l, to: u, fromAddress: d, value: b[0] || '', label: `${l}/${u}` },
+                  { from: u, to: l, fromAddress: p, value: b[1] || '', label: `${u}/${l}` },
                 ]),
-                (o.isExchangeRateLow = !(s || (0, y.SF)(d, p, [])) && (0, y.Bu)(t.isCrypto, v[0])),
+                (o.isExchangeRateLow = !(s || (0, f.SF)(d, p, [])) && (0, f.Bu)(t.isCrypto, b[0])),
                 (o.priceImpact = w || 0),
-                (o.fromAmount = i ? c : f),
+                (o.fromAmount = i ? c : y),
                 (o.toAmount = i ? r : m),
                 o
               );
@@ -14798,7 +14696,7 @@
             }
           },
           estGasApproval: async (e, t, a, r, s, o, i, n) => {
-            (0, b.Rm)('poolSwapEstGasApproval', a.name, r, s, o, i, n);
+            (0, x.Rm)('poolSwapEstGasApproval', a.name, r, s, o, i, n);
             let l = { activeKey: e, estimatedGas: null, isApproved: !1, error: '' };
             try {
               return (
@@ -14820,7 +14718,7 @@
             }
           },
           swapApprove: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('swapApprove', a.name, r, s, o);
+            (0, x.Rm)('swapApprove', a.name, r, s, o);
             let i = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -14833,7 +14731,7 @@
             }
           },
           swap: async (e, t, a, r, s, o, i, n) => {
-            (0, b.Rm)('swap', a.name, r, s, o, i, n);
+            (0, x.Rm)('swap', a.name, r, s, o, i, n);
             let l = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -14848,7 +14746,7 @@
         },
         wallet: {
           getUserPoolList: async (e, t) => {
-            (0, b.Rm)('getUserPoolList', e.chainId, t);
+            (0, x.Rm)('getUserPoolList', e.chainId, t);
             let a = { poolList: [], error: '' };
             try {
               return (a.poolList = await C(e, t)), a;
@@ -14857,10 +14755,10 @@
             }
           },
           getUserLiquidityUSD: async (e, t, a) => (
-            (0, b.Rm)('getUserLiquidityUSD', t, a), await e.getUserLiquidityUSD(t, a)
+            (0, x.Rm)('getUserLiquidityUSD', t, a), await e.getUserLiquidityUSD(t, a)
           ),
           getUserClaimable: async (e, t, a) => {
-            (0, b.Rm)('getUserClaimable', t, a);
+            (0, x.Rm)('getUserClaimable', t, a);
             let r = await e.getUserClaimable(t, a);
             return 8453 === e.chainId
               ? r.map((e) => {
@@ -14873,7 +14771,7 @@
               : r;
           },
           poolWalletBalances: async (e, t) => {
-            (0, b.Rm)('poolUserPoolBalances', e?.signerAddress, t);
+            (0, x.Rm)('poolUserPoolBalances', e?.signerAddress, t);
             let a = e.getPool(t),
               [r, s, o] = await Promise.all([
                 a.wallet.wrappedCoinBalances(),
@@ -14889,7 +14787,7 @@
             );
           },
           userClaimableFees: async (e, t, a) => {
-            (0, b.Rm)('userClaimableFees', t, a);
+            (0, x.Rm)('userClaimableFees', t, a);
             let r = { activeKey: t, '3CRV': '', crvUSD: '', error: '' };
             try {
               return (
@@ -14918,15 +14816,15 @@
             let a = await e.userBoost(t);
             return a && 'NaN' === a ? '0' : a;
           },
-          userPoolBalances: async (e) => ((0, b.Rm)('userPoolBalances', e.name), e.userBalances()),
+          userPoolBalances: async (e) => ((0, x.Rm)('userPoolBalances', e.name), e.userBalances()),
           userPoolLiquidityUsd: async (e, t) => {
             let a = '';
             try {
-              (0, b.Rm)('userPoolLiquidityUsd', e.name, t);
+              (0, x.Rm)('userPoolLiquidityUsd', e.name, t);
               let r = await e.userLiquidityUSD(t);
               return 'NaN' !== r && (a = r), a;
             } catch (t) {
-              (0, b.Rm)('userPoolLiquidityUsd', t, e.name);
+              (0, x.Rm)('userPoolLiquidityUsd', t, e.name);
             }
           },
           userPoolRewardCrvApy: async (e, t) => {
@@ -14951,24 +14849,24 @@
               },
               tokensProfit: [],
             };
-            if (((r.baseProfit = (0, f.n6)(await e.baseProfit(t))), (0, h.$m)(e.gauge.address))) {
+            if (((r.baseProfit = (0, y.n6)(await e.baseProfit(t))), (0, h.$m)(e.gauge.address))) {
               if (e.rewardsOnly()) {
                 let a = await e.rewardsProfit(t),
-                  { crvProfit: s, tokensProfit: o } = (0, f.hj)(a);
+                  { crvProfit: s, tokensProfit: o } = (0, y.hj)(a);
                 s && (r.crvProfit = s), (r.tokensProfit = o);
               } else {
                 let s = await Promise.all([e.crvProfit(t), e.rewardsProfit(t)]),
-                  o = (0, f.WJ)(s[0]);
+                  o = (0, y.WJ)(s[0]);
                 o && (r.crvProfit = o),
                   (8453 === a && s[1].find((e) => 'CRV' === e.symbol)) || (r.tokensProfit = s[1]);
               }
             }
             return r;
           },
-          userPoolShare: async (e) => ((0, b.Rm)('userPoolShare', e.name), e.userShare()),
+          userPoolShare: async (e) => ((0, x.Rm)('userPoolShare', e.name), e.userShare()),
           fetchUserBalances: async (e, t) => {
             let { chainId: a } = e;
-            (0, b.Rm)('fetchWalletTokensBalances', a, t.length);
+            (0, x.Rm)('fetchWalletTokensBalances', a, t.length);
             let r = {},
               o = [],
               n = s()(t, 20);
@@ -15003,7 +14901,7 @@
         },
         lockCrv: {
           vecrvInfo: async (e, t, a) => {
-            (0, b.Rm)('vecrvInfo', t.chainId, a);
+            (0, x.Rm)('vecrvInfo', t.chainId, a);
             let r = {
               activeKey: e,
               resp: {
@@ -15033,17 +14931,17 @@
             }
           },
           calcUnlockTime: (e, t, a, r) => {
-            (0, b.Rm)('calcUnlockTime', t, a, r);
+            (0, x.Rm)('calcUnlockTime', t, a, r);
             let s = 0;
             return (
               'adjust_date' === t && a && r
                 ? (s = e.boosting.calcUnlockTime(r, a))
                 : 'create' === t && r && (s = e.boosting.calcUnlockTime(r)),
-              v.A.utc(s)
+              b.A.utc(s)
             );
           },
           createLock: async (e, t, a, r, s, o) => {
-            (0, b.Rm)('createLock', r, s.toString(), o);
+            (0, x.Rm)('createLock', r, s.toString(), o);
             let i = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -15056,7 +14954,7 @@
             }
           },
           estGasApproval: async (e, t, a, r, s) => {
-            (0, b.Rm)('lockCrvEstGasApproval', a, r, s);
+            (0, x.Rm)('lockCrvEstGasApproval', a, r, s);
             let o = { activeKey: e, isApproved: !1, estimatedGas: null, error: '' };
             try {
               return (
@@ -15081,7 +14979,7 @@
             }
           },
           lockCrvApprove: async (e, t, a, r) => {
-            (0, b.Rm)('userLockCrvApprove', r);
+            (0, x.Rm)('userLockCrvApprove', r);
             let s = { activeKey: e, hashes: [], error: '' };
             try {
               return (
@@ -15094,7 +14992,7 @@
             }
           },
           increaseAmount: async (e, t, a, r) => {
-            (0, b.Rm)('increaseAmount', r);
+            (0, x.Rm)('increaseAmount', r);
             let s = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -15107,7 +15005,7 @@
             }
           },
           increaseUnlockTime: async (e, t, a, r) => {
-            (0, b.Rm)('increaseUnlockTime', r);
+            (0, x.Rm)('increaseUnlockTime', r);
             let s = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -15120,7 +15018,7 @@
             }
           },
           withdrawLockedCrv: async (e, t, a) => {
-            (0, b.Rm)('withdrawLockedCrv', e.chainId);
+            (0, x.Rm)('withdrawLockedCrv', e.chainId);
             let r = { walletAddress: a, hash: '', error: '' };
             try {
               return (
@@ -15133,7 +15031,7 @@
             }
           },
           claimFees: async (e, t, a, r) => {
-            (0, b.Rm)('claimFees', t.chainId, r);
+            (0, x.Rm)('claimFees', t.chainId, r);
             let s = { activeKey: e, hash: '', error: '' };
             try {
               return (
@@ -15250,7 +15148,7 @@
         s = a.n(r),
         o = a(74143),
         i = a(84017),
-        n = a(77241),
+        n = a(83980),
         l = a(36074);
       let d = 'user',
         c = {
@@ -15318,8 +15216,8 @@
               let p = '',
                 m = 0,
                 h = '',
-                f = null,
-                y = [];
+                y = null,
+                f = [];
               if (+s.gauge > 0 || +s.lpToken > 0) {
                 let t = c.pool,
                   [a, r, s, l, d] = await Promise.allSettled([
@@ -15334,13 +15232,13 @@
                 (p = (0, i.Rm)(r) ?? ''),
                   (m = (0, i.Rm)(l) ?? 0),
                   (h = (0, i.Rm)(d) ?? ''),
-                  (f = (0, i.Rm)(s) ?? null),
-                  (y = (0, i.Rm)(a) ?? []);
+                  (y = (0, i.Rm)(s) ?? null),
+                  (f = (0, i.Rm)(a) ?? []);
               }
               return (
                 t()[d].setStateByActiveKey('userCrvApy', l, { crvApy: m, boostApy: h }),
-                t()[d].setStateByActiveKey('userWithdrawAmounts', l, y),
-                t()[d].setStateByActiveKey('userShare', l, f),
+                t()[d].setStateByActiveKey('userWithdrawAmounts', l, f),
+                t()[d].setStateByActiveKey('userShare', l, y),
                 t()[d].setStateByActiveKey('userLiquidityUsd', l, p),
                 s
               );
@@ -15378,7 +15276,7 @@
         c = a(87401),
         p = a(3717);
       let { Spacing: u, ButtonSize: m, MinWidth: h } = a(84032).B,
-        f = ({ token: e, disabled: t }) =>
+        y = ({ token: e, disabled: t }) =>
           (0, r.jsxs)(d.A, {
             direction: 'row',
             gap: u.xxs,
@@ -15393,7 +15291,7 @@
               (0, r.jsx)(c.A, { variant: 'bodyMBold', children: e.symbol }),
             ],
           }),
-        y = () =>
+        f = () =>
           (0, r.jsx)(n.A, {
             size: 20,
             sx: {
@@ -15411,7 +15309,7 @@
             open: !1,
             disabled: t,
             displayEmpty: !0,
-            renderValue: () => (e ? (0, r.jsx)(f, { token: e, disabled: t }) : (0, r.jsx)(y, {})),
+            renderValue: () => (e ? (0, r.jsx)(y, { token: e, disabled: t }) : (0, r.jsx)(f, {})),
             IconComponent: i.A,
             sx: {
               minHeight: m.sm,
@@ -15451,16 +15349,16 @@
           disabledTokens: u = [],
           disableSorting: m = !1,
           disableMyTokens: h = !1,
-          customOptions: f,
-          compact: y = !1,
+          customOptions: y,
+          compact: f = !1,
           onToken: A,
           onSearch: w,
-          sx: v,
+          sx: b,
         }) => {
-          let [x, , b, S] = (0, s.K)();
+          let [v, , x, S] = (0, s.K)();
           return (0, r.jsxs)(r.Fragment, {
             children: [
-              (0, r.jsx)(g, { token: e, disabled: l, onClick: S, sx: v }),
+              (0, r.jsx)(g, { token: e, disabled: l, onClick: S, sx: b }),
               (0, r.jsx)(o.S, {
                 tokens: t,
                 balances: i,
@@ -15468,14 +15366,14 @@
                 favorites: a,
                 showSearch: d,
                 showManageList: c,
-                isOpen: !!x,
+                isOpen: !!v,
                 error: p,
                 disabledTokens: u,
                 disableSorting: m,
                 disableMyTokens: h,
-                customOptions: f,
-                compact: y,
-                onClose: b,
+                customOptions: y,
+                compact: f,
+                onClose: x,
                 onToken: (e) => {
                   S(), A?.(e);
                 },
@@ -15495,7 +15393,7 @@
         n = a(56457),
         l = a(59339),
         d = a(23173),
-        c = a(77241);
+        c = a(83980);
       let p = i.Ay.div.withConfig({ componentId: 'sc-fba15a49-0' })(
           ['display:flex;', ''],
           ({ $isManyLinks: e }) => {
@@ -15517,14 +15415,14 @@
         h = i.Ay.div.withConfig({ componentId: 'sc-fba15a49-3' })([
           'align-items:center;display:grid;grid-auto-flow:column;justify-content:flex-start;font-size:var(--font-size-3);font-weight:bold;',
         ]),
-        f = (0, i.Ay)(l.A).withConfig({ componentId: 'sc-fba15a49-4' })(['color:inherit;']),
-        y = (0, i.Ay)(d.A).withConfig({ componentId: 'sc-fba15a49-5' })(
+        y = (0, i.Ay)(l.A).withConfig({ componentId: 'sc-fba15a49-4' })(['color:inherit;']),
+        f = (0, i.Ay)(d.A).withConfig({ componentId: 'sc-fba15a49-5' })(
           [
             'display:inline-block;opacity:0.75;background-color:hsl(0deg 0% 50% / 10%);padding:0.2rem 0.5rem 0.4rem;margin:0.25rem 0.25rem 0 0;&:hover{opacity:1;}',
             '{font-size:var(--font-size-1);text-decoration:none;text-transform:uppercase;&:hover{color:inherit;text-transform:uppercase;}}@media (min-width:',
             'rem){margin:0 0.2rem;}',
           ],
-          f,
+          y,
           c.fi.sm
         ),
         g = ({ className: e = '', title: t, titleIcon: a, externalLinks: s }) =>
@@ -15540,9 +15438,9 @@
                     o.Fragment,
                     {
                       children: [
-                        (0, r.jsx)(y, {
+                        (0, r.jsx)(f, {
                           isBold: !0,
-                          children: (0, r.jsxs)(f, {
+                          children: (0, r.jsxs)(y, {
                             href: t,
                             children: [
                               e,
@@ -15565,10 +15463,10 @@
             ],
           });
       var A = a(55906),
-        w = a(21415),
-        v = a(64387),
-        x = a(4387),
-        b = a(35736),
+        w = a(31305),
+        b = a(64387),
+        v = a(4387),
+        x = a(35736),
         S = a(84826);
       let k = i.Ay.div.withConfig({ componentId: 'sc-9c8ac171-0' })(
           [
@@ -15594,7 +15492,7 @@
                         children: '—Zunami Protocol',
                       }),
                       ' ',
-                      (0, r.jsx)(b.G, {
+                      (0, r.jsx)(x.G, {
                         $noStyles: !0,
                         href: 'https://twitter.com/ZunamiProtocol/status/1690863406079696896?s=20',
                         children:
@@ -15610,7 +15508,7 @@
                 isCloseOnTooltipOnly: !0,
                 minWidth: '350px',
                 message: (0, r.jsx)(k, {
-                  children: (0, r.jsxs)(v.A, {
+                  children: (0, r.jsxs)(b.A, {
                     grid: !0,
                     gridGap: 2,
                     children: [
@@ -15618,7 +15516,7 @@
                         children: [
                           'Please note that exchanges on synthetix synths are expected to be disabled and users can either withdraw liquidity from the underlying token, or redeem their synths to sUSD on',
                           ' ',
-                          (0, r.jsx)(b.G, {
+                          (0, r.jsx)(x.G, {
                             $noStyles: !0,
                             href: 'https://staking.synthetix.io/wallet/balances/',
                             children: 'https://staking.synthetix.io/wallet/balances/',
@@ -15629,7 +15527,7 @@
                         children: [
                           'Users are encouraged to exit the pools in order to avoid getting their holdings‘ value diluted with the discountRate For more information please refer to',
                           ' ',
-                          (0, r.jsx)(b.G, {
+                          (0, r.jsx)(x.G, {
                             $noStyles: !0,
                             href: 'https://gov.curve.fi/t/kill-gauges-on-all-non-susd-curve-pools-on-ethereum/10033/2',
                             children:
@@ -15650,7 +15548,7 @@
                 isPoolPageOnly: !0,
                 message: (0, r.jsx)(g, {
                   title: 'CrossCurve links',
-                  titleIcon: (0, r.jsx)(x.$x, {}),
+                  titleIcon: (0, r.jsx)(v.$x, {}),
                   externalLinks: e,
                 }),
               }),
@@ -15845,7 +15743,7 @@
                       children: [
                         'Deposit and swap are disabled, see',
                         ' ',
-                        (0, r.jsx)(b.G, {
+                        (0, r.jsx)(x.G, {
                           $noStyles: !0,
                           href: 'https://twitter.com/geistfinance',
                           children: 'https://twitter.com/geistfinance',
@@ -15872,7 +15770,7 @@
                           'This pool has been deprecated. Please use the',
                           ' ',
                           e
-                            ? (0, r.jsx)(b.E, { $noStyles: !0, href: e, children: t })
+                            ? (0, r.jsx)(x.E, { $noStyles: !0, href: e, children: t })
                             : (0, r.jsx)('span', { children: t }),
                           ' ',
                           'instead.',
@@ -15900,7 +15798,7 @@
                       children: [
                         'This pool might be at risk of being exploited. While security researchers have not identified a profitable exploit, we recommend exiting this pool.',
                         ' ',
-                        (0, r.jsx)(b.G, {
+                        (0, r.jsx)(x.G, {
                           $noStyles: !0,
                           href: 'https://twitter.com/CurveFinance/status/1685925429041917952',
                           children: 'https://twitter.com/CurveFinance/status/1685925429041917952',
@@ -15918,7 +15816,7 @@
                       children: [
                         'Deposit and Swap with wBTC.e will return an error due to an Aave community decision to freeze this asset.',
                         ' ',
-                        (0, r.jsx)(b.G, {
+                        (0, r.jsx)(x.G, {
                           $noStyles: !0,
                           href: 'https://app.aave.com/governance/v3/proposal/?proposalId=2',
                           children: 'More details',
@@ -15955,7 +15853,7 @@
                       children: [
                         'This pool has been exploited due to a vulnerability found in Vyper versions v0.2.15, v0.2.16, or v0.3.0. For additional information, please click on the post-mortem link:',
                         ' ',
-                        (0, r.jsx)(b.G, {
+                        (0, r.jsx)(x.G, {
                           $noStyles: !0,
                           href: 'https://hackmd.io/@LlamaRisk/BJzSKHNjn',
                           children: 'https://hackmd.io/@LlamaRisk/BJzSKHNjn',
@@ -15994,9 +15892,9 @@
         AI: () => m,
         Dy: () => l,
         LV: () => p,
-        UN: () => y,
+        UN: () => f,
         Wb: () => g,
-        XG: () => f,
+        XG: () => y,
         _i: () => n,
         hS: () => i,
         k3: () => h,
@@ -16027,7 +15925,7 @@
           (e === s.vD
             ? null !== t
             : e === s.dH &&
-              (f(d, o, i, n, l)
+              (y(d, o, i, n, l)
                 ? null !== a && '0' !== r[0] && '0' !== r[1]
                 : null !== a && '0' !== r[0])),
         d = (e, t, a, r) => '' !== a && '' !== r && (t == s.vD || e),
@@ -16041,14 +15939,14 @@
         },
         m = (e) => e.some((e) => 1 === e.ngAssetType && '' !== e.address),
         h = (e, t, a, r) => e && t && a && r,
-        f = (e, t, a, r, s) =>
+        y = (e, t, a, r, s) =>
           e && 3 === t && '' !== a.address && '' !== r.address && '' !== s.address,
-        y = (e, t) => '' !== e && t.some((t) => t.token === e),
+        f = (e, t) => '' !== e && t.some((t) => t.token === e),
         g = (e, t, a, r) => {
           let s = [];
           return (
-            (y(e, t) || a.basePool || r.basePool) &&
-              (y(e, t)
+            (f(e, t) || a.basePool || r.basePool) &&
+              (f(e, t)
                 ? (s = t.find((t) => t.token.toLowerCase() === e.toLowerCase())?.coins || [])
                 : a.basePool
                   ? (s =
@@ -16067,7 +15965,7 @@
       var r = a(54568),
         s = a(60171),
         o = a(19115),
-        i = a(77241),
+        i = a(83980),
         n = a(36074);
       let l = ({ loading: e, priceImpact: t, isHighImpact: a }) =>
         (0, r.jsx)(s.A, {
@@ -16088,10 +15986,10 @@
     84017: (e, t, a) => {
       'use strict';
       a.d(t, {
-        q5: () => y,
+        q5: () => f,
         Rm: () => m,
         We: () => g,
-        gv: () => f,
+        gv: () => y,
         u1: () => u,
         vx: () => i,
         cV: () => p,
@@ -16148,7 +16046,7 @@
         console.error(e.reason);
       }
       let h = (e = Math.floor(9001 * Math.random() + 1e3)) => new Promise((t) => setTimeout(t, e));
-      function f(e, t) {
+      function y(e, t) {
         let a = 'factory-v2-',
           r = 'factory-crypto-';
         return e.match(a)
@@ -16157,7 +16055,7 @@
             ? `${t}/factory-crypto/${e.split(r)[1]}`
             : `${t}/${e}`;
       }
-      let y = (e) => setTimeout(() => e(), 50),
+      let f = (e) => setTimeout(() => e(), 50),
         g = (e, t) => (e && t ? `${e}-${t}` : ''),
         A = (e) => (t) => ({ chain: e, address: t.address, symbol: t.symbol, volume: t.volume });
     },
@@ -16182,7 +16080,7 @@
     },
     84799: (e, t, a) => {
       'use strict';
-      a.d(t, { T: () => w, A: () => b });
+      a.d(t, { T: () => w, A: () => x });
       var r = a(54568),
         s = a(7620),
         o = a(48341),
@@ -16193,22 +16091,22 @@
         c = a(47990),
         p = a(24451),
         u = a(6990),
-        m = a(72986),
+        m = a(74699),
         h = a(36074);
-      let f = ({
+      let y = ({
         activeKey: e,
         loading: t,
         walletAddress: a,
         steps: o,
         setSteps: i,
-        setTxInfoBar: f,
+        setTxInfoBar: y,
       }) => {
-        let { curve: y, isValidAddress: g } = (0, n.Vd)(),
+        let { curve: f, isValidAddress: g } = (0, n.Vd)(),
           A = (0, d.A)((t) => t.dashboard.claimableFees[e]),
-          v = (0, d.A)((e) => e.dashboard.formStatus.formProcessing),
-          x = (0, d.A)((e) => e.dashboard.fetchStepClaimFees),
-          b = (0, d.A)((e) => e.dashboard.setFormStatusClaimFees),
-          { chainId: S, signerAddress: k } = y || {},
+          b = (0, d.A)((e) => e.dashboard.formStatus.formProcessing),
+          v = (0, d.A)((e) => e.dashboard.fetchStepClaimFees),
+          x = (0, d.A)((e) => e.dashboard.setFormStatusClaimFees),
+          { chainId: S, signerAddress: k } = f || {},
           C = (0, d.A)((e) => (S ? e.networks.networks[S] : null)),
           [P, j] = (0, s.useState)(''),
           T = (0, s.useMemo)(() => {
@@ -16217,7 +16115,7 @@
               s = +(A?.crvUSD ?? '0'),
               o = {
                 disabled: e || !k || r + s === 0 || !g,
-                loading: e || v,
+                loading: e || b,
                 variant: 'filled',
                 size: 'medium',
               };
@@ -16225,15 +16123,15 @@
               { buttonProps: o, label: (0, h.t)`Claim 3CRV`, key: w['3CRV'], show: r > 0 },
               { buttonProps: o, label: (0, h.t)`Claim crvUSD`, key: w.crvUSD, show: s > 0 },
             ];
-          }, [A, v, g, t, k, a]),
+          }, [A, b, g, t, k, a]),
           I = (0, s.useCallback)(
             async (t) => {
-              if (!C || !y) return;
+              if (!C || !f) return;
               let { scanTxPath: s } = C,
                 o = (0, h.t)`Please approve claim veCRV rewards.`,
                 { dismiss: n } = (0, m.me)(o, 'pending');
-              j(t), i([]), f(null);
-              let d = await x(e, y, a, t);
+              j(t), i([]), y(null);
+              let d = await v(e, f, a, t);
               if (!d || d?.activeKey !== e || ('function' == typeof n && n(), d?.error)) return;
               i([
                 {
@@ -16248,17 +16146,17 @@
                 t === w['3CRV']
                   ? (0, h.t)`3CRV have been claimed and sent to 3pool.`
                   : (0, h.t)`crvUSD has been claimed and sent to your wallet.`;
-              f(
+              y(
                 (0, r.jsx)(u.A, {
                   description: c,
                   txHash: s(d.hash),
                   onClose: () => {
-                    b(l.kR), i([]), f(null);
+                    x(l.kR), i([]), y(null);
                   },
                 })
               );
             },
-            [e, y, x, b, i, f, a, C]
+            [e, f, v, x, i, y, a, C]
           );
         return (0, r.jsx)(r.Fragment, {
           children: T.map(({ label: e, key: t, show: a, buttonProps: i }) => {
@@ -16283,23 +16181,23 @@
           }),
         });
       };
-      var y = a(19115),
-        g = a(77241),
+      var f = a(19115),
+        g = a(83980),
         A = a(39651),
         w = (function (e) {
           return (e['3CRV'] = '3CRV'), (e.crvUSD = 'crvUSD'), e;
         })({});
-      let v = o.Ay.div.withConfig({ componentId: 'sc-90a990ec-0' })(
+      let b = o.Ay.div.withConfig({ componentId: 'sc-90a990ec-0' })(
           [
             'display:grid;grid-row-gap:0.5rem;margin-top:1rem;@media (min-width:',
             'rem){max-width:18.75rem;}',
           ],
           A.fi.sm
         ),
-        x = (0, o.Ay)(y.A).withConfig({ componentId: 'sc-90a990ec-1' })([
+        v = (0, o.Ay)(f.A).withConfig({ componentId: 'sc-90a990ec-1' })([
           'position:relative;top:2px;',
         ]),
-        b = () => {
+        x = () => {
           let {
               activeKey: e,
               isLoading: t,
@@ -16308,16 +16206,16 @@
             o = (0, d.A)((t) => t.dashboard.claimableFees[e]),
             c = (0, d.A)((e) => e.dashboard.formStatus),
             [p, u] = (0, s.useState)([]),
-            [m, y] = (0, s.useState)(null),
+            [m, f] = (0, s.useState)(null),
             A = 'CLAIMABLE_FEES' === c.formType ? c : l.kR;
-          return (0, r.jsxs)(v, {
+          return (0, r.jsxs)(b, {
             children: [
               (0, r.jsxs)('div', {
                 children: [
                   (0, r.jsxs)('div', {
                     children: [
                       (0, h.t)`veCRV rewards`,
-                      (0, r.jsx)(x, {
+                      (0, r.jsx)(v, {
                         children: (0, h.t)`Trading fees distributed to CRV lockers`,
                       }),
                       ':',
@@ -16341,13 +16239,13 @@
               }),
               A.error && (0, r.jsx)(i.A, { errorKey: A.error }),
               m,
-              (0, r.jsx)(f, {
+              (0, r.jsx)(y, {
                 activeKey: e,
                 loading: t,
                 walletAddress: a,
                 steps: p,
                 setSteps: u,
-                setTxInfoBar: y,
+                setTxInfoBar: f,
               }),
             ],
           });
@@ -16430,7 +16328,7 @@
       });
       var r = a(90819),
         s = a.n(r),
-        o = a(77241);
+        o = a(83980);
       async function i(e, t) {
         var r;
         let o = s()((await Promise.resolve().then(a.bind(a, 78534))).default);
@@ -16562,16 +16460,16 @@
           ...u
         }) => {
           let [m, h] = (0, l.S)('', e),
-            f = (0, s.useRef)(null),
-            y = p || f,
+            y = (0, s.useRef)(null),
+            f = p || y,
             g = (0, s.useCallback)(() => {
-              h(''), y.current?.focus();
-            }, [h, y]);
+              h(''), f.current?.focus();
+            }, [h, f]);
           return (0, r.jsx)(n.A, {
             fullWidth: !0,
             onChange: (e) => h(e.target.value),
             slotProps: {
-              htmlInput: { ref: y },
+              htmlInput: { ref: f },
               input: {
                 startAdornment: (0, r.jsx)(c, {}),
                 endAdornment:

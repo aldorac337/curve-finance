@@ -1,25 +1,22 @@
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
   [2711],
   {
-    9606: (e, s, r) => {
-      Promise.resolve().then(r.bind(r, 67520));
-    },
     18278: (e, s, r) => {
       var t = r(19344),
-        a = r(81676),
-        i = r(61149),
-        n = r(93590),
+        i = r(81676),
+        a = r(61149),
+        l = r(93590),
         o = r(71825),
-        l = Math.max;
+        n = Math.max;
       e.exports = function (e) {
         if (!(e && e.length)) return [];
         var s = 0;
         return (
           (e = t(e, function (e) {
-            if (o(e)) return (s = l(e.length, s)), !0;
+            if (o(e)) return (s = n(e.length, s)), !0;
           })),
-          n(s, function (s) {
-            return a(e, i(s));
+          l(s, function (s) {
+            return i(e, a(s));
           })
         );
       };
@@ -28,21 +25,21 @@
       'use strict';
       r.d(s, { A: () => o });
       var t = r(54568),
-        a = r(7620),
-        i = r(46205),
-        n = r(77241);
+        i = r(7620),
+        a = r(46205),
+        l = r(83980);
       let o = ({ isHighlight: e, rewardsApy: s }) =>
         s?.other && 0 !== s.other.length
           ? (0, t.jsx)('div', {
               children: s?.other?.map((s) =>
                 t.jsxs(
-                  a.Fragment,
+                  i.Fragment,
                   {
                     children: [
-                      t.jsxs(i.v, {
+                      t.jsxs(a.v, {
                         size: 'md',
                         isBold: e,
-                        children: [n.ZV(s.apy, n.hd.PERCENT), ' ', s.symbol],
+                        children: [l.ZV(s.apy, l.hd.PERCENT), ' ', s.symbol],
                       }),
                       t.jsx('br', {}),
                     ],
@@ -53,242 +50,41 @@
             })
           : null;
     },
-    44730: (e, s, r) => {
-      'use strict';
-      r.d(s, { A: () => g });
-      var t = r(33550),
-        a = r(62942),
-        i = r(7620),
-        n = r(55906),
-        o = r(71287),
-        l = r(90263),
-        d = r(21415),
-        c = r(77241),
-        h = r(72986),
-        p = r(47636),
-        m = r(12522);
-      let g = function (e) {
-        let s = (0, a.useParams)(),
-          r = (0, a.usePathname)(),
-          { push: g } = (0, a.useRouter)(),
-          { wallet: u, connect: f, disconnect: w, walletName: A, setWalletName: j } = (0, h.vT)(),
-          [y, v] = (0, h.v3)(),
-          C = (0, m.B)((e) => e.curve),
-          b = (0, m.B)((e) => e.updateCurve),
-          I = (0, m.B)((e) => e.setIsLoadingCurve),
-          k = (0, o.A)((e) => e.hydrate),
-          P = (0, o.A)((e) => e.connectState),
-          N = (0, o.A)((e) => e.networks.setNetworkConfigs),
-          T = (0, o.A)((e) => e.updateConnectState),
-          E = (0, o.A)((e) => e.networks.networks),
-          O = (0, o.A)((e) => e.networks.networksIdMapper),
-          { rChainId: L } = (0, d.V1)(),
-          R = (0, h.oe)(u),
-          S = (0, h.kB)(u),
-          $ = (0, d.V3)(s, e),
-          M = (0, i.useCallback)(
-            async (e) => {
-              if (e)
-                try {
-                  let [s, r] = e;
-                  if ((I(!0), s)) {
-                    let e = await (0, l.R8)(s, (r && u) || void 0);
-                    N(e), b(e), T('success', ''), await k(e, C, u);
-                  } else T('', '');
-                } catch (e) {
-                  console.error('Failed to connect to network', e), T('failure', n.Ej.CONNECT_API);
-                } finally {
-                  I(!1);
-                }
-            },
-            [C, I, u, N, b, T, k]
-          ),
-          D = (0, i.useCallback)(
-            async (e) => {
-              if (e) {
-                let s;
-                let [r] = e;
-                if (r) {
-                  let e = new Promise(async (e, s) => {
-                    try {
-                      let s = await Promise.race([
-                        f({ autoSelect: { label: r, disableModals: !0 } }),
-                        new Promise((e, s) =>
-                          setTimeout(() => s(Error('timeout connect wallet')), p.oX['3s'])
-                        ),
-                      ]);
-                      e(s);
-                    } catch (e) {
-                      s(e);
-                    }
-                  });
-                  try {
-                    let r = await e;
-                    if (!r || (Array.isArray(r) && 0 === r.length))
-                      throw Error('unable to connect');
-                    s = r[0];
-                  } catch (e) {
-                    j(null), ([s] = await f());
-                  }
-                } else [s] = await f();
-                try {
-                  if (!s) throw Error('unable to connect');
-                  j(s.label);
-                  let e = (0, h.oe)(s);
-                  if (e && e !== $.rChainId) {
-                    if (await v({ chainId: t.nD($.rChainId) }))
-                      T('loading', n.Ej.CONNECT_API, [$.rChainId, !0]);
-                    else {
-                      let s = E[e]?.id;
-                      s
-                        ? (console.warn(
-                            `Network is switched to ${e}, redirecting...`,
-                            $.rChainId,
-                            $.restFullPathname
-                          ),
-                          g((0, d.Yn)({ network: s }, `/${$.restFullPathname}`)),
-                          T('loading', n.Ej.CONNECT_API, [e, !0]))
-                        : T('failure', n.Ej.SWITCH_NETWORK);
-                    }
-                  } else T('loading', n.Ej.CONNECT_API, [$.rChainId, !0]);
-                } catch (e) {
-                  T('loading', n.Ej.CONNECT_API, [$.rChainId, !1]), j(null);
-                }
-              }
-            },
-            [f, g, E, $.rChainId, $.restFullPathname, v, T, j]
-          ),
-          B = (0, i.useCallback)(
-            async (e) => {
-              try {
-                await w(e), j(null), T('loading', n.Ej.CONNECT_API, [$.rChainId, !1]);
-              } catch (e) {
-                console.error(e);
-              }
-            },
-            [w, $.rChainId, T, j]
-          ),
-          F = (0, i.useCallback)(
-            async (e) => {
-              if (e) {
-                let [s, r] = e;
-                if (u)
-                  try {
-                    if (!(await v({ chainId: t.nD(r) }))) throw Error('reject network switch');
-                    T('loading', n.Ej.CONNECT_API, [r, !0]);
-                  } catch (t) {
-                    console.error(t), T('failure', n.Ej.SWITCH_NETWORK);
-                    let e = E[+s]?.id;
-                    e
-                      ? (console.warn(
-                          `Could not switch network to ${r}, redirecting to ${e}`,
-                          s,
-                          $.restFullPathname,
-                          t
-                        ),
-                        g((0, d.Yn)({ network: e }, `/${$.restFullPathname}`)),
-                        T('success', ''))
-                      : T('failure', n.Ej.SWITCH_NETWORK);
-                  }
-                else T('loading', n.Ej.CONNECT_API, [r, !1]);
-              }
-            },
-            [g, E, $.restFullPathname, v, T, u]
-          );
-        return (
-          (0, i.useEffect)(() => {
-            if ('' === P.status && '' === P.stage && Object.values(O).length) {
-              let e = s.network?.toLowerCase(),
-                r = e ? O[e] : null;
-              r && E[r]?.isActiveNetwork
-                ? A
-                  ? T('loading', n.Ej.CONNECT_WALLET, [A])
-                  : T('loading', n.Ej.CONNECT_API, [L, !1])
-                : (console.warn(
-                    `network in router (${JSON.stringify(s)}) is not active, redirecting to default network`
-                  ),
-                  g((0, d.Yn)({ network: 'ethereum' }, n.a$.PAGE_SWAP)));
-            }
-          }, [g]),
-          (0, i.useEffect)(() => {
-            (P.status || P.stage) &&
-              ((0, c.oJ)(P) ||
-                ((0, c.VP)(P, n.Ej.SWITCH_NETWORK)
-                  ? F(x(n.Ej.SWITCH_NETWORK, P.options))
-                  : (0, c.VP)(P, n.Ej.CONNECT_WALLET)
-                    ? D(x(n.Ej.CONNECT_WALLET, P.options))
-                    : (0, c.VP)(P, n.Ej.DISCONNECT_WALLET) && u
-                      ? B(u)
-                      : (0, c.VP)(P, n.Ej.CONNECT_API) && M(x(n.Ej.CONNECT_API, P.options))));
-          }, [P.status, P.stage]),
-          (0, i.useEffect)(() => {
-            if (
-              ((0, c.oJ)(P) || (0, c.N6)(P)) &&
-              (R || S || C) &&
-              (C?.chainId !== R || C?.signerAddress?.toLowerCase() !== S?.toLowerCase())
-            ) {
-              if (S && C?.signerAddress.toLowerCase() !== S?.toLowerCase())
-                T('loading', n.Ej.CONNECT_API, [R, !0]);
-              else if (C?.chainId !== R) {
-                let { id: e, isActiveNetwork: s } = E[R] ?? {};
-                e && s
-                  ? (T('loading', n.Ej.SWITCH_NETWORK, [$.rChainId, R]),
-                    console.warn(`Network is switched to ${R}, redirecting...`, $),
-                    g((0, d.Yn)({ network: e }, `/${$.restFullPathname}`)))
-                  : S && T('failure', n.Ej.SWITCH_NETWORK);
-              }
-            }
-          }, [R, S]),
-          (0, i.useEffect)(() => {
-            (0, c.oJ)(P) &&
-              (R && C && C.chainId === R && $.rChainId !== R && r !== n.a$.PAGE_INTEGRATIONS
-                ? T('loading', n.Ej.SWITCH_NETWORK, [R, $.rChainId])
-                : C &&
-                  C.chainId !== $.rChainId &&
-                  T('loading', n.Ej.SWITCH_NETWORK, [C.chainId, $.rChainId]));
-          }, [r]),
-          { pageLoaded: 'success' === P.status, routerParams: $, curve: C }
-        );
-      };
-      function x(e, s) {
-        return s || console.warn(`missing options for key ${e}`), s;
-      }
-    },
     55928: (e, s, r) => {
       'use strict';
-      r.d(s, { S: () => n });
+      r.d(s, { S: () => l });
       var t = r(54568),
-        a = r(44876),
-        i = r(3717);
-      function n({ tokens: e, ...s }) {
+        i = r(44876),
+        a = r(3717);
+      function l({ tokens: e, ...s }) {
         let r = e.length,
-          n = r % 2 == 1,
+          l = r % 2 == 1,
           o = r > 4 ? 3 : 2,
-          l = n ? 2 : 1;
-        return (0, t.jsx)(a.A, {
+          n = l ? 2 : 1;
+        return (0, t.jsx)(i.A, {
           display: 'inline-grid',
           sx: {
             gridTemplateColumns: `repeat(${o}, auto)`,
             [`& > *:nth-of-type(${o}n-1)`]: { justifySelf: 'center' },
-            [`& > *:nth-of-type(${o}n-1):nth-last-of-type(1)`]: { gridColumn: `span ${l}` },
+            [`& > *:nth-of-type(${o}n-1):nth-last-of-type(1)`]: { gridColumn: `span ${n}` },
           },
-          children: e.map(({ address: e, symbol: a }, l) => {
-            let d = l + 1,
+          children: e.map(({ address: e, symbol: i }, n) => {
+            let d = n + 1,
               c = d > o,
-              h = n && d !== r && r < 6 && c;
+              h = l && d !== r && r < 6 && c;
             return (0, t.jsx)(
-              i.x,
+              a.x,
               {
                 ...s,
                 address: e,
-                tooltip: a,
+                tooltip: i,
                 sx: {
                   ...(c && { marginTop: '-6px' }),
-                  ...(l % o != 0 && { marginLeft: '-4px' }),
+                  ...(n % o != 0 && { marginLeft: '-4px' }),
                   ...(h && { position: 'relative', left: '8px' }),
                 },
               },
-              `${e}${l}`
+              `${e}${n}`
             );
           }),
         });
@@ -296,73 +92,73 @@
     },
     62196: (e, s, r) => {
       'use strict';
-      r.d(s, { A: () => l });
+      r.d(s, { A: () => n });
       var t = r(54568),
-        a = r(48341),
-        i = r(12819),
-        n = r(94990);
-      let o = (0, a.Ay)(i.A).withConfig({ componentId: 'sc-9d409d30-0' })(['min-height:3.375rem;']),
-        l = function ({
+        i = r(48341),
+        a = r(12819),
+        l = r(94990);
+      let o = (0, i.Ay)(a.A).withConfig({ componentId: 'sc-9d409d30-0' })(['min-height:3.375rem;']),
+        n = function ({
           className: e = '',
           searchText: s,
           handleInputChange: r,
-          handleClose: a,
-          ...i
+          handleClose: i,
+          ...a
         }) {
-          let { isFocusVisible: l, focusProps: d } = (0, n.o)();
+          let { isFocusVisible: n, focusProps: d } = (0, l.o)();
           return (0, t.jsx)(o, {
             id: 'inp-search',
-            ...i,
+            ...a,
             ...d,
-            className: `${e} ${l ? 'focus-visible' : ''}`,
+            className: `${e} ${n ? 'focus-visible' : ''}`,
             value: s,
             handleInputChange: r,
-            handleSearchClose: a,
+            handleSearchClose: i,
           });
         };
     },
     67520: (e, s, r) => {
       'use strict';
-      r.d(s, { default: () => ek });
+      r.d(s, { PagePoolList: () => ek });
       var t = r(54568),
-        a = r(62942),
-        i = r(7620),
-        n = r(48341),
+        i = r(62942),
+        a = r(7620),
+        l = r(48341),
         o = r(49339),
-        l = r(98330),
+        n = r(98330),
         d = r(90395),
         c = r(39276),
         h = r(70657),
         p = r(71287);
-      let m = n.Ay.div.withConfig({ componentId: 'sc-7447a108-0' })(['line-height:1.2;']),
-        g = ({
+      let m = l.Ay.div.withConfig({ componentId: 'sc-7447a108-0' })(['line-height:1.2;']),
+        x = ({
           isHighlightBase: e,
           isHighlightCrv: s,
           isHighlightOther: r,
-          poolData: a,
-          rewardsApy: i,
+          poolData: i,
+          rewardsApy: a,
         }) => {
-          let n = (0, p.A)((e) => e.isMdUp),
+          let l = (0, p.A)((e) => e.isMdUp),
             o = (0, p.A)((e) => e.isXSmDown);
-          return void 0 === i
+          return void 0 === a
             ? (0, t.jsx)(t.Fragment, { children: '-' })
             : (0, t.jsxs)('div', {
                 children: [
-                  !o && !n && (0, t.jsx)(d.A, { base: i?.base, isHighlight: e, poolData: a }),
+                  !o && !l && (0, t.jsx)(d.A, { base: a?.base, isHighlight: e, poolData: i }),
                   (0, t.jsxs)(m, {
                     children: [
-                      (0, t.jsx)(h.A, { isHighlight: s, poolData: a, rewardsApy: i }),
-                      (0, t.jsx)(c.A, { isHighlight: r, rewardsApy: i }),
+                      (0, t.jsx)(h.A, { isHighlight: s, poolData: i, rewardsApy: a }),
+                      (0, t.jsx)(c.A, { isHighlight: r, rewardsApy: a }),
                     ],
                   }),
                 ],
               });
         },
-        x = ({ isHighlight: e, poolData: s, rewardsApy: r }) =>
+        g = ({ isHighlight: e, poolData: s, rewardsApy: r }) =>
           (0, t.jsx)(h.A, { poolData: s, rewardsApy: r, isHighlight: e });
       var u = r(46205),
-        f = r(77241);
-      let w = ({ isHighLight: e, tvlCached: s, tvl: r }) =>
+        f = r(83980);
+      let A = ({ isHighLight: e, tvlCached: s, tvl: r }) =>
           (0, t.jsx)(u.v, {
             isBold: e,
             size: 'md',
@@ -370,7 +166,7 @@
             tooltipProps: { placement: 'bottom end' },
             children: (0, f.ZV)(r?.value ?? s?.value, { currency: 'USD', notation: 'compact' }),
           }),
-        A = ({ isHighLight: e, volumeCached: s, volume: r }) =>
+        j = ({ isHighLight: e, volumeCached: s, volume: r }) =>
           (0, t.jsx)(u.v, {
             isBold: e,
             size: 'md',
@@ -378,81 +174,81 @@
             tooltipProps: { placement: 'bottom end' },
             children: (0, f.ZV)(r?.value ?? s?.value, { currency: 'USD', notation: 'compact' }),
           });
-      var j = r(51701),
+      var w = r(51701),
         y = r(96025),
         v = r(64387),
-        C = r(85709),
-        b = r(36074);
-      let I = ({ children: e, id: s, style: r, ...a }) => {
-          let n = (0, i.useRef)(null),
-            { isIntersecting: l } = (0, C.A)(n) ?? {},
-            [d, c] = (0, i.useState)('88px');
+        b = r(85709),
+        C = r(36074);
+      let k = ({ children: e, id: s, style: r, ...i }) => {
+          let l = (0, a.useRef)(null),
+            { isIntersecting: n } = (0, b.A)(l) ?? {},
+            [d, c] = (0, a.useState)('88px');
           return (
-            (0, i.useEffect)(() => {
-              l && n.current && c(`${n.current.clientHeight}px`);
-            }, [l]),
+            (0, a.useEffect)(() => {
+              n && l.current && c(`${l.current.clientHeight}px`);
+            }, [n]),
             (0, t.jsx)(o.Tr, {
-              ref: n,
+              ref: l,
               id: s,
-              style: { ...r, ...(!l && { height: d }) },
-              ...a,
-              children: l && e,
+              style: { ...r, ...(!n && { height: d }) },
+              ...i,
+              children: n && e,
             })
           );
         },
-        k = ({
+        P = ({
           index: e,
           poolId: s,
           isCrvRewardsEnabled: r,
-          formValues: a,
-          isInPool: n,
+          formValues: i,
+          isInPool: l,
           blockchainId: h,
           columnKeys: p,
           poolData: m,
           poolDataCachedOrApi: u,
           rewardsApy: f,
-          searchParams: C,
-          showInPoolColumn: k,
-          campaignRewardsMapper: P,
-          tvlCached: N,
-          tvl: T,
-          volumeCached: E,
-          volume: O,
-          handleCellClick: L,
+          searchParams: b,
+          showInPoolColumn: P,
+          campaignRewardsMapper: I,
+          tvlCached: L,
+          tvl: N,
+          volumeCached: T,
+          volume: R,
+          handleCellClick: O,
         }) => {
-          let { searchTextByTokensAndAddresses: R, searchTextByOther: S } = a,
-            { searchText: $, sortBy: M } = C;
-          return (0, t.jsx)(I, {
+          let { searchTextByTokensAndAddresses: M, searchTextByOther: S } = i,
+            { searchText: $, sortBy: D } = b;
+          return (0, t.jsx)(k, {
             id: `${s}-${e}`,
             className: 'row--info',
-            onClick: ({ target: e }) => L(e),
+            onClick: ({ target: e }) => O(e),
             children: p.map((e, s) =>
               (0, t.jsxs)(
-                i.Fragment,
+                a.Fragment,
                 {
                   children: [
-                    e === j.m.inPool &&
+                    e === w.m.inPool &&
                       (0, t.jsx)(o.uC, {
-                        isIn: n,
+                        isIn: l,
                         type: 'pool',
-                        tooltip: (0, b.t)`You have a balance in this pool`,
+                        tooltip: (0, C.t)`You have a balance in this pool`,
                       }),
-                    e === j.m.poolName &&
+                    e === w.m.poolName &&
                       (0, t.jsx)(o.Td, {
-                        $first: !k,
+                        $first: !P,
                         children: (0, t.jsx)(y.A, {
                           isVisible: !0,
                           blockchainId: h,
                           poolData: u,
                           poolListProps: {
                             searchText: $,
-                            searchTextByTokensAndAddresses: R,
+                            searchTextByTokensAndAddresses: M,
                             searchTextByOther: S,
-                            onClick: L,
+                            onClick: O,
                           },
                         }),
                       }),
-                    e === j.m.rewardsLite &&
+                    e === w.m.rewardsLite &&
                       (0, t.jsx)(o.Td, {
                         className: 'right',
                         children: (0, t.jsxs)(v.A, {
@@ -464,31 +260,31 @@
                               (0, t.jsxs)(t.Fragment, {
                                 children: [
                                   r &&
-                                    (0, t.jsx)(x, {
-                                      isHighlight: 'rewardsCrv' === M,
+                                    (0, t.jsx)(g, {
+                                      isHighlight: 'rewardsCrv' === D,
                                       poolData: m,
                                       rewardsApy: f,
                                     }),
                                   (0, t.jsx)(c.A, {
-                                    isHighlight: 'rewardsOther' === M,
+                                    isHighlight: 'rewardsOther' === D,
                                     rewardsApy: f,
                                   }),
                                 ],
                               }),
                             m &&
-                              P[m.pool.address] &&
-                              (0, t.jsx)(l.A, { rewardItems: P[m.pool.address] }),
+                              I[m.pool.address] &&
+                              (0, t.jsx)(n.A, { rewardItems: I[m.pool.address] }),
                           ],
                         }),
                       }),
-                    e === j.m.rewardsDesktop &&
+                    e === w.m.rewardsDesktop &&
                       (0, t.jsxs)(t.Fragment, {
                         children: [
                           (0, t.jsx)(o.Td, {
                             className: 'right',
                             children: (0, t.jsx)(d.A, {
                               base: f?.base,
-                              isHighlight: 'rewardsBase' === M,
+                              isHighlight: 'rewardsBase' === D,
                               poolData: m,
                             }),
                           }),
@@ -500,25 +296,25 @@
                               style: { gap: 'var(--spacing-1)' },
                               children: [
                                 f &&
-                                  (0, t.jsx)(x, {
-                                    isHighlight: 'rewardsCrv' === M,
+                                  (0, t.jsx)(g, {
+                                    isHighlight: 'rewardsCrv' === D,
                                     poolData: m,
                                     rewardsApy: f,
                                   }),
                                 f &&
                                   (0, t.jsx)(c.A, {
-                                    isHighlight: 'rewardsOther' === M,
+                                    isHighlight: 'rewardsOther' === D,
                                     rewardsApy: f,
                                   }),
                                 m &&
-                                  P[m.pool.address] &&
-                                  (0, t.jsx)(l.A, { rewardItems: P[m.pool.address] }),
+                                  I[m.pool.address] &&
+                                  (0, t.jsx)(n.A, { rewardItems: I[m.pool.address] }),
                               ],
                             }),
                           }),
                         ],
                       }),
-                    e === j.m.rewardsMobile &&
+                    e === w.m.rewardsMobile &&
                       (0, t.jsx)(o.Td, {
                         className: 'right',
                         children: (0, t.jsxs)(v.A, {
@@ -526,33 +322,33 @@
                           flexColumn: !0,
                           style: { gap: 'var(--spacing-1)' },
                           children: [
-                            (0, t.jsx)(g, {
+                            (0, t.jsx)(x, {
                               poolData: m,
-                              isHighlightBase: 'rewardsBase' === M,
-                              isHighlightCrv: 'rewardsCrv' === M,
-                              isHighlightOther: 'rewardsOther' === M,
+                              isHighlightBase: 'rewardsBase' === D,
+                              isHighlightCrv: 'rewardsCrv' === D,
+                              isHighlightOther: 'rewardsOther' === D,
                               rewardsApy: f,
                             }),
                             m &&
-                              P[m.pool.address] &&
-                              (0, t.jsx)(l.A, { rewardItems: P[m.pool.address] }),
+                              I[m.pool.address] &&
+                              (0, t.jsx)(n.A, { rewardItems: I[m.pool.address] }),
                           ],
                         }),
                       }),
-                    e === j.m.volume &&
+                    e === w.m.volume &&
                       (0, t.jsx)(o.Td, {
                         className: 'right',
-                        children: (0, t.jsx)(A, {
-                          isHighLight: 'volume' === M,
-                          volumeCached: E,
-                          volume: O,
+                        children: (0, t.jsx)(j, {
+                          isHighLight: 'volume' === D,
+                          volumeCached: T,
+                          volume: R,
                         }),
                       }),
-                    e === j.m.tvl &&
+                    e === w.m.tvl &&
                       (0, t.jsx)(o.Td, {
                         className: 'right',
                         $last: !0,
-                        children: (0, t.jsx)(w, { isHighLight: 'tvl' === M, tvlCached: N, tvl: T }),
+                        children: (0, t.jsx)(A, { isHighLight: 'tvl' === D, tvlCached: L, tvl: N }),
                       }),
                   ],
                 },
@@ -561,179 +357,179 @@
             ),
           });
         };
-      var P = r(47990),
-        N = r(56457),
-        T = r(84561),
-        E = r(24633);
-      let O = n.Ay.div.withConfig({ componentId: 'sc-fd906268-0' })([
+      var I = r(47990),
+        L = r(56457),
+        N = r(84561),
+        T = r(24633);
+      let R = l.Ay.div.withConfig({ componentId: 'sc-fd906268-0' })([
           'display:flex;justify-content:space-between;padding:4px;padding-left:var(--spacing-narrow);width:100%;',
         ]),
-        L = n.Ay.div.withConfig({ componentId: 'sc-fd906268-1' })(
+        O = l.Ay.div.withConfig({ componentId: 'sc-fd906268-1' })(
           ['display:grid;min-height:150px;padding:', ';'],
           ({ themeType: e }) => ('chad' === e ? '1rem 0.75rem 0.75rem' : '1rem 1rem 0.75rem 1rem')
         ),
-        R = n.Ay.div.withConfig({ componentId: 'sc-fd906268-2' })([
+        M = l.Ay.div.withConfig({ componentId: 'sc-fd906268-2' })([
           'margin:0.3rem 0;> button:not(:last-of-type){border-right:1px solid rgba(255,255,255,0.25);}',
         ]),
-        S = n.Ay.div.withConfig({ componentId: 'sc-fd906268-3' })([
+        S = l.Ay.div.withConfig({ componentId: 'sc-fd906268-3' })([
           'max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0,1,0,1);&.show{max-height:100rem;transition:max-height 1s ease-in-out;}',
         ]),
         $ = ({
           index: e,
           columnKeys: s,
           formValues: r,
-          isInPool: a,
-          blockchainId: n,
+          isInPool: i,
+          blockchainId: l,
           poolData: h,
           poolDataCachedOrApi: p,
           poolId: m,
           rewardsApy: u,
-          searchParams: C,
-          showDetail: k,
+          searchParams: b,
+          showDetail: P,
           tableLabel: $,
-          themeType: M,
-          tvlCached: D,
-          tvl: B,
-          volumeCached: F,
-          volume: H,
-          handleCellClick: _,
-          setShowDetail: W,
+          themeType: D,
+          tvlCached: B,
+          tvl: F,
+          volumeCached: H,
+          volume: z,
+          handleCellClick: E,
+          setShowDetail: V,
           campaignRewardsMapper: K,
         }) => {
-          let { searchTextByTokensAndAddresses: V, searchTextByOther: z } = r,
-            { searchText: Y, sortBy: U } = C,
-            G = k === m,
-            Z = (0, i.useMemo)(() => {
-              if (U && !k) {
-                if ('rewardsBase' === U)
+          let { searchTextByTokensAndAddresses: U, searchTextByOther: W } = r,
+            { searchText: Y, sortBy: _ } = b,
+            Z = P === m,
+            G = (0, a.useMemo)(() => {
+              if (_ && !P) {
+                if ('rewardsBase' === _)
                   return (0, t.jsx)(d.A, {
                     base: u?.base,
-                    isHighlight: 'rewardsBase' === U,
+                    isHighlight: 'rewardsBase' === _,
                     poolData: h,
                   });
-                if ('rewardsCrv' === U)
-                  return (0, t.jsx)(x, {
+                if ('rewardsCrv' === _)
+                  return (0, t.jsx)(g, {
                     poolData: h,
-                    isHighlight: 'rewardsCrv' === U,
+                    isHighlight: 'rewardsCrv' === _,
                     rewardsApy: u,
                   });
-                if ('rewardsOther' === U)
-                  return (0, t.jsx)(c.A, { isHighlight: 'rewardsOther' === U, rewardsApy: u });
-                else if ('volume' === U)
-                  return (0, f.ZV)(H?.value, { notation: 'compact', currency: 'USD' });
-                else if ('tvl' === U)
-                  return (0, f.ZV)(B?.value, { notation: 'compact', currency: 'USD' });
+                if ('rewardsOther' === _)
+                  return (0, t.jsx)(c.A, { isHighlight: 'rewardsOther' === _, rewardsApy: u });
+                else if ('volume' === _)
+                  return (0, f.ZV)(z?.value, { notation: 'compact', currency: 'USD' });
+                else if ('tvl' === _)
+                  return (0, f.ZV)(F?.value, { notation: 'compact', currency: 'USD' });
               }
-            }, [k, U]);
-          return (0, t.jsx)(I, {
+            }, [P, _]);
+          return (0, t.jsx)(k, {
             id: `${e}`,
             className: 'row--info',
             children: (0, t.jsxs)('td', {
               children: [
                 (0, t.jsxs)(v.A, {
                   grid: !0,
-                  gridTemplateColumns: a ? 'auto 1fr' : '1fr',
+                  gridTemplateColumns: i ? 'auto 1fr' : '1fr',
                   children: [
                     (0, t.jsx)(o.uC, {
                       as: 'div',
                       isMobile: !0,
-                      isIn: a,
+                      isIn: i,
                       type: 'pool',
-                      tooltip: a ? (0, b.t)`You have a balance in this pool` : '',
+                      tooltip: i ? (0, C.t)`You have a balance in this pool` : '',
                     }),
-                    (0, t.jsxs)(O, {
+                    (0, t.jsxs)(R, {
                       children: [
                         (0, t.jsx)(y.A, {
                           isVisible: !0,
-                          blockchainId: n,
+                          blockchainId: l,
                           poolData: p,
                           poolListProps: {
-                            quickViewValue: Z,
+                            quickViewValue: G,
                             searchText: Y,
-                            searchTextByTokensAndAddresses: V,
-                            searchTextByOther: z,
-                            onClick: _,
+                            searchTextByTokensAndAddresses: U,
+                            searchTextByOther: W,
+                            onClick: E,
                           },
                         }),
-                        (0, t.jsx)(T.A, {
-                          onClick: () => W((e) => (e === m ? '' : m)),
-                          children: G
-                            ? (0, t.jsx)(N.A, { name: 'ChevronUp', size: 16 })
-                            : (0, t.jsx)(N.A, { name: 'ChevronDown', size: 16 }),
+                        (0, t.jsx)(N.A, {
+                          onClick: () => V((e) => (e === m ? '' : m)),
+                          children: Z
+                            ? (0, t.jsx)(L.A, { name: 'ChevronUp', size: 16 })
+                            : (0, t.jsx)(L.A, { name: 'ChevronDown', size: 16 }),
                         }),
                       ],
                     }),
                   ],
                 }),
                 (0, t.jsx)(S, {
-                  className: G ? 'show' : '',
-                  children: (0, t.jsx)(L, {
-                    themeType: M,
+                  className: Z ? 'show' : '',
+                  children: (0, t.jsx)(O, {
+                    themeType: D,
                     children:
-                      G &&
+                      Z &&
                       (0, t.jsxs)(t.Fragment, {
                         children: [
-                          (0, t.jsxs)(E.db, {
+                          (0, t.jsxs)(T.db, {
                             children: [
-                              -1 !== s.indexOf(j.m.volume) &&
-                                (0, t.jsx)(E.Ay, {
+                              -1 !== s.indexOf(w.m.volume) &&
+                                (0, t.jsx)(T.Ay, {
                                   title: $.volume.name,
-                                  children: (0, t.jsx)(A, {
-                                    isHighLight: 'volume' === U,
-                                    volumeCached: F,
-                                    volume: H,
+                                  children: (0, t.jsx)(j, {
+                                    isHighLight: 'volume' === _,
+                                    volumeCached: H,
+                                    volume: z,
                                   }),
                                 }),
-                              (0, t.jsx)(E.Ay, {
+                              (0, t.jsx)(T.Ay, {
                                 title: $.tvl.name,
-                                children: (0, t.jsx)(w, {
-                                  isHighLight: 'tvl' === U,
-                                  tvlCached: D,
-                                  tvl: B,
+                                children: (0, t.jsx)(A, {
+                                  isHighLight: 'tvl' === _,
+                                  tvlCached: B,
+                                  tvl: F,
                                 }),
                               }),
-                              (0, t.jsx)(E.Ay, {
-                                title: (0, b.t)`BASE vAPY`,
+                              (0, t.jsx)(T.Ay, {
+                                title: (0, C.t)`BASE vAPY`,
                                 titleNoCap: !0,
                                 children: (0, t.jsx)(d.A, {
                                   base: u?.base,
-                                  isHighlight: 'rewardsBase' === U,
+                                  isHighlight: 'rewardsBase' === _,
                                   poolData: h,
                                 }),
                               }),
                               !h?.gauge.isKilled &&
                                 (0, t.jsxs)(t.Fragment, {
                                   children: [
-                                    -1 !== s.indexOf(j.m.rewardsLite)
-                                      ? (0, t.jsx)(E.Ay, {
-                                          title: (0, b.t)`REWARDS tAPR`,
+                                    -1 !== s.indexOf(w.m.rewardsLite)
+                                      ? (0, t.jsx)(T.Ay, {
+                                          title: (0, C.t)`REWARDS tAPR`,
                                           titleNoCap: !0,
                                           tooltip: (0,
-                                          b.t)`Token APR based on current prices of tokens and reward rates`,
+                                          C.t)`Token APR based on current prices of tokens and reward rates`,
                                           children: (0, t.jsx)(c.A, {
-                                            isHighlight: 'rewardsOther' === U,
+                                            isHighlight: 'rewardsOther' === _,
                                             rewardsApy: u,
                                           }),
                                         })
-                                      : (0, t.jsx)(E.Ay, {
-                                          title: (0, b.t)`REWARDS tAPR`,
+                                      : (0, t.jsx)(T.Ay, {
+                                          title: (0, C.t)`REWARDS tAPR`,
                                           titleNoCap: !0,
                                           titleDescription: `(${$.rewardsCrv.name} + ${$.rewardsOther.name})`,
                                           tooltip: (0,
-                                          b.t)`Token APR based on current prices of tokens and reward rates`,
-                                          children: (0, t.jsx)(g, {
+                                          C.t)`Token APR based on current prices of tokens and reward rates`,
+                                          children: (0, t.jsx)(x, {
                                             poolData: h,
-                                            isHighlightBase: 'rewardsBase' === U,
-                                            isHighlightCrv: 'rewardsCrv' === U,
-                                            isHighlightOther: 'rewardsOther' === U,
+                                            isHighlightBase: 'rewardsBase' === _,
+                                            isHighlightCrv: 'rewardsCrv' === _,
+                                            isHighlightOther: 'rewardsOther' === _,
                                             rewardsApy: u,
                                           }),
                                         }),
                                     h &&
                                       K[h.pool.address] &&
-                                      (0, t.jsx)(E.Ay, {
-                                        title: (0, b.t)`Additional external rewards`,
-                                        children: (0, t.jsx)(l.A, {
+                                      (0, t.jsx)(T.Ay, {
+                                        title: (0, C.t)`Additional external rewards`,
+                                        children: (0, t.jsx)(n.A, {
                                           rewardItems: K[h.pool.address],
                                           mobile: !0,
                                         }),
@@ -742,22 +538,22 @@
                                 }),
                             ],
                           }),
-                          (0, t.jsxs)(R, {
+                          (0, t.jsxs)(M, {
                             children: [
-                              (0, t.jsx)(P.A, {
+                              (0, t.jsx)(I.A, {
                                 variant: 'filled',
-                                onClick: ({ target: e }) => _(e),
-                                children: (0, b.t)`Deposit`,
+                                onClick: ({ target: e }) => E(e),
+                                children: (0, C.t)`Deposit`,
                               }),
-                              (0, t.jsx)(P.A, {
+                              (0, t.jsx)(I.A, {
                                 variant: 'filled',
-                                onClick: ({ target: e }) => _(e, 'withdraw'),
-                                children: (0, b.t)`Withdraw`,
+                                onClick: ({ target: e }) => E(e, 'withdraw'),
+                                children: (0, C.t)`Withdraw`,
                               }),
-                              (0, t.jsx)(P.A, {
+                              (0, t.jsx)(I.A, {
                                 variant: 'filled',
-                                onClick: ({ target: e }) => _(e, 'swap'),
-                                children: (0, b.t)`Swap`,
+                                onClick: ({ target: e }) => E(e, 'swap'),
+                                children: (0, C.t)`Swap`,
                               }),
                             ],
                           }),
@@ -769,113 +565,113 @@
             }),
           });
         };
-      var M = r(55906),
-        D = r(11988),
-        B = r(54210),
-        F = r(78866),
-        H = r(21415),
-        _ = r(75911);
-      let W = {
-          swap: M.a$.PAGE_SWAP,
-          withdraw: M.a$.PAGE_POOL_WITHDRAW,
-          deposit: M.a$.PAGE_POOL_DEPOSIT,
+      var D = r(55906),
+        B = r(11988),
+        F = r(54210),
+        H = r(78866),
+        z = r(31305),
+        E = r(75911);
+      let V = {
+          swap: D.a$.PAGE_SWAP,
+          withdraw: D.a$.PAGE_POOL_WITHDRAW,
+          deposit: D.a$.PAGE_POOL_DEPOSIT,
         },
         K = ({
           poolId: e,
           index: s,
           isCrvRewardsEnabled: r,
-          rChainId: n,
-          columnKeys: l,
+          rChainId: l,
+          columnKeys: n,
           searchParams: d,
           showInPoolColumn: c,
           tableLabels: h,
           searchTermMapper: m,
-          showDetail: g,
-          setShowDetail: x,
+          showDetail: x,
+          setShowDetail: g,
           curve: u,
         }) => {
-          let { push: f } = (0, a.useRouter)(),
-            w = (0, F.jv)(u),
-            A = (0, p.A)((e) => e.poolList.formValues),
-            j = (0, p.A)((e) => e.isXSmDown),
-            y = (0, p.A)((s) => s.storeCache.poolsMapper[n]?.[e]),
-            v = (0, p.A)((s) => s.pools.poolsMapper[n]?.[e]),
-            C = (0, p.A)((s) => s.pools.rewardsApyMapper[n]?.[e]),
-            b = (0, p.A)((s) => s.poolList.searchedByAddresses[e]),
-            I = (0, p.A)((s) => s.storeCache.tvlMapper[n]?.[e]),
-            P = (0, p.A)((s) => s.pools.tvlMapper[n]?.[e]),
-            N = (0, p.A)((s) => s.user.poolList[w]?.[e]),
-            T = (0, p.A)((s) => s.storeCache.volumeMapper[n]?.[e]),
-            E = (0, p.A)((s) => s.pools.volumeMapper[n]?.[e]),
-            O = (0, p.A)((e) => e.networks.networks[n]),
-            L = (0, D.A)(),
-            R = (0, _.nv)((e) => e.theme),
+          let { push: f } = (0, i.useRouter)(),
+            A = (0, H.jv)(u),
+            j = (0, p.A)((e) => e.poolList.formValues),
+            w = (0, p.A)((e) => e.isXSmDown),
+            y = (0, p.A)((s) => s.storeCache.poolsMapper[l]?.[e]),
+            v = (0, p.A)((s) => s.pools.poolsMapper[l]?.[e]),
+            b = (0, p.A)((s) => s.pools.rewardsApyMapper[l]?.[e]),
+            C = (0, p.A)((s) => s.poolList.searchedByAddresses[e]),
+            k = (0, p.A)((s) => s.storeCache.tvlMapper[l]?.[e]),
+            I = (0, p.A)((s) => s.pools.tvlMapper[l]?.[e]),
+            L = (0, p.A)((s) => s.user.poolList[A]?.[e]),
+            N = (0, p.A)((s) => s.storeCache.volumeMapper[l]?.[e]),
+            T = (0, p.A)((s) => s.pools.volumeMapper[l]?.[e]),
+            R = (0, p.A)((e) => e.networks.networks[l]),
+            O = (0, B.A)(),
+            M = (0, E.nv)((e) => e.theme),
             S = v ?? y,
-            K = (0, i.useMemo)(() => (0, B.ln)(b, m, S), [S, m, b]),
-            V = (0, i.useCallback)(
+            K = (0, a.useMemo)(() => (0, F.ln)(C, m, S), [S, m, C]),
+            U = (0, a.useCallback)(
               (s, r) => {
                 let { nodeName: t } = s;
                 'A' !== t &&
-                  f((0, H.Yn)({ network: O.id }, `${M.a$.PAGE_POOLS}/${e}${W[r ?? 'deposit']}`));
+                  f((0, z.Yn)({ network: R.id }, `${D.a$.PAGE_POOLS}/${e}${V[r ?? 'deposit']}`));
               },
-              [f, O.id, e]
+              [f, R.id, e]
             ),
-            z = {
+            W = {
               index: s,
               isCrvRewardsEnabled: r,
-              formValues: A,
+              formValues: j,
               searchParams: d,
-              isInPool: N,
-              blockchainId: O.networkId,
+              isInPool: L,
+              blockchainId: R.networkId,
               poolId: e,
-              columnKeys: l,
+              columnKeys: n,
               poolData: v,
               poolDataCachedOrApi: S,
-              rewardsApy: C,
+              rewardsApy: b,
               showInPoolColumn: c,
-              tvlCached: I,
-              tvl: P,
-              volumeCached: T,
-              volume: E,
-              handleCellClick: V,
-              campaignRewardsMapper: L,
+              tvlCached: k,
+              tvl: I,
+              volumeCached: N,
+              volume: T,
+              handleCellClick: U,
+              campaignRewardsMapper: O,
             };
           return (0, t.jsxs)(t.Fragment, {
             children: [
-              j
+              w
                 ? (0, t.jsx)($, {
                     tableLabel: h,
-                    showDetail: g,
-                    themeType: R,
-                    setShowDetail: x,
-                    ...z,
+                    showDetail: x,
+                    themeType: M,
+                    setShowDetail: g,
+                    ...W,
                   })
-                : (0, t.jsx)(k, { ...z }),
-              b &&
-                Object.keys(b).length > 0 &&
+                : (0, t.jsx)(P, { ...W }),
+              C &&
+                Object.keys(C).length > 0 &&
                 (0, t.jsx)(o.c1, {
                   colSpan: 10,
                   id: e,
-                  isMobile: j,
-                  result: b,
+                  isMobile: w,
+                  result: C,
                   searchTermMapper: K,
-                  scanAddressPath: O.scanAddressPath,
+                  scanAddressPath: R.scanAddressPath,
                 }),
             ],
           });
         };
-      var V = r(45182),
-        z = r(19115);
+      var U = r(45182),
+        W = r(19115);
       let Y = ({ isReadyRewardsApy: e, tableLabels: s, ...r }) =>
         (0, t.jsxs)(t.Fragment, {
           children: [
             (0, t.jsxs)('div', {
               children: [
-                (0, b.t)`Rewards tAPR`,
+                (0, C.t)`Rewards tAPR`,
                 ' ',
-                (0, t.jsx)(z.A, {
+                (0, t.jsx)(W.A, {
                   placement: 'top',
-                  children: (0, b.t)`Token APR based on current prices of tokens and reward rates`,
+                  children: (0, C.t)`Token APR based on current prices of tokens and reward rates`,
                 }),
               ],
             }),
@@ -886,7 +682,7 @@
               gridColumnGap: 1,
               flexJustifyContent: 'flex-end',
               children: [
-                (0, t.jsx)(V.A, {
+                (0, t.jsx)(U.A, {
                   sortIdKey: 'rewardsCrv',
                   nowrap: !0,
                   ...r,
@@ -894,7 +690,7 @@
                   children: s.rewardsCrv.name,
                 }),
                 '+',
-                (0, t.jsx)(V.A, {
+                (0, t.jsx)(U.A, {
                   sortIdKey: 'rewardsOther',
                   nowrap: !0,
                   ...r,
@@ -905,62 +701,62 @@
             }),
           ],
         });
-      var U = r(39651);
-      let G = n.Ay.col.withConfig({ componentId: 'sc-ffc2c4ea-0' })(
+      var _ = r(39651);
+      let Z = l.Ay.col.withConfig({ componentId: 'sc-ffc2c4ea-0' })(
           [
             '@media (min-width:',
             'rem){min-width:200px;&.pool{min-width:400px;}&.base{min-width:100px;}&.rewards{min-width:300px;}&.tvl{min-width:150px;}}',
           ],
-          U.fi.lg
+          _.fi.lg
         ),
-        Z = n.Ay.col.withConfig({ componentId: 'sc-ffc2c4ea-1' })(['width:21px;']),
-        J = (0, n.Ay)(o.d8).withConfig({ componentId: 'sc-ffc2c4ea-2' })([
+        G = l.Ay.col.withConfig({ componentId: 'sc-ffc2c4ea-1' })(['width:21px;']),
+        J = (0, l.Ay)(o.d8).withConfig({ componentId: 'sc-ffc2c4ea-2' })([
           'font-size:var(--font-size-2);',
         ]),
-        X = (0, n.Ay)(o.rl).withConfig({ componentId: 'sc-ffc2c4ea-3' })([
+        X = (0, l.Ay)(o.rl).withConfig({ componentId: 'sc-ffc2c4ea-3' })([
           'width:100%;height:100%;',
         ]),
         q = ({
           isLite: e,
           isReadyRewardsApy: s,
           isReadyTvl: r,
-          isReadyVolume: a,
-          columnKeys: n,
-          searchParams: l,
+          isReadyVolume: i,
+          columnKeys: l,
+          searchParams: n,
           tableLabels: d,
           updatePath: c,
         }) => {
-          let h = (0, i.useCallback)(
+          let h = (0, a.useCallback)(
               (e, s) => {
                 c({ sortBy: e, sortByOrder: s });
               },
               [c]
             ),
-            p = { sortBy: l.sortBy, sortByOrder: l.sortByOrder, handleBtnClickSort: h },
-            m = (0, b.t)`Token APR based on current prices of tokens and reward rates`,
-            g = (0, b.t)`Variable APY based on today's trading activity`;
+            p = { sortBy: n.sortBy, sortByOrder: n.sortByOrder, handleBtnClickSort: h },
+            m = (0, C.t)`Token APR based on current prices of tokens and reward rates`,
+            x = (0, C.t)`Variable APY based on today's trading activity`;
           return (0, t.jsxs)(t.Fragment, {
             children: [
               (0, t.jsx)('colgroup', {
-                children: n.map((s, r) =>
+                children: l.map((s, r) =>
                   (0, t.jsxs)(
-                    i.Fragment,
+                    a.Fragment,
                     {
                       children: [
-                        s === j.m.inPool && (0, t.jsx)(Z, { className: 'row-in-pool' }),
-                        s === j.m.poolName && (0, t.jsx)(G, { className: 'left pool' }),
-                        s === j.m.rewardsLite && (0, t.jsx)(G, { className: 'right' }),
-                        s === j.m.rewardsDesktop &&
+                        s === w.m.inPool && (0, t.jsx)(G, { className: 'row-in-pool' }),
+                        s === w.m.poolName && (0, t.jsx)(Z, { className: 'left pool' }),
+                        s === w.m.rewardsLite && (0, t.jsx)(Z, { className: 'right' }),
+                        s === w.m.rewardsDesktop &&
                           (0, t.jsxs)(t.Fragment, {
                             children: [
-                              (0, t.jsx)(G, { className: 'right base' }),
-                              (0, t.jsx)(G, { className: 'right rewards' }),
+                              (0, t.jsx)(Z, { className: 'right base' }),
+                              (0, t.jsx)(Z, { className: 'right rewards' }),
                             ],
                           }),
-                        s === j.m.rewardsMobile && (0, t.jsx)(G, { className: 'right rewards' }),
-                        s === j.m.volume && (0, t.jsx)('col', { className: 'right' }),
-                        s === j.m.tvl && e && (0, t.jsx)(G, { className: 'right tvl' }),
-                        s === j.m.tvl && !e && (0, t.jsx)('col', { className: 'right' }),
+                        s === w.m.rewardsMobile && (0, t.jsx)(Z, { className: 'right rewards' }),
+                        s === w.m.volume && (0, t.jsx)('col', { className: 'right' }),
+                        s === w.m.tvl && e && (0, t.jsx)(Z, { className: 'right tvl' }),
+                        s === w.m.tvl && !e && (0, t.jsx)('col', { className: 'right' }),
                       ],
                     },
                     `col${s}${r}`
@@ -969,18 +765,18 @@
               }),
               (0, t.jsx)(J, {
                 children: (0, t.jsx)('tr', {
-                  children: n.map((e, n) =>
+                  children: l.map((e, l) =>
                     (0, t.jsxs)(
-                      i.Fragment,
+                      a.Fragment,
                       {
                         children: [
-                          e === j.m.inPool &&
+                          e === w.m.inPool &&
                             (0, t.jsx)('th', { className: 'in-pool', children: ' ' }, e),
-                          e === j.m.poolName &&
+                          e === w.m.poolName &&
                             (0, t.jsx)(
                               o.Th,
                               {
-                                $first: 0 === n,
+                                $first: 0 === l,
                                 children: (0, t.jsx)(X, {
                                   className: 'left',
                                   sortIdKey: 'name',
@@ -992,7 +788,7 @@
                               },
                               e
                             ),
-                          e === j.m.rewardsLite &&
+                          e === w.m.rewardsLite &&
                             (0, t.jsx)(o.Th, {
                               className: 'right',
                               children: (0, t.jsxs)(o.rl, {
@@ -1004,11 +800,11 @@
                                 children: [
                                   d.rewardsLite.name,
                                   ' tAPR',
-                                  (0, t.jsx)(z.A, { placement: 'top', children: m }),
+                                  (0, t.jsx)(W.A, { placement: 'top', children: m }),
                                 ],
                               }),
                             }),
-                          e === j.m.rewardsDesktop &&
+                          e === w.m.rewardsDesktop &&
                             (0, t.jsxs)(t.Fragment, {
                               children: [
                                 (0, t.jsx)(o.Th, {
@@ -1019,7 +815,7 @@
                                     loading: !s,
                                     children: [
                                       d.rewardsBase.name,
-                                      (0, t.jsx)(z.A, { placement: 'top', children: g }),
+                                      (0, t.jsx)(W.A, { placement: 'top', children: x }),
                                     ],
                                   }),
                                 }),
@@ -1037,7 +833,7 @@
                                 }),
                               ],
                             }),
-                          e === j.m.rewardsMobile &&
+                          e === w.m.rewardsMobile &&
                             (0, t.jsx)(o.Th, {
                               className: 'right',
                               children: (0, t.jsxs)(v.A, {
@@ -1051,7 +847,7 @@
                                     loading: !s,
                                     children: [
                                       d.rewardsBase.name,
-                                      (0, t.jsx)(z.A, { placement: 'top', children: g }),
+                                      (0, t.jsx)(W.A, { placement: 'top', children: x }),
                                     ],
                                   }),
                                   (0, t.jsx)(v.A, {
@@ -1066,17 +862,17 @@
                                 ],
                               }),
                             }),
-                          e === j.m.volume &&
+                          e === w.m.volume &&
                             (0, t.jsx)(o.Th, {
                               children: (0, t.jsx)(X, {
                                 className: 'right',
                                 sortIdKey: 'volume',
                                 ...p,
-                                loading: !a,
+                                loading: !i,
                                 children: d.volume.name,
                               }),
                             }),
-                          e === j.m.tvl &&
+                          e === w.m.tvl &&
                             (0, t.jsx)(o.Th, {
                               $last: !0,
                               children: (0, t.jsx)(X, {
@@ -1090,7 +886,7 @@
                             }),
                         ],
                       },
-                      `thead${e}${n}`
+                      `thead${e}${l}`
                     )
                   ),
                 }),
@@ -1109,35 +905,35 @@
                   children: (0, t.jsx)(o.Th, {
                     $first: !0,
                     className: 'left',
-                    children: (0, b.t)`Pools`,
+                    children: (0, C.t)`Pools`,
                   }),
                 }),
               }),
             ],
           });
       Q.displayName = 'TableHeadMobile';
-      let ee = n.Ay.col.withConfig({ componentId: 'sc-3c6e0c19-0' })(
+      let ee = l.Ay.col.withConfig({ componentId: 'sc-3c6e0c19-0' })(
           ['@media (min-width:', 'rem){&.pool{min-width:400px;}&.rewards{min-width:310px;}}'],
-          U.fi.lg
+          _.fi.lg
         ),
-        es = n.Ay.col.withConfig({ componentId: 'sc-3c6e0c19-1' })(['width:25px;']);
+        es = l.Ay.col.withConfig({ componentId: 'sc-3c6e0c19-1' })(['width:25px;']);
       var er = r(59339),
         et = r(77540),
-        ea = (function (e) {
+        ei = (function (e) {
           return (e.api = 'api'), (e.search = 'search'), (e.filter = 'filter'), e;
-        })(ea || {});
-      let ei = n.Ay.div.withConfig({ componentId: 'sc-b1afab0e-0' })([
+        })(ei || {});
+      let ea = l.Ay.div.withConfig({ componentId: 'sc-b1afab0e-0' })([
           'padding:var(--spacing-5);text-align:center;',
         ]),
-        en = ({ colSpan: e, searchParams: s, signerAddress: r, updatePath: a }) => {
-          let { filterKey: n, searchText: l } = s,
+        el = ({ colSpan: e, searchParams: s, signerAddress: r, updatePath: i }) => {
+          let { filterKey: l, searchText: n } = s,
             d = (0, p.A)((e) => e.user.poolListLoaded),
             c = (0, p.A)((e) => e.user.poolListError),
-            h = (0, i.useMemo)(
-              () => (l ? 'search' : n ? 'filter' : d && c ? 'api' : void 0),
-              [n, l, c, d]
+            h = (0, a.useMemo)(
+              () => (n ? 'search' : l ? 'filter' : d && c ? 'api' : void 0),
+              [l, n, c, d]
             ),
-            m = (0, i.useMemo)(
+            m = (0, a.useMemo)(
               () =>
                 'search' === h
                   ? { searchText: '' }
@@ -1146,15 +942,15 @@
                     : void 0,
               [h]
             ),
-            g = (0, i.useMemo)(
+            x = (0, a.useMemo)(
               () =>
-                'search' === h ? l : 'filter' === h ? ('user' === n && r ? (0, f.z5)(r) : n) : '',
-              [n, h, l, r]
+                'search' === h ? n : 'filter' === h ? ('user' === l && r ? (0, f.z5)(r) : l) : '',
+              [l, h, n, r]
             );
           return (0, t.jsx)(o.Tr, {
             children: (0, t.jsx)(o.Td, {
               colSpan: e,
-              children: (0, t.jsx)(ei, {
+              children: (0, t.jsx)(ea, {
                 children:
                   'api' === h
                     ? (0, t.jsx)(v.A, {
@@ -1168,21 +964,21 @@
                     : 'search' === h || 'filter' === h
                       ? (0, t.jsx)(t.Fragment, {
                           children:
-                            'all' === n
-                              ? (0, t.jsx)(b.x, { children: 'No pool found' })
-                              : (0, t.jsxs)(b.x, {
+                            'all' === l
+                              ? (0, t.jsx)(C.x, { children: 'No pool found' })
+                              : (0, t.jsxs)(C.x, {
                                   children: [
                                     'No pool found for “',
-                                    g,
+                                    x,
                                     '”.',
                                     m &&
                                       (0, t.jsxs)(t.Fragment, {
                                         children: [
                                           (0, t.jsx)('br', {}),
                                           ' ',
-                                          (0, t.jsx)(P.A, {
+                                          (0, t.jsx)(I.A, {
                                             variant: 'text',
-                                            onClick: () => a(m),
+                                            onClick: () => i(m),
                                             children: 'View all',
                                           }),
                                         ],
@@ -1190,7 +986,7 @@
                                   ],
                                 }),
                         })
-                      : (0, t.jsxs)(b.x, {
+                      : (0, t.jsxs)(C.x, {
                           children: [
                             "Can't find what you're looking for?",
                             ' ',
@@ -1206,30 +1002,30 @@
           });
         };
       var eo = r(23368),
-        el = r(37862),
+        en = r(37862),
         ed = r(38526);
       let ec = ({ poolDatasCachedOrApi: e }) => {
         let s = e.length < 10,
-          r = (0, _.nv)((e) => e.hideSmallPools),
-          a = (0, _.nv)((e) => e.setHideSmallPools);
+          r = (0, E.nv)((e) => e.hideSmallPools),
+          i = (0, E.nv)((e) => e.setHideSmallPools);
         return (0, t.jsx)(ed.A, {
           isDisabled: s,
           isSelected: !s && r,
-          onChange: (e) => a(e),
-          children: (0, b.t)`Hide very small pools`,
+          onChange: (e) => i(e),
+          children: (0, C.t)`Hide very small pools`,
         });
       };
       var eh = r(62196),
         ep = r(33523),
         em = r(14026);
-      let eg = n.Ay.div.withConfig({ componentId: 'sc-9d596b1d-0' })(
+      let ex = l.Ay.div.withConfig({ componentId: 'sc-9d596b1d-0' })(
           [
             'display:flex;flex-direction:column;grid-gap:var(--spacing-narrow);padding:var(--spacing-narrow);padding-top:var(--spacing-normal);@media (min-width:',
             'rem){padding:var(--spacing-normal);padding-bottom:var(--spacing-narrow);}',
           ],
           f.fi.sm
         ),
-        ex = (0, n.Ay)(v.A).withConfig({ componentId: 'sc-9d596b1d-1' })(
+        eg = (0, l.Ay)(v.A).withConfig({ componentId: 'sc-9d596b1d-1' })(
           [
             'align-items:flex-start;display:flex;flex-wrap:wrap;grid-gap:var(--spacing-narrow);@media (min-width:',
             'rem){display:grid;grid-template-columns:auto 1fr auto;}@media (min-width:',
@@ -1244,56 +1040,56 @@
           isReady: e,
           activeKey: s,
           rChainId: r,
-          isLite: a,
-          poolDatasCachedOrApi: n,
+          isLite: i,
+          poolDatasCachedOrApi: l,
           result: o,
-          signerAddress: l,
+          signerAddress: n,
           searchParams: d,
           tableLabels: c,
           updatePath: h,
         }) => {
           let m = (0, p.A)((e) => e.poolList.formStatus[s]),
-            g = (0, p.A)((e) => e.isLgUp),
-            { poolFilters: x } = (0, p.A)((e) => e.networks.networks[r]),
-            u = (0, i.useMemo)(
+            x = (0, p.A)((e) => e.isLgUp),
+            { poolFilters: g } = (0, p.A)((e) => e.networks.networks[r]),
+            u = (0, a.useMemo)(
               () => [
-                { key: 'all', label: (0, b.t)`All` },
+                { key: 'all', label: (0, C.t)`All` },
                 { key: 'usd', label: 'USD' },
                 { key: 'btc', label: 'BTC' },
                 { key: 'kava', label: 'KAVA' },
                 { key: 'eth', label: 'ETH' },
-                { key: 'crvusd', label: (0, b.t)`crvUSD` },
-                { key: 'tricrypto', label: (0, b.t)`Tricrypto` },
-                { key: 'crypto', label: (0, b.t)`Crypto` },
-                { key: 'stableng', label: (0, b.t)`Stable NG` },
-                { key: 'cross-chain', label: (0, b.t)`Cross-chain` },
-                { key: 'user', label: (0, b.t)`My Pools` },
+                { key: 'crvusd', label: (0, C.t)`crvUSD` },
+                { key: 'tricrypto', label: (0, C.t)`Tricrypto` },
+                { key: 'crypto', label: (0, C.t)`Crypto` },
+                { key: 'stableng', label: (0, C.t)`Stable NG` },
+                { key: 'cross-chain', label: (0, C.t)`Cross-chain` },
+                { key: 'user', label: (0, C.t)`My Pools` },
               ],
               []
             ),
-            f = (0, i.useMemo)(() => {
-              let e = u.filter((e) => -1 !== x.indexOf(e.key));
-              if ((l || (e = e.filter((e) => 'user' !== e.key)), Array.isArray(e))) {
+            f = (0, a.useMemo)(() => {
+              let e = u.filter((e) => -1 !== g.indexOf(e.key));
+              if ((n || (e = e.filter((e) => 'user' !== e.key)), Array.isArray(e))) {
                 let s = {};
                 for (let { key: r, label: t } of e) s[r] = { id: r, displayName: t };
                 return s;
               }
-            }, [u, l, x]);
-          return (0, t.jsxs)(eg, {
+            }, [u, n, g]);
+          return (0, t.jsxs)(ex, {
             children: [
               (0, t.jsx)('div', {
                 children: (0, t.jsx)(eh.A, {
-                  placeholder: (0, b.t)`Search by tokens or address`,
+                  placeholder: (0, C.t)`Search by tokens or address`,
                   searchText: d.searchText,
                   handleInputChange: (e) => h({ searchText: e }),
                   handleClose: () => h({ searchText: '' }),
                   testId: 'search-pools',
                 }),
               }),
-              (0, t.jsx)(ex, {
-                $isLite: a,
+              (0, t.jsx)(eg, {
+                $isLite: i,
                 children:
-                  g && !a
+                  x && !i
                     ? (0, t.jsxs)(t.Fragment, {
                         children: [
                           (0, t.jsx)(ep.A, {
@@ -1309,7 +1105,7 @@
                             gridGap: 2,
                             children: [
                               (0, t.jsx)(eo.A, { searchParams: d, labelsMapper: c, updatePath: h }),
-                              (0, t.jsx)(ec, { poolDatasCachedOrApi: n }),
+                              (0, t.jsx)(ec, { poolDatasCachedOrApi: l }),
                             ],
                           }),
                         ],
@@ -1321,8 +1117,8 @@
                             filterKey: d.filterKey,
                             updateRouteFilterKey: (e) => h({ filterKey: e }),
                           }),
-                          (0, t.jsx)(el.A, { searchParams: d, labelsMapper: c, updatePath: h }),
-                          (0, t.jsx)(ec, { poolDatasCachedOrApi: n }),
+                          (0, t.jsx)(en.A, { searchParams: d, labelsMapper: c, updatePath: h }),
+                          (0, t.jsx)(ec, { poolDatasCachedOrApi: l }),
                         ],
                       }),
               }),
@@ -1330,119 +1126,119 @@
           });
         };
       var ef = r(51569),
-        ew = r(99599),
-        eA = r(95292),
-        ej = r(47636);
+        eA = r(99599),
+        ej = r(95292),
+        ew = r(47636);
       let ey = ({
         rChainId: e,
         curve: s,
         isLite: r,
-        searchParams: a,
-        searchTermMapper: n,
-        tableLabels: l,
+        searchParams: i,
+        searchTermMapper: l,
+        tableLabels: n,
         updatePath: d,
       }) => {
-        let c = (0, D.A)(),
-          h = (0, ef.uZ)(e, a),
+        let c = (0, B.A)(),
+          h = (0, ef.uZ)(e, i),
           m = (0, p.A)((e) => e.poolList.activeKey),
-          g = (0, p.A)((e) => e.poolList.formStatus[h] ?? ef.kR),
-          x = (0, p.A)((e) => e.isMdUp),
+          x = (0, p.A)((e) => e.poolList.formStatus[h] ?? ef.kR),
+          g = (0, p.A)((e) => e.isMdUp),
           u = (0, p.A)((e) => e.isXSmDown),
           f = (0, p.A)((e) => e.isPageVisible),
-          w = (0, p.A)((s) => s.storeCache.poolsMapper[e]),
-          A = (0, p.A)((s) => s.pools.poolsMapper[e]),
+          A = (0, p.A)((s) => s.storeCache.poolsMapper[e]),
+          j = (0, p.A)((s) => s.pools.poolsMapper[e]),
           y = (0, p.A)((e) => e.poolList.result),
           v = (0, p.A)((s) => s.pools.rewardsApyMapper[e]),
-          C = (0, p.A)((e) => e.poolList.showHideSmallPools),
-          b = (0, p.A)((s) => s.storeCache.tvlMapper[e]),
-          I = (0, p.A)((s) => s.pools.tvlMapper[e]),
-          k = (0, F.jv)(s),
-          P = (0, p.A)((e) => e.user.poolList[k]),
-          N = (0, p.A)((s) => s.storeCache.volumeMapper[e]),
-          T = (0, p.A)((s) => s.pools.volumeMapper[e]),
-          E = (0, p.A)((e) => e.pools.fetchPoolsRewardsApy),
-          O = (0, p.A)((e) => e.poolList.setFormValues),
-          { initCampaignRewards: L, initiated: R } = (0, p.A)((e) => e.campaigns),
-          S = (0, _.nv)((e) => e.hideSmallPools),
+          b = (0, p.A)((e) => e.poolList.showHideSmallPools),
+          C = (0, p.A)((s) => s.storeCache.tvlMapper[e]),
+          k = (0, p.A)((s) => s.pools.tvlMapper[e]),
+          P = (0, H.jv)(s),
+          I = (0, p.A)((e) => e.user.poolList[P]),
+          L = (0, p.A)((s) => s.storeCache.volumeMapper[e]),
+          N = (0, p.A)((s) => s.pools.volumeMapper[e]),
+          T = (0, p.A)((e) => e.pools.fetchPoolsRewardsApy),
+          R = (0, p.A)((e) => e.poolList.setFormValues),
+          { initCampaignRewards: O, initiated: M } = (0, p.A)((e) => e.campaigns),
+          S = (0, E.nv)((e) => e.hideSmallPools),
           $ = (0, p.A)((s) => s.networks.networks[e]?.isCrvRewardsEnabled),
-          [M, B] = (0, i.useState)(''),
-          H = (0, i.useMemo)(
+          [D, F] = (0, a.useState)(''),
+          z = (0, a.useMemo)(
             () => ((y[h] ?? h.split('-')[0] === m.split('-')[0]) ? y[m] : void 0),
             [h, m, y]
           ),
-          { chainId: W, signerAddress: V = '' } = s ?? {},
-          z = !!V,
-          Y = (0, i.useMemo)(() => Object.values(A ?? {}), [A]),
-          U = (0, i.useMemo)(() => Object.values(w ?? {}), [w]),
-          G = (0, i.useMemo)(() => {
-            let e = void 0 !== T && Object.keys(T).length >= 0,
-              s = T || N || {},
+          { chainId: V, signerAddress: U = '' } = s ?? {},
+          W = !!U,
+          Y = (0, a.useMemo)(() => Object.values(j ?? {}), [j]),
+          _ = (0, a.useMemo)(() => Object.values(A ?? {}), [A]),
+          Z = (0, a.useMemo)(() => {
+            let e = void 0 !== N && Object.keys(N).length >= 0,
+              s = N || L || {},
               t = e || Object.keys(s).length > 0,
-              a = void 0 !== I && Object.keys(I).length >= 0,
-              i = I || b || {},
-              n = a || Object.keys(i).length > 0;
-            return r ? n : t && n;
-          }, [r, I, b, T, N]),
-          Z = (0, i.useMemo)(() => {
-            let e = void 0 !== T && Object.keys(T).length >= 0,
-              s = void 0 !== I && Object.keys(I).length >= 0;
+              i = void 0 !== k && Object.keys(k).length >= 0,
+              a = k || C || {},
+              l = i || Object.keys(a).length > 0;
+            return r ? l : t && l;
+          }, [r, k, C, N, L]),
+          G = (0, a.useMemo)(() => {
+            let e = void 0 !== N && Object.keys(N).length >= 0,
+              s = void 0 !== k && Object.keys(k).length >= 0;
             return r ? s : e && s;
-          }, [r, I, T]),
-          J = (0, i.useMemo)(() => {
+          }, [r, k, N]),
+          J = (0, a.useMemo)(() => {
             let e = [];
-            return (z && e.push(j.m.inPool), e.push(j.m.poolName), r)
-              ? e.concat([j.m.rewardsLite, j.m.tvl])
-              : (x ? e.push(j.m.rewardsDesktop) : e.push(j.m.rewardsMobile),
-                e.concat([j.m.volume, j.m.tvl]));
-          }, [r, x, z]),
-          X = (0, i.useCallback)(
+            return (W && e.push(w.m.inPool), e.push(w.m.poolName), r)
+              ? e.concat([w.m.rewardsLite, w.m.tvl])
+              : (g ? e.push(w.m.rewardsDesktop) : e.push(w.m.rewardsMobile),
+                e.concat([w.m.volume, w.m.tvl]));
+          }, [r, g, W]),
+          X = (0, a.useCallback)(
             (s) => {
-              O(
+              R(
                 e,
                 r,
                 s,
                 S,
-                void 0 !== A ? Y : void 0,
-                U,
+                void 0 !== j ? Y : void 0,
+                _,
                 v ?? {},
-                T ?? {},
                 N ?? {},
+                L ?? {},
+                k ?? {},
+                C ?? {},
                 I ?? {},
-                b ?? {},
-                P ?? {},
                 c
               );
             },
-            [O, e, r, S, A, Y, U, v, T, N, I, b, P, c]
+            [R, e, r, S, j, Y, _, v, N, L, k, C, I, c]
           );
-        (0, eA.A)(
-          (0, i.useCallback)(() => {
-            s && v && Object.keys(v).length > 0 && E(e, Y);
-          }, [s, E, Y, e, v]),
-          ej.oX['11m'],
+        (0, ej.A)(
+          (0, a.useCallback)(() => {
+            s && v && Object.keys(v).length > 0 && T(e, Y);
+          }, [s, T, Y, e, v]),
+          ew.oX['11m'],
           f
         ),
-          (0, i.useEffect)(() => {
-            (G || Z) && a && X(a);
-          }, [G, Z, W, V, a, S]),
-          (0, i.useEffect)(() => {
-            R || L(e);
-          }, [L, e, R]);
-        let ee = x ? 7 : 4;
+          (0, a.useEffect)(() => {
+            (Z || G) && i && X(i);
+          }, [Z, G, V, U, i, S]),
+          (0, a.useEffect)(() => {
+            M || O(e);
+          }, [O, e, M]);
+        let ee = g ? 7 : 4;
         return (
-          C && ee++,
+          b && ee++,
           (0, t.jsxs)(t.Fragment, {
             children: [
               (0, t.jsx)(eu, {
-                isReady: G,
+                isReady: Z,
                 activeKey: h,
                 rChainId: e,
                 isLite: r,
-                poolDatasCachedOrApi: Y ?? U,
-                result: H,
-                signerAddress: V,
-                searchParams: a,
-                tableLabels: l,
+                poolDatasCachedOrApi: Y ?? _,
+                result: z,
+                signerAddress: U,
+                searchParams: i,
+                tableLabels: n,
                 updatePath: d,
               }),
               (0, t.jsxs)(o.Ay, {
@@ -1450,44 +1246,44 @@
                 cellSpacing: 0,
                 children: [
                   u
-                    ? (0, t.jsx)(Q, { showInPoolColumn: z })
+                    ? (0, t.jsx)(Q, { showInPoolColumn: W })
                     : (0, t.jsx)(q, {
                         columnKeys: J,
                         isLite: r,
                         isReadyRewardsApy: !!v,
-                        isReadyTvl: !!I,
-                        isReadyVolume: !!T,
-                        searchParams: a,
-                        tableLabels: l,
+                        isReadyTvl: !!k,
+                        isReadyVolume: !!N,
+                        searchParams: i,
+                        tableLabels: n,
                         updatePath: d,
                       }),
                   (0, t.jsx)(o.NN, {
                     $borderBottom: !0,
                     children:
-                      Z && g.noResult
-                        ? (0, t.jsx)(en, {
+                      G && x.noResult
+                        ? (0, t.jsx)(el, {
                             colSpan: ee,
-                            searchParams: a,
-                            signerAddress: V,
+                            searchParams: i,
+                            signerAddress: U,
                             updatePath: d,
                           })
-                        : G && Array.isArray(H)
+                        : Z && Array.isArray(z)
                           ? (0, t.jsx)(t.Fragment, {
-                              children: H.map((r, i) =>
+                              children: z.map((r, a) =>
                                 (0, t.jsx)(
                                   K,
                                   {
-                                    index: i,
+                                    index: a,
                                     columnKeys: J,
                                     isCrvRewardsEnabled: $,
                                     poolId: r,
                                     rChainId: e,
-                                    searchParams: a,
-                                    showInPoolColumn: z,
-                                    tableLabels: l,
-                                    searchTermMapper: n,
-                                    showDetail: M,
-                                    setShowDetail: B,
+                                    searchParams: i,
+                                    showInPoolColumn: W,
+                                    tableLabels: n,
+                                    searchTermMapper: l,
+                                    showDetail: D,
+                                    setShowDetail: F,
                                     curve: s,
                                   },
                                   r
@@ -1497,7 +1293,7 @@
                           : (0, t.jsx)('tr', {
                               children: (0, t.jsx)('td', {
                                 colSpan: ee,
-                                children: (0, t.jsx)(ew.V, { children: (0, t.jsx)(ew.A, {}) }),
+                                children: (0, t.jsx)(eA.V, { children: (0, t.jsx)(eA.A, {}) }),
                               }),
                             }),
                   }),
@@ -1507,9 +1303,9 @@
           })
         );
       };
-      var ev = r(44730),
-        eC = r(88935),
-        eb = (function (e) {
+      var ev = r(88935),
+        eb = r(74699),
+        eC = (function (e) {
           return (
             (e.filter = 'filter'),
             (e.sortBy = 'sortBy'),
@@ -1517,123 +1313,122 @@
             (e.search = 'search'),
             e
           );
-        })(eb || {});
-      let eI = n.Ay.div.withConfig({ componentId: 'sc-dfddd2ad-0' })(
+        })(eC || {});
+      let ek = (e) => {
+          let { push: s } = (0, i.useRouter)(),
+            r = (0, i.useSearchParams)(),
+            { lib: l = null } = (0, eb.w5)(),
+            o = (0, F.Ay)(),
+            [n, d] = (0, a.useState)(null),
+            c = (0, z.iW)(e.network),
+            h = (0, p.A)((e) => e.pools.poolsMapper[c]),
+            m = (0, p.A)((e) => e.storeCache.poolsMapper[c]),
+            { isLite: x, poolFilters: g } = (0, p.A)((e) => e.networks.networks[c]),
+            u = Object.keys(h ?? m ?? {}).length,
+            f = x ? 'tvl' : 'volume',
+            A = (0, a.useMemo)(
+              () => ({
+                name: { name: (0, C.t)`Pool` },
+                ...(x
+                  ? { rewardsLite: { name: (0, C.t)`Rewards`, mobile: (0, C.t)`Rewards` } }
+                  : {
+                      rewardsBase: { name: (0, C.t)`Base vAPY`, mobile: (0, C.t)`Rewards Base` },
+                      rewardsCrv: { name: 'CRV', mobile: (0, C.t)`Rewards CRV` },
+                      rewardsOther: {
+                        name: (0, C.t)`Incentives`,
+                        mobile: (0, C.t)`Rewards Incentives`,
+                      },
+                    }),
+                tvl: { name: (0, C.t)`TVL` },
+                volume: { name: (0, C.t)`Volume` },
+                points: { name: (0, C.t)`Points` },
+              }),
+              [x]
+            ),
+            j = (0, a.useCallback)(
+              (r) => {
+                let { filterKey: t, searchText: i, sortBy: a, sortByOrder: l } = { ...n, ...r },
+                  o = new URLSearchParams(
+                    [
+                      ['filter', t && 'all' !== t ? t : ''],
+                      ['sortBy', a && a !== f ? a : ''],
+                      ['order', l && 'desc' !== l ? l : ''],
+                      ['search', i ? encodeURIComponent(i) : ''],
+                    ].filter(([, e]) => e)
+                  ).toString();
+                s((0, z.Yn)(e, `${D.a$.PAGE_POOLS}?${o}`));
+              },
+              [f, s, e, n]
+            );
+          return (
+            (0, a.useEffect)(() => {
+              if (c) {
+                let e = (r?.get('filter') || 'all').toLowerCase(),
+                  s = (r?.get('sortBy') || f).toLowerCase(),
+                  t = (r?.get('order') || 'desc').toLowerCase(),
+                  i = decodeURIComponent(r?.get('search') || ''),
+                  a = g.find((s) => s === e);
+                ('user' !== e || !l || l?.signerAddress) && a
+                  ? d({
+                      filterKey: e,
+                      searchText: i,
+                      sortBy: Object.keys(A).find((e) => e.toLowerCase() === s) ?? f,
+                      sortByOrder: ['desc', 'asc'].find((e) => e.toLowerCase() === t) ?? 'desc',
+                    })
+                  : j({ filterKey: 'all', sortBy: s, sortByOrder: t, searchText: i });
+              }
+            }, [l?.signerAddress, u, c, r, f, g]),
+            (0, t.jsxs)(t.Fragment, {
+              children: [
+                (0, t.jsx)(eP, {
+                  $isLite: x,
+                  children:
+                    c &&
+                    n &&
+                    (0, t.jsx)(ey, {
+                      rChainId: c,
+                      curve: l,
+                      params: e,
+                      isLite: x,
+                      tableLabels: A,
+                      searchParams: n,
+                      searchTermMapper: o,
+                      updatePath: j,
+                    }),
+                }),
+                (0, t.jsx)(ev.A, { showScrollButton: !0 }),
+              ],
+            })
+          );
+        },
+        eP = l.Ay.div.withConfig({ componentId: 'sc-35e6d4a-0' })(
           [
             'margin:0 auto;max-width:',
             ';min-height:50vh;background-color:var(--table--background-color);border:1px solid var(--box--secondary--border);@media (min-width:',
             'rem){margin:1.5rem auto;}',
           ],
           ({ $isLite: e }) => (e ? '870px' : 'var(--width)'),
-          U.fi.lg
-        ),
-        ek = (e) => {
-          let { push: s } = (0, a.useRouter)(),
-            r = (0, a.useSearchParams)(),
-            { routerParams: n, curve: o } = (0, ev.A)(),
-            l = (0, B.Ay)(),
-            { rChainId: d } = n,
-            c = (0, p.A)((e) => e.pools.poolsMapper[d]),
-            h = (0, p.A)((e) => e.storeCache.poolsMapper[d]),
-            [m, g] = (0, i.useState)(null),
-            x = (0, p.A)((e) => e.networks.networks[d]),
-            { isLite: u } = x,
-            f = Object.keys(c ?? h ?? {}).length,
-            w = u ? 'tvl' : 'volume',
-            A = (0, i.useMemo)(
-              () => ({
-                name: { name: (0, b.t)`Pool` },
-                ...(u
-                  ? { rewardsLite: { name: (0, b.t)`Rewards`, mobile: (0, b.t)`Rewards` } }
-                  : {
-                      rewardsBase: { name: (0, b.t)`Base vAPY`, mobile: (0, b.t)`Rewards Base` },
-                      rewardsCrv: { name: 'CRV', mobile: (0, b.t)`Rewards CRV` },
-                      rewardsOther: {
-                        name: (0, b.t)`Incentives`,
-                        mobile: (0, b.t)`Rewards Incentives`,
-                      },
-                    }),
-                tvl: { name: (0, b.t)`TVL` },
-                volume: { name: (0, b.t)`Volume` },
-                points: { name: (0, b.t)`Points` },
-              }),
-              [u]
-            ),
-            j = (0, i.useCallback)(
-              (r) => {
-                let { filterKey: t, searchText: a, sortBy: i, sortByOrder: n } = { ...m, ...r },
-                  o = new URLSearchParams(
-                    [
-                      ['filter', t && 'all' !== t ? t : ''],
-                      ['sortBy', i && i !== w ? i : ''],
-                      ['order', n && 'desc' !== n ? n : ''],
-                      ['search', a ? encodeURIComponent(a) : ''],
-                    ].filter(([, e]) => e)
-                  ).toString();
-                s((0, H.Yn)(e, `${M.a$.PAGE_POOLS}?${o}`));
-              },
-              [w, s, e, m]
-            );
-          return (
-            (0, i.useEffect)(() => {
-              if (d) {
-                let e = (r?.get('filter') || 'all').toLowerCase(),
-                  s = (r?.get('sortBy') || w).toLowerCase(),
-                  t = (r?.get('order') || 'desc').toLowerCase(),
-                  a = decodeURIComponent(r?.get('search') || ''),
-                  i = x.poolFilters.find((s) => s === e);
-                ('user' !== e || !o || o?.signerAddress) && i
-                  ? g({
-                      filterKey: e,
-                      searchText: a,
-                      sortBy: Object.keys(A).find((e) => e.toLowerCase() === s) ?? w,
-                      sortByOrder: ['desc', 'asc'].find((e) => e.toLowerCase() === t) ?? 'desc',
-                    })
-                  : j({ filterKey: 'all', sortBy: s, sortByOrder: t, searchText: a });
-              }
-            }, [o?.signerAddress, f, d, r, w, x]),
-            (0, t.jsxs)(t.Fragment, {
-              children: [
-                (0, t.jsx)(eI, {
-                  $isLite: u,
-                  children:
-                    d &&
-                    m &&
-                    (0, t.jsx)(ey, {
-                      rChainId: d,
-                      curve: o,
-                      params: e,
-                      isLite: u,
-                      tableLabels: A,
-                      searchParams: m,
-                      searchTermMapper: l,
-                      updatePath: j,
-                    }),
-                }),
-                (0, t.jsx)(eC.A, { showScrollButton: !0 }),
-              ],
-            })
-          );
-        };
+          _.fi.lg
+        );
     },
     88935: (e, s, r) => {
       'use strict';
       r.d(s, { A: () => h });
       var t = r(54568),
-        a = r(48341),
-        i = r(71287),
-        n = r(47990),
+        i = r(48341),
+        a = r(71287),
+        l = r(47990),
         o = r(56457);
-      let l = (0, a.i7)(['0%{opacity:0;transform:scale(0.5);}100%{opacity:1;transform:scale(1);}']),
-        d = (0, a.Ay)(n.A).withConfig({ componentId: 'sc-c8553551-0' })(
+      let n = (0, i.i7)(['0%{opacity:0;transform:scale(0.5);}100%{opacity:1;transform:scale(1);}']),
+        d = (0, i.Ay)(l.A).withConfig({ componentId: 'sc-c8553551-0' })(
           ['padding:0.5rem;opacity:0;&.pop-in{animation:', ' 0.25s;animation-fill-mode:forwards;}'],
-          l
+          n
         ),
-        c = a.Ay.div.withConfig({ componentId: 'sc-c8553551-1' })([
+        c = i.Ay.div.withConfig({ componentId: 'sc-c8553551-1' })([
           'position:fixed;bottom:2rem;right:1rem;padding:1rem;z-index:var(--z-index-page-settings);',
         ]),
         h = ({ showScrollButton: e }) => {
-          let s = (0, i.A)((e) => e.showScrollButton);
+          let s = (0, a.A)((e) => e.showScrollButton);
           return (0, t.jsx)(c, {
             children: (0, t.jsx)(d, {
               className: e && s ? 'pop-in' : '',
@@ -1649,18 +1444,18 @@
     },
     90395: (e, s, r) => {
       'use strict';
-      r.d(s, { A: () => x });
+      r.d(s, { A: () => g });
       var t = r(54568),
-        a = r(39904),
-        i = r(48341),
-        n = r(64387),
+        i = r(39904),
+        a = r(48341),
+        l = r(64387),
         o = r(46205),
-        l = r(77241),
+        n = r(83980),
         d = r(36074);
-      let c = i.Ay.p.withConfig({ componentId: 'sc-d3941c84-0' })([
+      let c = a.Ay.p.withConfig({ componentId: 'sc-d3941c84-0' })([
           'font-weight:bold;margin-bottom:var(--spacing-1);white-space:nowrap;',
         ]),
-        h = (0, i.Ay)(o.v).withConfig({ componentId: 'sc-d3941c84-1' })([
+        h = (0, a.Ay)(o.v).withConfig({ componentId: 'sc-d3941c84-1' })([
           'display:block;margin-top:var(--spacing-2);',
         ]),
         p = ({ baseApy: e, poolData: s }) => {
@@ -1673,15 +1468,15 @@
                 : (s?.pool?.implementation === '0x36dc03c0e12a1c241306a6a8f327fe28ba2be5b0' ||
                     s?.pool?.implementation === '0x7ca46a636b02d4abc66883d7ff164bde506dc66a') &&
                   (r = (0, d.t)`Pool APY + Interest APY`),
-            (0, t.jsxs)(n.A, {
+            (0, t.jsxs)(l.A, {
               children: [
                 (0, t.jsxs)(c, {
                   children: [r, ' ', (0, t.jsx)(o.v, { size: 'xs', children: '(annualized)' })],
                 }),
                 (0, t.jsxs)('ul', {
                   children: [
-                    (0, t.jsxs)('li', { children: ['Daily: ', (0, l.ZV)(e?.day, l.hd.PERCENT)] }),
-                    (0, t.jsxs)('li', { children: ['Weekly: ', (0, l.ZV)(e?.week, l.hd.PERCENT)] }),
+                    (0, t.jsxs)('li', { children: ['Daily: ', (0, n.ZV)(e?.day, n.hd.PERCENT)] }),
+                    (0, t.jsxs)('li', { children: ['Weekly: ', (0, n.ZV)(e?.week, n.hd.PERCENT)] }),
                   ],
                 }),
                 e?.day &&
@@ -1695,19 +1490,19 @@
           );
         };
       var m = r(55906),
-        g = r(19115);
-      let x = ({ base: e, isHighlight: s, poolData: r }) => {
-        let i = r && 'failedFetching24hOldVprice' in r && r.failedFetching24hOldVprice;
+        x = r(19115);
+      let g = ({ base: e, isHighlight: s, poolData: r }) => {
+        let a = r && 'failedFetching24hOldVprice' in r && r.failedFetching24hOldVprice;
         return (0, t.jsx)(t.Fragment, {
-          children: i
+          children: a
             ? (0, t.jsxs)('span', {
-                children: ['-', (0, t.jsx)(g.A, { children: 'Not available currently' })],
+                children: ['-', (0, t.jsx)(x.A, { children: 'Not available currently' })],
               })
             : void 0 !== e &&
               (0, t.jsx)(t.Fragment, {
                 children:
                   +e.day > m.l5
-                    ? (0, t.jsx)(a.A, { isBold: s })
+                    ? (0, t.jsx)(i.A, { isBold: s })
                     : (0, t.jsx)(o.v, {
                         isBold: s,
                         size: 'md',
@@ -1717,7 +1512,7 @@
                           textAlign: 'left',
                           ...(e && 0 > Number(e.day) ? { minWidth: '200px' } : {}),
                         },
-                        children: (0, l.ZV)(e.day, l.hd.PERCENT),
+                        children: (0, n.ZV)(e.day, n.hd.PERCENT),
                       }),
               }),
         });
@@ -1727,28 +1522,28 @@
       'use strict';
       r.d(s, { A: () => Y });
       var t = r(54568),
-        a = r(99123),
-        i = r.n(a),
-        n = r(7620),
+        i = r(99123),
+        a = r.n(i),
+        l = r(7620),
         o = r(48341),
-        l = r(18098),
+        n = r(18098),
         d = r(63013),
         c = r(56457),
         h = r(25025),
         p = r(39651),
         m = r(84826);
-      let g = ({ className: e, ...s }) => {
-          let r = (0, n.useRef)(null),
-            { buttonProps: a, isPressed: i } = (0, l.s)(s, r),
+      let x = ({ className: e, ...s }) => {
+          let r = (0, l.useRef)(null),
+            { buttonProps: i, isPressed: a } = (0, n.s)(s, r),
             { children: o } = s;
-          return (0, t.jsx)(x, {
-            className: `${e} ${i ? 'isPressed' : ''}`,
-            ...a,
+          return (0, t.jsx)(g, {
+            className: `${e} ${a ? 'isPressed' : ''}`,
+            ...i,
             ref: r,
             children: o,
           });
         },
-        x = o.Ay.button.withConfig({ componentId: 'sc-5ad86fca-0' })([
+        g = o.Ay.button.withConfig({ componentId: 'sc-5ad86fca-0' })([
           'margin-right:2px;color:inherit;background:transparent;cursor:pointer;&.isPressed{color:white;background-color:var(--primary-400);}',
         ]),
         u = o.Ay.span.withConfig({ componentId: 'sc-5ad86fca-1' })([
@@ -1761,10 +1556,10 @@
           ],
           u
         ),
-        w = o.Ay.span.withConfig({ componentId: 'sc-5ad86fca-3' })([
+        A = o.Ay.span.withConfig({ componentId: 'sc-5ad86fca-3' })([
           'margin-right:2px;font-family:var(--font-mono);font-size:var(--font-size-2);',
         ]),
-        A = (0, o.Ay)(h.A).withConfig({ componentId: 'sc-5ad86fca-4' })(
+        j = (0, o.Ay)(h.A).withConfig({ componentId: 'sc-5ad86fca-4' })(
           [
             'font-size:var(--font-size-4);@media (min-width:',
             'rem){font-size:1.25rem;max-width:13.75rem;}@media (min-width:',
@@ -1773,31 +1568,31 @@
           p.fi.sm,
           p.fi.lg
         ),
-        j = (0, o.Ay)(c.A).withConfig({ componentId: 'sc-5ad86fca-5' })([
+        w = (0, o.Ay)(c.A).withConfig({ componentId: 'sc-5ad86fca-5' })([
           'position:relative;top:2px;',
         ]),
         y = ({
           className: e,
           isHighlightPoolName: s,
           isHighlightPoolAddress: r,
-          poolName: a,
-          poolAddress: i,
+          poolName: i,
+          poolAddress: a,
           ...o
         }) => {
-          let l = (0, n.useMemo)(() => (i ? `${(0, m.Wr)(i)}` : (0, d.b)(i)), [i]);
+          let n = (0, l.useMemo)(() => (a ? `${(0, m.Wr)(a)}` : (0, d.b)(a)), [a]);
           return (0, t.jsxs)(f, {
             className: e,
             children: [
-              (0, t.jsxs)(A, {
-                children: [s || r ? (0, t.jsx)('strong', { children: a }) : a, ' '],
+              (0, t.jsxs)(j, {
+                children: [s || r ? (0, t.jsx)('strong', { children: i }) : i, ' '],
               }),
               (0, t.jsx)(u, {
-                children: (0, t.jsxs)(g, {
+                children: (0, t.jsxs)(x, {
                   ...o,
-                  onPress: () => (0, m.lW)(i),
+                  onPress: () => (0, m.lW)(a),
                   children: [
-                    (0, t.jsx)(w, { children: r ? (0, t.jsx)('mark', { children: l }) : l }),
-                    (0, t.jsx)(j, { name: 'Copy', size: 16 }),
+                    (0, t.jsx)(A, { children: r ? (0, t.jsx)('mark', { children: n }) : n }),
+                    (0, t.jsx)(w, { name: 'Copy', size: 16 }),
                   ],
                 }),
               }),
@@ -1805,113 +1600,113 @@
           });
         };
       var v = r(71287),
-        C = r(99599),
-        b = r(77241),
-        I = r(12522);
-      let k = ({ className: e, ...s }) => {
-          let r = (0, n.useRef)(null),
-            { buttonProps: a, isPressed: i } = (0, l.s)(s, r),
+        b = r(99599),
+        C = r(83980),
+        k = r(74699);
+      let P = ({ className: e, ...s }) => {
+          let r = (0, l.useRef)(null),
+            { buttonProps: i, isPressed: a } = (0, n.s)(s, r),
             { children: o } = s;
-          return (0, t.jsx)(P, {
-            className: `${e} ${i ? 'isPressed' : ''}`,
-            ...a,
+          return (0, t.jsx)(I, {
+            className: `${e} ${a ? 'isPressed' : ''}`,
+            ...i,
             ref: r,
             children: o,
           });
         },
-        P = o.Ay.button.withConfig({ componentId: 'sc-7baf1843-0' })([
+        I = o.Ay.button.withConfig({ componentId: 'sc-81d6bdb3-0' })([
           'margin-left:2px;color:inherit;background:transparent;cursor:pointer;&.isPressed{color:white;background-color:var(--primary-400);}',
         ]),
-        N = o.Ay.span.withConfig({ componentId: 'sc-7baf1843-1' })([
+        L = o.Ay.span.withConfig({ componentId: 'sc-81d6bdb3-1' })([
           'align-items:center;max-width:0;transition:max-width 1s;white-space:nowrap;overflow:hidden;',
         ]),
-        T = o.Ay.span.withConfig({ componentId: 'sc-7baf1843-2' })(
+        N = o.Ay.span.withConfig({ componentId: 'sc-81d6bdb3-2' })(
           [
             'align-items:center;display:inline-flex;min-height:24px;padding:0 1px;border:1px solid transparent;font-size:var(--font-size-2);&:hover{margin-right:4px;border-color:lightgray;',
             '{max-width:18.75rem;}}',
           ],
-          N
+          L
         ),
-        E = o.Ay.span.withConfig({ componentId: 'sc-7baf1843-3' })([
+        T = o.Ay.span.withConfig({ componentId: 'sc-81d6bdb3-3' })([
           'margin:0 2px;position:relative;top:-2px;font-size:var(--font-size-1);font-weight:bold;',
         ]),
-        O = (0, o.Ay)(c.A).withConfig({ componentId: 'sc-7baf1843-4' })([
+        R = (0, o.Ay)(c.A).withConfig({ componentId: 'sc-81d6bdb3-4' })([
           'position:relative;top:1px;margin:0 2px;',
         ]),
-        L = ({ className: e, isHighlight: s, tokenName: r, tokenAddress: a, ...i }) => {
-          let o = (0, I.B)((e) => e.curve),
-            l = (0, v.A)((e) => e.usdRates.usdRatesMapper[a]),
+        O = ({ className: e, isHighlight: s, tokenName: r, tokenAddress: i, ...a }) => {
+          let { lib: o } = (0, k.w5)(),
+            n = (0, v.A)((e) => e.usdRates.usdRatesMapper[i]),
             d = (0, v.A)((e) => e.usdRates.fetchUsdRateByToken),
-            c = (0, b.vk)(l),
+            c = (0, C.vk)(n),
             h = (e) => {
-              !e && o && d(o, a);
+              !e && o && d(o, i);
             },
-            p = (0, n.useMemo)(() => (r && r.length > 10 ? `${r.slice(0, 5)}...` : r), [r]);
-          return (0, t.jsxs)(T, {
+            p = (0, l.useMemo)(() => (r && r.length > 10 ? `${r.slice(0, 5)}...` : r), [r]);
+          return (0, t.jsxs)(N, {
             className: e,
             onMouseEnter: () => h(c),
             children: [
               (0, t.jsxs)('span', {
                 children: [s ? (0, t.jsx)('strong', { children: p }) : p, ' '],
               }),
-              (0, t.jsx)(N, {
-                children: (0, t.jsxs)(k, {
-                  ...i,
-                  onPress: () => (0, m.lW)(a),
+              (0, t.jsx)(L, {
+                children: (0, t.jsxs)(P, {
+                  ...a,
+                  onPress: () => (0, m.lW)(i),
                   children: [
-                    (0, t.jsx)(E, { children: void 0 === l ? (0, t.jsx)(C.A, { size: 10 }) : c }),
-                    (0, t.jsx)(O, { name: 'Copy', size: 16 }),
+                    (0, t.jsx)(T, { children: void 0 === n ? (0, t.jsx)(b.A, { size: 10 }) : c }),
+                    (0, t.jsx)(R, { name: 'Copy', size: 16 }),
                   ],
                 }),
               }),
             ],
           });
         };
-      var R = r(79614),
+      var M = r(79614),
         S = r(70184),
         $ = r(14241),
-        M = r(77540),
-        D = r(64387),
-        B = r(50567),
-        F = r(46205),
-        H = r(55928);
-      let _ = o.Ay.div.withConfig({ componentId: 'sc-7b0963a-0' })(['min-width:3.3125rem;']),
-        W = o.Ay.div.withConfig({ componentId: 'sc-7b0963a-1' })([
+        D = r(77540),
+        B = r(64387),
+        F = r(50567),
+        H = r(46205),
+        z = r(55928);
+      let E = o.Ay.div.withConfig({ componentId: 'sc-7b0963a-0' })(['min-width:3.3125rem;']),
+        V = o.Ay.div.withConfig({ componentId: 'sc-7b0963a-1' })([
           'display:grid;align-items:center;grid-template-columns:auto 1fr;grid-column-gap:var(--spacing-2);width:100%;',
         ]),
         K = o.Ay.div.withConfig({ componentId: 'sc-7b0963a-2' })([
           'min-height:1.5rem;max-width:24.375rem;',
         ]),
-        V = o.Ay.span.withConfig({ componentId: 'sc-7b0963a-3' })([
+        U = o.Ay.span.withConfig({ componentId: 'sc-7b0963a-3' })([
           'font-size:var(--font-size-2);',
         ]),
-        z = (0, o.Ay)(M.A).withConfig({ componentId: 'sc-7b0963a-4' })([
+        W = (0, o.Ay)(D.A).withConfig({ componentId: 'sc-7b0963a-4' })([
           'font-size:var(--font-size-2);margin:var(--spacing-2) 0;max-height:100px;overflow:scroll;max-width:260px;',
         ]),
         Y = ({
           className: e = '',
           blockchainId: s,
           isVisible: r = !0,
-          poolData: a,
+          poolData: i,
           poolListProps: o,
         }) => {
-          let { pool: l } = a ?? {},
-            d = (0, n.useMemo)(
-              () => i()(a?.tokens, a?.tokenAddresses).map(([e, s]) => ({ symbol: e, address: s })),
-              [a?.tokens, a?.tokenAddresses]
+          let { pool: n } = i ?? {},
+            d = (0, l.useMemo)(
+              () => a()(i?.tokens, i?.tokenAddresses).map(([e, s]) => ({ symbol: e, address: s })),
+              [i?.tokens, i?.tokenAddresses]
             ),
-            c = (0, R.A)(a?.pool.address, a?.hasVyperVulnerability),
-            h = (0, S.A)(a?.tokenAddressesAll ?? []),
+            c = (0, M.A)(i?.pool.address, i?.hasVyperVulnerability),
+            h = (0, S.A)(i?.tokenAddressesAll ?? []),
             p = (0, $.A)((e) => e.breakpoints.down('tablet')),
             m = (0, v.A)((e) => e.poolList.searchedTerms),
-            { quickViewValue: g, onClick: x } = o ?? {},
+            { quickViewValue: x, onClick: g } = o ?? {},
             u = (e) => {
-              if ('function' == typeof x) {
+              if ('function' == typeof g) {
                 let { nodeName: s } = e;
-                'A' !== s && x(e);
+                'A' !== s && g(e);
               }
             },
-            { highlightedTokens: f } = (0, n.useMemo)(() => {
+            { highlightedTokens: f } = (0, l.useMemo)(() => {
               if (p || !r) return { highlightedTokens: [] };
               let e = !1;
               return {
@@ -1920,9 +1715,9 @@
                     -1 !==
                     m.findIndex((e) => {
                       let t = s.toLowerCase(),
-                        a = r.toLowerCase(),
-                        i = e.toLowerCase();
-                      return t.includes(i) || a === i || a.startsWith(i);
+                        i = r.toLowerCase(),
+                        a = e.toLowerCase();
+                      return t.includes(a) || i === a || i.startsWith(a);
                     });
                   return t && (e = !0), { symbol: s, address: r, isHighLight: t };
                 }),
@@ -1931,15 +1726,15 @@
             }, [p, r, m, d]);
           return (0, t.jsxs)('div', {
             children: [
-              (0, t.jsxs)(W, {
+              (0, t.jsxs)(V, {
                 className: e,
                 onClick: ({ target: e }) => u(e),
                 children: [
-                  (0, t.jsx)(_, { children: r && (0, t.jsx)(H.S, { blockchainId: s, tokens: d }) }),
-                  (0, t.jsxs)(D.A, {
+                  (0, t.jsx)(E, { children: r && (0, t.jsx)(z.S, { blockchainId: s, tokens: d }) }),
+                  (0, t.jsxs)(B.A, {
                     fillWidth: !0,
                     children: [
-                      (0, t.jsxs)(D.A, {
+                      (0, t.jsxs)(B.A, {
                         flex: !0,
                         flexAlignItems: 'center',
                         children: [
@@ -1947,14 +1742,14 @@
                             (0, t.jsxs)(t.Fragment, {
                               children: [
                                 (c?.isInformationOnly || c?.isInformationOnlyAndShowInForm) &&
-                                  (0, t.jsx)(B.mL, {
+                                  (0, t.jsx)(F.mL, {
                                     minWidth: '300px',
                                     placement: 'start',
                                     ...c,
                                     children: c.message,
                                   }),
                                 h &&
-                                  (0, t.jsx)(B.mL, {
+                                  (0, t.jsx)(F.mL, {
                                     minWidth: '300px',
                                     placement: 'start',
                                     ...h,
@@ -1962,51 +1757,54 @@
                                   }),
                               ],
                             }),
-                          l &&
+                          n &&
                             (0, t.jsx)(y, {
-                              poolAddress: l.address,
-                              poolName: l.name,
+                              poolAddress: n.address,
+                              poolName: n.name,
                               isHighlightPoolName: !0,
                             }),
                         ],
                       }),
                       (0, t.jsx)(K, {
                         children:
-                          l &&
+                          n &&
                           (0, t.jsx)('div', {
                             children: p
                               ? d.map(({ symbol: e }, s) =>
-                                  (0, t.jsxs)(V, { children: [e, ' '] }, `${e}-${s}`)
+                                  (0, t.jsxs)(U, { children: [e, ' '] }, `${e}-${s}`)
                                 )
                               : r &&
-                                f.map(({ symbol: e, address: s, isHighLight: r }, a) =>
+                                f.map(({ symbol: e, address: s, isHighLight: r }, i) =>
                                   (0, t.jsx)(
-                                    L,
+                                    O,
                                     { tokenName: e, tokenAddress: s, isHighlight: r },
-                                    `${e}${s}${a}`
+                                    `${e}${s}${i}`
                                   )
                                 ),
                           }),
                       }),
-                      g && (0, t.jsx)(F.v, { children: g }),
+                      x && (0, t.jsx)(H.v, { children: x }),
                     ],
                   }),
                 ],
               }),
-              h && p && (0, t.jsx)(z, { alertType: h.alertType, children: h.message }),
+              h && p && (0, t.jsx)(W, { alertType: h.alertType, children: h.message }),
               c &&
                 !c.isPoolPageOnly &&
                 (0, t.jsx)(t.Fragment, {
                   children:
                     c.isInformationOnly || c.isInformationOnlyAndShowInForm
                       ? p
-                        ? (0, t.jsx)(z, { alertType: c.alertType, children: c.message })
+                        ? (0, t.jsx)(W, { alertType: c.alertType, children: c.message })
                         : null
-                      : (0, t.jsx)(D.A, { padding: '0.5rem 0 0 0', children: c.message }),
+                      : (0, t.jsx)(B.A, { padding: '0.5rem 0 0 0', children: c.message }),
                 }),
             ],
           });
         };
+    },
+    96244: (e, s, r) => {
+      Promise.resolve().then(r.bind(r, 67520));
     },
     99123: (e, s, r) => {
       e.exports = r(23830)(r(18278));
@@ -2017,11 +1815,11 @@
     e.O(
       0,
       [
-        4599, 2138, 3896, 2565, 8238, 7261, 8341, 2740, 2607, 4439, 7208, 2519, 7806, 4667, 1356,
-        7999, 1332, 7044, 4925, 3887, 9556, 7959, 7184, 7653, 7105, 6469, 8099, 1868, 8534, 3377,
-        3308, 8373, 4357, 7399, 5911, 7329, 6543, 1287, 587, 8315, 7358,
+        4599, 2138, 9335, 2565, 7261, 8238, 8341, 9205, 4439, 7208, 7806, 5052, 2519, 1356, 7999,
+        5230, 8612, 7044, 4925, 3887, 9556, 7959, 7184, 7653, 7105, 6469, 7587, 1868, 8534, 3377,
+        3308, 9459, 6467, 7399, 5911, 7637, 6543, 1287, 587, 8315, 7358,
       ],
-      () => s(9606)
+      () => s(96244)
     ),
       (_N_E = e.O());
   },

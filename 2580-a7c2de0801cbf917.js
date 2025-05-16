@@ -3,7 +3,7 @@
   [2580],
   {
     12580: (e, t, n) => {
-      n.d(t, { Y: () => e2, g: () => e6 });
+      n.d(t, { Y: () => e8, g: () => e4 });
       var s = n(54568),
         r = n(62942),
         i = n(7620),
@@ -15,15 +15,15 @@
         x = n(44876),
         h = n(55570),
         C = n(95004),
-        g = n(72986),
+        g = n(74699),
         p = n(47983),
         j = n(55329),
-        m = n(36074);
-      let u = ({ advancedMode: [e, t], label: n }) => {
+        u = n(36074);
+      let m = ({ advancedMode: [e, t], label: n }) => {
         let r = (0, s.jsx)(j.A, {
           checked: e,
           onChange: () => t(!e),
-          inputProps: { ...(!n && { 'aria-label': (0, m.t)`Advanced mode` }) },
+          inputProps: { ...(!n && { 'aria-label': (0, u.t)`Advanced mode` }) },
           size: 'small',
         });
         return (0, s.jsx)(x.A, {
@@ -42,13 +42,13 @@
         L = n(34202),
         M = n(65209),
         S = n(72415),
-        z = n(7834),
-        B = n.n(z),
-        I = n(62082),
-        T = n(76653),
-        P = n(87401),
-        D = n(69879);
-      let Z = (0, D.A)(
+        I = n(7834),
+        z = n.n(I),
+        T = n(62082),
+        B = n(76653),
+        E = n(87401),
+        N = n(69879);
+      let P = (0, N.A)(
         (0, s.jsxs)('svg', {
           width: '18',
           height: '18',
@@ -70,70 +70,70 @@
         }),
         'Checked'
       );
-      var E = n(76586),
-        V = n(84032);
-      let $ = ({ children: e }) =>
-        (0, s.jsx)(P.A, {
+      var D = n(76586),
+        Z = n(84032);
+      let O = ({ children: e }) =>
+        (0, s.jsx)(E.A, {
           variant: 'headingXsBold',
           sx: (e) => ({
             position: 'sticky',
             top: 0,
             backgroundColor: 'background.paper',
             zIndex: 1,
-            paddingBlockEnd: V.B.Spacing.xs,
-            height: V.B.ButtonSize.sm,
+            paddingBlockEnd: Z.B.Spacing.xs,
+            height: Z.B.ButtonSize.sm,
             alignContent: 'end',
             borderBottom: `1px solid ${e.design.Layer[1].Outline}`,
           }),
           children: e,
         });
-      var F = n(97912),
-        H = n(61773);
-      let O = ({ chain: { chainId: e, label: t, src: n }, size: r = 28 }) =>
+      var H = n(97912),
+        V = n(61773);
+      let $ = ({ chain: { chainId: e, label: t, src: n }, size: r = 28 }) =>
         (0, s.jsx)(x.A, {
           component: 'span',
           alignItems: 'center',
           display: 'flex',
           'data-testid': `chain-icon-${e}`,
-          children: (0, s.jsx)(H.default, { alt: t, src: n, loading: 'lazy', width: r, height: r }),
+          children: (0, s.jsx)(V.default, { alt: t, src: n, loading: 'lazy', width: r, height: r }),
         });
-      var N = (function (e) {
+      var F = (function (e) {
         return (e.test = 'test'), (e.main = 'main'), e;
-      })(N || {});
-      function R({ chain: e, onChange: t, isSelected: n }) {
+      })(F || {});
+      function W({ chain: e, onChange: t, isSelected: n }) {
         let r = (0, i.useRef)(null);
-        return (0, s.jsx)(E.O, {
+        return (0, s.jsx)(D.O, {
           hoverEl: r.current,
-          children: (0, s.jsxs)(I.A, {
+          children: (0, s.jsxs)(T.A, {
             onClick: () => t(e.chainId),
             'data-testid': `menu-item-chain-${e.chainId}`,
             selected: n,
             tabIndex: 0,
             children: [
-              (0, s.jsx)(O, { chain: e, size: 36 }),
-              (0, s.jsx)(P.A, { sx: { flexGrow: 1 }, variant: 'headingXsBold', children: e.label }),
-              n && (0, s.jsx)(Z, {}),
+              (0, s.jsx)($, { chain: e, size: 36 }),
+              (0, s.jsx)(E.A, { sx: { flexGrow: 1 }, variant: 'headingXsBold', children: e.label }),
+              n && (0, s.jsx)(P, {}),
             ],
           }),
         });
       }
-      function W({ options: e, onChange: t, showTestnets: n, selectedNetwork: r }) {
+      function R({ options: e, onChange: t, showTestnets: n, selectedNetwork: r }) {
         let [l, a] = (0, i.useState)(''),
           o = (0, i.useMemo)(
             () =>
-              B()(
+              z()(
                 e.filter((e) => e.label.toLocaleLowerCase().includes(l.toLocaleLowerCase())),
                 (e) => (e.isTestnet ? 'test' : 'main')
               ),
             [e, l]
           ),
-          d = { test: (0, m.t)`Test networks`, main: (0, m.t)`Main networks` },
+          d = { test: (0, u.t)`Test networks`, main: (0, u.t)`Main networks` },
           c = Object.entries(o);
         return (0, s.jsxs)(s.Fragment, {
           children: [
-            (0, s.jsx)(F.L, {
+            (0, s.jsx)(H.L, {
               sx: { marginBottom: 2 },
-              placeholder: (0, m.t)`Search Networks`,
+              placeholder: (0, u.t)`Search Networks`,
               onSearch: a,
               name: 'chainName',
             }),
@@ -147,11 +147,11 @@
                         i.Fragment,
                         {
                           children: [
-                            n && (0, s.jsx)($, { children: d[e] }),
-                            (0, s.jsx)(T.A, {
+                            n && (0, s.jsx)(O, { children: d[e] }),
+                            (0, s.jsx)(B.A, {
                               children: l.map((e) =>
                                 (0, s.jsx)(
-                                  R,
+                                  W,
                                   { chain: e, onChange: t, isSelected: e.chainId == r?.chainId },
                                   e.chainId
                                 )
@@ -166,7 +166,7 @@
                     variant: 'filled',
                     severity: 'info',
                     sx: { marginTop: 3 },
-                    children: (0, s.jsx)(w.A, { children: (0, m.t)`No networks found` }),
+                    children: (0, s.jsx)(w.A, { children: (0, u.t)`No networks found` }),
                   }),
             }),
           ],
@@ -178,17 +178,17 @@
             alignItems: 'center',
             justifyContent: 'space-between',
             children: [
-              (0, s.jsx)(P.A, {
+              (0, s.jsx)(E.A, {
                 variant: 'headingXsBold',
                 display: 'inline-block',
                 sx: { marginLeft: 4, marginRight: 2 },
-                children: (0, m.t)`Show testnets`,
+                children: (0, u.t)`Show testnets`,
               }),
               (0, s.jsx)(j.A, {
                 checked: e,
                 onChange: () => t(!e),
                 color: 'primary',
-                inputProps: { 'aria-label': (0, m.t)`Show testnets` },
+                inputProps: { 'aria-label': (0, u.t)`Show testnets` },
                 size: 'small',
               }),
             ],
@@ -196,19 +196,19 @@
         X = ({ options: e, chainId: t, onChange: n, disabled: r, headerHeight: l }) => {
           let [a, , d, c] = (0, k.K)(),
             [x, C, g] = (0, k.K)(),
-            [p, j, u] = (0, k.K)(),
-            [z, B] = (0, o.Mj)('showTestnets', !1),
-            I = (0, i.useMemo)(() => e.find((e) => e.chainId === t) ?? e[0], [e, t]);
+            [p, j, m] = (0, k.K)(),
+            [I, z] = (0, o.Mj)('showTestnets', !1),
+            T = (0, i.useMemo)(() => e.find((e) => e.chainId === t) ?? e[0], [e, t]);
           (0, i.useEffect)(() => () => d(), [t, d]);
-          let T = e.length > 1 ? c : C;
+          let B = e.length > 1 ? c : C;
           return (0, s.jsxs)(s.Fragment, {
             children: [
               (0, s.jsxs)(b.A, {
                 size: 'small',
                 disabled: r,
-                onClick: T,
+                onClick: B,
                 'data-testid': 'btn-change-chain',
-                children: [I && (0, s.jsx)(O, { chain: I }), e.length > 1 && (0, s.jsx)(v.A, {})],
+                children: [T && (0, s.jsx)($, { chain: T }), e.length > 1 && (0, s.jsx)(v.A, {})],
               }),
               (0, s.jsx)(y.A, {
                 open: x,
@@ -224,7 +224,7 @@
                     'data-testid': 'alert-eth-only',
                     children: (0, s.jsx)(w.A, {
                       children: (0,
-                      m.t)`This application is only available on the Ethereum Mainnet`,
+                      u.t)`This application is only available on the Ethereum Mainnet`,
                     }),
                   }),
                 }),
@@ -233,24 +233,24 @@
                 (0, s.jsx)(L.y, {
                   open: a,
                   onClose: d,
-                  title: p ? (0, m.t)`Select Network Settings` : (0, m.t)`Select Network`,
-                  titleAction: p && (0, s.jsx)(b.A, { onClick: u, children: (0, s.jsx)(f.A, {}) }),
+                  title: p ? (0, u.t)`Select Network Settings` : (0, u.t)`Select Network`,
+                  titleAction: p && (0, s.jsx)(b.A, { onClick: m, children: (0, s.jsx)(f.A, {}) }),
                   footer: !p && (0, s.jsx)(M.l, { onClick: j }),
                   children: p
-                    ? (0, s.jsx)(Y, { showTestnets: z, setShowTestnets: B })
-                    : (0, s.jsx)(W, {
-                        showTestnets: z,
+                    ? (0, s.jsx)(Y, { showTestnets: I, setShowTestnets: z })
+                    : (0, s.jsx)(R, {
+                        showTestnets: I,
                         onChange: n,
                         options: e,
-                        selectedNetwork: I,
+                        selectedNetwork: T,
                       }),
                 }),
             ],
           });
         };
-      var G = n(35018);
-      let _ = ({ theme: e, onChange: t }) =>
-        G.Z.map(({ type: n, Component: r }) =>
+      var _ = n(35018);
+      let G = ({ theme: e, onChange: t }) =>
+        _.Z.map(({ type: n, Component: r }) =>
           (0, s.jsx)(
             b.A,
             {
@@ -265,13 +265,13 @@
         );
       var K = n(69228);
       let J = ({ theme: e, onChange: t, label: n }) => {
-        let r = G.Z.findIndex((t) => t.type === e),
+        let r = _.Z.findIndex((t) => t.type === e),
           l = -1 === r ? 0 : r,
           a = (0, i.useCallback)(() => {
-            let e = (l + 1) % G.Z.length;
-            t(G.Z[e].type);
+            let e = (l + 1) % _.Z.length;
+            t(_.Z[e].type);
           }, [l, t]),
-          { Component: o } = G.Z[l];
+          { Component: o } = _.Z[l];
         return (0, s.jsx)(K.m, {
           title: n,
           children: (0, s.jsx)(b.A, {
@@ -283,8 +283,9 @@
           }),
         });
       };
-      var U = n(75911);
-      let q = (0, D.A)(
+      var U = n(75911),
+        q = n(33550);
+      let Q = (0, N.A)(
         (0, s.jsxs)('svg', {
           viewBox: '0 0 16 16',
           fill: 'none',
@@ -318,11 +319,11 @@
         }),
         'Llama'
       );
-      var Q = n(56120),
-        ee = n(33161),
-        et = n(31184),
-        en = n(74043);
-      let es = {
+      var ee = n(56120),
+        et = n(33161),
+        en = n(31184),
+        es = n(74043);
+      let er = {
           default: {
             border: (e) => `1px solid ${e.design.Layer.Highlight.Outline}`,
             backgroundColor: (e) => e.design.Layer[1].Fill,
@@ -334,107 +335,103 @@
           alert: { backgroundColor: (e) => e.design.Layer.Feedback.Error },
           warning: { backgroundColor: (e) => e.design.Layer.Feedback.Warning },
         },
-        er = {
+        ei = {
           default: 'textHighlight',
           alert: 'textPrimary',
           warning: 'textPrimary',
           highlight: 'textPrimary',
         },
-        ei = { default: !1, alert: !0, warning: !1, highlight: !0 },
-        { MaxWidth: el, Spacing: ea } = V.B,
-        eo = ({ onClick: e, buttonText: t, children: n, severity: r = 'default' }) =>
-          (0, s.jsx)(ee.A, {
+        el = { default: !1, alert: !0, warning: !1, highlight: !0 },
+        { MaxWidth: ea, Spacing: eo } = Z.B,
+        ed = ({ onClick: e, buttonText: t, children: n, severity: r = 'default' }) =>
+          (0, s.jsx)(et.A, {
             sx: {
               display: 'flex',
-              gap: ea.md,
+              gap: eo.md,
               alignSelf: 'stretch',
-              paddingInline: ea.md,
-              paddingBlock: ea.xs,
+              paddingInline: eo.md,
+              paddingBlock: eo.xs,
               alignItems: 'center',
               justifyContent: 'center',
-              ...es[r],
+              ...er[r],
             },
-            children: (0, s.jsxs)(et.A, {
+            children: (0, s.jsxs)(en.A, {
               direction: 'row',
-              sx: { width: '100%', maxWidth: el.banner },
+              sx: { width: '100%', maxWidth: ea.banner },
               alignItems: 'center',
               justifyContent: 'space-between',
               children: [
-                (0, s.jsx)(en.i, {
-                  inverted: ei[r],
-                  children: (0, s.jsx)(P.A, {
-                    color: er[r],
+                (0, s.jsx)(es.i, {
+                  inverted: el[r],
+                  children: (0, s.jsx)(E.A, {
+                    color: ei[r],
                     variant: 'headingXsBold',
                     children: n,
                   }),
                 }),
                 t &&
-                  (0, s.jsx)(Q.A, { color: 'ghost', onClick: e, size: 'extraSmall', children: t }),
+                  (0, s.jsx)(ee.A, { color: 'ghost', onClick: e, size: 'extraSmall', children: t }),
               ],
             }),
-          }),
-        { IconSize: ed } = V.B,
-        ec = (0, i.forwardRef)(
-          (
-            {
-              networkName: e,
-              showConnectApiErrorMessage: t,
-              showSwitchNetworkMessage: n,
-              maintenanceMessage: r,
-              handleNetworkChange: i,
-            },
-            l
-          ) => {
-            let [a, d] = (0, o.Mj)('beta');
-            return (
-              (n || t || r || a) &&
-              (0, s.jsxs)(x.A, {
-                ref: l,
-                children: [
-                  a &&
-                    (0, s.jsxs)(eo, {
-                      onClick: () => d(!1),
-                      buttonText: (0, m.t)`Disable Beta Mode`,
-                      children: [
-                        (0, s.jsx)(q, { sx: { width: ed.sm, height: ed.sm } }),
-                        ' ',
-                        (0, m.t)`BETA MODE ENABLED`,
-                      ],
-                    }),
-                  r && (0, s.jsx)(eo, { severity: 'warning', children: r }),
-                  n &&
-                    (0, s.jsxs)(eo, {
-                      severity: 'warning',
-                      buttonText: (0, m.t)`Change network`,
-                      onClick: i,
-                      children: [
-                        (0, m.t)`Please switch your wallet's network to`,
-                        ' ',
-                        (0, s.jsx)('strong', { children: e }),
-                        ' ',
-                        (0, m.t)`to use Curve on`,
-                        ' ',
-                        (0, s.jsx)('strong', { children: e }),
-                        '.',
-                        ' ',
-                      ],
-                    }),
-                  t &&
-                    (0, s.jsx)(eo, {
-                      severity: 'alert',
-                      children: (0,
-                      m.t)`There is an issue connecting to the API. You can try switching your RPC or, if you are connected to a wallet, please switch to a different one.`,
-                    }),
-                ],
-              })
-            );
-          }
-        );
-      ec.displayName = 'GlobalBanner';
-      var ex = n(17147),
-        eh = n(84826),
-        eC = n(51121);
-      let eg = ({ currentMenu: e, onChange: t, networkName: n }) =>
+          });
+      var ec = n(40459);
+      let { IconSize: ex } = Z.B,
+        eh = ec.env.NEXT_PUBLIC_MAINTENANCE_MESSAGE,
+        eC = (0, i.forwardRef)(({ networkId: e, chainId: t }, n) => {
+          let { wallet: r } = (0, g.vT)(),
+            [, i] = (0, g.v3)(),
+            { connectState: l } = (0, g.w5)(),
+            a = (0, g.N6)(l, g.Ej.CONNECT_API),
+            d = (r && (0, g.oe)(r) != t) || (0, g.N6)(l, g.Ej.SWITCH_NETWORK),
+            [c, h] = (0, o.Mj)('beta');
+          return (
+            (d || a || eh || c) &&
+            (0, s.jsxs)(x.A, {
+              ref: n,
+              children: [
+                c &&
+                  (0, s.jsxs)(ed, {
+                    onClick: () => h(!1),
+                    buttonText: (0, u.t)`Disable Beta Mode`,
+                    children: [
+                      (0, s.jsx)(Q, { sx: { width: ex.sm, height: ex.sm } }),
+                      ' ',
+                      (0, u.t)`BETA MODE ENABLED`,
+                    ],
+                  }),
+                eh && (0, s.jsx)(ed, { severity: 'warning', children: eh }),
+                d &&
+                  (0, s.jsxs)(ed, {
+                    severity: 'warning',
+                    buttonText: (0, u.t)`Change network`,
+                    onClick: () => i({ chainId: q.nD(t) }),
+                    children: [
+                      (0, u.t)`Please switch your wallet's network to`,
+                      ' ',
+                      (0, s.jsx)('strong', { children: e }),
+                      ' ',
+                      (0, u.t)`to use Curve on`,
+                      ' ',
+                      (0, s.jsx)('strong', { children: e }),
+                      '.',
+                      ' ',
+                    ],
+                  }),
+                a &&
+                  (0, s.jsx)(ed, {
+                    severity: 'alert',
+                    children: (0,
+                    u.t)`There is an issue connecting to the API. You can try switching your RPC or, if you are connected to a wallet, please switch to a different one.`,
+                  }),
+              ],
+            })
+          );
+        });
+      eC.displayName = 'GlobalBanner';
+      var eg = n(17147),
+        ep = n(84826),
+        ej = n(51121);
+      let eu = ({ currentMenu: e, onChange: t, networkId: n }) =>
         (0, s.jsx)(x.A, {
           display: 'flex',
           alignItems: 'center',
@@ -442,12 +439,12 @@
           gap: 2,
           children: Object.entries(d.VS).map(([r, { label: i, routes: l }]) =>
             (0, s.jsx)(
-              Q.A,
+              ee.A,
               {
                 color: 'navigation',
                 size: 'small',
                 className: e === r ? 'current' : '',
-                component: eC.A,
+                component: ej.A,
                 onClick: () => t(r),
                 href: (0, d.PE)(l[0].app, n),
                 'data-testid': `app-link-${r}`,
@@ -457,35 +454,35 @@
             )
           ),
         });
-      var ep = n(32678),
-        ej = n(4387);
-      let em = (0, ep.Ay)('img')({ width: 30, marginRight: 8 }),
-        eu = ej.jp.src,
-        ef = { dex: 'Curve', lend: 'LLAMALEND', crvusd: 'crvUSD', dao: 'DAO' },
-        ev = ({ currentMenu: e, isLite: t, sx: n }) =>
-          (0, s.jsxs)(eC.A, {
+      var em = n(32678),
+        ef = n(4387);
+      let ev = (0, em.Ay)('img')({ width: 30, marginRight: 8 }),
+        eA = ef.jp.src,
+        ew = { dex: 'Curve', lend: 'LLAMALEND', crvusd: 'crvUSD', dao: 'DAO' },
+        eb = ({ currentMenu: e, isLite: t, sx: n }) =>
+          (0, s.jsxs)(ej.A, {
             href: '/',
             sx: { display: 'flex', alignItems: 'center', textDecoration: 'none', ...n },
             children: [
-              (0, s.jsx)(em, { src: eu, alt: 'Curve', width: 30 }),
+              (0, s.jsx)(ev, { src: eA, alt: 'Curve', width: 30 }),
               (0, s.jsxs)(x.A, {
                 display: 'inline-flex',
                 flexDirection: 'column',
                 children: [
-                  (0, s.jsx)(P.A, {
+                  (0, s.jsx)(E.A, {
                     variant: 'headingSBold',
                     sx: { '&': { lineHeight: '1.2rem' }, textTransform: 'none' },
                     color: 'textPrimary',
-                    children: ef[e],
+                    children: ew[e],
                   }),
                   'dex' === e
                     ? t &&
-                      (0, s.jsx)(P.A, {
+                      (0, s.jsx)(E.A, {
                         variant: 'bodyXsBold',
                         color: 'textTertiary',
                         children: 'Lite',
                       })
-                    : (0, s.jsx)(P.A, {
+                    : (0, s.jsx)(E.A, {
                         variant: 'bodyXsRegular',
                         color: 'textTertiary',
                         children: 'powered by Curve',
@@ -494,7 +491,7 @@
               }),
             ],
           }),
-        eA = ({ appStats: e }) =>
+        ey = ({ appStats: e }) =>
           e?.map(({ label: e, value: t }) =>
             s.jsxs(
               x.A,
@@ -502,30 +499,30 @@
                 display: 'inline-flex',
                 alignItems: 'baseline',
                 children: [
-                  s.jsxs(P.A, {
+                  s.jsxs(E.A, {
                     variant: 'bodyMRegular',
                     color: 'grey.600',
                     sx: { whiteSpace: 'nowrap' },
                     children: [e, ':'],
                   }),
                   '\xa0',
-                  s.jsx(P.A, { variant: 'highlightM', color: 'text.primary', children: t || '-' }),
+                  s.jsx(E.A, { variant: 'highlightM', color: 'text.primary', children: t || '-' }),
                 ],
               },
               e
             )
           );
-      var ew = n(27261),
-        eb = n.n(ew),
-        ey = n(42374);
-      let ek = ({ pages: e }) =>
-          (0, s.jsx)(ey.u, {
+      var ek = n(27261),
+        eL = n.n(ek),
+        eM = n(42374);
+      let eS = ({ pages: e }) =>
+          (0, s.jsx)(eM.u, {
             value: (0, i.useMemo)(() => e.find(({ isActive: e }) => e)?.href, [e]),
             options: (0, i.useMemo)(
               () =>
                 e.map(({ label: e, href: t, target: n }) => ({
                   label: e,
-                  component: t.startsWith('http') ? eC.A : eb(),
+                  component: t.startsWith('http') ? ej.A : eL(),
                   value: t,
                   href: t,
                   target: n,
@@ -536,16 +533,16 @@
             muiVariant: 'standard',
             sx: { overflow: 'visible' },
           }),
-        eL = ({
+        eI = ({
           mainNavRef: e,
           currentMenu: t,
           ChainProps: n,
           WalletProps: r,
-          BannerProps: l,
+          globalAlertRef: l,
           height: a,
           pages: d,
           appStats: p,
-          networkName: j,
+          networkId: j,
           isLite: f = !1,
         }) => {
           let [v, A] = (0, i.useState)(t),
@@ -560,7 +557,7 @@
                 color: 'transparent',
                 ref: e,
                 children: [
-                  (0, s.jsx)(ec, { ...l }),
+                  (0, s.jsx)(eC, { networkId: j, ref: l, chainId: n.chainId }),
                   (0, s.jsx)(C.A, {
                     sx: {
                       backgroundColor: (e) => e.design.Layer[1].Fill,
@@ -570,8 +567,8 @@
                     'data-testid': 'main-nav',
                     children: (0, s.jsxs)(h.A, {
                       children: [
-                        (0, s.jsx)(ev, { isLite: f, currentMenu: t }),
-                        (0, s.jsx)(eg, { currentMenu: v, onChange: A, networkName: j }),
+                        (0, s.jsx)(eb, { isLite: f, currentMenu: t }),
+                        (0, s.jsx)(eu, { currentMenu: v, onChange: A, networkId: j }),
                         (0, s.jsx)(x.A, { sx: { flexGrow: 1 } }),
                         (0, s.jsxs)(x.A, {
                           display: 'flex',
@@ -580,15 +577,15 @@
                           gap: 3,
                           alignItems: 'center',
                           children: [
-                            L && !eh.OC
+                            L && !ep.OC
                               ? (0, s.jsx)(U.FD, {})
                               : (0, s.jsxs)(s.Fragment, {
                                   children: [
-                                    (0, s.jsx)(u, {
+                                    (0, s.jsx)(m, {
                                       advancedMode: [y, k],
-                                      label: (0, m.t)`Advanced`,
+                                      label: (0, u.t)`Advanced`,
                                     }),
-                                    (0, s.jsx)(J, { theme: w, onChange: b, label: (0, m.t)`Mode` }),
+                                    (0, s.jsx)(J, { theme: w, onChange: b, label: (0, u.t)`Mode` }),
                                   ],
                                 }),
                             (0, s.jsx)(X, { ...n, headerHeight: a }),
@@ -606,19 +603,19 @@
                       borderColor: (e) => e.design.Layer[2].Outline,
                       borderStyle: 'solid',
                       boxSizing: 'content-box',
-                      height: ex.wl,
+                      height: eg.wl,
                     },
                     'data-testid': 'subnav',
                     children: (0, s.jsxs)(h.A, {
                       children: [
-                        (0, s.jsx)(ek, { pages: d }),
+                        (0, s.jsx)(eS, { pages: d }),
                         (0, s.jsx)(x.A, { flexGrow: 1 }),
                         (0, s.jsx)(x.A, {
                           display: 'flex',
                           gap: 3,
                           alignItems: 'center',
                           sx: { textOverflow: 'ellipsis', overflow: 'hidden' },
-                          children: (0, s.jsx)(eA, { appStats: p }),
+                          children: (0, s.jsx)(ey, { appStats: p }),
                         }),
                       ],
                     }),
@@ -629,32 +626,32 @@
             ],
           });
         };
-      var eM = n(10470);
-      let eS = (0, ep.Ay)('svg')({ fill: 'currentColor', width: '24px', height: '24px' }),
-        ez = (0, ep.Ay)('path')``,
-        eB = ({ toggle: e, isOpen: t }) =>
+      var ez = n(10470);
+      let eT = (0, em.Ay)('svg')({ fill: 'currentColor', width: '24px', height: '24px' }),
+        eB = (0, em.Ay)('path')``,
+        eE = ({ toggle: e, isOpen: t }) =>
           (0, s.jsx)(b.A, {
             onClick: e,
             sx: { display: 'inline-flex' },
             'data-testid': 'menu-toggle',
             size: 'small',
-            children: (0, s.jsxs)(eS, {
+            children: (0, s.jsxs)(eT, {
               focusable: 'false',
               'aria-hidden': 'true',
               viewBox: '0 0 24 24',
               children: [
-                (0, s.jsx)(ez, {
+                (0, s.jsx)(eB, {
                   d: 'M0 7h24v-2H0z',
                   sx: {
                     transition: 'transform 1.5s',
                     ...(t && { transform: 'skewY(-45deg) translate(0, 17px)' }),
                   },
                 }),
-                (0, s.jsx)(ez, {
+                (0, s.jsx)(eB, {
                   d: 'M0 13h24v-2H0z',
                   sx: { transition: 'opacity 1s', ...(t && { opacity: 0 }) },
                 }),
-                (0, s.jsx)(ez, {
+                (0, s.jsx)(eB, {
                   d: 'M0 19h24v-2H0z',
                   sx: {
                     transition: 'transform 1.5s',
@@ -664,23 +661,23 @@
               ],
             }),
           }),
-        eI = ({ ChainProps: e, currentMenu: t, isSidebarOpen: n, toggleSidebar: r, isLite: i }) =>
-          (0, s.jsxs)(et.A, {
+        eN = ({ ChainProps: e, currentMenu: t, isSidebarOpen: n, toggleSidebar: r, isLite: i }) =>
+          (0, s.jsxs)(en.A, {
             direction: 'row',
             width: '100%',
             paddingX: 2,
             children: [
-              (0, s.jsx)(eB, { isOpen: n, toggle: r }),
-              (0, s.jsx)(ev, { isLite: i, currentMenu: t }),
-              (0, s.jsx)(et.A, { flexGrow: 1 }),
+              (0, s.jsx)(eE, { isOpen: n, toggle: r }),
+              (0, s.jsx)(eb, { isLite: i, currentMenu: t }),
+              (0, s.jsx)(en.A, { flexGrow: 1 }),
               (0, s.jsx)(X, { ...e }),
             ],
           });
-      var eT = n(6572),
-        eP = n(30513),
-        eD = n(74145),
-        eZ = n(52187),
-        eE = n(19245);
+      var eP = n(6572),
+        eD = n(30513),
+        eZ = n(74145),
+        eO = n(52187),
+        eH = n(19245);
       let eV = 'background.paper',
         e$ = ({ WalletProps: e }) => {
           let t = (0, U.nv)((e) => e.theme),
@@ -692,7 +689,7 @@
               (0, s.jsxs)(x.A, {
                 position: 'fixed',
                 bottom: 0,
-                sx: (e) => ({ ...ex.be, zIndex: e.zIndex.drawer + 1, backgroundColor: eV }),
+                sx: (e) => ({ ...eg.be, zIndex: e.zIndex.drawer + 1, backgroundColor: eV }),
                 children: [
                   (0, s.jsx)(x.A, {
                     display: 'flex',
@@ -700,27 +697,27 @@
                     marginTop: 4,
                     children: (0, s.jsx)(g.vz, { ...e, sx: { flexGrow: 1 } }),
                   }),
-                  (0, s.jsxs)(eP.A, {
+                  (0, s.jsxs)(eD.A, {
                     sx: { backgroundColor: eV },
                     disableGutters: !0,
                     children: [
-                      (0, s.jsxs)(eZ.A, {
-                        expandIcon: (0, s.jsx)(eT.A, {}),
+                      (0, s.jsxs)(eO.A, {
+                        expandIcon: (0, s.jsx)(eP.A, {}),
                         sx: { backgroundColor: eV, paddingInline: 4 },
                         children: [
-                          (0, s.jsx)(eE.L, {
+                          (0, s.jsx)(eH.L, {
                             sx: { fontSize: 22, fill: 'transparent', stroke: 'currentColor' },
                           }),
-                          (0, s.jsx)(P.A, {
+                          (0, s.jsx)(E.A, {
                             sx: { marginLeft: 1, alignContent: 'center' },
                             variant: 'bodyMBold',
                             color: 'navigation',
                             'data-testid': 'sidebar-settings',
-                            children: (0, m.t)`Settings`,
+                            children: (0, u.t)`Settings`,
                           }),
                         ],
                       }),
-                      (0, s.jsxs)(eD.A, {
+                      (0, s.jsxs)(eZ.A, {
                         sx: {
                           backgroundColor: eV,
                           borderTop: (e) => `1px solid ${e.palette.text.secondary}`,
@@ -728,16 +725,16 @@
                         },
                         children: [
                           (0, s.jsx)(eF, {
-                            label: (0, m.t)`Mode`,
-                            children: (0, s.jsx)(_, {
+                            label: (0, u.t)`Mode`,
+                            children: (0, s.jsx)(G, {
                               theme: t,
                               onChange: n,
-                              label: (0, m.t)`Mode`,
+                              label: (0, u.t)`Mode`,
                             }),
                           }),
                           (0, s.jsx)(eF, {
-                            label: (0, m.t)`Advanced Mode`,
-                            children: (0, s.jsx)(u, { advancedMode: [r, i] }),
+                            label: (0, u.t)`Advanced Mode`,
+                            children: (0, s.jsx)(m, { advancedMode: [r, i] }),
                           }),
                         ],
                       }),
@@ -757,7 +754,7 @@
             justifyContent: 'space-between',
             ...n,
             children: [
-              (0, s.jsx)(P.A, {
+              (0, s.jsx)(E.A, {
                 variant: 'bodyMBold',
                 color: 'navigation',
                 marginLeft: 2,
@@ -767,18 +764,18 @@
               (0, s.jsx)(x.A, { display: 'flex', alignItems: 'center', children: t }),
             ],
           });
-      var eH = n(78006),
-        eO = n(83721),
-        eN = n(99825),
-        eR = n(30234);
-      let eW = ({ page: e, child: t }) =>
-          (0, s.jsx)(eR.Ay, {
+      var eW = n(78006),
+        eR = n(83721),
+        eY = n(99825),
+        eX = n(30234);
+      let e_ = ({ page: e, child: t }) =>
+          (0, s.jsx)(eX.Ay, {
             disableGutters: !0,
             sx: { display: 'flex', paddingY: 0, paddingRight: 4, paddingLeft: 4 * !!t },
-            children: (0, s.jsx)(Q.A, {
+            children: (0, s.jsx)(ee.A, {
               ...(e.href.startsWith('http')
-                ? { component: eC.A, href: e.href, target: e.target }
-                : { component: eb(), href: e.href, className: e.isActive ? 'current' : '' }),
+                ? { component: ej.A, href: e.href, target: e.target }
+                : { component: eL(), href: e.href, className: e.isActive ? 'current' : '' }),
               color: 'navigation',
               size: 'small',
               'data-testid': `sidebar-item-${e.label.toLowerCase()}`,
@@ -791,29 +788,29 @@
               children: e.label,
             }),
           }),
-        eY = ({ pages: e, title: t, children: n }) =>
-          (0, s.jsxs)(eH.A, {
-            subheader: (0, s.jsxs)(eO.A, {
+        eG = ({ pages: e, title: t, children: n }) =>
+          (0, s.jsxs)(eW.A, {
+            subheader: (0, s.jsxs)(eR.A, {
               disableSticky: !0,
               sx: { padding: 0 },
               children: [
-                (0, s.jsx)(P.A, {
+                (0, s.jsx)(E.A, {
                   variant: 'headingSBold',
                   color: 'text.primary',
                   sx: { paddingX: 4, paddingTop: 4, paddingBottom: 2 },
                   children: t,
                 }),
-                (0, s.jsx)(eN.A, {}),
+                (0, s.jsx)(eY.A, {}),
               ],
             }),
             sx: { marginTop: 3 },
-            children: [e?.map((e) => s.jsx(eW, { child: !0, page: e }, e.href)), n],
+            children: [e?.map((e) => s.jsx(e_, { child: !0, page: e }, e.href)), n],
           });
-      var eX = n(41390),
-        eG = n(5404),
-        e_ = n(99730),
-        eK = n(14766);
-      let eJ = (0, D.A)(
+      var eK = n(41390),
+        eJ = n(5404),
+        eU = n(99730),
+        eq = n(14766);
+      let eQ = (0, N.A)(
           (0, s.jsx)('svg', {
             version: '1.1',
             xmlns: 'http://www.w3.org/2000/svg',
@@ -829,9 +826,9 @@
           }),
           'Dodo'
         ),
-        eU = ({ icon: e, href: t, label: n }) =>
+        e1 = ({ icon: e, href: t, label: n }) =>
           (0, s.jsx)(b.A, {
-            component: eC.A,
+            component: ej.A,
             href: t,
             target: '_blank',
             rel: 'noopener noreferrer',
@@ -841,61 +838,61 @@
               children: (0, s.jsx)(e, { fontSize: 'large', color: 'primary' }),
             }),
           }),
-        eq = ({ title: e }) =>
-          (0, s.jsx)(eY, {
+        e0 = ({ title: e }) =>
+          (0, s.jsx)(eG, {
             title: e,
             children: (0, s.jsxs)(x.A, {
               display: 'flex',
               justifyContent: 'space-around',
               children: [
-                (0, s.jsx)(eU, {
+                (0, s.jsx)(e1, {
                   label: 'Discord',
                   href: 'https://discord.gg/rgrfS7W',
-                  icon: eK.E,
+                  icon: eq.E,
                 }),
-                (0, s.jsx)(eU, {
+                (0, s.jsx)(e1, {
                   label: 'Telegram',
-                  href: (0, m.Y)() ? 'https://t.me/curveficn' : 'https://t.me/curvefi',
-                  icon: eX.A,
+                  href: (0, u.Y)() ? 'https://t.me/curveficn' : 'https://t.me/curvefi',
+                  icon: eK.A,
                 }),
-                (0, s.jsx)(eU, {
+                (0, s.jsx)(e1, {
                   label: 'Twitter',
                   href: 'https://x.com/curvefinance',
-                  icon: eG.A,
+                  icon: eJ.A,
                 }),
-                (0, s.jsx)(eU, {
+                (0, s.jsx)(e1, {
                   label: 'YouTube',
-                  href: (0, m.Y)()
+                  href: (0, u.Y)()
                     ? 'https://www.youtube.com/watch?v=FtzDlWdcou8&list=PLh7yM-DPEDYgP-vyEOCIboD3xg_TgJmkj'
                     : 'https://www.youtube.com/@CurveFinanceChannel',
-                  icon: e_.A,
+                  icon: eU.A,
                 }),
-                (0, m.Y)() &&
-                  (0, s.jsx)(eU, {
+                (0, u.Y)() &&
+                  (0, s.jsx)(e1, {
                     label: 'Dodo',
                     href: 'https://imdodo.com/s/147186?inv=7J46',
-                    icon: eJ,
+                    icon: eQ,
                   }),
               ],
             }),
           }),
-        eQ = {
+        e3 = {
           '&::-webkit-scrollbar': { display: 'none' },
           msOverflowStyle: 'none',
           scrollbarWidth: 'none',
         },
-        e1 = (e) => `2 * ${e.spacing(3)} + ${ex.wl}`,
-        e3 = ({
+        e2 = (e) => `2 * ${e.spacing(3)} + ${eg.wl}`,
+        e6 = ({
           mainNavRef: e,
           currentMenu: t,
           pages: n,
           appStats: l,
           sections: a,
           ChainProps: o,
-          BannerProps: h,
+          globalAlertRef: h,
           height: p,
           isLite: j = !1,
-          networkName: u,
+          networkId: m,
           WalletProps: { onConnectWallet: f, ...v },
         }) => {
           let [A, w] = (0, i.useState)(!1),
@@ -912,9 +909,9 @@
                   .map(([e, { label: t, routes: n }]) => ({
                     appName: e,
                     title: t,
-                    pages: n.map((e) => (0, d.WS)(e, { networkName: u, pathname: k })),
+                    pages: n.map((e) => (0, d.WS)(e, { networkId: m, pathname: k })),
                   })),
-              [t, u, k]
+              [t, m, k]
             );
           return (0, s.jsxs)(s.Fragment, {
             children: [
@@ -923,22 +920,22 @@
                 ref: e,
                 sx: { backgroundColor: (e) => e.design.Layer[1].Fill },
                 children: [
-                  (0, s.jsx)(ec, { ...h }),
+                  (0, s.jsx)(eC, { networkId: m, ref: h, chainId: o.chainId }),
                   (0, s.jsxs)(C.A, {
                     sx: (e) => ({ paddingBlock: 3, zIndex: e.zIndex.drawer + 1 }),
                     children: [
-                      (0, s.jsx)(eI, {
+                      (0, s.jsx)(eN, {
                         isLite: j,
                         ChainProps: { ...o, headerHeight: p },
                         currentMenu: t,
                         isSidebarOpen: A,
                         toggleSidebar: y,
                       }),
-                      (0, s.jsxs)(eM.Ay, {
+                      (0, s.jsxs)(ez.Ay, {
                         anchor: 'left',
                         onClose: b,
                         open: A,
-                        slotProps: { paper: { sx: { top: p, ...ex.be, ...eQ } } },
+                        slotProps: { paper: { sx: { top: p, ...eg.be, ...e3 } } },
                         sx: { top: p },
                         variant: 'temporary',
                         hideBackdrop: !0,
@@ -946,16 +943,16 @@
                         children: [
                           (0, s.jsxs)(x.A, {
                             children: [
-                              (0, s.jsx)(et.A, {
+                              (0, s.jsx)(en.A, {
                                 padding: 4,
-                                children: (0, s.jsx)(eA, { appStats: l }),
+                                children: (0, s.jsx)(ey, { appStats: l }),
                               }),
-                              (0, s.jsx)(eY, { title: d.VS[t].label, pages: n }),
-                              S.map(({ appName: e, ...t }) => (0, s.jsx)(eY, { ...t }, e)),
+                              (0, s.jsx)(eG, { title: d.VS[t].label, pages: n }),
+                              S.map(({ appName: e, ...t }) => (0, s.jsx)(eG, { ...t }, e)),
                               a.map(({ title: e, links: t }) =>
-                                (0, s.jsx)(eY, { title: e, pages: t }, e)
+                                (0, s.jsx)(eG, { title: e, pages: t }, e)
                               ),
-                              (0, s.jsx)(eq, { title: (0, m.t)`Community` }),
+                              (0, s.jsx)(e0, { title: (0, u.t)`Community` }),
                             ],
                           }),
                           (0, s.jsx)(e$, { WalletProps: { ...v, onConnectWallet: M } }),
@@ -969,25 +966,25 @@
             ],
           });
         },
-        e0 = (e) => e.breakpoints.up('desktop'),
-        e2 = ({ routes: e, ...t }) => {
-          let n = (0, a.A)(e0, { noSsr: !0 }),
+        e7 = (e) => e.breakpoints.up('desktop'),
+        e8 = ({ routes: e, ...t }) => {
+          let n = (0, a.A)(e7, { noSsr: !0 }),
             [l] = (0, o.Mj)('beta'),
             c = (0, r.usePathname)(),
-            { networkName: x } = t,
+            { networkId: x } = t,
             h = (0, i.useMemo)(
               () =>
                 e
                   .filter((e) => !e.betaFeature || l)
-                  .map((e) => (0, d.WS)(e, { networkName: x, pathname: c })),
+                  .map((e) => (0, d.WS)(e, { networkId: x, pathname: c })),
               [l, x, c, e]
             );
-          return n ? (0, s.jsx)(eL, { pages: h, ...t }) : (0, s.jsx)(e3, { pages: h, ...t });
+          return n ? (0, s.jsx)(eI, { pages: h, ...t }) : (0, s.jsx)(e6, { pages: h, ...t });
         },
-        e6 = (e) => {
-          let t = (0, a.A)(e0, { noSsr: !0 }),
+        e4 = (e) => {
+          let t = (0, a.A)(e7, { noSsr: !0 }),
             n = (0, l.A)(),
-            s = t ? '96px' : e1(n);
+            s = t ? '96px' : e2(n);
           return `calc(${s} + ${e ?? 0}px)`;
         };
     },
