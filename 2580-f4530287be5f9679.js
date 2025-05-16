@@ -5,8 +5,8 @@
     12580: (e, t, n) => {
       n.d(t, { Y: () => e8, g: () => e4 });
       var s = n(54568),
-        r = n(62942),
-        i = n(7620),
+        i = n(62942),
+        r = n(7620),
         l = n(31809),
         a = n(14241),
         o = n(64174),
@@ -20,7 +20,7 @@
         j = n(55329),
         u = n(36074);
       let m = ({ advancedMode: [e, t], label: n }) => {
-        let r = (0, s.jsx)(j.A, {
+        let i = (0, s.jsx)(j.A, {
           checked: e,
           onChange: () => t(!e),
           inputProps: { ...(!n && { 'aria-label': (0, u.t)`Advanced mode` }) },
@@ -29,7 +29,7 @@
         return (0, s.jsx)(x.A, {
           display: 'inline-flex',
           alignItems: 'center',
-          children: n ? (0, s.jsx)(p.A, { control: r, label: n, sx: { marginLeft: 2 } }) : r,
+          children: n ? (0, s.jsx)(p.A, { control: i, label: n, sx: { marginLeft: 2 } }) : i,
         });
       };
       var f = n(63797),
@@ -48,7 +48,7 @@
         B = n(76653),
         E = n(87401),
         N = n(69879);
-      let P = (0, N.A)(
+      let D = (0, N.A)(
         (0, s.jsxs)('svg', {
           width: '18',
           height: '18',
@@ -70,7 +70,7 @@
         }),
         'Checked'
       );
-      var D = n(76586),
+      var P = n(76586),
         Z = n(84032);
       let O = ({ children: e }) =>
         (0, s.jsx)(E.A, {
@@ -89,21 +89,21 @@
         });
       var H = n(97912),
         V = n(61773);
-      let $ = ({ chain: { chainId: e, label: t, src: n }, size: r = 28 }) =>
+      let $ = ({ chain: { chainId: e, label: t, src: n }, size: i = 28 }) =>
         (0, s.jsx)(x.A, {
           component: 'span',
           alignItems: 'center',
           display: 'flex',
           'data-testid': `chain-icon-${e}`,
-          children: (0, s.jsx)(V.default, { alt: t, src: n, loading: 'lazy', width: r, height: r }),
+          children: (0, s.jsx)(V.default, { alt: t, src: n, loading: 'lazy', width: i, height: i }),
         });
       var F = (function (e) {
         return (e.test = 'test'), (e.main = 'main'), e;
       })(F || {});
-      function W({ chain: e, onChange: t, isSelected: n }) {
-        let r = (0, i.useRef)(null);
-        return (0, s.jsx)(D.O, {
-          hoverEl: r.current,
+      function R({ chain: e, onChange: t, isSelected: n }) {
+        let i = (0, r.useRef)(null);
+        return (0, s.jsx)(P.O, {
+          hoverEl: i.current,
           children: (0, s.jsxs)(T.A, {
             onClick: () => t(e.chainId),
             'data-testid': `menu-item-chain-${e.chainId}`,
@@ -112,14 +112,14 @@
             children: [
               (0, s.jsx)($, { chain: e, size: 36 }),
               (0, s.jsx)(E.A, { sx: { flexGrow: 1 }, variant: 'headingXsBold', children: e.label }),
-              n && (0, s.jsx)(P, {}),
+              n && (0, s.jsx)(D, {}),
             ],
           }),
         });
       }
-      function R({ options: e, onChange: t, showTestnets: n, selectedNetwork: r }) {
-        let [l, a] = (0, i.useState)(''),
-          o = (0, i.useMemo)(
+      function W({ options: e, onChange: t, showTestnets: n, selectedNetwork: i }) {
+        let [l, a] = (0, r.useState)(''),
+          o = (0, r.useMemo)(
             () =>
               z()(
                 e.filter((e) => e.label.toLocaleLowerCase().includes(l.toLocaleLowerCase())),
@@ -144,15 +144,15 @@
                     .filter(([e]) => n || 'test' !== e)
                     .flatMap(([e, l]) =>
                       (0, s.jsxs)(
-                        i.Fragment,
+                        r.Fragment,
                         {
                           children: [
                             n && (0, s.jsx)(O, { children: d[e] }),
                             (0, s.jsx)(B.A, {
                               children: l.map((e) =>
                                 (0, s.jsx)(
-                                  W,
-                                  { chain: e, onChange: t, isSelected: e.chainId == r?.chainId },
+                                  R,
+                                  { chain: e, onChange: t, isSelected: e.chainId == i?.chainId },
                                   e.chainId
                                 )
                               ),
@@ -193,19 +193,19 @@
               }),
             ],
           }),
-        X = ({ options: e, chainId: t, onChange: n, disabled: r, headerHeight: l }) => {
+        X = ({ options: e, chainId: t, onChange: n, disabled: i, headerHeight: l }) => {
           let [a, , d, c] = (0, k.K)(),
             [x, C, g] = (0, k.K)(),
             [p, j, m] = (0, k.K)(),
             [I, z] = (0, o.Mj)('showTestnets', !1),
-            T = (0, i.useMemo)(() => e.find((e) => e.chainId === t) ?? e[0], [e, t]);
-          (0, i.useEffect)(() => () => d(), [t, d]);
+            T = (0, r.useMemo)(() => e.find((e) => e.chainId === t) ?? e[0], [e, t]);
+          (0, r.useEffect)(() => () => d(), [t, d]);
           let B = e.length > 1 ? c : C;
           return (0, s.jsxs)(s.Fragment, {
             children: [
               (0, s.jsxs)(b.A, {
                 size: 'small',
-                disabled: r,
+                disabled: i,
                 onClick: B,
                 'data-testid': 'btn-change-chain',
                 children: [T && (0, s.jsx)($, { chain: T }), e.length > 1 && (0, s.jsx)(v.A, {})],
@@ -238,7 +238,7 @@
                   footer: !p && (0, s.jsx)(M.l, { onClick: j }),
                   children: p
                     ? (0, s.jsx)(Y, { showTestnets: I, setShowTestnets: z })
-                    : (0, s.jsx)(R, {
+                    : (0, s.jsx)(W, {
                         showTestnets: I,
                         onChange: n,
                         options: e,
@@ -250,7 +250,7 @@
         };
       var _ = n(35018);
       let G = ({ theme: e, onChange: t }) =>
-        _.Z.map(({ type: n, Component: r }) =>
+        _.Z.map(({ type: n, Component: i }) =>
           (0, s.jsx)(
             b.A,
             {
@@ -258,16 +258,16 @@
               onClick: () => t(n),
               className: e === n ? 'current' : '',
               'data-testid': `theme-switcher-button-${n}`,
-              children: (0, s.jsx)(r, { size: 18 }),
+              children: (0, s.jsx)(i, { size: 18 }),
             },
             n
           )
         );
       var K = n(69228);
       let J = ({ theme: e, onChange: t, label: n }) => {
-        let r = _.Z.findIndex((t) => t.type === e),
-          l = -1 === r ? 0 : r,
-          a = (0, i.useCallback)(() => {
+        let i = _.Z.findIndex((t) => t.type === e),
+          l = -1 === i ? 0 : i,
+          a = (0, r.useCallback)(() => {
             let e = (l + 1) % _.Z.length;
             t(_.Z[e].type);
           }, [l, t]),
@@ -323,7 +323,7 @@
         et = n(33161),
         en = n(31184),
         es = n(74043);
-      let er = {
+      let ei = {
           default: {
             border: (e) => `1px solid ${e.design.Layer.Highlight.Outline}`,
             backgroundColor: (e) => e.design.Layer[1].Fill,
@@ -335,7 +335,7 @@
           alert: { backgroundColor: (e) => e.design.Layer.Feedback.Error },
           warning: { backgroundColor: (e) => e.design.Layer.Feedback.Warning },
         },
-        ei = {
+        er = {
           default: 'textHighlight',
           alert: 'textPrimary',
           warning: 'textPrimary',
@@ -343,7 +343,7 @@
         },
         el = { default: !1, alert: !0, warning: !1, highlight: !0 },
         { MaxWidth: ea, Spacing: eo } = Z.B,
-        ed = ({ onClick: e, buttonText: t, children: n, severity: r = 'default' }) =>
+        ed = ({ onClick: e, buttonText: t, children: n, severity: i = 'default' }) =>
           (0, s.jsx)(et.A, {
             sx: {
               display: 'flex',
@@ -353,7 +353,7 @@
               paddingBlock: eo.xs,
               alignItems: 'center',
               justifyContent: 'center',
-              ...er[r],
+              ...ei[i],
             },
             children: (0, s.jsxs)(en.A, {
               direction: 'row',
@@ -362,9 +362,9 @@
               justifyContent: 'space-between',
               children: [
                 (0, s.jsx)(es.i, {
-                  inverted: el[r],
+                  inverted: el[i],
                   children: (0, s.jsx)(E.A, {
-                    color: ei[r],
+                    color: er[i],
                     variant: 'headingXsBold',
                     children: n,
                   }),
@@ -377,12 +377,12 @@
       var ec = n(40459);
       let { IconSize: ex } = Z.B,
         eh = ec.env.NEXT_PUBLIC_MAINTENANCE_MESSAGE,
-        eC = (0, i.forwardRef)(({ networkId: e, chainId: t }, n) => {
-          let { wallet: r } = (0, g.vT)(),
-            [, i] = (0, g.v3)(),
+        eC = (0, r.forwardRef)(({ networkId: e, chainId: t }, n) => {
+          let { wallet: i } = (0, g.vT)(),
+            [, r] = (0, g.v3)(),
             { connectState: l } = (0, g.w5)(),
             a = (0, g.N6)(l, g.Ej.CONNECT_API),
-            d = (r && (0, g.oe)(r) != t) || (0, g.N6)(l, g.Ej.SWITCH_NETWORK),
+            d = (i && (0, g.oe)(i) != t) || (0, g.N6)(l, g.Ej.SWITCH_NETWORK),
             [c, h] = (0, o.Mj)('beta');
           return (
             (d || a || eh || c) &&
@@ -404,7 +404,7 @@
                   (0, s.jsxs)(ed, {
                     severity: 'warning',
                     buttonText: (0, u.t)`Change network`,
-                    onClick: () => i({ chainId: q.nD(t) }),
+                    onClick: () => r({ chainId: q.nD(t) }),
                     children: [
                       (0, u.t)`Please switch your wallet's network to`,
                       ' ',
@@ -437,20 +437,20 @@
           alignItems: 'center',
           marginX: [2, 3, 4],
           gap: 2,
-          children: Object.entries(d.VS).map(([r, { label: i, routes: l }]) =>
+          children: Object.entries(d.VS).map(([i, { label: r, routes: l }]) =>
             (0, s.jsx)(
               ee.A,
               {
                 color: 'navigation',
                 size: 'small',
-                className: e === r ? 'current' : '',
+                className: e === i ? 'current' : '',
                 component: ej.A,
-                onClick: () => t(r),
+                onClick: () => t(i),
                 href: (0, d.PE)(l[0].app, n),
-                'data-testid': `app-link-${r}`,
-                children: i,
+                'data-testid': `app-link-${i}`,
+                children: r,
               },
-              r
+              i
             )
           ),
         });
@@ -517,8 +517,8 @@
         eM = n(42374);
       let eS = ({ pages: e }) =>
           (0, s.jsx)(eM.u, {
-            value: (0, i.useMemo)(() => e.find(({ isActive: e }) => e)?.href, [e]),
-            options: (0, i.useMemo)(
+            value: (0, r.useMemo)(() => e.find(({ isActive: e }) => e)?.href, [e]),
+            options: (0, r.useMemo)(
               () =>
                 e.map(({ label: e, href: t, target: n }) => ({
                   label: e,
@@ -537,27 +537,26 @@
           mainNavRef: e,
           currentMenu: t,
           ChainProps: n,
-          WalletProps: r,
-          globalAlertRef: l,
-          height: a,
-          pages: d,
-          appStats: p,
-          networkId: j,
-          isLite: f = !1,
+          globalAlertRef: i,
+          height: l,
+          pages: a,
+          appStats: d,
+          networkId: p,
+          isLite: j = !1,
         }) => {
-          let [v, A] = (0, i.useState)(t),
-            w = (0, U.nv)((e) => e.theme),
-            b = (0, U.nv)((e) => e.setTheme),
-            y = (0, U.nv)((e) => e.isAdvancedMode),
-            k = (0, U.nv)((e) => e.setAdvancedMode),
-            [L] = (0, o.Mj)('beta');
+          let [f, v] = (0, r.useState)(t),
+            A = (0, U.nv)((e) => e.theme),
+            w = (0, U.nv)((e) => e.setTheme),
+            b = (0, U.nv)((e) => e.isAdvancedMode),
+            y = (0, U.nv)((e) => e.setAdvancedMode),
+            [k] = (0, o.Mj)('beta');
           return (0, s.jsxs)(s.Fragment, {
             children: [
               (0, s.jsxs)(c.A, {
                 color: 'transparent',
                 ref: e,
                 children: [
-                  (0, s.jsx)(eC, { networkId: j, ref: l, chainId: n.chainId }),
+                  (0, s.jsx)(eC, { networkId: p, ref: i, chainId: n.chainId }),
                   (0, s.jsx)(C.A, {
                     sx: {
                       backgroundColor: (e) => e.design.Layer[1].Fill,
@@ -567,8 +566,8 @@
                     'data-testid': 'main-nav',
                     children: (0, s.jsxs)(h.A, {
                       children: [
-                        (0, s.jsx)(eb, { isLite: f, currentMenu: t }),
-                        (0, s.jsx)(eu, { currentMenu: v, onChange: A, networkId: j }),
+                        (0, s.jsx)(eb, { isLite: j, currentMenu: t }),
+                        (0, s.jsx)(eu, { currentMenu: f, onChange: v, networkId: p }),
                         (0, s.jsx)(x.A, { sx: { flexGrow: 1 } }),
                         (0, s.jsxs)(x.A, {
                           display: 'flex',
@@ -577,19 +576,19 @@
                           gap: 3,
                           alignItems: 'center',
                           children: [
-                            L && !ep.OC
+                            k && !ep.OC
                               ? (0, s.jsx)(U.FD, {})
                               : (0, s.jsxs)(s.Fragment, {
                                   children: [
                                     (0, s.jsx)(m, {
-                                      advancedMode: [y, k],
+                                      advancedMode: [b, y],
                                       label: (0, u.t)`Advanced`,
                                     }),
-                                    (0, s.jsx)(J, { theme: w, onChange: b, label: (0, u.t)`Mode` }),
+                                    (0, s.jsx)(J, { theme: A, onChange: w, label: (0, u.t)`Mode` }),
                                   ],
                                 }),
-                            (0, s.jsx)(X, { ...n, headerHeight: a }),
-                            (0, s.jsx)(g.vz, { ...r }),
+                            (0, s.jsx)(X, { ...n, headerHeight: l }),
+                            (0, s.jsx)(g.vz, {}),
                           ],
                         }),
                       ],
@@ -608,21 +607,21 @@
                     'data-testid': 'subnav',
                     children: (0, s.jsxs)(h.A, {
                       children: [
-                        (0, s.jsx)(eS, { pages: d }),
+                        (0, s.jsx)(eS, { pages: a }),
                         (0, s.jsx)(x.A, { flexGrow: 1 }),
                         (0, s.jsx)(x.A, {
                           display: 'flex',
                           gap: 3,
                           alignItems: 'center',
                           sx: { textOverflow: 'ellipsis', overflow: 'hidden' },
-                          children: (0, s.jsx)(ey, { appStats: p }),
+                          children: (0, s.jsx)(ey, { appStats: d }),
                         }),
                       ],
                     }),
                   }),
                 ],
               }),
-              (0, s.jsx)(x.A, { height: a }),
+              (0, s.jsx)(x.A, { height: l }),
             ],
           });
         };
@@ -661,28 +660,28 @@
               ],
             }),
           }),
-        eN = ({ ChainProps: e, currentMenu: t, isSidebarOpen: n, toggleSidebar: r, isLite: i }) =>
+        eN = ({ ChainProps: e, currentMenu: t, isSidebarOpen: n, toggleSidebar: i, isLite: r }) =>
           (0, s.jsxs)(en.A, {
             direction: 'row',
             width: '100%',
             paddingX: 2,
             children: [
-              (0, s.jsx)(eE, { isOpen: n, toggle: r }),
-              (0, s.jsx)(eb, { isLite: i, currentMenu: t }),
+              (0, s.jsx)(eE, { isOpen: n, toggle: i }),
+              (0, s.jsx)(eb, { isLite: r, currentMenu: t }),
               (0, s.jsx)(en.A, { flexGrow: 1 }),
               (0, s.jsx)(X, { ...e }),
             ],
           });
-      var eP = n(6572),
-        eD = n(30513),
+      var eD = n(6572),
+        eP = n(30513),
         eZ = n(74145),
         eO = n(52187),
         eH = n(19245);
       let eV = 'background.paper',
-        e$ = ({ WalletProps: e }) => {
-          let t = (0, U.nv)((e) => e.theme),
-            n = (0, U.nv)((e) => e.setTheme),
-            r = (0, U.nv)((e) => e.isAdvancedMode),
+        e$ = () => {
+          let e = (0, U.nv)((e) => e.theme),
+            t = (0, U.nv)((e) => e.setTheme),
+            n = (0, U.nv)((e) => e.isAdvancedMode),
             i = (0, U.nv)((e) => e.setAdvancedMode);
           return (0, s.jsxs)(s.Fragment, {
             children: [
@@ -695,14 +694,14 @@
                     display: 'flex',
                     paddingX: 4,
                     marginTop: 4,
-                    children: (0, s.jsx)(g.vz, { ...e, sx: { flexGrow: 1 } }),
+                    children: (0, s.jsx)(g.vz, { sx: { flexGrow: 1 } }),
                   }),
-                  (0, s.jsxs)(eD.A, {
+                  (0, s.jsxs)(eP.A, {
                     sx: { backgroundColor: eV },
                     disableGutters: !0,
                     children: [
                       (0, s.jsxs)(eO.A, {
-                        expandIcon: (0, s.jsx)(eP.A, {}),
+                        expandIcon: (0, s.jsx)(eD.A, {}),
                         sx: { backgroundColor: eV, paddingInline: 4 },
                         children: [
                           (0, s.jsx)(eH.L, {
@@ -727,14 +726,14 @@
                           (0, s.jsx)(eF, {
                             label: (0, u.t)`Mode`,
                             children: (0, s.jsx)(G, {
-                              theme: t,
-                              onChange: n,
+                              theme: e,
+                              onChange: t,
                               label: (0, u.t)`Mode`,
                             }),
                           }),
                           (0, s.jsx)(eF, {
                             label: (0, u.t)`Advanced Mode`,
-                            children: (0, s.jsx)(m, { advancedMode: [r, i] }),
+                            children: (0, s.jsx)(m, { advancedMode: [n, i] }),
                           }),
                         ],
                       }),
@@ -764,8 +763,8 @@
               (0, s.jsx)(x.A, { display: 'flex', alignItems: 'center', children: t }),
             ],
           });
-      var eW = n(78006),
-        eR = n(83721),
+      var eR = n(78006),
+        eW = n(83721),
         eY = n(99825),
         eX = n(30234);
       let e_ = ({ page: e, child: t }) =>
@@ -789,8 +788,8 @@
             }),
           }),
         eG = ({ pages: e, title: t, children: n }) =>
-          (0, s.jsxs)(eW.A, {
-            subheader: (0, s.jsxs)(eR.A, {
+          (0, s.jsxs)(eR.A, {
+            subheader: (0, s.jsxs)(eW.A, {
               disableSticky: !0,
               sx: { padding: 0 },
               children: [
@@ -893,26 +892,24 @@
           height: p,
           isLite: j = !1,
           networkId: m,
-          WalletProps: { onConnectWallet: f, ...v },
         }) => {
-          let [A, w] = (0, i.useState)(!1),
-            b = (0, i.useCallback)(() => w(!1), []),
-            y = (0, i.useCallback)(() => w((e) => !e), []),
-            k = (0, r.usePathname)(),
-            { connect: L } = (0, g.vT)();
-          (0, i.useEffect)(() => () => b(), [k, b]);
-          let M = (0, i.useCallback)(() => (b(), f ? f() : L()), [b, f, L]),
-            S = (0, i.useMemo)(
-              () =>
-                Object.entries(d.VS)
-                  .filter(([e]) => e != t)
-                  .map(([e, { label: t, routes: n }]) => ({
-                    appName: e,
-                    title: t,
-                    pages: n.map((e) => (0, d.WS)(e, { networkId: m, pathname: k })),
-                  })),
-              [t, m, k]
-            );
+          let [f, v] = (0, r.useState)(!1),
+            A = (0, r.useCallback)(() => v(!1), []),
+            w = (0, r.useCallback)(() => v((e) => !e), []),
+            b = (0, i.usePathname)(),
+            { connect: y } = (0, g.vT)();
+          (0, r.useEffect)(() => () => A(), [b, A]), (0, r.useCallback)(() => (A(), y()), [A, y]);
+          let k = (0, r.useMemo)(
+            () =>
+              Object.entries(d.VS)
+                .filter(([e]) => e != t)
+                .map(([e, { label: t, routes: n }]) => ({
+                  appName: e,
+                  title: t,
+                  pages: n.map((e) => (0, d.WS)(e, { networkId: m, pathname: b })),
+                })),
+            [t, m, b]
+          );
           return (0, s.jsxs)(s.Fragment, {
             children: [
               (0, s.jsxs)(c.A, {
@@ -928,13 +925,13 @@
                         isLite: j,
                         ChainProps: { ...o, headerHeight: p },
                         currentMenu: t,
-                        isSidebarOpen: A,
-                        toggleSidebar: y,
+                        isSidebarOpen: f,
+                        toggleSidebar: w,
                       }),
                       (0, s.jsxs)(ez.Ay, {
                         anchor: 'left',
-                        onClose: b,
-                        open: A,
+                        onClose: A,
+                        open: f,
                         slotProps: { paper: { sx: { top: p, ...eg.be, ...e3 } } },
                         sx: { top: p },
                         variant: 'temporary',
@@ -948,14 +945,14 @@
                                 children: (0, s.jsx)(ey, { appStats: l }),
                               }),
                               (0, s.jsx)(eG, { title: d.VS[t].label, pages: n }),
-                              S.map(({ appName: e, ...t }) => (0, s.jsx)(eG, { ...t }, e)),
+                              k.map(({ appName: e, ...t }) => (0, s.jsx)(eG, { ...t }, e)),
                               a.map(({ title: e, links: t }) =>
                                 (0, s.jsx)(eG, { title: e, pages: t }, e)
                               ),
                               (0, s.jsx)(e0, { title: (0, u.t)`Community` }),
                             ],
                           }),
-                          (0, s.jsx)(e$, { WalletProps: { ...v, onConnectWallet: M } }),
+                          (0, s.jsx)(e$, {}),
                         ],
                       }),
                     ],
@@ -970,9 +967,9 @@
         e8 = ({ routes: e, ...t }) => {
           let n = (0, a.A)(e7, { noSsr: !0 }),
             [l] = (0, o.Mj)('beta'),
-            c = (0, r.usePathname)(),
+            c = (0, i.usePathname)(),
             { networkId: x } = t,
-            h = (0, i.useMemo)(
+            h = (0, r.useMemo)(
               () =>
                 e
                   .filter((e) => !e.betaFeature || l)
@@ -989,9 +986,9 @@
         };
     },
     14766: (e, t, n) => {
-      n.d(t, { E: () => r });
+      n.d(t, { E: () => i });
       var s = n(54568);
-      let r = (0, n(69879).A)(
+      let i = (0, n(69879).A)(
         (0, s.jsx)('svg', {
           xmlns: 'http://www.w3.org/2000/svg',
           viewBox: '0 0 34 34',
@@ -1006,8 +1003,8 @@
     42374: (e, t, n) => {
       n.d(t, { u: () => h });
       var s = n(54568),
-        r = n(27261),
-        i = n.n(r),
+        i = n(27261),
+        r = n.n(i),
         l = n(62942),
         a = n(7005),
         o = n(45629),
@@ -1018,7 +1015,7 @@
           variant: e = 'contained',
           size: t = 'small',
           muiVariant: n,
-          options: r,
+          options: i,
           onChange: h,
           value: C,
           textVariant: g,
@@ -1032,15 +1029,15 @@
             onChange: (e, t) => h?.(t),
             className: `${c.gH[e]} ${c.Mw[t]}`,
             ...p,
-            children: r.map(({ value: e, label: n, sx: r, ...l }) =>
+            children: i.map(({ value: e, label: n, sx: i, ...l }) =>
               (0, s.jsx)(
                 a.A,
                 {
                   value: e,
-                  component: i(),
+                  component: r(),
                   href: `${j}?tab=${e}`,
                   label: (0, s.jsx)(d.A, { variant: g ?? x[t], children: n }),
-                  sx: { ...r, whiteSpace: 'nowrap' },
+                  sx: { ...i, whiteSpace: 'nowrap' },
                   ...l,
                 },
                 e

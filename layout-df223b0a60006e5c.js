@@ -209,7 +209,7 @@
           }),
           'Docs'
         ),
-        W = (0, T.A)(
+        X = (0, T.A)(
           (0, i.jsxs)('svg', {
             xmlns: 'http://www.w3.org/2000/svg',
             viewBox: '0 0 16 16',
@@ -227,7 +227,7 @@
           }),
           'Dune'
         ),
-        X = (0, T.A)(
+        J = (0, T.A)(
           (0, i.jsx)('svg', {
             xmlns: 'http://www.w3.org/2000/svg',
             viewBox: '0 0 16 16',
@@ -238,7 +238,7 @@
           }),
           'Integrations'
         ),
-        J = (0, T.A)(
+        Y = (0, T.A)(
           (0, i.jsxs)('svg', {
             xmlns: 'http://www.w3.org/2000/svg',
             viewBox: '0 0 16 17',
@@ -260,7 +260,7 @@
           }),
           'LAF'
         ),
-        Y = (0, T.A)(
+        F = (0, T.A)(
           (0, i.jsx)('svg', {
             xmlns: 'http://www.w3.org/2000/svg',
             viewBox: '0 0 16 16',
@@ -271,7 +271,7 @@
           }),
           'News'
         ),
-        F = (0, T.A)(
+        W = (0, T.A)(
           (0, i.jsxs)('svg', {
             xmlns: 'http://www.w3.org/2000/svg',
             viewBox: '0 0 16 16',
@@ -439,13 +439,13 @@
           {
             title: (0, x.t)`Documentation`,
             links: [
-              { label: (0, x.t)`News`, href: 'https://news.curve.fi/', icon: (0, i.jsx)(Y, {}) },
+              { label: (0, x.t)`News`, href: 'https://news.curve.fi/', icon: (0, i.jsx)(F, {}) },
               {
                 label: (0, x.t)`User Docs`,
                 href: 'https://resources.curve.fi/',
                 icon: (0, i.jsx)(z.A, {}),
               },
-              { label: (0, x.t)`Integrations`, href: 'integrations/', icon: (0, i.jsx)(X, {}) },
+              { label: (0, x.t)`Integrations`, href: 'integrations/', icon: (0, i.jsx)(J, {}) },
               {
                 label: (0, x.t)`Technical Docs`,
                 href: 'https://docs.curve.fi/',
@@ -467,7 +467,7 @@
                         ? '?tab=scrvusd'
                         : '?tab=crvusd';
                 })(e)}`,
-                icon: (0, i.jsx)(F, {}),
+                icon: (0, i.jsx)(W, {}),
               },
             ],
           },
@@ -487,13 +487,13 @@
               {
                 label: (0, x.t)`Curve Monitor`,
                 href: 'https://curvemonitor.com/',
-                icon: (0, i.jsx)(J, {}),
+                icon: (0, i.jsx)(Y, {}),
               },
               { label: (0, x.t)`CrvHub`, href: 'https://crvhub.com/', icon: (0, i.jsx)(q, {}) },
               {
                 label: (0, x.t)`Dune Analytics`,
                 href: 'https://dune.com/mrblock_buidl/Curve.fi',
-                icon: (0, i.jsx)(W, {}),
+                icon: (0, i.jsx)(X, {}),
               },
               {
                 label: (0, x.t)`API Status`,
@@ -935,7 +935,7 @@
         validationSuite: m,
       });
       var y = r(31305),
-        L = r(83980),
+        L = r(77241),
         D = r(36074),
         j = r(21802),
         B = r(12580);
@@ -989,10 +989,6 @@
                 },
                 [A, f, C, S]
               ),
-            },
-            WalletProps: {
-              disabled: (0, h.VP)(l, h.Ej.SWITCH_NETWORK),
-              label: (0, D.t)`Connect Wallet`,
             },
             appStats: [
               {
@@ -1263,8 +1259,8 @@
     e.O(
       0,
       [
-        4599, 2138, 9335, 2565, 7261, 8238, 8341, 9205, 4439, 7208, 7806, 5052, 2519, 1356, 7999,
-        5230, 8612, 7044, 4925, 3887, 9556, 7959, 7184, 7653, 7105, 6469, 7587, 1868, 8534, 3377,
+        4599, 2138, 9335, 2565, 7261, 8238, 8341, 9205, 4439, 7208, 7806, 4667, 2519, 1356, 7999,
+        5230, 8612, 7044, 4925, 9720, 9556, 7959, 7184, 7653, 7105, 6469, 7587, 1868, 8534, 3377,
         3308, 7257, 7067, 3758, 9459, 6467, 7399, 5911, 7637, 6543, 1287, 2580, 587, 8315, 7358,
       ],
       () => t(17281)

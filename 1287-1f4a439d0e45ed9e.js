@@ -280,7 +280,7 @@
       var r = a(54568),
         s = a(7620),
         o = a(77540),
-        i = a(83980),
+        i = a(77241),
         n = a(36074);
       let l = ({ maxSlippage: e, usdAmount: t }) => {
         let a = (0, s.useMemo)(() => {
@@ -347,7 +347,7 @@
         p = a(71287),
         u = a(60171),
         m = a(19115),
-        h = a(83980),
+        h = a(77241),
         y = a(74699),
         f = a(36074),
         g = a(84826);
@@ -424,7 +424,7 @@
         o = a(64387),
         i = a(60171),
         n = a(23173),
-        l = a(83980),
+        l = a(77241),
         d = a(36074);
       let c = (0, s.Ay)(i.A).withConfig({ componentId: 'sc-139ef9fa-0' })([
           'align-items:flex-start;',
@@ -729,7 +729,7 @@
         s = a(48341),
         o = a(56457),
         i = a(23173),
-        n = a(83980),
+        n = a(77241),
         l = a(36074);
       let d = (0, s.Ay)(i.A).withConfig({ componentId: 'sc-429da63d-0' })([
           'color:var(--danger-400);',
@@ -756,7 +756,7 @@
         o = a(60171),
         i = a(56457),
         n = a(49698),
-        l = a(83980),
+        l = a(77241),
         d = a(85806),
         c = a(75911),
         p = a(36074);
@@ -871,7 +871,7 @@
             ],
           });
       var F = a(62082),
-        G = a(83980),
+        G = a(77241),
         L = a(76586),
         O = a(72415);
       let { IconSize: K } = d.B,
@@ -1171,7 +1171,7 @@
         y = a(27572),
         f = a(60171),
         g = a(19115),
-        A = a(83980);
+        A = a(77241);
       let w = ({ formLpTokenExpected: e, maxSlippage: t, poolDataCacheOrApi: a }) => {
         let { referenceAsset: s } = a.pool,
           i = 'CRYPTO' !== s,
@@ -2747,13 +2747,13 @@
         e4 = (0, i.Ay)(eQ.A).withConfig({ componentId: 'sc-97468e34-4' })([
           'color:inherit;font:var(--font);font-size:var(--font-size-2);font-weight:bold;text-transform:none;opacity:0.7;&.active{opacity:1;border-bottom:2px solid var(--page--text-color);}',
         ]),
-        e9 = (0, i.Ay)(e4).withConfig({ componentId: 'sc-97468e34-5' })([
+        e7 = (0, i.Ay)(e4).withConfig({ componentId: 'sc-97468e34-5' })([
           'margin-left:auto;display:flex;align-content:center;',
         ]),
-        e8 = (0, i.Ay)(el.A).withConfig({ componentId: 'sc-97468e34-6' })([
+        e9 = (0, i.Ay)(el.A).withConfig({ componentId: 'sc-97468e34-6' })([
           'margin-left:var(--spacing-1);',
         ]),
-        e7 = ({ rChainId: e, pricesApiPoolData: t }) => {
+        e8 = ({ rChainId: e, pricesApiPoolData: t }) => {
           let a = (0, e1.nv)((e) => e.theme),
             s = (0, T.A)((e) => e.pools.pricesApiState.chartOhlcData),
             i = (0, T.A)((e) => e.pools.pricesApiState.chartStatus),
@@ -2922,12 +2922,12 @@
                         children: (0, c.t)`Pool Activity`,
                       }),
                       w &&
-                        (0, r.jsxs)(e9, {
+                        (0, r.jsxs)(e7, {
                           variant: 'text',
                           onClick: () => y(!l),
                           children: [
                             l ? 'Minimize' : 'Expand',
-                            (0, r.jsx)(e8, {
+                            (0, r.jsx)(e9, {
                               name: l ? 'Minimize' : 'Maximize',
                               size: 16,
                               'aria-label': (0, c.t)`Expand chart`,
@@ -3930,8 +3930,8 @@
             ],
           });
         };
-      var t9 = a(59017);
-      let t8 = ({ parameters: e }) => {
+      var t7 = a(59017);
+      let t9 = ({ parameters: e }) => {
         let {
             A: t,
             initial_A: a,
@@ -3951,7 +3951,7 @@
         return (0, r.jsxs)(r.Fragment, {
           children: [
             l &&
-              (0, r.jsxs)(t9.A, {
+              (0, r.jsxs)(t7.A, {
                 children: [
                   (0, c.t)`A:`,
                   ' ',
@@ -3990,7 +3990,7 @@
               !d.isFutureATimePassedToday &&
               (0, r.jsxs)(r.Fragment, {
                 children: [
-                  (0, r.jsxs)(t9.A, {
+                  (0, r.jsxs)(t7.A, {
                     children: [
                       (0, c.t)`Ramping A:`,
                       ' ',
@@ -4013,7 +4013,7 @@
                       }),
                     ],
                   }),
-                  (0, r.jsx)(t9.A, {
+                  (0, r.jsx)(t7.A, {
                     children: (0, r.jsxs)('strong', {
                       children: [(0, ei.A)(s).format('ll'), ' to ', (0, ei.A)(n).format('ll')],
                     }),
@@ -4023,9 +4023,9 @@
           ],
         });
       };
-      var t7 = a(62014);
+      var t8 = a(62014);
       let ae = ({ adminFee: e }) =>
-          (0, r.jsxs)(t7.q, {
+          (0, r.jsxs)(t8.q, {
             children: [
               (0, c.t)`DAO fee:`,
               ' ',
@@ -4054,7 +4054,7 @@
             return (0, r.jsxs)(r.Fragment, {
               children: [
                 (0, r.jsx)(ae, { adminFee: t }),
-                (0, r.jsxs)(t7.q, {
+                (0, r.jsxs)(t8.q, {
                   children: [
                     (0, c.t)`EYWA fee:`,
                     ' ',
@@ -4078,7 +4078,7 @@
           children: (0, r.jsxs)(aa.A, {
             listItemMargin: 'var(--spacing-1)',
             children: [
-              (0, r.jsxs)(t9.A, {
+              (0, r.jsxs)(t7.A, {
                 children: [
                   (0, c.t)`Total LP Tokens staked:`,
                   ' ',
@@ -4093,7 +4093,7 @@
                   }),
                 ],
               }),
-              (0, r.jsxs)(t9.A, {
+              (0, r.jsxs)(t7.A, {
                 children: [
                   (0, c.t)`Staked percent`,
                   ':',
@@ -4138,10 +4138,10 @@
             children: [
               !d &&
                 (0, r.jsx)('article', {
-                  children: (0, r.jsxs)(t7.t, {
+                  children: (0, r.jsxs)(t8.t, {
                     listItemMargin: 'var(--spacing-1)',
                     children: [
-                      (0, r.jsxs)(t7.q, {
+                      (0, r.jsxs)(t8.q, {
                         children: [
                           (0, c.t)`Daily USD volume:`,
                           ' ',
@@ -4154,7 +4154,7 @@
                           }),
                         ],
                       }),
-                      (0, r.jsxs)(t7.q, {
+                      (0, r.jsxs)(t8.q, {
                         children: [
                           (0, c.t)`Liquidity utilization:`,
                           ' ',
@@ -4179,10 +4179,10 @@
                 }),
               (0, r.jsx)(ar, { poolDataCacheOrApi: a }),
               (0, r.jsx)('article', {
-                children: (0, r.jsxs)(t7.t, {
+                children: (0, r.jsxs)(t8.t, {
                   listItemMargin: 'var(--spacing-1)',
                   children: [
-                    (0, r.jsxs)(t7.q, {
+                    (0, r.jsxs)(t8.q, {
                       children: [
                         (0, c.t)`Fee:`,
                         ' ',
@@ -4199,9 +4199,9 @@
                 }),
               }),
               (0, r.jsx)('article', {
-                children: (0, r.jsx)(t7.t, {
+                children: (0, r.jsx)(t8.t, {
                   listItemMargin: 'var(--spacing-1)',
-                  children: (0, r.jsxs)(t7.q, {
+                  children: (0, r.jsxs)(t8.q, {
                     children: [
                       (0, c.t)`Virtual price:`,
                       ' ',
@@ -4272,17 +4272,17 @@
                 (0, r.jsxs)('article', {
                   children: [
                     (0, r.jsx)(ao, { children: (0, c.t)`Pool Parameters` }),
-                    (0, r.jsxs)(t7.t, {
+                    (0, r.jsxs)(t8.t, {
                       listItemMargin: 'var(--spacing-1)',
                       children: [
                         y &&
-                          (0, r.jsxs)(t7.q, {
+                          (0, r.jsxs)(t8.q, {
                             children: [
                               'Gamma: ',
                               (0, r.jsx)('strong', { children: (0, A.ZV)(y, { useGrouping: !1 }) }),
                             ],
                           }),
-                        (0, r.jsx)(t8, { parameters: e }),
+                        (0, r.jsx)(t9, { parameters: e }),
                       ],
                     }),
                   ],
@@ -5283,10 +5283,10 @@
           });
         };
       var a4 = a(21104);
-      let a9 = i.Ay.div.withConfig({ componentId: 'sc-8607f4c1-0' })([
+      let a7 = i.Ay.div.withConfig({ componentId: 'sc-8607f4c1-0' })([
           'padding:0.5rem 0.7rem;box-shadow:inset 0.5px 0.5px 0 0.5px var(--box--primary--content--shadow-color);background-color:var(--box--primary--content--background-color);',
         ]),
-        a8 = ({
+        a9 = ({
           curve: e,
           poolData: t,
           poolDataCacheOrApi: a,
@@ -5403,7 +5403,7 @@
             seed: i,
             userPoolBalances: n,
             children: [
-              (0, r.jsx)(a9, {
+              (0, r.jsx)(a7, {
                 children:
                   L || O
                     ? (0, r.jsxs)(r.Fragment, {
@@ -5473,7 +5473,7 @@
             ],
           });
         },
-        a7 = ({
+        a8 = ({
           curve: e,
           poolData: t,
           poolDataCacheOrApi: a,
@@ -6119,9 +6119,9 @@
                 'WITHDRAW' === l
                   ? (0, r.jsx)(rp, { ...e })
                   : 'UNSTAKE' === l
-                    ? (0, r.jsx)(a7, { ...e })
+                    ? (0, r.jsx)(a8, { ...e })
                     : 'CLAIM' === l
-                      ? (0, r.jsx)(a8, { ...e })
+                      ? (0, r.jsx)(a9, { ...e })
                       : null,
               ],
             })
@@ -6429,9 +6429,9 @@
           }),
         { useQuery: r6 } = r$,
         { useQuery: r4 } = rW,
-        { useQuery: r9 } = rU,
-        { useQuery: r8 } = r_,
-        { useQuery: r7 } = rH,
+        { useQuery: r7 } = rU,
+        { useQuery: r9 } = r_,
+        { useQuery: r8 } = rH,
         { useQuery: se } = rz,
         { useQuery: st } = rq;
       var sa = a(79614),
@@ -6473,7 +6473,7 @@
             p = (0, T.A)((t) => t.networks.networks[e]),
             u = l('rewardTokenId'),
             { tokensMapper: m } = (0, rZ.A)(e),
-            { data: h, isSuccess: y } = r9({ chainId: e, poolId: t }),
+            { data: h, isSuccess: y } = r7({ chainId: e, poolId: t }),
             f = (0, o.useMemo)(() => {
               let e = Object.keys(h || {});
               return Object.values(m)
@@ -6542,7 +6542,7 @@
               watch: a,
               formState: { isValid: s },
             } = so(),
-            { data: o, isFetching: i } = r7(
+            { data: o, isFetching: i } = r8(
               {
                 chainId: e,
                 poolId: t,
@@ -6559,7 +6559,7 @@
         sg = a(94046);
       let sA = ({ chainId: e, poolId: t }) => {
         let { data: a } = R(),
-          { isFetching: s } = r9({ chainId: e, poolId: t }),
+          { isFetching: s } = r7({ chainId: e, poolId: t }),
           { data: i, isFetching: n } = r6({ chainId: e, poolId: t }),
           l = (0, sr.mN)({
             ...sg.c,
@@ -6654,7 +6654,7 @@
             g = (0, T.A)((e) => e.userBalances.userBalancesMapper),
             w = (0, T.A)((e) => e.usdRates.usdRatesMapper),
             { tokensMapper: b } = (0, rZ.A)(e),
-            { data: v, isPending: x } = r9({ chainId: e, poolId: t }),
+            { data: v, isPending: x } = r7({ chainId: e, poolId: t }),
             S = r3({ chainId: e, poolId: t, rewardTokenId: d, amount: p }),
             k = r2({ chainId: e, poolId: t, rewardTokenId: d, amount: p, epoch: u }),
             {
@@ -6799,7 +6799,7 @@
                 }
               );
             }, [A, l, d, n, u]),
-            { data: k, isLoading: C } = r8({ chainId: e, poolId: t, rewardTokenId: h, amount: m });
+            { data: k, isLoading: C } = r9({ chainId: e, poolId: t, rewardTokenId: h, amount: m });
           (0, o.useLayoutEffect)(() => {
             if (y === sw.CONFIRMATION) {
               let e = setTimeout(() => {
@@ -6926,7 +6926,7 @@
             ],
           }),
         sL = ({ chainId: e, poolId: t }) => {
-          let { isPending: a } = r9({ chainId: e, poolId: t }),
+          let { isPending: a } = r7({ chainId: e, poolId: t }),
             s = (0, sr.mN)({ ...sg.c, resolver: (0, sh.d)(sv), defaultValues: sb });
           return a
             ? (0, r.jsx)(sG, { height: 440 })
@@ -6968,7 +6968,7 @@
           [s, i] = (0, o.useState)('add_reward'),
           { data: l } = R(),
           { data: d } = r4({ chainId: t, poolId: e }),
-          { data: p } = r9({ chainId: t, poolId: e }),
+          { data: p } = r7({ chainId: t, poolId: e }),
           u = (0, o.useMemo)(() => !!d && !!l && (0, n.h)(d, l), [d, l]),
           m = (0, o.useMemo)(
             () => !!p && !!l && Object.values(p).some((e) => (0, n.h)(e, l)),
@@ -7171,7 +7171,7 @@
                       }),
                       (0, r.jsx)(sY, {
                         variant: 'secondary',
-                        children: (0, r.jsx)(e7, { rChainId: m, pricesApiPoolData: er }),
+                        children: (0, r.jsx)(e8, { rChainId: m, pricesApiPoolData: er }),
                       }),
                     ],
                   }),
@@ -7256,7 +7256,7 @@
                           !D &&
                           (0, r.jsx)(sZ, {
                             variant: 'secondary',
-                            children: (0, r.jsx)(e7, { rChainId: m, pricesApiPoolData: er }),
+                            children: (0, r.jsx)(e8, { rChainId: m, pricesApiPoolData: er }),
                           }),
                         (0, r.jsx)(sV.M8, {
                           children: (0, r.jsx)(sM.Ay, {
@@ -7335,7 +7335,7 @@
         s = a(92012),
         o = a.n(s),
         i = a(74143),
-        n = a(83980),
+        n = a(77241),
         l = a(76635);
       let d = ['globalAlert', 'mainNav', 'secondaryNav', 'footer'],
         c = {
@@ -7424,7 +7424,8 @@
                 s.campaigns.resetState(),
                 s.dashboard.resetState()),
               (n || !e.signerAddress) && (s.user.resetState(), s.userBalances.resetState()),
-              s.setNetworkConfigFromApi(e);
+              s.setNetworkConfigFromApi(e),
+              s.networks.setNetworkConfigs(e);
             let c = s.networks.networks[d],
               { excludePoolsMapper: p } = c,
               u = (await i.A.network.fetchAllPoolsList(e, c)).filter((e) => !p[e]);
@@ -8702,7 +8703,7 @@
         l = a(7620),
         d = a(48341),
         c = a(23173),
-        p = a(83980);
+        p = a(77241);
       let u = (0, d.Ay)(c.A).withConfig({ componentId: 'sc-f5230f74-0' })([
           'margin-left:0.125rem;',
         ]),
@@ -9916,7 +9917,7 @@
         l = a(74143),
         d = a(84017),
         c = a(40038),
-        p = a(83980),
+        p = a(77241),
         u = a(74699);
       let m = 'dashboard',
         h = {
@@ -10317,7 +10318,7 @@
         n = a(56457),
         l = a(19115),
         d = a(46205),
-        c = a(83980),
+        c = a(77241),
         p = a(36074);
       let u = (0, o.Ay)(n.A).withConfig({ componentId: 'sc-bf98d7b-0' })([
           'position:relative;top:0.25em;',
@@ -10473,7 +10474,7 @@
           },
         });
       var y = a(96844),
-        f = a(83980),
+        f = a(77241),
         g = a(61112);
       let A = 'campaigns',
         w = { initiated: !1, campaignRewardsMapper: {} },
@@ -13804,7 +13805,7 @@
         s = a(48341),
         o = a(77540),
         i = a(38526),
-        n = a(83980),
+        n = a(77241),
         l = a(36074);
       let d = (0, s.Ay)(o.A).withConfig({ componentId: 'sc-3a1bc6f8-0' })([
           'line-height:1.25;svg{position:relative;top:5px;}',
@@ -13888,7 +13889,7 @@
         f = a(4671),
         g = a(40038),
         A = a.n(g),
-        w = a(83980),
+        w = a(77241),
         b = a(63175),
         v = a(23795),
         x = a(76635);
@@ -15148,7 +15149,7 @@
         s = a.n(r),
         o = a(74143),
         i = a(84017),
-        n = a(83980),
+        n = a(77241),
         l = a(36074);
       let d = 'user',
         c = {
@@ -15393,7 +15394,7 @@
         n = a(56457),
         l = a(59339),
         d = a(23173),
-        c = a(83980);
+        c = a(77241);
       let p = i.Ay.div.withConfig({ componentId: 'sc-fba15a49-0' })(
           ['display:flex;', ''],
           ({ $isManyLinks: e }) => {
@@ -15965,7 +15966,7 @@
       var r = a(54568),
         s = a(60171),
         o = a(19115),
-        i = a(83980),
+        i = a(77241),
         n = a(36074);
       let l = ({ loading: e, priceImpact: t, isHighImpact: a }) =>
         (0, r.jsx)(s.A, {
@@ -16182,7 +16183,7 @@
         });
       };
       var f = a(19115),
-        g = a(83980),
+        g = a(77241),
         A = a(39651),
         w = (function (e) {
           return (e['3CRV'] = '3CRV'), (e.crvUSD = 'crvUSD'), e;
@@ -16328,7 +16329,7 @@
       });
       var r = a(90819),
         s = a.n(r),
-        o = a(83980);
+        o = a(77241);
       async function i(e, t) {
         var r;
         let o = s()((await Promise.resolve().then(a.bind(a, 78534))).default);
