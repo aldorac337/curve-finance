@@ -228,7 +228,7 @@
                     8580: '932ea3115f12d0de',
                     8631: 'babe9eb1e8b2405f',
                     8696: 'b2857b77840ae23a',
-                    8765: '2d52f17b4bf9c141',
+                    8765: '15366747ce7698d7',
                     8932: 'd9b25489eb6209e6',
                     9137: 'aa2ae7b777140cb0',
                     9144: '57c972de0761cc07',
@@ -373,6 +373,6 @@
   s.src = 'https://vercel.live/_next-live/feedback/feedback.js';
   s.setAttribute('data-explicit-opt-in', 'true');
   s.setAttribute('data-cookie-opt-in', 'true');
-  s.setAttribute('data-deployment-id', 'dpl_2FcjyHQunFEsCnRJ2Gu8VfCQ4sFd');
+  s.setAttribute('data-deployment-id', 'dpl_CzuxiuXXtVJR8RGfnHrbAeWMHw3Q');
   (document.head || document.documentElement).appendChild(s);
 })();
