@@ -7468,6 +7468,7 @@
             if (
               ((this.provider = null),
               (this.signer = null),
+              (this.isNoRPC = !1),
               (this.signerAddress = ''),
               (this.chainId = 1),
               (this.multicallProvider = null),

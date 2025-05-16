@@ -12112,46 +12112,57 @@
       let h = { provider: null, wallet: null },
         p = () => {
           let [e] = (0, d.iq)(),
-            [{ wallet: t, connecting: l }] = (0, n.VN)();
-          return !o.OC && e && !t && !l;
+            [{ wallet: t, connecting: l }] = (0, n.VN)(),
+            [, a] = (0, d.MC)(),
+            r = !o.OC && e,
+            m = !!(t || l);
+          return (
+            (0, i.useEffect)(() => {
+              r
+                ? m || a(null)
+                : (window.localStorage.removeItem('wagmi.recentConnectorId'),
+                  window.localStorage.removeItem('wagmi.store'));
+            }, [r, a, m]),
+            r && !m
+          );
         },
         s = () => {
-          let [{ wallet: e, connecting: t }, l, m] = (0, n.VN)(),
-            [{ wallet: c, connecting: o }, s, f] = (0, F.pZ)(),
-            [E, z] = (0, d.MC)(),
-            u = p(),
+          let e = p(),
+            [{ wallet: t, connecting: l }, m, c] = (0, n.VN)(),
+            [{ wallet: o, connecting: s }, f, E] = (0, F.pZ)(),
+            [z, u] = (0, d.MC)(),
             { wallet: g, provider: b } = (0, i.useMemo)(
               () => (
-                (h.wallet = u ? c : e && (0, a.gu)(e)),
+                (h.wallet = e ? o : t && (0, a.gu)(t)),
                 (h.provider = h.wallet?.provider ? new r.k(h.wallet.provider) : null),
                 h
               ),
-              [e, c, u]
+              [t, o, e]
             ),
-            A = e?.accounts[0]?.address ?? c?.account?.address,
+            A = t?.accounts[0]?.address ?? o?.account?.address,
             v = (0, i.useMemo)(
               () =>
-                u
-                  ? s
+                e
+                  ? f
                   : async (e) => {
-                      let [t] = await l({
+                      let [t] = await m({
                         ...(e && { autoSelect: { label: e, disableModals: !0 } }),
                       });
                       return (0, a.gu)(t);
                     },
-              [l, u, s]
+              [m, e, f]
             ),
             C = (0, i.useMemo)(
-              () => (u ? f : async () => g?.label && (await m({ label: g.label }))),
-              [m, u, f, g]
+              () => (e ? E : async () => g?.label && (await c({ label: g.label }))),
+              [c, e, E, g]
             );
           return {
             wallet: g,
-            connecting: o || t,
+            connecting: s || l,
             connect: v,
             disconnect: C,
-            walletName: E,
-            setWalletName: z,
+            walletName: z,
+            setWalletName: u,
             provider: b,
             signerAddress: A,
           };
@@ -12575,8 +12586,9 @@
             [B, D] = (0, m.MC)(),
             w = (0, i.v3)();
           (0, r.useEffect)(() => {
-            A.current && D(v?.label ?? null);
+            A.current && v && D(v.label ?? null);
           }, [D, v]),
+            (0, r.useEffect)(() => () => y.reset(), []),
             (0, r.useEffect)(() => {
               let a = new AbortController(),
                 r = a.signal,
@@ -12632,11 +12644,14 @@
         y = {
           current: null,
           get: () => y.current,
-          require: () => {
+          require() {
             if (!y.current) throw Error('Lib not initialized');
             return y.current;
           },
           set: (e) => (y.current = e),
+          reset() {
+            y.set(null);
+          },
         },
         D = () => y.get(),
         w = () => y.require();
