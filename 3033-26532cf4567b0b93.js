@@ -14166,7 +14166,7 @@
       ]);
     },
     79214: (e, t, l) => {
-      l.d(t, { s: () => a });
+      l.d(t, { m: () => r, s: () => a });
       var a = (function (e) {
         return (
           (e[(e.Ethereum = 1)] = 'Ethereum'),
@@ -14190,6 +14190,7 @@
           e
         );
       })({});
+      let r = { Hyperliquid: 999 };
     },
     81473: (e, t, l) => {
       l.d(t, { Mw: () => p, gH: () => h, Yk: () => s, Xq: () => g });
@@ -14455,31 +14456,33 @@
       function c(e, t) {
         let {
           name: l,
-          explorerUrl: a,
-          id: i,
-          nativeCurrencySymbol: m,
-          rpcUrl: c,
-          isTestnet: d = !1,
-          ...o
+          explorerUrl: i,
+          id: m,
+          nativeCurrencySymbol: c,
+          rpcUrl: d,
+          isTestnet: o = !1,
+          ...F
         } = { ...n, ...t };
         return {
-          ...o,
+          ...F,
           name: (function (e) {
             let t = e.replace(/[-_]./g, (e) => ' ' + e.charAt(1).toUpperCase());
             return t.charAt(0).toUpperCase() + t.slice(1);
-          })(l || i),
+          })(l || m),
           chainId: e,
-          symbol: m,
-          id: i,
-          networkId: i,
+          symbol: c,
+          id: m,
+          networkId: m,
           hex: r.nD(e),
-          logoSrc: `https://cdn.jsdelivr.net/gh/curvefi/curve-assets/chains/${i}.png`,
-          logoSrcDark: `https://cdn.jsdelivr.net/gh/curvefi/curve-assets/chains/${i}-dark.png`,
-          rpcUrl: c,
-          isTestnet: d,
-          scanAddressPath: (e) => `${a}address/${e}`,
-          scanTxPath: (e) => `${a}tx/${e}`,
-          scanTokenPath: (e) => `${a}token/${e}`,
+          logoSrc: `https://cdn.jsdelivr.net/gh/curvefi/curve-assets/chains/${m}.png`,
+          logoSrcDark: `https://cdn.jsdelivr.net/gh/curvefi/curve-assets/chains/${m}-dark.png`,
+          rpcUrl: d,
+          isTestnet: o,
+          scanAddressPath: (e) => `${i}address/${e}`,
+          scanTxPath: (e) => `${i}tx/${e}`,
+          ...(e === a.m.Hyperliquid
+            ? { scanTokenPath: (e) => `${i}address/${e}` }
+            : { scanTokenPath: (e) => `${i}token/${e}` }),
         };
       }
     },
