@@ -3600,7 +3600,7 @@
         }),
         t7 = B({
           crv: '0x331B9182088e2A7d6D3Fe4742AbA1fB231aEcc56',
-          frxeth: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+          frax: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
         }),
         ne = B({
           crv: '0x3d5320821bfca19fb0b5428f2c79d63bd5246f89',
@@ -3881,7 +3881,7 @@
           fee_distributor: '0x0000000000000000000000000000000000000000',
           gauge_controller: '0x0000000000000000000000000000000000000000',
           address_provider: '0x0000000000000000000000000000000000000000',
-          router: '0x9f2Fa7709B30c75047980a0d70A106728f0Ef2db',
+          router: '0x56C526b0159a258887e0d79ec3a80dfb940d0cD7',
           deposit_and_stake: '0xF0d4c12A5768D806021F80a262B4d39d26C58b8D',
           stable_ng_factory: '0xd2002373543Ce3527023C75e7518C274A51ce712',
           twocrypto_factory: '0x98EE851a00abeE0d95D08cF4CA2BdCE32aeaAF7F',
@@ -4042,10 +4042,10 @@
             POOLS_DATA: tP,
             COINS: t7,
             NATIVE_COIN: {
-              symbol: 'frxETH',
-              wrappedSymbol: 'wfrxETH',
+              symbol: 'FRAX',
+              wrappedSymbol: 'wFRAX',
               address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-              wrappedAddress: '0xfc00000000000000000000000000000000000006',
+              wrappedAddress: '0xfc00000000000000000000000000000000000002',
             },
           },
           324: {
@@ -5309,7 +5309,7 @@
                     146: 'sonic-3',
                     196: 'okb',
                     250: 'fantom',
-                    252: 'frax-ether',
+                    252: 'frax-share',
                     324: 'ethereum',
                     1284: 'moonbeam',
                     2222: 'kava',

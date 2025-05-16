@@ -80,7 +80,23 @@
       var n = e(59339),
         t = e(14633);
     },
-    38731: (a, i, e) => {
+    59339: (a, i, e) => {
+      e.d(i, { A: () => r });
+      var n = e(54568),
+        t = e(48341),
+        l = e(31702);
+      let o = t.Ay.a.withConfig({ componentId: 'sc-5da00b5e-0' })(['', ''], l.$),
+        r = function ({ className: a, children: i, ...e }) {
+          return (0, n.jsx)(o, {
+            target: '_blank',
+            ...e,
+            className: a,
+            rel: 'noreferrer noopener',
+            children: i,
+          });
+        };
+    },
+    61112: (a, i, e) => {
       e.d(i, { A: () => j });
       var n = {};
       e.r(n),
@@ -234,22 +250,6 @@
               : null;
           })
           .filter(Boolean);
-    },
-    59339: (a, i, e) => {
-      e.d(i, { A: () => r });
-      var n = e(54568),
-        t = e(48341),
-        l = e(31702);
-      let o = t.Ay.a.withConfig({ componentId: 'sc-5da00b5e-0' })(['', ''], l.$),
-        r = function ({ className: a, children: i, ...e }) {
-          return (0, n.jsx)(o, {
-            target: '_blank',
-            ...e,
-            className: a,
-            rel: 'noreferrer noopener',
-            children: i,
-          });
-        };
     },
   },
 ]);

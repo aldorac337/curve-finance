@@ -2750,10 +2750,10 @@
         e7 = (0, i.Ay)(e4).withConfig({ componentId: 'sc-97468e34-5' })([
           'margin-left:auto;display:flex;align-content:center;',
         ]),
-        e8 = (0, i.Ay)(el.A).withConfig({ componentId: 'sc-97468e34-6' })([
+        e9 = (0, i.Ay)(el.A).withConfig({ componentId: 'sc-97468e34-6' })([
           'margin-left:var(--spacing-1);',
         ]),
-        e9 = ({ rChainId: e, pricesApiPoolData: t }) => {
+        e8 = ({ rChainId: e, pricesApiPoolData: t }) => {
           let a = (0, e1.nv)((e) => e.theme),
             s = (0, T.A)((e) => e.pools.pricesApiState.chartOhlcData),
             i = (0, T.A)((e) => e.pools.pricesApiState.chartStatus),
@@ -2927,7 +2927,7 @@
                           onClick: () => f(!l),
                           children: [
                             l ? 'Minimize' : 'Expand',
-                            (0, r.jsx)(e8, {
+                            (0, r.jsx)(e9, {
                               name: l ? 'Minimize' : 'Maximize',
                               size: 16,
                               'aria-label': (0, c.t)`Expand chart`,
@@ -3931,7 +3931,7 @@
           });
         };
       var t7 = a(59017);
-      let t8 = ({ parameters: e }) => {
+      let t9 = ({ parameters: e }) => {
         let {
             A: t,
             initial_A: a,
@@ -4023,9 +4023,9 @@
           ],
         });
       };
-      var t9 = a(62014);
+      var t8 = a(62014);
       let ae = ({ adminFee: e }) =>
-          (0, r.jsxs)(t9.q, {
+          (0, r.jsxs)(t8.q, {
             children: [
               (0, c.t)`DAO fee:`,
               ' ',
@@ -4054,7 +4054,7 @@
             return (0, r.jsxs)(r.Fragment, {
               children: [
                 (0, r.jsx)(ae, { adminFee: t }),
-                (0, r.jsxs)(t9.q, {
+                (0, r.jsxs)(t8.q, {
                   children: [
                     (0, c.t)`EYWA fee:`,
                     ' ',
@@ -4138,10 +4138,10 @@
             children: [
               !d &&
                 (0, r.jsx)('article', {
-                  children: (0, r.jsxs)(t9.t, {
+                  children: (0, r.jsxs)(t8.t, {
                     listItemMargin: 'var(--spacing-1)',
                     children: [
-                      (0, r.jsxs)(t9.q, {
+                      (0, r.jsxs)(t8.q, {
                         children: [
                           (0, c.t)`Daily USD volume:`,
                           ' ',
@@ -4154,7 +4154,7 @@
                           }),
                         ],
                       }),
-                      (0, r.jsxs)(t9.q, {
+                      (0, r.jsxs)(t8.q, {
                         children: [
                           (0, c.t)`Liquidity utilization:`,
                           ' ',
@@ -4179,10 +4179,10 @@
                 }),
               (0, r.jsx)(ar, { poolDataCacheOrApi: a }),
               (0, r.jsx)('article', {
-                children: (0, r.jsxs)(t9.t, {
+                children: (0, r.jsxs)(t8.t, {
                   listItemMargin: 'var(--spacing-1)',
                   children: [
-                    (0, r.jsxs)(t9.q, {
+                    (0, r.jsxs)(t8.q, {
                       children: [
                         (0, c.t)`Fee:`,
                         ' ',
@@ -4199,9 +4199,9 @@
                 }),
               }),
               (0, r.jsx)('article', {
-                children: (0, r.jsx)(t9.t, {
+                children: (0, r.jsx)(t8.t, {
                   listItemMargin: 'var(--spacing-1)',
-                  children: (0, r.jsxs)(t9.q, {
+                  children: (0, r.jsxs)(t8.q, {
                     children: [
                       (0, c.t)`Virtual price:`,
                       ' ',
@@ -4272,17 +4272,17 @@
                 (0, r.jsxs)('article', {
                   children: [
                     (0, r.jsx)(ao, { children: (0, c.t)`Pool Parameters` }),
-                    (0, r.jsxs)(t9.t, {
+                    (0, r.jsxs)(t8.t, {
                       listItemMargin: 'var(--spacing-1)',
                       children: [
                         f &&
-                          (0, r.jsxs)(t9.q, {
+                          (0, r.jsxs)(t8.q, {
                             children: [
                               'Gamma: ',
                               (0, r.jsx)('strong', { children: (0, A.ZV)(f, { useGrouping: !1 }) }),
                             ],
                           }),
-                        (0, r.jsx)(t8, { parameters: e }),
+                        (0, r.jsx)(t9, { parameters: e }),
                       ],
                     }),
                   ],
@@ -5286,7 +5286,7 @@
       let a7 = i.Ay.div.withConfig({ componentId: 'sc-8607f4c1-0' })([
           'padding:0.5rem 0.7rem;box-shadow:inset 0.5px 0.5px 0 0.5px var(--box--primary--content--shadow-color);background-color:var(--box--primary--content--background-color);',
         ]),
-        a8 = ({
+        a9 = ({
           curve: e,
           poolData: t,
           poolDataCacheOrApi: a,
@@ -5473,7 +5473,7 @@
             ],
           });
         },
-        a9 = ({
+        a8 = ({
           curve: e,
           poolData: t,
           poolDataCacheOrApi: a,
@@ -6119,9 +6119,9 @@
                 'WITHDRAW' === l
                   ? (0, r.jsx)(rp, { ...e })
                   : 'UNSTAKE' === l
-                    ? (0, r.jsx)(a9, { ...e })
+                    ? (0, r.jsx)(a8, { ...e })
                     : 'CLAIM' === l
-                      ? (0, r.jsx)(a8, { ...e })
+                      ? (0, r.jsx)(a9, { ...e })
                       : null,
               ],
             })
@@ -6430,8 +6430,8 @@
         { useQuery: r6 } = r$,
         { useQuery: r4 } = rW,
         { useQuery: r7 } = rU,
-        { useQuery: r8 } = r_,
-        { useQuery: r9 } = rH,
+        { useQuery: r9 } = r_,
+        { useQuery: r8 } = rH,
         { useQuery: se } = rz,
         { useQuery: st } = rq;
       var sa = a(79614),
@@ -6542,7 +6542,7 @@
               watch: a,
               formState: { isValid: s },
             } = so(),
-            { data: o, isFetching: i } = r9(
+            { data: o, isFetching: i } = r8(
               {
                 chainId: e,
                 poolId: t,
@@ -6799,7 +6799,7 @@
                 }
               );
             }, [A, l, d, n, u]),
-            { data: k, isLoading: C } = r8({ chainId: e, poolId: t, rewardTokenId: h, amount: m });
+            { data: k, isLoading: C } = r9({ chainId: e, poolId: t, rewardTokenId: h, amount: m });
           (0, o.useLayoutEffect)(() => {
             if (f === sw.CONFIRMATION) {
               let e = setTimeout(() => {
@@ -7171,7 +7171,7 @@
                       }),
                       (0, r.jsx)(sY, {
                         variant: 'secondary',
-                        children: (0, r.jsx)(e9, { rChainId: m, pricesApiPoolData: er }),
+                        children: (0, r.jsx)(e8, { rChainId: m, pricesApiPoolData: er }),
                       }),
                     ],
                   }),
@@ -7256,7 +7256,7 @@
                           !D &&
                           (0, r.jsx)(sZ, {
                             variant: 'secondary',
-                            children: (0, r.jsx)(e9, { rChainId: m, pricesApiPoolData: er }),
+                            children: (0, r.jsx)(e8, { rChainId: m, pricesApiPoolData: er }),
                           }),
                         (0, r.jsx)(sM.M8, {
                           children: (0, r.jsx)(sV.Ay, {
@@ -10475,7 +10475,7 @@
         });
       var f = a(96844),
         y = a(77241),
-        g = a(38731);
+        g = a(61112);
       let A = 'campaigns',
         w = { initiated: !1, campaignRewardsMapper: {} },
         x = (e, t) => ({
